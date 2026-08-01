@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDIT Ihyaussunnah - Berakidah, Cerdas Berakhlak Mulia</title>
+    
+    <!-- Mengimpor Font Poppins (Utama) dan Amiri (Untuk teks Arab) -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & DASAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            /* Pola geometris Islami yang sangat tipis sebagai background */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231b5e20' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- WARNA TEMA --- */
+        :root {
+            --green-primary: #1B5E20; /* Hijau Gelap Islami */
+            --green-light: #4CAF50;
+            --orange-accent: #FF8F00; /* Oranye Cerah */
+            --white: #FFFFFF;
+        }
+
+        /* --- HEADER & NAVIGASI --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .top-bar {
+            background-color: var(--green-primary);
+            color: var(--white);
+            padding: 8px 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--orange-accent);
+        }
+        .top-bar span {
+            margin-right: 15px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 3%; /* Sedikit disesuaikan agar logo punya ruang */
+            position: relative;
+        }
+
+        /* Tampilan Branding (Logo, Nama, Slogan) Bertumpuk Vertikal */
+        .brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Rata Kiri */
+            text-decoration: none;
+        }
+        .brand img {
+            height: 45px; /* Sesuaikan ukuran logo di sini */
+            width: auto;
+            margin-bottom: 4px;
+        }
+        .brand-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--green-primary);
+            line-height: 1.1;
+        }
+        .brand-name span {
+            color: var(--orange-accent);
+        }
+        .brand-slogan {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--green-light);
+            font-style: italic;
+            margin-top: 2px;
+        }
+        
+        /* Menu Utama (Desktop) */
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 3px;
+        }
+        nav ul li a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 10px;
+            color: var(--green-primary);
+            transition: color 0.3s;
+            display: block;
+        }
+        nav ul li a:hover {
+            color: var(--orange-accent);
+        }
+
+        /* Dropdown Menu (Desktop) */
+        nav ul li ul.dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 240px;
+            display: none;
+            flex-direction: column;
+            border-top: 3px solid var(--orange-accent);
+            z-index: 1000;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        nav ul li:hover ul.dropdown {
+            display: flex;
+        }
+        nav ul li ul.dropdown li {
+            margin: 0;
+            border-bottom: 1px solid #eee;
+        }
+        nav ul li ul.dropdown li:last-child {
+            border-bottom: none;
+        }
+        nav ul li ul.dropdown li a {
+            padding: 12px 15px;
+            font-weight: 400;
+            color: #555;
+        }
+        nav ul li ul.dropdown li a:hover {
+            background-color: #f4fcf5; /* Highlight hijau muda */
+            color: var(--green-primary);
+            padding-left: 20px;
+        }
+
+        /* Tombol PPDB Spesial di Navbar */
+        .btn-ppdb {
+            background-color: var(--orange-accent);
+            color: var(--white) !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+        .btn-ppdb:hover {
+            background-color: #e68000;
+            color: var(--white) !important;
+        }
+
+        /* Hamburger Menu (Mobile) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: auto; /* Memaksa tombol ke sisi paling kanan */
+        }
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background-color: var(--green-primary);
+            margin: 4px 0;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* --- HERO SECTION (BERANDA) --- */
+        .hero {
+            /* 
+               Ubah angka 0.6 di bawah ini untuk mengatur tingkat "kebeningan".
+               Semakin mendekati 0, gambar akan semakin bening/jelas.
+               Semakin mendekati 1, gambar akan semakin tertutup warna hijau.
+            */
+            background: 
+                linear-gradient(rgba(18, 61, 21, 0.6), rgba(18, 61, 21, 0.6)), 
+                url('./images/quran.jpg') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            border-bottom: 5px solid var(--orange-accent);
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: var(--orange-accent);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .hero-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #e0f2f1;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-primary {
+            background-color: var(--orange-accent);
+            color: var(--white);
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            display: inline-block;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 143, 0, 0.4);
+        }
+        .btn-primary:hover {
+            background-color: #e68000;
+            transform: translateY(-3px);
+        }
+
+        /* --- SECTION KONTEN --- */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--green-primary);
+            margin: 60px 0 30px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--orange-accent);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding-bottom: 60px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .card {
+            background: var(--white);
+            padding: 40px 30px;
+            /* Nuansa bentuk kubah/lengkungan Islami di bagian atas */
+            border-top-left-radius: 60px;
+            border-top-right-radius: 60px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            text-align: center;
+            border-bottom: 5px solid var(--green-light);
+            border-top: 1px solid #e0e0e0;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--orange-accent);
+        }
+        .card h3 {
+            color: var(--green-primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--green-primary);
+            color: var(--white);
+            padding: 50px 5% 20px;
+            border-top: 5px solid var(--orange-accent);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-col h4 {
+            color: var(--orange-accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a:hover {
+            color: var(--orange-accent);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN (Tablet & Smartphone)
+           ========================================= */
+        @media screen and (max-width: 992px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            nav ul {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            nav ul li a {
+                padding: 15px 5%;
+            }
+
+            nav ul li ul.dropdown {
+                position: static;
+                display: none;
+                box-shadow: none;
+                border-top: none;
+                background-color: #f4fcf5;
+                width: 100%;
+                border-radius: 0;
+            }
+
+            nav ul li:hover ul.dropdown {
+                display: flex;
+            }
+
+            nav ul li ul.dropdown li a {
+                padding-left: 10%;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .btn-ppdb {
+                display: inline-block;
+                margin: 15px 5%;
+                text-align: center;
+                width: 90%;
+            }
+            
+            /* Penyesuaian ukuran brand di HP agar tidak terlalu memakan tempat */
+            .brand img {
+                height: 35px;
+            }
+            .brand-name {
+                font-size: 1rem;
+            }
+            .brand-slogan {
+                font-size: 0.65rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content h2 {
+                font-size: 1.2rem;
+            }
+            .arabic-text {
+                font-size: 1.8rem;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div>
+            <span>📞 (021) 1234-5678</span>
+            <span>✉️ info@sditihyausunnah.sch.id</span>
+        </div>
+        <div>
+            <span>Waktu Operasional: Senin - Jumat, 07:00 - 15:00</span>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVBAR -->
+    <header>
+        <div class="nav-container">
+            
+            <!-- BRANDING: Logo, Nama, Slogan (Tersusun Vertikal) -->
+            <a href="#" class="brand">
+                <!-- Ganti link src di bawah ini dengan gambar logo sekolah Anda -->
+                <img src="https://dummyimage.com/150x150/1b5e20/ffffff.png&text=Logo+SDIT" alt="Logo SDIT Ihyausunnah">
+                <div class="brand-name">SDIT <span>Ihyaussunnah</span></div>
+                <div class="brand-slogan">Berakidah Cerdas Berakhlak Mulia</div>
+            </a>
+            
+            <!-- Tombol Hamburger (Akan pindah ke kanan di HP) -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#">Beranda</a></li>
+                    <li>
+                        <a href="#">Tentang Kami ▾</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Sejarah</a></li>
+                            <li><a href="#">Sambutan Kepala Sekolah</a></li>
+                            <li><a href="#">Visi & Misi</a></li>
+                            <li><a href="#">Organisasi SD</a></li>
+                            <li><a href="#">Organisasi Komite</a></li>
+                            <li><a href="#">Guru Kami</a></li>
+                            <li><a href="#">Video Profile</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Kurikulum ▾</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Umum</a></li>
+                            <li><a href="#">Diniyah</a></li>
+                            <li><a href="#">Tahsin dan Tahfizh</a></li>
+                            <li><a href="#">Intra & Ekstrakurikuler</a></li>
+                            <li><a href="#">Kaldik (Kalender Akademik)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Fasilitas</a></li>
+                    <li><a href="#">Info Berita</a></li>
+                    <li><a href="#">Kontak</a></li>
+                    <li><a href="#">Medsos</a></li>
+                    <li><a href="#" class="btn-ppdb">PPDB 2026</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (BERANDA) -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Kaligrafi Bismillah -->
+            <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+            
+            <h1>SDIT Ihyausunnah</h1>
+            <h2>Berakidah - Cerdas - Berakhlak Mulia</h2>
+            <p>Membentuk generasi Qur'ani yang berpegang teguh pada sunnah, berprestasi secara akademik, dan memiliki budi pekerti luhur sebagai bekal di dunia dan akhirat.</p>
+            <a href="#" class="btn-primary">Informasi PPDB Terkini</a>
+        </div>
+    </section>
+
+    <!-- SEKILAS INFO / FITUR -->
+    <section class="container">
+        <h2 class="section-title">Program Unggulan Kami</h2>
+        <div class="features">
+            <div class="card">
+                <h3>Pendidikan Diniyah & Karakter</h3>
+                <p>Menanamkan akidah yang lurus, akhlakul karimah, dan pembiasaan ibadah harian sesuai dengan pemahaman salafus shalih.</p>
+            </div>
+            <div class="card">
+                <h3>Tahsin & Tahfizh Al-Qur'an</h3>
+                <p>Metode hafalan dan perbaikan bacaan Al-Qur'an secara intensif dengan target kelulusan juz 30, 29, dan 28 (menyesuaikan kemampuan siswa).</p>
+            </div>
+            <div class="card">
+                <h3>Akademik Terpadu</h3>
+                <p>Kurikulum nasional (Diknas) yang diajarkan dengan pendekatan Islami, dilengkapi fasilitas lab komputer dan ruang kelas yang kondusif.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid container" style="padding-bottom: 0;">
+            <div class="footer-col">
+                <h4>SDIT Ihyausunnah</h4>
+                <p>Jl. Pendidikan Islami No. 1, Kota Bontang, Kalimantan Timur.</p>
+                <p style="margin-top: 10px; font-weight: bold; color: var(--orange-accent);">"Berakidah, Cerdas Berakhlak Mulia"</p>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="#">Alur Pendaftaran PPDB</a></li>
+                    <li><a href="#">Jadwal Ekstrakurikuler</a></li>
+                    <li><a href="#">Kaldik (Kalender Akademik)</a></li>
+                    <li><a href="#">Galeri Sekolah</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><a href="#">📱 WhatsApp: 0812-3456-7890</a></li>
+                    <li><a href="#">📷 Instagram: @sditihyausunnah</a></li>
+                    <li><a href="#">▶️ YouTube: Ihyausunnah TV</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Yayasan Ihyaussunnah. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT UNTUK MENU MOBILE -->
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
