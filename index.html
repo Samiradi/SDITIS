@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDIT Ihyaussunnah - Berakidah, Cerdas Berakhlak Mulia</title>
+    <title>SDIT Ihyausunnah - Berakidah, Cerdas Berakhlak Mulia</title>
     
     <!-- Mengimpor Font Poppins (Utama) dan Amiri (Untuk teks Arab) -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Mengimpor FontAwesome untuk Logo Media Sosial Resmi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- RESET & DASAR --- */
@@ -16,14 +19,27 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
+        
         body {
             background-color: #ffffff;
-            /* Pola geometris Islami yang sangat tipis sebagai background */
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231b5e20' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            
+            /* --- BACKGROUND SELURUH HALAMAN (TRANSPARAN & FIXED) --- */
+            background-image: 
+                /* 1. Lapisan Putih Transparan (0.90 = 90% putih) */
+                linear-gradient(rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.90)), 
+                /* 2. Gambar Background (Ganti URL dengan gambar Anda) */
+                url('https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80');
+                
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Membuat background diam saat di-scroll */
+            
             color: #333333;
             line-height: 1.6;
             overflow-x: hidden;
+            font-size: 16px;
         }
+        
         a {
             text-decoration: none;
             color: inherit;
@@ -64,19 +80,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 3%; /* Sedikit disesuaikan agar logo punya ruang */
+            padding: 10px 3%;
             position: relative;
         }
 
-        /* Tampilan Branding (Logo, Nama, Slogan) Bertumpuk Vertikal */
+        /* Tampilan Branding (Logo, Nama, Slogan) */
         .brand {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Rata Kiri */
+            align-items: flex-start;
             text-decoration: none;
         }
         .brand img {
-            height: 45px; /* Sesuaikan ukuran logo di sini */
+            height: 45px; /* Sesuaikan ukuran logo header di sini */
             width: auto;
             margin-bottom: 4px;
         }
@@ -150,7 +166,7 @@
             color: #555;
         }
         nav ul li ul.dropdown li a:hover {
-            background-color: #f4fcf5; /* Highlight hijau muda */
+            background-color: #f4fcf5; 
             color: var(--green-primary);
             padding-left: 20px;
         }
@@ -173,7 +189,7 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            margin-left: auto; /* Memaksa tombol ke sisi paling kanan */
+            margin-left: auto;
         }
         .menu-toggle span {
             width: 28px;
@@ -186,14 +202,10 @@
 
         /* --- HERO SECTION (BERANDA) --- */
         .hero {
-            /* 
-               Ubah angka 0.6 di bawah ini untuk mengatur tingkat "kebeningan".
-               Semakin mendekati 0, gambar akan semakin bening/jelas.
-               Semakin mendekati 1, gambar akan semakin tertutup warna hijau.
-            */
+            /* Angka 0.5 membuat warna hijau lebih transparan, background lebih terlihat */
             background: 
-                linear-gradient(rgba(18, 61, 21, 0.6), rgba(18, 61, 21, 0.6)), 
-                url('./images/quran.jpg') center/cover;
+                linear-gradient(rgba(18, 61, 21, 0.5), rgba(18, 61, 21, 0.5)), 
+                url('https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80') center/cover;
             height: 80vh;
             display: flex;
             align-items: center;
@@ -209,11 +221,13 @@
             color: var(--orange-accent);
             margin-bottom: 10px;
             font-weight: 400;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         .hero-content h1 {
             font-size: 3rem;
             margin-bottom: 10px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         .hero-content h2 {
             font-size: 1.5rem;
@@ -221,6 +235,7 @@
             margin-bottom: 30px;
             font-style: italic;
             color: #e0f2f1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         .hero-content p {
             font-size: 1.1rem;
@@ -228,6 +243,7 @@
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         .btn-primary {
             background-color: var(--orange-accent);
@@ -279,7 +295,6 @@
         .card {
             background: var(--white);
             padding: 40px 30px;
-            /* Nuansa bentuk kubah/lengkungan Islami di bagian atas */
             border-top-left-radius: 60px;
             border-top-right-radius: 60px;
             border-bottom-left-radius: 10px;
@@ -300,7 +315,70 @@
             font-size: 1.3rem;
         }
 
-        /* --- FOOTER --- */
+        /* --- GALERI DOKUMENTASI (SLIDER) --- */
+        .gallery-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .gallery-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 15px 5px; 
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            width: 100%;
+        }
+        .gallery-slider::-webkit-scrollbar {
+            display: none;
+        }
+        .slide {
+            flex: 0 0 calc(33.333% - 14px);
+            scroll-snap-align: center;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 4/3;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .slide:hover img {
+            transform: scale(1.08);
+        }
+        .slider-btn {
+            background-color: var(--orange-accent);
+            color: var(--white);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-btn:hover {
+            background-color: #e68000;
+            transform: scale(1.1);
+        }
+        .prev-btn { left: -20px; }
+        .next-btn { right: -20px; }
+
+        /* --- FOOTER & MEDIA SOSIAL --- */
         footer {
             background-color: var(--green-primary);
             color: var(--white);
@@ -324,9 +402,37 @@
         .footer-col ul li {
             margin-bottom: 10px;
         }
-        .footer-col ul li a:hover {
+        
+        /* Logo di Footer */
+        .footer-logo {
+            height: 60px; /* Ukuran Logo Footer */
+            width: auto;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Gaya Icon Social Media (FontAwesome) */
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.3s;
+        }
+        .social-link i {
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+            color: var(--white);
+            transition: color 0.3s, transform 0.3s;
+        }
+        .social-link:hover, .footer-col ul li a:hover {
             color: var(--orange-accent);
         }
+        .social-link:hover i {
+            color: var(--orange-accent);
+            transform: scale(1.2);
+        }
+        
         .copyright {
             text-align: center;
             padding-top: 20px;
@@ -343,7 +449,7 @@
             }
             
             nav ul {
-                display: none; 
+                display: flex; /* Flex agar animasi berfungsi */
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
@@ -351,10 +457,19 @@
                 width: 100%;
                 background-color: var(--white);
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                
+                /* Efek Animasi (Tertutup) */
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-15px);
+                transition: all 0.3s ease-in-out;
             }
             
             nav ul.active {
-                display: flex;
+                /* Efek Animasi (Terbuka) */
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
             }
 
             nav ul li {
@@ -362,7 +477,6 @@
                 width: 100%;
                 border-bottom: 1px solid #f0f0f0;
             }
-
             nav ul li a {
                 padding: 15px 5%;
             }
@@ -376,11 +490,9 @@
                 width: 100%;
                 border-radius: 0;
             }
-
             nav ul li:hover ul.dropdown {
                 display: flex;
             }
-
             nav ul li ul.dropdown li a {
                 padding-left: 10%;
                 border-bottom: 1px solid #e0e0e0;
@@ -393,30 +505,26 @@
                 width: 90%;
             }
             
-            /* Penyesuaian ukuran brand di HP agar tidak terlalu memakan tempat */
-            .brand img {
-                height: 35px;
-            }
-            .brand-name {
-                font-size: 1rem;
-            }
-            .brand-slogan {
-                font-size: 0.65rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .hero-content h2 {
-                font-size: 1.2rem;
-            }
-            .arabic-text {
-                font-size: 1.8rem;
-            }
+            .brand img { height: 35px; }
+            .brand-name { font-size: 1rem; }
+            .brand-slogan { font-size: 0.65rem; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content h2 { font-size: 1.2rem; }
+            .arabic-text { font-size: 1.8rem; }
             
             .top-bar {
                 flex-direction: column;
                 text-align: center;
+            }
+        }
+
+        /* Pengaturan Khusus Slider di Layar Kecil (HP/Tablet) */
+        @media screen and (max-width: 768px) {
+            .slide {
+                flex: 0 0 85%; /* 1 foto besar per layar */
+            }
+            .slider-btn {
+                display: none; /* Tombol geser disembunyikan agar user bisa usap (swipe) */
             }
         }
     </style>
@@ -426,8 +534,8 @@
     <!-- TOP BAR -->
     <div class="top-bar">
         <div>
-            <span>📞 (021) 1234-5678</span>
-            <span>✉️ info@sditihyausunnah.sch.id</span>
+            <span><i class="fa-solid fa-phone"></i> (021) 1234-5678</span>
+            <span><i class="fa-solid fa-envelope"></i> info@sditihyausunnah.sch.id</span>
         </div>
         <div>
             <span>Waktu Operasional: Senin - Jumat, 07:00 - 15:00</span>
@@ -438,51 +546,52 @@
     <header>
         <div class="nav-container">
             
-            <!-- BRANDING: Logo, Nama, Slogan (Tersusun Vertikal) -->
+            <!-- BRANDING: Logo, Nama, Slogan -->
+            <!-- Ganti src dengan file logo sekolah Anda -->
             <a href="#" class="brand">
-                <!-- Ganti link src di bawah ini dengan gambar logo sekolah Anda -->
                 <img src="https://dummyimage.com/150x150/1b5e20/ffffff.png&text=Logo+SDIT" alt="Logo SDIT Ihyausunnah">
-                <div class="brand-name">SDIT <span>Ihyaussunnah</span></div>
-                <div class="brand-slogan">Berakidah Cerdas Berakhlak Mulia</div>
+                <div class="brand-name">SDIT <span>Ihyausunnah</span></div>
+                <div class="brand-slogan">Berakidah, Cerdas Berakhlak Mulia</div>
             </a>
             
-            <!-- Tombol Hamburger (Akan pindah ke kanan di HP) -->
+            <!-- Tombol Hamburger (HP) -->
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
 
+            <!-- MENU -->
             <nav>
                 <ul id="nav-menu">
-                    <li><a href="#">Beranda</a></li>
+                    <li><a href="index.html">Beranda</a></li>
                     <li>
                         <a href="#">Tentang Kami ▾</a>
                         <ul class="dropdown">
-                            <li><a href="./sejarah.html">Sejarah</a></li>
-                            <li><a href="#">Sambutan Kepala Sekolah</a></li>
-                            <li><a href="#">Visi & Misi</a></li>
-                            <li><a href="#">Organisasi SD</a></li>
-                            <li><a href="#">Organisasi Komite</a></li>
-                            <li><a href="#">Guru Kami</a></li>
-                            <li><a href="#">Video Profile</a></li>
+                            <li><a href="sejarah.html">Sejarah</a></li>
+                            <li><a href="sambutan.html">Sambutan Kepala Sekolah</a></li>
+                            <li><a href="visi-misi.html">Visi & Misi</a></li>
+                            <li><a href="struktur-sd.html">Organisasi SD</a></li>
+                            <li><a href="komite.html">Organisasi Komite</a></li>
+                            <li><a href="guru.html">Guru Kami</a></li>
+                            <li><a href="video-profile.html">Video Profile</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#">Kurikulum ▾</a>
                         <ul class="dropdown">
-                            <li><a href="#">Umum</a></li>
-                            <li><a href="#">Diniyah</a></li>
-                            <li><a href="#">Tahsin dan Tahfizh</a></li>
-                            <li><a href="#">Intra & Ekstrakurikuler</a></li>
-                            <li><a href="#">Kaldik (Kalender Akademik)</a></li>
+                            <li><a href="kurikulum-umum.html">Umum</a></li>
+                            <li><a href="diniyah.html">Diniyah</a></li>
+                            <li><a href="tahsin.html">Tahsin dan Tahfizh</a></li>
+                            <li><a href="ekskul.html">Intra & Ekstrakurikuler</a></li>
+                            <li><a href="kaldik.html">Kaldik (Kalender Akademik)</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Fasilitas</a></li>
-                    <li><a href="#">Info Berita</a></li>
-                    <li><a href="#">Kontak</a></li>
-                    <li><a href="#">Medsos</a></li>
-                    <li><a href="#" class="btn-ppdb">PPDB 2026</a></li>
+                    <li><a href="fasilitas.html">Fasilitas</a></li>
+                    <li><a href="berita.html">Info Berita</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="medsos.html">Medsos</a></li>
+                    <li><a href="ppdb.html" class="btn-ppdb">PPDB 2026</a></li>
                 </ul>
             </nav>
         </div>
@@ -495,9 +604,9 @@
             <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
             
             <h1>SDIT Ihyausunnah</h1>
-            <h2>Berakidah - Cerdas - Berakhlak Mulia</h2>
+            <h2>Berakidah, Cerdas Berakhlak Mulia</h2>
             <p>Membentuk generasi Qur'ani yang berpegang teguh pada sunnah, berprestasi secara akademik, dan memiliki budi pekerti luhur sebagai bekal di dunia dan akhirat.</p>
-            <a href="#" class="btn-primary">Informasi PPDB Terkini</a>
+            <a href="ppdb.html" class="btn-primary">Informasi PPDB Terkini</a>
         </div>
     </section>
 
@@ -520,45 +629,128 @@
         </div>
     </section>
 
+    <!-- SECTION GALERI DOKUMENTASI (SLIDER) -->
+    <section class="container">
+        <h2 class="section-title">Galeri Dokumentasi</h2>
+        <div class="gallery-wrapper">
+            <!-- Tombol Kiri (Untuk PC) -->
+            <button class="slider-btn prev-btn" id="prevBtn">&#10094;</button>
+            
+            <!-- Tempat Foto (Slider) -->
+            <div class="gallery-slider" id="gallerySlider">
+                <!-- Ganti atribut src dengan gambar dokumentasi sekolah yang sebenarnya -->
+                <div class="slide"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Dokumentasi 1"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Dokumentasi 2"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Dokumentasi 3"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="Dokumentasi 4"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80" alt="Dokumentasi 5"></div>
+                <div class="slide"><img src="https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=600&q=80" alt="Dokumentasi 6"></div>
+            </div>
+            
+            <!-- Tombol Kanan (Untuk PC) -->
+            <button class="slider-btn next-btn" id="nextBtn">&#10095;</button>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid container" style="padding-bottom: 0;">
             <div class="footer-col">
-                <h4>SDIT Ihyausunnah</h4>
+                <!-- LOGO FOOTER: Ganti src dengan logo PNG sekolah -->
+                <img src="https://dummyimage.com/200x80/1b5e20/ffffff.png&text=Logo+Footer+PNG" alt="Logo SDIT Ihyausunnah" class="footer-logo">
+                
                 <p>Jl. Pendidikan Islami No. 1, Kota Bontang, Kalimantan Timur.</p>
                 <p style="margin-top: 10px; font-weight: bold; color: var(--orange-accent);">"Berakidah, Cerdas Berakhlak Mulia"</p>
             </div>
             <div class="footer-col">
                 <h4>Tautan Cepat</h4>
                 <ul>
-                    <li><a href="#">Alur Pendaftaran PPDB</a></li>
-                    <li><a href="#">Jadwal Ekstrakurikuler</a></li>
-                    <li><a href="#">Kaldik (Kalender Akademik)</a></li>
-                    <li><a href="#">Galeri Sekolah</a></li>
+                    <li><a href="ppdb.html">Alur Pendaftaran PPDB</a></li>
+                    <li><a href="ekskul.html">Jadwal Ekstrakurikuler</a></li>
+                    <li><a href="kaldik.html">Kaldik (Kalender Akademik)</a></li>
+                    <li><a href="galeri.html">Galeri Sekolah</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Hubungi Kami</h4>
+                <h4>Media Sosial & Kontak</h4>
                 <ul>
-                    <li><a href="#">📱 WhatsApp: 0812-3456-7890</a></li>
-                    <li><a href="#">📷 Instagram: @sditihyausunnah</a></li>
-                    <li><a href="#">▶️ YouTube: Ihyausunnah TV</a></li>
+                    <li>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="social-link">
+                            <i class="fa-brands fa-whatsapp"></i> 0812-3456-7890
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/sditihyausunnah" target="_blank" class="social-link">
+                            <i class="fa-brands fa-instagram"></i> @sditihyausunnah
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com" target="_blank" class="social-link">
+                            <i class="fa-brands fa-youtube"></i> Ihyausunnah TV
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://facebook.com" target="_blank" class="social-link">
+                            <i class="fa-brands fa-facebook"></i> SDIT Ihyausunnah
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 Yayasan Ihyaussunnah. All Rights Reserved.
+            &copy; 2026 Yayasan Ihyausunnah. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- JAVASCRIPT UNTUK MENU MOBILE -->
+    <!-- JAVASCRIPT: Menu Auto-Close, Animasi, & Slider -->
     <script>
+        // 1. Script Hamburger Menu (Mobile) dengan Animasi & Auto-Close
         const menuToggle = document.getElementById('mobile-menu');
         const navMenu = document.getElementById('nav-menu');
 
-        menuToggle.addEventListener('click', function() {
+        // Buka/Tutup saat klik ikon garis tiga
+        menuToggle.addEventListener('click', function(event) {
             navMenu.classList.toggle('active');
+            event.stopPropagation(); // Mencegah klik menyebar
         });
+
+        // Menutup menu jika klik di sembarang tempat di luar menu
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            if (!isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Menutup otomatis saat tautan (link) menu diklik
+        const navLinks = document.querySelectorAll('#nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Kecuali yang diklik adalah tulisan pembuka dropdown (seperti "Tentang Kami")
+                if(!link.nextElementSibling || !link.nextElementSibling.classList.contains('dropdown')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // 2. Script Slider Galeri Dokumentasi
+        const gallerySlider = document.getElementById('gallerySlider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (gallerySlider && prevBtn && nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const slideWidth = gallerySlider.querySelector('.slide').clientWidth + 20; // + 20 adalah jarak antar foto
+                gallerySlider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                const slideWidth = gallerySlider.querySelector('.slide').clientWidth + 20;
+                gallerySlider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+            });
+        }
     </script>
 
 </body>
