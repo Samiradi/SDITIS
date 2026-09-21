@@ -1,865 +1,2316 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SDIT Ihyausunnah - Berakidah, Cerdas Berakhlak Mulia</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Mengimpor Font Poppins (Utama) dan Amiri (Untuk teks Arab) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <title>SDIT Ihyaussunnah - Berakidah, Cerdas Berakhlak Mulia</title>
 
-    <!-- Mengimpor FontAwesome untuk Logo Media Sosial Resmi -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-    <style>
-      /* --- RESET & DASAR --- */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
+  <!-- =====================================================
+       FONT AWESOME
+  ====================================================== -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    /* =====================================================
+       RESET
+    ====================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #333333;
+      font-family: "Poppins", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+
+      /* Background seluruh halaman */
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.90),
+          rgba(255, 255, 255, 0.90)
+        ),
+        url("https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* =====================================================
+       WARNA TEMA
+    ====================================================== */
+
+    :root {
+      --green-primary: #1b5e20;
+      --green-light: #4caf50;
+      --green-soft: #f4fcf5;
+
+      --orange-accent: #ff8f00;
+      --orange-dark: #e68000;
+
+      --white: #ffffff;
+      --black: #222222;
+      --gray: #666666;
+      --border: #eeeeee;
+    }
+
+    /* =====================================================
+       TOP BAR
+    ====================================================== */
+
+    .top-bar {
+      background-color: var(--green-primary);
+      color: var(--white);
+
+      padding: 8px 5%;
+
+      font-size: 0.85rem;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      border-bottom: 2px solid var(--orange-accent);
+    }
+
+    .top-bar span {
+      display: inline-block;
+      margin-right: 15px;
+      margin-bottom: 3px;
+    }
+
+    .top-bar i {
+      margin-right: 5px;
+    }
+
+    /* =====================================================
+       HEADER
+    ====================================================== */
+
+    header {
+      background-color: var(--white);
+
+      box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.1);
+
+      position: sticky;
+      top: 0;
+
+      z-index: 1000;
+    }
+
+    .nav-container {
+      position: relative;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 10px 3%;
+    }
+
+    /* =====================================================
+       BRAND
+    ====================================================== */
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      height: 45px;
+      width: auto;
+
+      margin-bottom: 4px;
+    }
+
+    .brand-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+
+      color: var(--green-primary);
+
+      line-height: 1.1;
+    }
+
+    .brand-name span {
+      color: var(--orange-accent);
+    }
+
+    .brand-slogan {
+      margin-top: 2px;
+
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      color: var(--green-light);
+
+      font-style: italic;
+    }
+
+    /* =====================================================
+       NAVBAR DESKTOP
+    ====================================================== */
+
+    nav {
+      margin-left: auto;
+    }
+
+    .main-menu {
+      list-style: none;
+
+      display: flex;
+      align-items: center;
+
+      gap: 3px;
+    }
+
+    .main-menu > li {
+      position: relative;
+    }
+
+    .main-menu > li > a {
+      display: block;
+
+      padding: 10px;
+
+      color: var(--green-primary);
+
+      font-size: 0.95rem;
+      font-weight: 600;
+
+      transition:
+        color 0.3s ease,
+        background-color 0.3s ease;
+    }
+
+    .main-menu > li > a:hover {
+      color: var(--orange-accent);
+    }
+
+    /* =====================================================
+       DROPDOWN DESKTOP
+    ====================================================== */
+
+    .has-dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+    }
+
+    .arrow {
+      display: inline-block;
+
+      margin-left: 3px;
+
+      transition: transform 0.3s ease;
+    }
+
+    .has-dropdown:hover > .dropdown-toggle .arrow {
+      transform: rotate(180deg);
+    }
+
+    .dropdown {
+      list-style: none;
+
+      position: absolute;
+
+      top: calc(100% + 15px);
+      left: 0;
+
+      min-width: 250px;
+
+      background-color: var(--green-primary);
+
+      border-top: 3px solid var(--orange-accent);
+
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+
+      box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.2);
+
+      display: none;
+
+      flex-direction: column;
+
+      z-index: 2000;
+    }
+
+    /* Jembatan dropdown */
+    .dropdown::before {
+      content: "";
+
+      position: absolute;
+
+      top: -15px;
+      left: 0;
+
+      width: 100%;
+      height: 15px;
+
+      background: transparent;
+    }
+
+    .has-dropdown:hover > .dropdown {
+      display: flex;
+    }
+
+    .dropdown li {
+      width: 100%;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown li a {
+      display: block;
+
+      padding: 12px 20px;
+
+      color: var(--white);
+
+      font-size: 0.9rem;
+      font-weight: 400;
+
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        padding-left 0.3s ease;
+    }
+
+    .dropdown li a:hover {
+      background-color:
+        rgba(255, 255, 255, 0.1);
+
+      color: var(--orange-accent);
+
+      padding-left: 25px;
+    }
+
+    /* =====================================================
+       TOMBOL PPDB
+    ====================================================== */
+
+    .btn-ppdb {
+      background-color: var(--orange-accent);
+
+      color: var(--white) !important;
+
+      padding: 8px 20px !important;
+
+      border-radius: 25px;
+
+      transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .btn-ppdb:hover {
+      background-color: var(--orange-dark);
+
+      color: var(--white) !important;
+
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================
+       HAMBURGER
+    ====================================================== */
+
+    .menu-toggle {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      border: none;
+      background: transparent;
+
+      cursor: pointer;
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      gap: 5px;
+
+      margin-left: auto;
+    }
+
+    .menu-toggle span {
+      display: block;
+
+      width: 28px;
+      height: 3px;
+
+      background-color: var(--green-primary);
+
+      border-radius: 5px;
+
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    /* Animasi hamburger menjadi X */
+
+    .menu-toggle.active span:nth-child(1) {
+      transform:
+        translateY(8px)
+        rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform:
+        translateY(-8px)
+        rotate(-45deg);
+    }
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+      min-height: 80vh;
+
+      background:
+        linear-gradient(
+          rgba(18, 61, 21, 0.5),
+          rgba(18, 61, 21, 0.5)
+        ),
+        url("./images/quran.jpg")
+        center / cover no-repeat;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      color: var(--white);
+
+      padding: 80px 20px;
+
+      border-bottom:
+        5px solid var(--orange-accent);
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .arabic-text {
+      font-family: "Amiri", serif;
+
+      font-size: 2.2rem;
+
+      color: var(--orange-accent);
+
+      margin-bottom: 10px;
+
+      font-weight: 400;
+
+      text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+
+      margin-bottom: 10px;
+
+      text-transform: uppercase;
+
+      text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content h2 {
+      font-size: 1.5rem;
+
+      font-weight: 400;
+
+      margin-bottom: 30px;
+
+      font-style: italic;
+
+      color: #e0f2f1;
+
+      text-shadow:
+        1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content p {
+      max-width: 750px;
+
+      margin:
+        0 auto 30px;
+
+      font-size: 1.1rem;
+
+      text-shadow:
+        1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-primary {
+      display: inline-block;
+
+      background-color: var(--orange-accent);
+
+      color: var(--white);
+
+      padding: 12px 35px;
+
+      font-size: 1.1rem;
+      font-weight: 600;
+
+      border-radius: 30px;
+
+      box-shadow:
+        0 4px 15px rgba(255, 143, 0, 0.4);
+
+      transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--orange-dark);
+
+      transform: translateY(-3px);
+    }
+
+    /* =====================================================
+       CONTAINER
+    ====================================================== */
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding-bottom: 60px;
+    }
+
+    /* =====================================================
+       SECTION TITLE
+    ====================================================== */
+
+    .section-title {
+      position: relative;
+
+      text-align: center;
+
+      font-size: 2rem;
+
+      color: var(--green-primary);
+
+      margin:
+        60px 0 30px;
+    }
+
+    .section-title::after {
+      content: "";
+
+      display: block;
+
+      width: 80px;
+      height: 4px;
+
+      background-color:
+        var(--orange-accent);
+
+      margin:
+        10px auto 0;
+
+      border-radius: 2px;
+    }
+
+    /* =====================================================
+       PROGRAM UNGGULAN
+    ====================================================== */
+
+    .features {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(300px, 1fr)
+        );
+
+      gap: 30px;
+
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color:
+        var(--white);
+
+      padding:
+        40px 30px;
+
+      border-top-left-radius: 60px;
+      border-top-right-radius: 60px;
+
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.06);
+
+      text-align: center;
+
+      border-top:
+        1px solid #e0e0e0;
+
+      border-bottom:
+        5px solid var(--green-light);
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform:
+        translateY(-10px);
+
+      border-bottom-color:
+        var(--orange-accent);
+    }
+
+    .card h3 {
+      color:
+        var(--green-primary);
+
+      margin-bottom: 15px;
+
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--gray);
+    }
+
+    /* =====================================================
+       GALERI
+    ====================================================== */
+
+    .gallery-wrapper {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      margin-top: 40px;
+    }
+
+    .gallery-slider {
+      width: 100%;
+
+      display: flex;
+
+      gap: 20px;
+
+      overflow-x: auto;
+
+      scroll-behavior: smooth;
+
+      scroll-snap-type: x mandatory;
+
+      padding: 15px 5px;
+
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .gallery-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      flex:
+        0 0 calc(33.333% - 14px);
+
+      aspect-ratio: 4 / 3;
+
+      scroll-snap-align: center;
+
+      border-radius: 15px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.1);
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.3s ease;
+    }
+
+    .slide:hover img {
+      transform:
+        scale(1.08);
+    }
+
+    /* =====================================================
+       TOMBOL SLIDER
+    ====================================================== */
+
+    .slider-btn {
+      position: absolute;
+
+      z-index: 10;
+
+      width: 45px;
+      height: 45px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background-color:
+        var(--orange-accent);
+
+      color: var(--white);
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow:
+        0 4px 10px
+        rgba(0, 0, 0, 0.2);
+
+      transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+    }
+
+    .slider-btn:hover {
+      background-color:
+        var(--orange-dark);
+
+      transform:
+        scale(1.1);
+    }
+
+    .prev-btn {
+      left: -20px;
+    }
+
+    .next-btn {
+      right: -20px;
+    }
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+      background-color:
+        var(--green-primary);
+
+      color: var(--white);
+
+      padding:
+        50px 5% 20px;
+
+      border-top:
+        5px solid var(--orange-accent);
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(250px, 1fr)
+        );
+
+      gap: 30px;
+
+      margin-bottom: 30px;
+    }
+
+    .footer-col h4 {
+      color:
+        var(--orange-accent);
+
+      margin-bottom: 20px;
+
+      font-size: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      transition:
+        color 0.3s ease;
+    }
+
+    .footer-col ul li a:hover {
+      color:
+        var(--orange-accent);
+    }
+
+    .footer-logo {
+      height: 60px;
+
+      width: auto;
+
+      margin-bottom: 15px;
+
+      display: block;
+    }
+
+    .social-link {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      transition:
+        color 0.3s ease;
+    }
+
+    .social-link i {
+      width: 24px;
+
+      text-align: center;
+
+      font-size: 1.3rem;
+
+      color: var(--white);
+
+      transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .social-link:hover {
+      color:
+        var(--orange-accent);
+    }
+
+    .social-link:hover i {
+      color:
+        var(--orange-accent);
+
+      transform:
+        scale(1.2);
+    }
+
+    .copyright {
+      text-align: center;
+
+      padding-top: 20px;
+
+      border-top:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+      font-size: 0.9rem;
+    }
+
+    /* =====================================================
+       TABLET
+    ====================================================== */
+
+    @media screen and (max-width: 1100px) {
+
+      .main-menu {
+        gap: 0;
       }
 
-      /* PERBAIKAN BUG RENDER HP: Mencegah glitch layar putih saat buka menu */
-      html, body {
-        overflow-x: hidden;
-      }
+      .main-menu > li > a {
+        padding:
+          9px 7px;
 
-      body {
-        background-color: #ffffff;
-
-        /* --- BACKGROUND SELURUH HALAMAN (TRANSPARAN & FIXED) --- */
-        background-image: 
-          /* 1. Lapisan Putih Transparan (0.90 = 90% putih) */
-          linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-          /* 2. Gambar Background */
-          url("https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80");
-
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed; /* Membuat background diam saat di-scroll */
-
-        color: #333333;
-        line-height: 1.6;
-        font-size: 16px;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      /* --- WARNA TEMA --- */
-      :root {
-        --green-primary: #1b5e20; /* Hijau Gelap Islami */
-        --green-light: #4caf50;
-        --orange-accent: #ff8f00; /* Oranye Cerah */
-        --white: #ffffff;
-      }
-
-      /* --- HEADER & NAVIGASI --- */
-      header {
-        background-color: var(--white);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-      .top-bar {
-        background-color: var(--green-primary);
-        color: var(--white);
-        padding: 8px 5%;
         font-size: 0.85rem;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        border-bottom: 2px solid var(--orange-accent);
-      }
-      .top-bar span {
-        margin-right: 15px;
-        display: inline-block;
-        margin-bottom: 5px;
-      }
-      .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 3%;
-        position: relative;
       }
 
-      /* Tampilan Branding (Logo, Nama, Slogan) */
-      .brand {
-        display: flex;
+      .btn-ppdb {
+        padding:
+          7px 14px !important;
+      }
+    }
+
+    /* =====================================================
+       MOBILE / TABLET
+    ====================================================== */
+
+    @media screen and (max-width: 992px) {
+
+      /* -------------------------
+         TOP BAR
+      ------------------------- */
+
+      .top-bar {
         flex-direction: column;
-        align-items: flex-start;
-        text-decoration: none;
+
+        text-align: center;
+
+        gap: 3px;
       }
+
+      .top-bar span {
+        margin-right: 5px;
+      }
+
+      /* -------------------------
+         HEADER
+      ------------------------- */
+
+      .nav-container {
+        min-height: 75px;
+
+        padding:
+          8px 5%;
+      }
+
       .brand img {
-        height: 45px;
-        width: auto;
-        margin-bottom: 4px;
+        height: 35px;
       }
+
       .brand-name {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--green-primary);
-        line-height: 1.1;
+        font-size: 1rem;
       }
-      .brand-name span {
-        color: var(--orange-accent);
-      }
+
       .brand-slogan {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: var(--green-light);
-        font-style: italic;
-        margin-top: 2px;
+        font-size: 0.65rem;
       }
 
-      /* Menu Utama (Desktop) */
-      nav ul {
-        list-style: none;
+      /* -------------------------
+         HAMBURGER
+      ------------------------- */
+
+      .menu-toggle {
         display: flex;
-        align-items: center;
-      }
-      nav ul li {
-        position: relative;
-        margin: 0 3px;
-      }
-      nav ul li a {
-        font-weight: 600;
-        font-size: 0.95rem;
-        padding: 10px;
-        color: var(--green-primary);
-        transition: color 0.3s;
-        display: block;
-      }
-      nav ul li a:hover {
-        color: var(--orange-accent);
       }
 
-      /* Dropdown Menu (Desktop) */
-      nav ul li ul.dropdown {
+      /* -------------------------
+         MENU UTAMA MOBILE
+      ------------------------- */
+
+      nav {
+        position: static;
+
+        margin-left: 0;
+      }
+
+      .main-menu {
         position: absolute;
+
         top: 100%;
         left: 0;
-        background-color: var(--white);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        min-width: 240px;
-        display: none;
-        flex-direction: column;
-        border-top: 3px solid var(--orange-accent);
-        z-index: 1000;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-      }
-      nav ul li:hover ul.dropdown {
+
+        width: 100%;
+
         display: flex;
-      }
-      nav ul li ul.dropdown li {
-        margin: 0;
-        border-bottom: 1px solid #eee;
-      }
-      nav ul li ul.dropdown li:last-child {
-        border-bottom: none;
-      }
-      nav ul li ul.dropdown li a {
-        padding: 12px 15px;
-        font-weight: 400;
-        color: #555;
-      }
-      nav ul li ul.dropdown li a:hover {
-        background-color: #f4fcf5;
-        color: var(--green-primary);
-        padding-left: 20px;
-      }
 
-      /* Tombol PPDB Spesial di Navbar */
-      .btn-ppdb {
-        background-color: var(--orange-accent);
-        color: var(--white) !important;
-        padding: 8px 20px !important;
-        border-radius: 25px;
-        transition: background 0.3s;
-      }
-      .btn-ppdb:hover {
-        background-color: #e68000;
-        color: var(--white) !important;
-      }
-
-      /* Hamburger Menu (Mobile) */
-      .menu-toggle {
-        display: none;
         flex-direction: column;
-        cursor: pointer;
-        margin-left: auto;
-      }
-      .menu-toggle span {
-        width: 28px;
-        height: 3px;
-        background-color: var(--green-primary);
-        margin: 4px 0;
-        border-radius: 3px;
-        transition: 0.3s;
-      }
 
-      /* --- HERO SECTION (BERANDA) --- */
-      .hero {
-        background:
-          linear-gradient(rgba(18, 61, 21, 0.5), rgba(18, 61, 21, 0.5)),
-          url("./images/quran.jpg") center/cover;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: var(--white);
-        padding: 0 20px;
-        border-bottom: 5px solid var(--orange-accent);
-      }
-      .arabic-text {
-        font-family: "Amiri", serif;
-        font-size: 2.2rem;
-        color: var(--orange-accent);
-        margin-bottom: 10px;
-        font-weight: 400;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      }
-      .hero-content h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      }
-      .hero-content h2 {
-        font-size: 1.5rem;
-        font-weight: 400;
-        margin-bottom: 30px;
-        font-style: italic;
-        color: #e0f2f1;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-      }
-      .hero-content p {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-        max-width: 750px;
-        margin-left: auto;
-        margin-right: auto;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-      }
-      .btn-primary {
-        background-color: var(--orange-accent);
-        color: var(--white);
-        padding: 12px 35px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        border-radius: 30px;
-        display: inline-block;
+        align-items: stretch;
+
+        background-color:
+          var(--white);
+
+        box-shadow:
+          0 5px 15px
+          rgba(0, 0, 0, 0.12);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform:
+          translateY(-15px);
+
         transition:
-          transform 0.3s,
-          background 0.3s;
-        box-shadow: 0 4px 15px rgba(255, 143, 0, 0.4);
-      }
-      .btn-primary:hover {
-        background-color: #e68000;
-        transform: translateY(-3px);
+          opacity 0.3s ease,
+          visibility 0.3s ease,
+          transform 0.3s ease;
+
+        z-index: 1500;
       }
 
-      /* --- SECTION KONTEN --- */
-      .section-title {
-        text-align: center;
-        font-size: 2rem;
-        color: var(--green-primary);
-        margin: 60px 0 30px;
-        position: relative;
-      }
-      .section-title::after {
-        content: "";
-        width: 80px;
-        height: 4px;
-        background-color: var(--orange-accent);
-        display: block;
-        margin: 10px auto 0;
-        border-radius: 2px;
+      /* MENU TERBUKA */
+
+      .main-menu.active {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform:
+          translateY(0);
       }
 
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: auto;
-        padding-bottom: 60px;
-      }
+      /* -------------------------
+         ITEM MENU UTAMA
+      ------------------------- */
 
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 40px;
-      }
-      .card {
-        background: var(--white);
-        padding: 40px 30px;
-        border-top-left-radius: 60px;
-        border-top-right-radius: 60px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
-        text-align: center;
-        border-bottom: 5px solid var(--green-light);
-        border-top: 1px solid #e0e0e0;
-        transition: transform 0.3s;
-      }
-      .card:hover {
-        transform: translateY(-10px);
-        border-bottom-color: var(--orange-accent);
-      }
-      .card h3 {
-        color: var(--green-primary);
-        margin-bottom: 15px;
-        font-size: 1.3rem;
-      }
-
-      /* --- GALERI DOKUMENTASI (SLIDER) --- */
-      .gallery-wrapper {
-        position: relative;
-        display: flex;
-        align-items: center;
-        margin-top: 40px;
-      }
-      .gallery-slider {
-        display: flex;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
-        gap: 20px;
-        padding: 15px 5px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+      .main-menu > li {
         width: 100%;
+
+        border-bottom:
+          1px solid #f0f0f0;
       }
-      .gallery-slider::-webkit-scrollbar {
+
+      .main-menu > li > a {
+        width: 100%;
+
+        padding:
+          15px 5%;
+
+        font-size: 0.95rem;
+      }
+
+      /* -------------------------
+         DROPDOWN MOBILE
+      ------------------------- */
+
+      .main-menu .has-dropdown {
+        position: relative;
+      }
+
+      .main-menu .dropdown {
+        position: static;
+
+        width: 100%;
+
+        min-width: 0;
+
         display: none;
-      }
-      .slide {
-        flex: 0 0 calc(33.333% - 14px);
-        scroll-snap-align: center;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        aspect-ratio: 4/3;
-      }
-      .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.3s ease;
-      }
-      .slide:hover img {
-        transform: scale(1.08);
-      }
-      .slider-btn {
-        background-color: var(--orange-accent);
-        color: var(--white);
+
+        flex-direction: column;
+
+        background-color:
+          var(--green-soft);
+
+        box-shadow: none;
+
         border: none;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        cursor: pointer;
-        position: absolute;
-        z-index: 10;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        transition:
-          background 0.3s,
-          transform 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .slider-btn:hover {
-        background-color: #e68000;
-        transform: scale(1.1);
-      }
-      .prev-btn {
-        left: -20px;
-      }
-      .next-btn {
-        right: -20px;
+
+        border-radius: 0;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
       }
 
-      /* --- FOOTER & MEDIA SOSIAL --- */
-      footer {
-        background-color: var(--green-primary);
-        color: var(--white);
-        padding: 50px 5% 20px;
-        border-top: 5px solid var(--orange-accent);
+      /* HANYA TERBUKA KETIKA CLASS .open ADA */
+
+      .main-menu
+        .has-dropdown.open
+        > .dropdown {
+        display: flex;
       }
-      .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-bottom: 30px;
+
+      /* Hilangkan jembatan desktop */
+
+      .main-menu .dropdown::before {
+        display: none;
       }
-      .footer-col h4 {
-        color: var(--orange-accent);
-        margin-bottom: 20px;
+
+      /* Jangan gunakan hover untuk dropdown mobile */
+
+      .main-menu
+        .has-dropdown:hover
+        > .dropdown {
+        display: none;
+      }
+
+      .main-menu
+        .has-dropdown.open:hover
+        > .dropdown {
+        display: flex;
+      }
+
+      /* -------------------------
+         ITEM DROPDOWN
+      ------------------------- */
+
+      .main-menu .dropdown li {
+        width: 100%;
+
+        border-bottom:
+          1px solid #e0e0e0;
+      }
+
+      .main-menu .dropdown li a {
+        display: block;
+
+        width: 100%;
+
+        padding:
+          13px 10%;
+
+        color:
+          var(--green-primary);
+
+        font-size: 0.9rem;
+
+        font-weight: 400;
+      }
+
+      .main-menu .dropdown li a:hover {
+        background-color:
+          #e8f5e9;
+
+        color:
+          var(--orange-accent);
+
+        padding-left:
+          10%;
+      }
+
+      /* -------------------------
+         PANAH DROPDOWN
+      ------------------------- */
+
+      .has-dropdown.open
+        > .dropdown-toggle
+        .arrow {
+        transform:
+          rotate(180deg);
+      }
+
+      /* -------------------------
+         PPDB
+      ------------------------- */
+
+      .main-menu .btn-ppdb {
+        display: block;
+
+        width: 90%;
+
+        margin:
+          15px 5%;
+
+        text-align: center;
+
+        padding:
+          10px 20px !important;
+      }
+
+      /* -------------------------
+         HERO
+      ------------------------- */
+
+      .hero {
+        min-height:
+          calc(100vh - 75px);
+
+        padding:
+          60px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content h2 {
         font-size: 1.2rem;
       }
-      .footer-col ul {
-        list-style: none;
-      }
-      .footer-col ul li {
-        margin-bottom: 10px;
+
+      .hero-content p {
+        font-size: 1rem;
       }
 
-      /* Logo di Footer */
-      .footer-logo {
-        height: 60px;
-        width: auto;
-        margin-bottom: 15px;
-        display: block;
+      .arabic-text {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* =====================================================
+       HP
+    ====================================================== */
+
+    @media screen and (max-width: 768px) {
+
+      .top-bar {
+        font-size: 0.75rem;
+
+        padding:
+          7px 3%;
       }
 
-      /* Gaya Icon Social Media (FontAwesome) */
-      .social-link {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        transition: color 0.3s;
-      }
-      .social-link i {
-        font-size: 1.3rem;
-        width: 24px;
-        text-align: center;
-        color: var(--white);
-        transition:
-          color 0.3s,
-          transform 0.3s;
-      }
-      .social-link:hover,
-      .footer-col ul li a:hover {
-        color: var(--orange-accent);
-      }
-      .social-link:hover i {
-        color: var(--orange-accent);
-        transform: scale(1.2);
-      }
-
-      .copyright {
-        text-align: center;
-        padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      .brand-name {
         font-size: 0.9rem;
       }
 
-      /* =========================================
-         RESPONSIVE DESIGN (Tablet & Smartphone)
-         ========================================= */
-      @media screen and (max-width: 992px) {
-        .menu-toggle {
-          display: flex;
-        }
-
-        nav ul {
-          display: flex;
-          flex-direction: column;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background-color: var(--white);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-15px);
-          transition: all 0.3s ease-in-out;
-        }
-
-        nav ul.active {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
-
-        nav ul li {
-          margin: 0;
-          width: 100%;
-          border-bottom: 1px solid #f0f0f0;
-        }
-        nav ul li a {
-          padding: 15px 5%;
-        }
-
-        nav ul li ul.dropdown {
-          position: static;
-          display: none;
-          box-shadow: none;
-          border-top: none;
-          background-color: #f4fcf5;
-          width: 100%;
-          border-radius: 0;
-        }
-        nav ul li:hover ul.dropdown {
-          display: flex;
-        }
-        nav ul li ul.dropdown li a {
-          padding-left: 10%;
-          border-bottom: 1px solid #e0e0e0;
-        }
-
-        .btn-ppdb {
-          display: inline-block;
-          margin: 15px 5%;
-          text-align: center;
-          width: 90%;
-        }
-
-        .brand img {
-          height: 35px;
-        }
-        .brand-name {
-          font-size: 1rem;
-        }
-        .brand-slogan {
-          font-size: 0.65rem;
-        }
-        .hero-content h1 {
-          font-size: 2.2rem;
-        }
-        .hero-content h2 {
-          font-size: 1.2rem;
-        }
-        .arabic-text {
-          font-size: 1.8rem;
-        }
-
-        .top-bar {
-          flex-direction: column;
-          text-align: center;
-        }
+      .brand-slogan {
+        font-size: 0.58rem;
       }
 
-      /* Pengaturan Khusus Slider di Layar Kecil (HP/Tablet) */
-      @media screen and (max-width: 768px) {
-        .slide {
-          flex: 0 0 85%;
-        }
-        .slider-btn {
-          display: none;
-        }
+      .brand img {
+        height: 32px;
       }
-    </style>
-  </head>
-  <body>
-    <!-- TOP BAR -->
-    <div class="top-bar">
-      <div>
-        <span><i class="fa-solid fa-phone"></i> (021) 1234-5678</span>
-        <span
-          ><i class="fa-solid fa-envelope"></i>
-          info@sditihyausunnah.sch.id</span
-        >
-      </div>
-      <div>
-        <span>Waktu Operasional: Senin - Jumat, 07:00 - 15:00</span>
-      </div>
+
+      /* Hero */
+
+      .hero {
+        min-height: 75vh;
+      }
+
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-content h2 {
+        font-size: 1rem;
+
+        margin-bottom: 20px;
+      }
+
+      .hero-content p {
+        font-size: 0.9rem;
+
+        margin-bottom: 25px;
+      }
+
+      .arabic-text {
+        font-size: 1.6rem;
+      }
+
+      .btn-primary {
+        padding:
+          11px 25px;
+
+        font-size: 0.95rem;
+      }
+
+      /* Section */
+
+      .section-title {
+        font-size: 1.6rem;
+
+        margin-top: 45px;
+      }
+
+      /* Cards */
+
+      .features {
+        grid-template-columns:
+          1fr;
+
+        gap: 20px;
+      }
+
+      .card {
+        padding:
+          30px 25px;
+      }
+
+      /* Gallery */
+
+      .slide {
+        flex:
+          0 0 85%;
+      }
+
+      .slider-btn {
+        display: none;
+      }
+
+      /* Footer */
+
+      footer {
+        padding:
+          40px 5% 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          1fr;
+      }
+    }
+
+    /* =====================================================
+       HP SANGAT KECIL
+    ====================================================== */
+
+    @media screen and (max-width: 400px) {
+
+      .brand-slogan {
+        display: none;
+      }
+
+      .hero-content h1 {
+        font-size: 1.55rem;
+      }
+
+      .hero-content h2 {
+        font-size: 0.9rem;
+      }
+
+      .arabic-text {
+        font-size: 1.4rem;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       TOP BAR
+  ====================================================== -->
+
+  <div class="top-bar">
+
+    <div>
+      <span>
+        <i class="fa-solid fa-phone"></i>
+        (021) 1234-5678
+      </span>
+
+      <span>
+        <i class="fa-solid fa-envelope"></i>
+        info@sditihyausunnah.sch.id
+      </span>
     </div>
 
-    <!-- HEADER / NAVBAR -->
-    <header>
-      <div class="nav-container">
-        <!-- BRANDING: Logo, Nama, Slogan -->
-        <a href="#" class="brand">
-          <img src="./images/sdit.jpg" alt="Logo SDIT Ihyausunnah" />
-          <div class="brand-name">SDIT <span>Ihyaussunnah</span></div>
-          <div class="brand-slogan">Berakidah - Cerdas - Berakhlak Mulia</div>
-        </a>
+    <div>
+      <span>
+        Waktu Operasional:
+        Senin - Jumat, 07:00 - 15:00
+      </span>
+    </div>
 
-        <!-- Tombol Hamburger (HP) -->
-        <div class="menu-toggle" id="mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
+  </div>
+
+
+  <!-- =====================================================
+       HEADER / NAVBAR
+  ====================================================== -->
+
+  <header>
+
+    <div class="nav-container">
+
+      <!-- BRAND -->
+
+      <a href="index.html" class="brand">
+
+        <img
+          src="./images/sdit.jpg"
+          alt="Logo SDIT Ihyaussunnah"
+        />
+
+        <div class="brand-name">
+          SDIT
+          <span>Ihyaussunnah</span>
         </div>
 
-        <!-- MENU -->
-        <nav>
-          <ul id="nav-menu">
-            <li><a href="index.html">Beranda</a></li>
-            <li>
-              <a href="#">Tentang Kami ▾</a>
-              <ul class="dropdown">
-                <li><a href="sejarah.html">Sejarah</a></li>
-                <li><a href="sambutan.html">Sambutan Kepala Sekolah</a></li>
-                <li><a href="visi-misi.html">Visi & Misi</a></li>
-                <li><a href="struktur-sd.html">Organisasi SD</a></li>
-                <li><a href="komite.html">Organisasi Komite</a></li>
-                <li><a href="guru.html">Guru Kami</a></li>
-                <li><a href="video-profile.html">Video Profile</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Kurikulum ▾</a>
-              <ul class="dropdown">
-                <li><a href="kurikulum-umum.html">Umum</a></li>
-                <li><a href="diniyah.html">Diniyah</a></li>
-                <li><a href="tahsin.html">Tahsin dan Tahfizh</a></li>
-                <li><a href="ekskul.html">Intra & Ekstrakurikuler</a></li>
-                <li><a href="kaldik.html">Kaldik (Kalender Akademik)</a></li>
-              </ul>
-            </li>
-            <li><a href="fasilitas.html">Fasilitas</a></li>
-            <li><a href="berita.html">Info Berita</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-            <li><a href="medsos.html">Medsos</a></li>
-            <li><a href="ppdb.html" class="btn-ppdb">PPDB 2026</a></li>
-          </ul>
-        </nav>
+        <div class="brand-slogan">
+          Berakidah - Cerdas - Berakhlak Mulia
+        </div>
+
+      </a>
+
+
+      <!-- HAMBURGER -->
+
+      <button
+        class="menu-toggle"
+        id="mobile-menu"
+        aria-label="Buka menu"
+        aria-expanded="false"
+        type="button"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+
+      <!-- NAVIGATION -->
+
+      <nav>
+
+        <ul
+          id="nav-menu"
+          class="main-menu"
+        >
+
+          <!-- BERANDA -->
+
+          <li>
+            <a href="index.html">
+              Beranda
+            </a>
+          </li>
+
+
+          <!-- =================================================
+               TENTANG KAMI
+          ================================================== -->
+
+          <li class="has-dropdown">
+
+            <a
+              href="#"
+              class="dropdown-toggle"
+              aria-expanded="false"
+            >
+              Tentang Kami
+              <span class="arrow">▾</span>
+            </a>
+
+            <ul class="dropdown">
+
+              <li>
+                <a href="sejarah.html">
+                  Sejarah
+                </a>
+              </li>
+
+              <li>
+                <a href="sambutan.html">
+                  Sambutan Kepala Sekolah
+                </a>
+              </li>
+
+              <li>
+                <a href="visi-misi.html">
+                  Visi &amp; Misi
+                </a>
+              </li>
+
+              <li>
+                <a href="struktur-sd.html">
+                  Organisasi SD
+                </a>
+              </li>
+
+              <li>
+                <a href="komite.html">
+                  Organisasi Komite
+                </a>
+              </li>
+
+              <li>
+                <a href="guru.html">
+                  Guru Kami
+                </a>
+              </li>
+
+              <li>
+                <a href="video-profile.html">
+                  Video Profile
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- =================================================
+               KURIKULUM
+          ================================================== -->
+
+          <li class="has-dropdown">
+
+            <a
+              href="#"
+              class="dropdown-toggle"
+              aria-expanded="false"
+            >
+              Kurikulum
+              <span class="arrow">▾</span>
+            </a>
+
+            <ul class="dropdown">
+
+              <li>
+                <a href="kurikulum-umum.html">
+                  Umum
+                </a>
+              </li>
+
+              <li>
+                <a href="diniyah.html">
+                  Diniyah
+                </a>
+              </li>
+
+              <li>
+                <a href="tahsin.html">
+                  Tahsin dan Tahfizh
+                </a>
+              </li>
+
+              <li>
+                <a href="ekskul.html">
+                  Intra &amp; Ekstrakurikuler
+                </a>
+              </li>
+
+              <li>
+                <a href="kaldik.html">
+                  Kaldik (Kalender Akademik)
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+
+          <!-- MENU BIASA -->
+
+          <li>
+            <a href="fasilitas.html">
+              Fasilitas
+            </a>
+          </li>
+
+          <li>
+            <a href="berita.html">
+              Info Berita
+            </a>
+          </li>
+
+          <li>
+            <a href="kontak.html">
+              Kontak
+            </a>
+          </li>
+
+          <li>
+            <a href="medsos.html">
+              Medsos
+            </a>
+          </li>
+
+
+          <!-- PPDB -->
+
+          <li>
+            <a
+              href="ppdb.html"
+              class="btn-ppdb"
+            >
+              PPDB 2026
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="arabic-text">
+        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
       </div>
-    </header>
 
-    <!-- HERO SECTION (BERANDA) -->
-    <section class="hero">
-      <div class="hero-content">
-        <!-- Kaligrafi Bismillah -->
-        <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+      <h1>
+        SDIT Ihyaussunnah
+      </h1>
 
-        <h1>SDIT Ihyaussunnah</h1>
-        <h2>Berakidah - Cerdas - Berakhlak Mulia</h2>
+      <h2>
+        Berakidah - Cerdas - Berakhlak Mulia
+      </h2>
+
+      <p>
+        Membentuk generasi Qur'ani yang berpegang teguh
+        pada sunnah, berprestasi secara akademik, dan
+        memiliki budi pekerti luhur sebagai bekal di dunia
+        dan akhirat.
+      </p>
+
+      <a
+        href="ppdb.html"
+        class="btn-primary"
+      >
+        Informasi PPDB Terkini
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PROGRAM UNGGULAN
+  ====================================================== -->
+
+  <section class="container">
+
+    <h2 class="section-title">
+      Program Unggulan Kami
+    </h2>
+
+    <div class="features">
+
+      <div class="card">
+
+        <h3>
+          Pendidikan Diniyah &amp; Karakter
+        </h3>
+
         <p>
-          Membentuk generasi Qur'ani yang berpegang teguh pada sunnah,
-          berprestasi secara akademik, dan memiliki budi pekerti luhur sebagai
-          bekal di dunia dan akhirat.
+          Menanamkan akidah yang lurus,
+          akhlakul karimah, dan pembiasaan
+          ibadah harian sesuai dengan
+          pemahaman salafus shalih.
         </p>
-        <a href="ppdb.html" class="btn-primary">Informasi PPDB Terkini</a>
+
       </div>
-    </section>
 
-    <!-- SEKILAS INFO / FITUR -->
-    <section class="container">
-      <h2 class="section-title">Program Unggulan Kami</h2>
-      <div class="features">
-        <div class="card">
-          <h3>Pendidikan Diniyah & Karakter</h3>
-          <p>
-            Menanamkan akidah yang lurus, akhlakul karimah, dan pembiasaan
-            ibadah harian sesuai dengan pemahaman salafus shalih.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Tahsin & Tahfizh Al-Qur'an</h3>
-          <p>
-            Metode hafalan dan perbaikan bacaan Al-Qur'an secara intensif dengan
-            target kelulusan juz 30, 29, dan 28 (menyesuaikan kemampuan siswa).
-          </p>
-        </div>
-        <div class="card">
-          <h3>Akademik Terpadu</h3>
-          <p>
-            Kurikulum nasional (Diknas) yang diajarkan dengan pendekatan Islami,
-            dilengkapi fasilitas lab komputer dan ruang kelas yang kondusif.
-          </p>
-        </div>
+
+      <div class="card">
+
+        <h3>
+          Tahsin &amp; Tahfizh Al-Qur'an
+        </h3>
+
+        <p>
+          Metode hafalan dan perbaikan bacaan
+          Al-Qur'an secara intensif dengan
+          target kelulusan juz 30, 29, dan 28
+          menyesuaikan kemampuan siswa.
+        </p>
+
       </div>
-    </section>
 
-    <!-- SECTION GALERI DOKUMENTASI (SLIDER) -->
-    <section class="container">
-      <h2 class="section-title">Galeri Dokumentasi</h2>
-      <div class="gallery-wrapper">
-        <!-- Tombol Kiri (Untuk PC) -->
-        <button class="slider-btn prev-btn" id="prevBtn">&#10094;</button>
 
-        <!-- Tempat Foto (Slider) -->
-        <div class="gallery-slider" id="gallerySlider">
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80"
-              alt="Dokumentasi 1"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80"
-              alt="Dokumentasi 2"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
-              alt="Dokumentasi 3"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80"
-              alt="Dokumentasi 4"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80"
-              alt="Dokumentasi 5"
-            />
-          </div>
-          <div class="slide">
-            <img
-              src="https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=600&q=80"
-              alt="Dokumentasi 6"
-            />
-          </div>
-        </div>
+      <div class="card">
 
-        <!-- Tombol Kanan (Untuk PC) -->
-        <button class="slider-btn next-btn" id="nextBtn">&#10095;</button>
+        <h3>
+          Akademik Terpadu
+        </h3>
+
+        <p>
+          Kurikulum nasional (Diknas) yang
+          diajarkan dengan pendekatan Islami,
+          dilengkapi fasilitas lab komputer
+          dan ruang kelas yang kondusif.
+        </p>
+
       </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-grid container" style="padding-bottom: 0">
-        <div class="footer-col">
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       GALERI DOKUMENTASI
+  ====================================================== -->
+
+  <section class="container">
+
+    <h2 class="section-title">
+      Galeri Dokumentasi
+    </h2>
+
+    <div class="gallery-wrapper">
+
+      <!-- TOMBOL PREVIOUS -->
+
+      <button
+        class="slider-btn prev-btn"
+        id="prevBtn"
+        type="button"
+        aria-label="Foto sebelumnya"
+      >
+        &#10094;
+      </button>
+
+
+      <!-- SLIDER -->
+
+      <div
+        class="gallery-slider"
+        id="gallerySlider"
+      >
+
+        <div class="slide">
           <img
-            src="https://dummyimage.com/200x80/1b5e20/ffffff.png&text=Logo+Footer+PNG"
-            alt="Logo SDIT Ihyausunnah"
-            class="footer-logo"
+            src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80"
+            alt="Dokumentasi kegiatan sekolah 1"
+            loading="lazy"
           />
+        </div>
 
-          <p>Jl. Pendidikan Islami No. 1, Kota Bontang, Kalimantan Timur.</p>
-          <p
-            style="
-              margin-top: 10px;
-              font-weight: bold;
-              color: var(--orange-accent);
-            "
-          >
-            "Berakidah, Cerdas Berakhlak Mulia"
-          </p>
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80"
+            alt="Dokumentasi kegiatan sekolah 2"
+            loading="lazy"
+          />
         </div>
-        <div class="footer-col">
-          <h4>Tautan Cepat</h4>
-          <ul>
-            <li><a href="ppdb.html">Alur Pendaftaran PPDB</a></li>
-            <li><a href="ekskul.html">Jadwal Ekstrakurikuler</a></li>
-            <li><a href="kaldik.html">Kaldik (Kalender Akademik)</a></li>
-            <li><a href="galeri.html">Galeri Sekolah</a></li>
-          </ul>
+
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
+            alt="Dokumentasi kegiatan sekolah 3"
+            loading="lazy"
+          />
         </div>
-        <div class="footer-col">
-          <h4>Media Sosial & Kontak</h4>
-          <ul>
-            <li>
-              <a
-                href="https://wa.me/6281234567890"
-                target="_blank"
-                class="social-link"
-              >
-                <i class="fa-brands fa-whatsapp"></i> 0812-3456-7890
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://instagram.com/sditihyausunnah"
-                target="_blank"
-                class="social-link"
-              >
-                <i class="fa-brands fa-instagram"></i> @sditihyausunnah
-              </a>
-            </li>
-            <li>
-              <a href="https://youtube.com" target="_blank" class="social-link">
-                <i class="fa-brands fa-youtube"></i> Ihyausunnah TV
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                class="social-link"
-              >
-                <i class="fa-brands fa-facebook"></i> SDIT Ihyausunnah
-              </a>
-            </li>
-          </ul>
+
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=600&q=80"
+            alt="Dokumentasi kegiatan sekolah 4"
+            loading="lazy"
+          />
         </div>
+
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80"
+            alt="Dokumentasi kegiatan sekolah 5"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80"
+            alt="Dokumentasi kegiatan sekolah 6"
+            loading="lazy"
+          />
+        </div>
+
       </div>
-      <div class="copyright">
-        &copy; 2026 Yayasan Ihyausunnah. All Rights Reserved.
+
+
+      <!-- TOMBOL NEXT -->
+
+      <button
+        class="slider-btn next-btn"
+        id="nextBtn"
+        type="button"
+        aria-label="Foto berikutnya"
+      >
+        &#10095;
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <!-- KOLOM 1 -->
+
+      <div class="footer-col">
+
+        <img
+          src="./images/sdit.jpg"
+          alt="Logo SDIT Ihyaussunnah"
+          class="footer-logo"
+        />
+
+        <p>
+          SDIT Ihyaussunnah berkomitmen
+          membentuk generasi Qur'ani yang
+          berakidah, cerdas, dan berakhlak mulia.
+        </p>
+
       </div>
-    </footer>
 
-    <!-- JAVASCRIPT: Menu Auto-Close, Animasi, & Slider -->
-    <script>
-      // 1. Script Hamburger Menu (Mobile) dengan Animasi & Auto-Close
-      const menuToggle = document.getElementById("mobile-menu");
-      const navMenu = document.getElementById("nav-menu");
 
-      // Buka/Tutup saat klik ikon garis tiga
-      menuToggle.addEventListener("click", function (event) {
+      <!-- KOLOM 2 -->
+
+      <div class="footer-col">
+
+        <h4>
+          Menu
+        </h4>
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Beranda
+            </a>
+          </li>
+
+          <li>
+            <a href="sejarah.html">
+              Sejarah
+            </a>
+          </li>
+
+          <li>
+            <a href="visi-misi.html">
+              Visi &amp; Misi
+            </a>
+          </li>
+
+          <li>
+            <a href="guru.html">
+              Guru Kami
+            </a>
+          </li>
+
+          <li>
+            <a href="fasilitas.html">
+              Fasilitas
+            </a>
+          </li>
+
+          <li>
+            <a href="kontak.html">
+              Kontak
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- KOLOM 3 -->
+
+      <div class="footer-col">
+
+        <h4>
+          Kontak
+        </h4>
+
+        <ul>
+
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            (021) 1234-5678
+          </li>
+
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            info@sditihyausunnah.sch.id
+          </li>
+
+          <li>
+            <i class="fa-solid fa-clock"></i>
+            Senin - Jumat
+          </li>
+
+          <li>
+            <i class="fa-solid fa-clock"></i>
+            07:00 - 15:00
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- KOLOM 4 -->
+
+      <div class="footer-col">
+
+        <h4>
+          Media Sosial
+        </h4>
+
+        <ul>
+
+          <li>
+            <a
+              href="#"
+              class="social-link"
+            >
+              <i class="fab fa-facebook"></i>
+              Facebook
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#"
+              class="social-link"
+            >
+              <i class="fab fa-instagram"></i>
+              Instagram
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#"
+              class="social-link"
+            >
+              <i class="fab fa-youtube"></i>
+              YouTube
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#"
+              class="social-link"
+            >
+              <i class="fab fa-whatsapp"></i>
+              WhatsApp
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="copyright">
+
+      &copy;
+      <span id="currentYear"></span>
+      SDIT Ihyaussunnah.
+      All Rights Reserved.
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    /* =====================================================
+       ELEMENT NAVBAR
+    ====================================================== */
+
+    const mobileMenu =
+      document.getElementById("mobile-menu");
+
+    const navMenu =
+      document.getElementById("nav-menu");
+
+    const dropdownToggles =
+      document.querySelectorAll(".dropdown-toggle");
+
+    const dropdownParents =
+      document.querySelectorAll(".has-dropdown");
+
+
+    /* =====================================================
+       HAMBURGER MENU
+    ====================================================== */
+
+    mobileMenu.addEventListener("click", function () {
+
+      const isOpen =
         navMenu.classList.toggle("active");
-        event.stopPropagation(); // Mencegah klik menyebar
+
+      mobileMenu.classList.toggle(
+        "active",
+        isOpen
+      );
+
+      mobileMenu.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+    });
+
+
+    /* =====================================================
+       DROPDOWN MOBILE
+    ====================================================== */
+
+    dropdownToggles.forEach(function (toggle) {
+
+      toggle.addEventListener("click", function (event) {
+
+        /*
+          Mencegah href="#"
+          menggulir halaman ke atas.
+        */
+
+        event.preventDefault();
+
+        const parent =
+          this.closest(".has-dropdown");
+
+        const isCurrentlyOpen =
+          parent.classList.contains("open");
+
+
+        /*
+          Tutup semua dropdown
+        */
+
+        dropdownParents.forEach(function (item) {
+
+          item.classList.remove("open");
+
+          const itemToggle =
+            item.querySelector(".dropdown-toggle");
+
+          if (itemToggle) {
+
+            itemToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          }
+
+        });
+
+
+        /*
+          Kalau sebelumnya tertutup,
+          buka dropdown yang diklik.
+        */
+
+        if (!isCurrentlyOpen) {
+
+          parent.classList.add("open");
+
+          this.setAttribute(
+            "aria-expanded",
+            "true"
+          );
+
+        }
+
       });
 
-      // Menutup menu jika klik di sembarang tempat di luar menu
-      document.addEventListener("click", function (event) {
-        const isClickInsideMenu = navMenu.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
+    });
+
+
+    /* =====================================================
+       TUTUP MENU KETIKA LINK BIASA DIKLIK
+    ====================================================== */
+
+    const normalLinks =
+      navMenu.querySelectorAll(
+        "a:not(.dropdown-toggle)"
+      );
+
+    normalLinks.forEach(function (link) {
+
+      link.addEventListener("click", function () {
+
+        /*
+          Jangan jalankan pada desktop.
+          Hanya berguna ketika menu mobile aktif.
+        */
 
         if (
-          !isClickInsideMenu &&
-          !isClickOnToggle &&
-          navMenu.classList.contains("active")
+          window.innerWidth <= 992
         ) {
+
           navMenu.classList.remove("active");
+
+          mobileMenu.classList.remove("active");
+
+          mobileMenu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          dropdownParents.forEach(function (item) {
+
+            item.classList.remove("open");
+
+          });
+
         }
+
       });
 
-      // 2. PERBAIKAN: Script Menu Links untuk mencegah layar melompat / nge-blank
-      const navLinks = document.querySelectorAll("#nav-menu a");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", function (e) {
-          // Jika link-nya adalah "#" (misal: menu "Tentang Kami" yang ada dropdown-nya)
-          // hentikan aksi bawaan browser agar layar tidak lompat/berkedip.
-          if (this.getAttribute("href") === "#") {
-            e.preventDefault();
-          }
+    });
 
-          // Menutup menu otomatis HANYA jika yang diklik BUKAN judul dropdown
-          if (
-            !this.nextElementSibling ||
-            !this.nextElementSibling.classList.contains("dropdown")
-          ) {
-            navMenu.classList.remove("active");
-          }
-        });
-      });
 
-      // 3. Script Slider Galeri Dokumentasi
-      const gallerySlider = document.getElementById("gallerySlider");
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
+    /* =====================================================
+       KLIK DI LUAR NAVBAR
+    ====================================================== */
 
-      if (gallerySlider && prevBtn && nextBtn) {
-        nextBtn.addEventListener("click", () => {
-          const slideWidth =
-            gallerySlider.querySelector(".slide").clientWidth + 20; // + 20 adalah jarak antar foto
-          gallerySlider.scrollBy({ left: slideWidth, behavior: "smooth" });
-        });
+    document.addEventListener(
+      "click",
+      function (event) {
 
-        prevBtn.addEventListener("click", () => {
-          const slideWidth =
-            gallerySlider.querySelector(".slide").clientWidth + 20;
-          gallerySlider.scrollBy({ left: -slideWidth, behavior: "smooth" });
-        });
+        const clickedInsideNavbar =
+          event.target.closest("header");
+
+        if (!clickedInsideNavbar) {
+
+          navMenu.classList.remove("active");
+
+          mobileMenu.classList.remove("active");
+
+          mobileMenu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          dropdownParents.forEach(function (item) {
+
+            item.classList.remove("open");
+
+            const toggle =
+              item.querySelector(
+                ".dropdown-toggle"
+              );
+
+            if (toggle) {
+
+              toggle.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+            }
+
+          });
+
+        }
+
       }
-    </script>
-  </body>
+    );
+
+
+    /* =====================================================
+       RESET NAVBAR KETIKA BERPINDAH DARI MOBILE
+       KE DESKTOP
+    ====================================================== */
+
+    window.addEventListener(
+      "resize",
+      function () {
+
+        if (window.innerWidth > 992) {
+
+          navMenu.classList.remove("active");
+
+          mobileMenu.classList.remove("active");
+
+          mobileMenu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          dropdownParents.forEach(function (item) {
+
+            item.classList.remove("open");
+
+          });
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       GALERI SLIDER
+    ====================================================== */
+
+    const gallerySlider =
+      document.getElementById("gallerySlider");
+
+    const prevBtn =
+      document.getElementById("prevBtn");
+
+    const nextBtn =
+      document.getElementById("nextBtn");
+
+
+    /*
+      Fungsi untuk mendapatkan
+      jarak satu slide.
+    */
+
+    function getSlideWidth() {
+
+      const slide =
+        gallerySlider.querySelector(".slide");
+
+      if (!slide) {
+        return 0;
+      }
+
+      const style =
+        window.getComputedStyle(slide);
+
+      const gap =
+        parseInt(
+          window.getComputedStyle(
+            gallerySlider
+          ).gap
+        ) || 0;
+
+      return (
+        slide.offsetWidth + gap
+      );
+
+    }
+
+
+    /* Tombol sebelumnya */
+
+    prevBtn.addEventListener(
+      "click",
+      function () {
+
+        gallerySlider.scrollBy({
+
+          left:
+            -getSlideWidth(),
+
+          behavior:
+            "smooth"
+
+        });
+
+      }
+    );
+
+
+    /* Tombol berikutnya */
+
+    nextBtn.addEventListener(
+      "click",
+      function () {
+
+        gallerySlider.scrollBy({
+
+          left:
+            getSlideWidth(),
+
+          behavior:
+            "smooth"
+
+        });
+
+      }
+    );
+
+
+    /* =====================================================
+       TAHUN OTOMATIS
+    ====================================================== */
+
+    document.getElementById(
+      "currentYear"
+    ).textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
 </html>
