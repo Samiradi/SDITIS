@@ -1,0 +1,2553 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kurikulum Umum - SDIT Ihyaussunnah</title>
+
+    <meta name="description"
+          content="Informasi Kurikulum Umum SDIT Ihyaussunnah">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+    --green-primary: #1b5e20;
+    --green-light: #4caf50;
+    --green-soft: #f4fcf5;
+
+    --orange-accent: #ff8f00;
+    --orange-dark: #e68000;
+
+    --white: #ffffff;
+    --black: #222222;
+    --gray: #666666;
+    --light-gray: #f5f5f5;
+    --border: #e5e5e5;
+
+    --shadow-sm: 0 5px 18px rgba(0,0,0,0.07);
+    --shadow-md: 0 12px 30px rgba(0,0,0,0.10);
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--black);
+    line-height: 1.7;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.94),
+            rgba(255,255,255,0.94)
+        ),
+        url("https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80")
+        center / cover fixed no-repeat;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar {
+    background: var(--green-primary);
+    color: white;
+
+    padding: 8px 5%;
+
+    font-size: 13px;
+}
+
+.topbar-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.topbar-left,
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.topbar span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.topbar i {
+    color: #ffd180;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    background: rgba(255,255,255,0.97);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--border);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 12px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--green-primary);
+}
+
+.brand img {
+    width: 52px;
+    height: 52px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid var(--green-primary);
+}
+
+.brand-text {
+    line-height: 1.2;
+}
+
+.brand-text strong {
+    display: block;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.brand-text small {
+    font-size: 11px;
+
+    color: var(--gray);
+}
+
+
+/* NAV MENU */
+
+.nav-menu {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+.nav-menu > li {
+    position: relative;
+}
+
+.nav-menu > li > a {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 10px 12px;
+
+    color: #333;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.nav-menu > li > a:hover,
+.nav-menu > li > a.active {
+    color: var(--green-primary);
+
+    background: var(--green-soft);
+}
+
+
+/* DROPDOWN */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 230px;
+
+    list-style: none;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: var(--shadow-md);
+
+    border: 1px solid var(--border);
+
+    padding: 8px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    display: block;
+
+    padding: 9px 12px;
+
+    color: #444;
+
+    font-size: 13px;
+
+    border-radius: 7px;
+
+    transition: 0.3s;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a.active {
+    background: var(--green-soft);
+
+    color: var(--green-primary);
+}
+
+
+/* MOBILE */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    background: var(--green-primary);
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.page-hero {
+    min-height: 330px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(27,94,32,0.78),
+            rgba(27,94,32,0.82)
+        ),
+        url("./images/quran.jpg")
+        center / cover no-repeat;
+
+    padding: 60px 20px;
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.hero-label {
+    display: inline-block;
+
+    padding: 6px 15px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    border-radius: 50px;
+
+    font-size: 12px;
+
+    margin-bottom: 15px;
+}
+
+.hero-content h1 {
+    font-family: "Amiri", serif;
+
+    font-size: clamp(38px, 6vw, 58px);
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 15px;
+
+    opacity: 0.9;
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 18px 5%;
+
+    font-size: 13px;
+}
+
+.breadcrumb a {
+    color: var(--green-primary);
+
+    font-weight: 600;
+}
+
+.breadcrumb span {
+    color: #999;
+
+    margin: 0 8px;
+}
+
+.breadcrumb strong {
+    color: #555;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 55px 5%;
+}
+
+.section-header {
+    max-width: 750px;
+
+    margin: 0 auto 40px;
+
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+
+    color: var(--green-primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+.section-header h2 {
+    font-family: "Amiri", serif;
+
+    color: var(--green-primary);
+
+    font-size: 40px;
+
+    line-height: 1.2;
+
+    margin-bottom: 12px;
+}
+
+.section-header p {
+    color: var(--gray);
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   INTRO KURIKULUM
+===================================================== */
+
+.curriculum-intro {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: center;
+
+    margin-bottom: 60px;
+}
+
+.curriculum-image {
+    height: 380px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-md);
+}
+
+.curriculum-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.curriculum-content h2 {
+    font-family: "Amiri", serif;
+
+    color: var(--green-primary);
+
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    margin-bottom: 15px;
+}
+
+.curriculum-content p {
+    color: var(--gray);
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   INFO CARDS
+===================================================== */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+
+    margin-bottom: 60px;
+}
+
+.info-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow-md);
+}
+
+.info-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--green-soft);
+
+    color: var(--green-primary);
+
+    font-size: 22px;
+
+    margin-bottom: 17px;
+}
+
+.info-card h3 {
+    color: var(--green-primary);
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    color: var(--gray);
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   LANDASAN
+===================================================== */
+
+.foundation {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow-sm);
+
+    margin-bottom: 60px;
+}
+
+.foundation h2 {
+    color: var(--green-primary);
+
+    font-family: "Amiri", serif;
+
+    font-size: 34px;
+
+    margin-bottom: 20px;
+}
+
+.foundation-list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px 30px;
+
+    list-style: none;
+}
+
+.foundation-list li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+.foundation-list i {
+    color: var(--orange-accent);
+
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   MATA PELAJARAN
+===================================================== */
+
+.subject-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 60px;
+}
+
+.subject-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 22px 18px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.3s;
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--green-light);
+}
+
+.subject-card i {
+    color: var(--green-primary);
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+}
+
+.subject-card h3 {
+    font-size: 15px;
+
+    color: #333;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   APPROACH
+===================================================== */
+
+.approach-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+    margin-bottom: 60px;
+}
+
+.approach-card {
+    display: flex;
+
+    gap: 18px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.approach-number {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--green-primary);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+}
+
+.approach-card h3 {
+    color: var(--green-primary);
+
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+.approach-card p {
+    color: var(--gray);
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   ASESMEN
+===================================================== */
+
+.assessment-box {
+    background:
+        linear-gradient(
+            135deg,
+            #f4fcf5,
+            #ffffff
+        );
+
+    border: 1px solid #dceedd;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    margin-bottom: 60px;
+}
+
+.assessment-box h2 {
+    color: var(--green-primary);
+
+    font-family: "Amiri", serif;
+
+    font-size: 34px;
+
+    margin-bottom: 12px;
+}
+
+.assessment-box > p {
+    color: var(--gray);
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+}
+
+.assessment-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.assessment-item {
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+}
+
+.assessment-item i {
+    color: var(--orange-accent);
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.assessment-item h3 {
+    color: var(--green-primary);
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.assessment-item p {
+    color: var(--gray);
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta {
+    max-width: 1200px;
+
+    margin: 30px auto 70px;
+
+    padding: 0 5%;
+}
+
+.cta-box {
+    background:
+        linear-gradient(
+            135deg,
+            var(--green-primary),
+            #2e7d32
+        );
+
+    color: white;
+
+    border-radius: 22px;
+
+    padding: 45px 40px;
+
+    text-align: center;
+}
+
+.cta-box h2 {
+    font-family: "Amiri", serif;
+
+    font-size: 35px;
+
+    margin-bottom: 8px;
+}
+
+.cta-box p {
+    max-width: 650px;
+
+    margin: 0 auto 22px;
+
+    font-size: 14px;
+
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 12px 22px;
+
+    background: var(--orange-accent);
+
+    color: white;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: var(--orange-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: #123d16;
+
+    color: rgba(255,255,255,0.85);
+
+    padding-top: 55px;
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 0 5% 40px;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+    gap: 40px;
+}
+
+.footer-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.footer-brand img {
+    width: 55px;
+    height: 55px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+.footer-brand strong {
+    display: block;
+
+    color: white;
+
+    font-size: 18px;
+}
+
+.footer-brand small {
+    font-size: 11px;
+}
+
+.footer-column p {
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.footer-column h3 {
+    color: white;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    color: rgba(255,255,255,0.75);
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: #ffd180;
+
+    padding-left: 4px;
+}
+
+.footer-social {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.footer-social a {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.1);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    padding: 0 !important;
+}
+
+.footer-social a:hover {
+    background: var(--orange-accent);
+
+    padding: 0 !important;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    padding: 18px 5%;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: rgba(255,255,255,0.6);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .nav-menu {
+        gap: 0;
+    }
+
+    .nav-menu > li > a {
+        padding: 9px 8px;
+
+        font-size: 12px;
+    }
+
+    .subject-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .curriculum-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .curriculum-image {
+        height: 300px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .assessment-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .topbar {
+        display: none;
+    }
+
+    .nav-container {
+        padding: 10px 5%;
+    }
+
+    .menu-toggle {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        background: white;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 10px 5% 20px;
+
+        border-top: 1px solid var(--border);
+
+        box-shadow: var(--shadow-md);
+
+        max-height: 80vh;
+
+        overflow-y: auto;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-menu > li > a {
+        padding: 12px;
+
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        position: static;
+
+        display: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+        box-shadow: none;
+
+        border: none;
+
+        background: #f7faf7;
+
+        margin-bottom: 5px;
+
+        padding: 5px 10px;
+
+        border-radius: 8px;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+    }
+
+    .foundation-list {
+        grid-template-columns: 1fr;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .brand img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .brand-text strong {
+        font-size: 15px;
+    }
+
+    .brand-text small {
+        font-size: 9px;
+    }
+
+    .page-hero {
+        min-height: 280px;
+
+        padding: 45px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .section {
+        padding: 45px 5%;
+    }
+
+    .section-header h2 {
+        font-size: 32px;
+    }
+
+    .info-grid,
+    .subject-grid,
+    .assessment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .foundation,
+    .assessment-box {
+        padding: 25px;
+    }
+
+    .curriculum-content h2 {
+        font-size: 32px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .cta-box {
+        padding: 35px 20px;
+    }
+
+    .cta-box h2 {
+        font-size: 30px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+    <div class="topbar-container">
+
+        <div class="topbar-left">
+
+            <span>
+                <i class="fa-solid fa-phone"></i>
+                08xxxxxxxxxx
+            </span>
+
+            <span>
+                <i class="fa-solid fa-envelope"></i>
+                info@sditihyaussunnah.sch.id
+            </span>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <span>
+                <i class="fa-solid fa-clock"></i>
+                Senin - Jumat
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+
+        <!-- BRAND -->
+
+        <a href="index.html" class="brand">
+
+            <img
+                src="./images/sdit.jpg"
+                alt="Logo SDIT Ihyaussunnah"
+            >
+
+            <div class="brand-text">
+
+                <strong>
+                    SDIT Ihyaussunnah
+                </strong>
+
+                <small>
+                    Berakidah, Cerdas, Berakhlak Mulia
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <!-- MOBILE BUTTON -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Buka menu"
+        >
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+        <!-- NAV MENU -->
+
+        <ul class="nav-menu" id="navMenu">
+
+
+            <li>
+                <a href="index.html">
+                    Beranda
+                </a>
+            </li>
+
+
+            <!-- TENTANG KAMI -->
+
+            <li class="dropdown">
+
+                <a href="#">
+
+                    Tentang Kami
+
+                    <i
+                        class="fa-solid fa-chevron-down"
+                        style="font-size:10px;"
+                    ></i>
+
+                </a>
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="sejarah.html">
+                            Sejarah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sambutan.html">
+                            Sambutan Kepala Sekolah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="visi-misi.html">
+                            Visi & Misi
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="organisasi.html">
+                            Organisasi SD
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="komite.html">
+                            Organisasi Komite
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="guru.html">
+                            Guru Kami
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="video-profile.html">
+                            Video Profile
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <!-- KURIKULUM -->
+
+            <li class="dropdown">
+
+                <a
+                    href="#"
+                    class="active"
+                >
+
+                    Kurikulum
+
+                    <i
+                        class="fa-solid fa-chevron-down"
+                        style="font-size:10px;"
+                    ></i>
+
+                </a>
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a
+                            href="kurikulum-umum.html"
+                            class="active"
+                        >
+                            Umum
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kurikulum-diniyah.html">
+                            Diniyah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tahsin-tahfizh.html">
+                            Tahsin & Tahfizh
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="ekstrakurikuler.html">
+                            Intra & Ekstrakurikuler
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kaldik.html">
+                            Kalender Pendidikan
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <!-- FASILITAS -->
+
+            <li>
+                <a href="fasilitas.html">
+                    Fasilitas
+                </a>
+            </li>
+
+
+            <!-- BERITA -->
+
+            <li>
+                <a href="berita.html">
+                    Info Berita
+                </a>
+            </li>
+
+
+            <!-- KONTAK -->
+
+            <li>
+                <a href="kontak.html">
+                    Kontak
+                </a>
+            </li>
+
+
+            <!-- MEDSOS -->
+
+            <li>
+                <a href="medsos.html">
+                    Medsos
+                </a>
+            </li>
+
+
+            <!-- PPDB -->
+
+            <li>
+                <a href="ppdb.html">
+                    PPDB 2026
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            Kurikulum Pendidikan
+
+        </span>
+
+        <h1>
+            Kurikulum Umum
+        </h1>
+
+        <p>
+            Pembelajaran akademik yang dirancang untuk
+            mengembangkan pengetahuan, keterampilan,
+            kreativitas, dan karakter peserta didik.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+    <a href="index.html">
+        Beranda
+    </a>
+
+    <span>/</span>
+
+    <span>
+        Kurikulum
+    </span>
+
+    <span>/</span>
+
+    <strong>
+        Umum
+    </strong>
+
+</div>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="section-header">
+
+        <span class="section-label">
+
+            <i class="fa-solid fa-book"></i>
+
+            Program Akademik
+
+        </span>
+
+        <h2>
+            Kurikulum Umum
+        </h2>
+
+        <p>
+            Kurikulum umum menjadi bagian dari sistem
+            pendidikan SDIT Ihyaussunnah dalam membekali
+            peserta didik dengan pengetahuan dan
+            keterampilan akademik.
+        </p>
+
+    </div>
+
+
+
+    <div class="curriculum-intro">
+
+
+        <!-- IMAGE -->
+
+        <div class="curriculum-image">
+
+            <img
+                src="./images/kurikulum-umum.jpg"
+                alt="Kegiatan pembelajaran SDIT Ihyaussunnah"
+            >
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="curriculum-content">
+
+            <h2>
+                Pendidikan Akademik yang Terintegrasi
+            </h2>
+
+            <p>
+                Kurikulum umum di SDIT Ihyaussunnah
+                dilaksanakan untuk membantu peserta didik
+                mengembangkan kemampuan literasi, numerasi,
+                pengetahuan, keterampilan, kreativitas,
+                serta kemampuan berpikir kritis.
+            </p>
+
+            <p>
+                Pembelajaran dilaksanakan dengan
+                memperhatikan perkembangan peserta didik
+                dan tetap mengintegrasikan nilai-nilai
+                keislaman dalam proses pendidikan.
+            </p>
+
+            <p>
+                Dengan pendekatan pembelajaran yang aktif
+                dan kontekstual, peserta didik diharapkan
+                mampu memahami materi sekaligus
+                menerapkannya dalam kehidupan sehari-hari.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         TUJUAN
+    ================================================== -->
+
+    <div class="section-header">
+
+        <span class="section-label">
+            Tujuan Pendidikan
+        </span>
+
+        <h2>
+            Fokus Pengembangan Peserta Didik
+        </h2>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <h3>
+                Pengetahuan
+            </h3>
+
+            <p>
+                Membantu peserta didik memahami berbagai
+                konsep dan pengetahuan sesuai dengan
+                tingkat perkembangan dan jenjang
+                pendidikannya.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+
+            <h3>
+                Keterampilan
+            </h3>
+
+            <p>
+                Mengembangkan kemampuan peserta didik
+                dalam menerapkan pengetahuan melalui
+                aktivitas pembelajaran yang bermakna.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <h3>
+                Karakter
+            </h3>
+
+            <p>
+                Membentuk peserta didik agar memiliki
+                sikap disiplin, bertanggung jawab,
+                mandiri, peduli, dan mampu bekerja sama.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         LANDASAN
+    ================================================== -->
+
+    <div class="foundation">
+
+        <h2>
+            Landasan Pembelajaran
+        </h2>
+
+        <ul class="foundation-list">
+
+            <li>
+
+                <i class="fa-solid fa-check-circle"></i>
+
+                <span>
+                    Pembelajaran berorientasi pada
+                    perkembangan peserta didik.
+                </span>
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-check-circle"></i>
+
+                <span>
+                    Pembelajaran mengembangkan kemampuan
+                    literasi dan numerasi.
+                </span>
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-check-circle"></i>
+
+                <span>
+                    Pembelajaran mendorong kemampuan
+                    berpikir kritis dan kreatif.
+                </span>
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-check-circle"></i>
+
+                <span>
+                    Pembelajaran menghubungkan materi
+                    dengan kehidupan sehari-hari.
+                </span>
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-check-circle"></i>
+
+                <span>
+                    Pembelajaran memperhatikan karakter
+                    dan kebutuhan peserta didik.
+                </span>
+
+            </li>
+
+            <li>
+
+                <i class="fa-solid fa-check-circle"></i>
+
+                <span>
+                    Nilai-nilai keislaman diintegrasikan
+                    dalam proses pembelajaran.
+                </span>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- =================================================
+         MATA PELAJARAN
+    ================================================== -->
+
+    <div class="section-header">
+
+        <span class="section-label">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            Pembelajaran Akademik
+
+        </span>
+
+        <h2>
+            Mata Pelajaran Umum
+        </h2>
+
+        <p>
+            Beberapa bidang pembelajaran umum yang
+            diberikan kepada peserta didik.
+        </p>
+
+    </div>
+
+
+    <div class="subject-grid">
+
+
+        <div class="subject-card">
+
+            <i class="fa-solid fa-language"></i>
+
+            <h3>
+                Bahasa Indonesia
+            </h3>
+
+        </div>
+
+
+        <div class="subject-card">
+
+            <i class="fa-solid fa-calculator"></i>
+
+            <h3>
+                Matematika
+            </h3>
+
+        </div>
+
+
+        <div class="subject-card">
+
+            <i class="fa-solid fa-flask"></i>
+
+            <h3>
+                Ilmu Pengetahuan Alam
+            </h3>
+
+        </div>
+
+
+        <div class="subject-card">
+
+            <i class="fa-solid fa-earth-asia"></i>
+
+            <h3>
+                Ilmu Pengetahuan Sosial
+            </h3>
+
+        </div>
+
+
+        <div class="subject-card">
+
+            <i class="fa-solid fa-landmark"></i>
+
+            <h3>
+                Pendidikan Pancasila
+            </h3>
+
+        </div>
+
+
+        <div class="subject-card">
+
+            <i class="fa-solid fa-globe"></i>
+
+            <h3>
+                Bahasa Inggris
+            </h3>
+
+        </div>
+
+
+        <div class="subject-card">
+
+            <i class="fa-solid fa-palette"></i>
+
+            <h3>
+                Seni dan Budaya
+            </h3>
+
+        </div>
+
+
+        <div class="subject-card">
+
+            <i class="fa-solid fa-person-running"></i>
+
+            <h3>
+                Pendidikan Jasmani
+            </h3>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PENDEKATAN
+    ================================================== -->
+
+    <div class="section-header">
+
+        <span class="section-label">
+            Proses Pembelajaran
+        </span>
+
+        <h2>
+            Pendekatan Pembelajaran
+        </h2>
+
+        <p>
+            Pembelajaran diarahkan agar peserta didik
+            tidak hanya memahami materi, tetapi juga
+            mampu menggunakannya dalam kehidupan.
+        </p>
+
+    </div>
+
+
+    <div class="approach-grid">
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                01
+            </div>
+
+            <div>
+
+                <h3>
+                    Aktif dan Interaktif
+                </h3>
+
+                <p>
+                    Peserta didik dilibatkan secara aktif
+                    melalui diskusi, praktik, tanya jawab,
+                    dan berbagai aktivitas pembelajaran.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                02
+            </div>
+
+            <div>
+
+                <h3>
+                    Kontekstual
+                </h3>
+
+                <p>
+                    Materi pembelajaran dikaitkan dengan
+                    pengalaman dan lingkungan kehidupan
+                    peserta didik.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                03
+            </div>
+
+            <div>
+
+                <h3>
+                    Berbasis Proyek
+                </h3>
+
+                <p>
+                    Peserta didik diberikan kesempatan
+                    mengembangkan kreativitas dan
+                    keterampilan melalui kegiatan proyek.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="approach-card">
+
+            <div class="approach-number">
+                04
+            </div>
+
+            <div>
+
+                <h3>
+                    Integrasi Nilai Islam
+                </h3>
+
+                <p>
+                    Pembelajaran umum diarahkan agar
+                    tetap selaras dengan nilai-nilai
+                    keislaman dan pembentukan akhlak.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         ASESMEN
+    ================================================== -->
+
+    <div class="assessment-box">
+
+        <h2>
+            Asesmen dan Evaluasi
+        </h2>
+
+        <p>
+            Evaluasi pembelajaran dilakukan untuk
+            mengetahui perkembangan pengetahuan,
+            keterampilan, dan sikap peserta didik.
+        </p>
+
+
+        <div class="assessment-grid">
+
+
+            <div class="assessment-item">
+
+                <i class="fa-solid fa-file-pen"></i>
+
+                <h3>
+                    Pengetahuan
+                </h3>
+
+                <p>
+                    Penilaian terhadap pemahaman peserta
+                    didik terhadap materi pembelajaran.
+                </p>
+
+            </div>
+
+
+            <div class="assessment-item">
+
+                <i class="fa-solid fa-hand"></i>
+
+                <h3>
+                    Keterampilan
+                </h3>
+
+                <p>
+                    Penilaian terhadap kemampuan peserta
+                    didik dalam menerapkan pengetahuan.
+                </p>
+
+            </div>
+
+
+            <div class="assessment-item">
+
+                <i class="fa-solid fa-heart"></i>
+
+                <h3>
+                    Sikap
+                </h3>
+
+                <p>
+                    Pengamatan terhadap sikap, karakter,
+                    kedisiplinan, dan tanggung jawab.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="cta-box">
+
+        <h2>
+            Pendidikan untuk Masa Depan
+        </h2>
+
+        <p>
+            SDIT Ihyaussunnah berusaha menghadirkan
+            pendidikan yang memadukan ilmu pengetahuan,
+            keterampilan, dan nilai-nilai keislaman.
+        </p>
+
+        <a
+            href="kontak.html"
+            class="cta-button"
+        >
+
+            <i class="fa-solid fa-envelope"></i>
+
+            Hubungi Kami
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <!-- ABOUT -->
+
+        <div class="footer-column">
+
+            <div class="footer-brand">
+
+                <img
+                    src="./images/sdit.jpg"
+                    alt="Logo SDIT Ihyaussunnah"
+                >
+
+                <div>
+
+                    <strong>
+                        SDIT Ihyaussunnah
+                    </strong>
+
+                    <small>
+                        Berakidah, Cerdas,
+                        Berakhlak Mulia
+                    </small>
+
+                </div>
+
+            </div>
+
+            <p>
+                Sekolah Dasar Islam Terpadu yang
+                berkomitmen membentuk generasi
+                Qur'ani, berilmu, mandiri, dan
+                berakhlak mulia.
+            </p>
+
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+                <a href="#" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <div class="footer-column">
+
+            <h3>
+                Menu
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Beranda
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sejarah.html">
+                        Sejarah
+                    </a>
+                </li>
+
+                <li>
+                    <a href="visi-misi.html">
+                        Visi & Misi
+                    </a>
+                </li>
+
+                <li>
+                    <a href="guru.html">
+                        Guru Kami
+                    </a>
+                </li>
+
+                <li>
+                    <a href="fasilitas.html">
+                        Fasilitas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="berita.html">
+                        Berita
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- INFORMASI -->
+
+        <div class="footer-column">
+
+            <h3>
+                Informasi
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="kurikulum-umum.html">
+                        Kurikulum Umum
+                    </a>
+                </li>
+
+                <li>
+                    <a href="kurikulum-diniyah.html">
+                        Kurikulum Diniyah
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tahsin-tahfizh.html">
+                        Tahsin & Tahfizh
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ekstrakurikuler.html">
+                        Ekstrakurikuler
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ppdb.html">
+                        PPDB 2026
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- KONTAK -->
+
+        <div class="footer-column">
+
+            <h3>
+                Kontak
+            </h3>
+
+            <p>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Jl. _______________________<br>
+
+                Bontang, Kalimantan Timur
+
+            </p>
+
+            <br>
+
+            <p>
+
+                <i class="fa-solid fa-phone"></i>
+
+                08xxxxxxxxxx
+
+            </p>
+
+            <br>
+
+            <p>
+
+                <i class="fa-solid fa-envelope"></i>
+
+                info@sditihyaussunnah.sch.id
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        &copy;
+
+        <span id="currentYear"></span>
+
+        SDIT Ihyaussunnah.
+
+        Semua Hak Dilindungi.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* MOBILE MENU */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navMenu =
+    document.getElementById("navMenu");
+
+
+menuToggle.addEventListener("click", function () {
+
+    navMenu.classList.toggle("show");
+
+    const icon =
+        menuToggle.querySelector("i");
+
+    if (navMenu.classList.contains("show")) {
+
+        icon.classList.remove("fa-bars");
+
+        icon.classList.add("fa-xmark");
+
+    } else {
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    }
+
+});
+
+
+/* MOBILE DROPDOWN */
+
+const dropdowns =
+    document.querySelectorAll(".dropdown > a");
+
+
+dropdowns.forEach(function (dropdownLink) {
+
+    dropdownLink.addEventListener("click", function (event) {
+
+        if (window.innerWidth <= 800) {
+
+            event.preventDefault();
+
+            const parent =
+                this.parentElement;
+
+            parent.classList.toggle("open");
+
+        }
+
+    });
+
+});
+
+
+/* CLOSE MENU OUTSIDE */
+
+document.addEventListener("click", function (event) {
+
+    if (!event.target.closest(".navbar")) {
+
+        navMenu.classList.remove("show");
+
+        menuToggle
+            .querySelector("i")
+            .classList.remove("fa-xmark");
+
+        menuToggle
+            .querySelector("i")
+            .classList.add("fa-bars");
+
+    }
+
+});
+
+
+/* RESET MENU */
+
+window.addEventListener("resize", function () {
+
+    if (window.innerWidth > 800) {
+
+        navMenu.classList.remove("show");
+
+        document
+            .querySelectorAll(".dropdown")
+            .forEach(function (item) {
+
+                item.classList.remove("open");
+
+            });
+
+        menuToggle
+            .querySelector("i")
+            .classList.remove("fa-xmark");
+
+        menuToggle
+            .querySelector("i")
+            .classList.add("fa-bars");
+
+    }
+
+});
+
+
+/* CURRENT YEAR */
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+</script>
+
+
+</body>
+</html>
