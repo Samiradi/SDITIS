@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tahsin & Tahfizh - SDIT Ihyaussunnah</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            --green: #27AE60;
+            --green-dark: #1E8449;
+            --green-deep: #145A32;
+            --green-soft: #EAF8F0;
+
+            --orange: #F39C12;
+            --orange-dark: #D68910;
+            --orange-soft: #FFF4DF;
+
+            --white: #ffffff;
+            --black: #222222;
+            --gray: #666666;
+            --light-gray: #f5f7f6;
+            --border: #e4e9e6;
+
+            --shadow-sm: 0 5px 18px rgba(0,0,0,0.07);
+            --shadow-md: 0 12px 30px rgba(0,0,0,0.10);
+            --shadow-lg: 0 20px 45px rgba(20,90,50,0.14);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--black);
+            background: #fff;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           TOPBAR
+        ========================= */
+
+        .topbar {
+            background: var(--green-deep);
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .topbar-inner {
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .topbar i {
+            color: var(--orange);
+            margin-right: 5px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+
+        .nav-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .logo img {
+            width: 52px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--green);
+        }
+
+        .logo-text h2 {
+            font-family: 'Amiri', serif;
+            color: var(--green-deep);
+            font-size: 25px;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            display: block;
+            color: var(--orange-dark);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-menu > li {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 27px 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--green);
+        }
+
+        .nav-link i {
+            font-size: 10px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% - 5px);
+            left: 0;
+            min-width: 230px;
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+            box-shadow: var(--shadow-md);
+            list-style: none;
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 18px;
+            font-size: 13px;
+            color: #444;
+            transition: 0.25s;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a.active {
+            background: var(--green-soft);
+            color: var(--green-dark);
+            padding-left: 23px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: none;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(20,90,50,0.96),
+                    rgba(39,174,96,0.88),
+                    rgba(20,90,50,0.84)
+                ),
+                url('./images/quran.jpg') center/cover;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 50%;
+            right: -160px;
+            top: -120px;
+            animation: rotateCircle 18s linear infinite;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50%;
+            left: -130px;
+            bottom: -150px;
+        }
+
+        @keyframes rotateCircle {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            color: #fff;
+            padding: 75px 0;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 15px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.13);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .hero-label i {
+            color: var(--orange);
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            animation: fadeUp 0.9s 0.1s ease both;
+        }
+
+        .hero h1 span {
+            color: #ffd166;
+        }
+
+        .hero p {
+            max-width: 720px;
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            animation: fadeUp 0.9s 0.2s ease both;
+        }
+
+        .hero-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 28px;
+            margin-top: 22px;
+            color: rgba(255,255,255,0.92);
+            animation: fadeUp 0.9s 0.3s ease both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           BREADCRUMB
+        ========================= */
+
+        .breadcrumb {
+            background: var(--green-soft);
+            padding: 13px 0;
+        }
+
+        .breadcrumb-inner {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .breadcrumb a {
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .breadcrumb i {
+            font-size: 9px;
+            color: var(--orange);
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 45px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--orange-dark);
+            background: var(--orange-soft);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-family: 'Amiri', serif;
+            font-size: 40px;
+            line-height: 1.25;
+            color: var(--green-deep);
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            background: #fff;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .intro-image {
+            position: relative;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 410px;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .intro-badge {
+            position: absolute;
+            right: -18px;
+            bottom: 25px;
+            background: #fff;
+            padding: 18px 22px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--orange);
+        }
+
+        .intro-badge strong {
+            display: block;
+            color: var(--green-deep);
+            font-size: 14px;
+        }
+
+        .intro-badge span {
+            color: var(--gray);
+            font-size: 11px;
+        }
+
+        .intro-content h2 {
+            font-family: 'Amiri', serif;
+            font-size: 42px;
+            color: var(--green-deep);
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .intro-content > p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .quote-box {
+            background: var(--green-soft);
+            border-left: 4px solid var(--green);
+            padding: 18px 20px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 25px;
+        }
+
+        .quote-box .arabic {
+            font-family: 'Amiri', serif;
+            font-size: 27px;
+            color: var(--green-deep);
+            margin-bottom: 5px;
+        }
+
+        .quote-box p {
+            font-size: 12px;
+            color: #52705d;
+        }
+
+        /* =========================
+           TAHAPAN
+        ========================= */
+
+        .stages {
+            background: var(--light-gray);
+        }
+
+        .stage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .stage-card {
+            position: relative;
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: 0.35s;
+            overflow: hidden;
+        }
+
+        .stage-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--green);
+        }
+
+        .stage-card:nth-child(2)::before {
+            background: var(--orange);
+        }
+
+        .stage-card:nth-child(3)::before {
+            background: var(--green-dark);
+        }
+
+        .stage-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stage-number {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .stage-card:nth-child(2) .stage-number {
+            background: var(--orange-soft);
+            color: var(--orange-dark);
+        }
+
+        .stage-card h3 {
+            color: var(--green-deep);
+            font-size: 20px;
+            margin-bottom: 9px;
+        }
+
+        .stage-card p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        .stage-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .stage-card li {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 7px;
+        }
+
+        .stage-card li i {
+            color: var(--green);
+            margin-right: 7px;
+        }
+
+        /* =========================
+           TAHFIZH JUZ
+        ========================= */
+
+        .juz-section {
+            background: #fff;
+        }
+
+        .juz-intro {
+            max-width: 800px;
+            margin: -20px auto 40px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .juz-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .juz-card {
+            position: relative;
+            min-height: 210px;
+            padding: 25px 17px;
+            text-align: center;
+            border-radius: 18px;
+            background: linear-gradient(145deg, #fff, var(--green-soft));
+            border: 1px solid #dcefe3;
+            overflow: hidden;
+            transition: 0.35s;
+        }
+
+        .juz-card:nth-child(even) {
+            background: linear-gradient(145deg, #fff, var(--orange-soft));
+            border-color: #f7e4bf;
+        }
+
+        .juz-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .juz-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--green);
+            color: #fff;
+            font-family: 'Amiri', serif;
+            font-size: 22px;
+            box-shadow: 0 8px 18px rgba(39,174,96,0.22);
+        }
+
+        .juz-card:nth-child(even) .juz-icon {
+            background: var(--orange);
+            box-shadow: 0 8px 18px rgba(243,156,18,0.22);
+        }
+
+        .juz-card h3 {
+            font-family: 'Amiri', serif;
+            color: var(--green-deep);
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+
+        .juz-card p {
+            font-size: 11px;
+            color: var(--gray);
+        }
+
+        .juz-card small {
+            display: inline-block;
+            margin-top: 13px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.8);
+            color: var(--green-dark);
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           SISTEM PEMBELAJARAN
+        ========================= */
+
+        .method-section {
+            background: var(--green-soft);
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .method-card {
+            background: #fff;
+            border-radius: 17px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+        }
+
+        .method-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .method-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 16px;
+            border-radius: 15px;
+            background: var(--green-soft);
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+        }
+
+        .method-card:nth-child(even) .method-icon {
+            background: var(--orange-soft);
+            color: var(--orange-dark);
+        }
+
+        .method-card h3 {
+            color: var(--green-deep);
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
+
+        .method-card p {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        /* =========================
+           TARGET INDIVIDUAL
+        ========================= */
+
+        .individual {
+            background: #fff;
+        }
+
+        .individual-box {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 45px;
+            align-items: center;
+            background: linear-gradient(135deg, var(--green-deep), var(--green));
+            border-radius: 25px;
+            padding: 45px;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .individual-box::after {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            right: -100px;
+            top: -100px;
+        }
+
+        .individual-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .individual-content .mini-label {
+            display: inline-block;
+            color: #fff;
+            background: rgba(255,255,255,0.12);
+            padding: 6px 13px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 13px;
+        }
+
+        .individual-content h2 {
+            font-family: 'Amiri', serif;
+            font-size: 40px;
+            line-height: 1.25;
+            margin-bottom: 15px;
+        }
+
+        .individual-content p {
+            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+        }
+
+        .principles {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .principle {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 17px;
+            border-radius: 14px;
+        }
+
+        .principle i {
+            color: #ffd166;
+            margin-right: 7px;
+        }
+
+        .principle strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .principle span {
+            color: rgba(255,255,255,0.72);
+            font-size: 10px;
+        }
+
+        /* =========================
+           EVALUASI
+        ========================= */
+
+        .evaluation {
+            background: var(--light-gray);
+        }
+
+        .evaluation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .evaluation-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 28px;
+            border: 1px solid var(--border);
+        }
+
+        .evaluation-card h3 {
+            color: var(--green-deep);
+            font-size: 18px;
+            margin-bottom: 13px;
+        }
+
+        .evaluation-card h3 i {
+            color: var(--orange);
+            margin-right: 8px;
+        }
+
+        .evaluation-card p {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        .evaluation-card ul {
+            list-style: none;
+            margin-top: 13px;
+        }
+
+        .evaluation-card li {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .evaluation-card li i {
+            color: var(--green);
+            margin-right: 7px;
+        }
+
+        /* =========================
+           PARENT
+        ========================= */
+
+        .parent-section {
+            background: #fff;
+        }
+
+        .parent-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .parent-box h2 {
+            font-family: 'Amiri', serif;
+            color: var(--green-deep);
+            font-size: 39px;
+            margin-bottom: 15px;
+        }
+
+        .parent-box > p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        .parent-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .parent-point {
+            background: var(--green-soft);
+            padding: 25px 18px;
+            border-radius: 16px;
+        }
+
+        .parent-point:nth-child(2) {
+            background: var(--orange-soft);
+        }
+
+        .parent-point i {
+            font-size: 25px;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .parent-point:nth-child(2) i {
+            color: var(--orange-dark);
+        }
+
+        .parent-point h4 {
+            color: var(--green-deep);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .parent-point p {
+            color: var(--gray);
+            font-size: 11px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 70px 0;
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(20,90,50,0.97),
+                    rgba(39,174,96,0.94)
+                );
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: 'Amiri', serif;
+            font-size: 43px;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--orange);
+            color: #fff;
+            padding: 13px 23px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0f3f25;
+            color: rgba(255,255,255,0.75);
+            padding: 55px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 45px;
+            padding-bottom: 35px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+
+        .footer-logo h3 {
+            font-family: 'Amiri', serif;
+            color: #fff;
+            font-size: 22px;
+        }
+
+        .footer-about p {
+            font-size: 12px;
+            line-height: 1.8;
+            max-width: 400px;
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            font-size: 12px;
+            transition: 0.25s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 18px;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        /* =========================
+           REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.7s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-menu {
+                position: absolute;
+                top: 76px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 10px 5%;
+                box-shadow: var(--shadow-md);
+                display: none;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 13px 8px;
+                justify-content: space-between;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: var(--green-soft);
+                border-radius: 8px;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .intro-grid,
+            .individual-box {
+                grid-template-columns: 1fr;
+            }
+
+            .stage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .juz-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .method-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .evaluation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .topbar-left {
+                display: none;
+            }
+
+            .topbar-inner {
+                justify-content: center;
+            }
+
+            .logo-text h2 {
+                font-size: 21px;
+            }
+
+            .logo img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .hero {
+                min-height: 390px;
+            }
+
+            .hero-content {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-heading h2,
+            .intro-content h2,
+            .parent-box h2 {
+                font-size: 34px;
+            }
+
+            .intro-image img {
+                height: 300px;
+            }
+
+            .intro-badge {
+                right: 12px;
+                bottom: 15px;
+            }
+
+            .juz-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .individual-box {
+                padding: 30px 22px;
+            }
+
+            .individual-content h2 {
+                font-size: 34px;
+            }
+
+            .principles {
+                grid-template-columns: 1fr;
+            }
+
+            .parent-points {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta h2 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     TOPBAR
+========================= -->
+
+<div class="topbar">
+    <div class="container topbar-inner">
+
+        <div class="topbar-left">
+            <span>
+                <i class="fas fa-envelope"></i>
+                info@sditihyaussunnah.sch.id
+            </span>
+
+            <span>
+                <i class="fas fa-phone"></i>
+                08xxxxxxxxxx
+            </span>
+        </div>
+
+        <div class="topbar-right">
+            <span>
+                <i class="fas fa-quran"></i>
+                Sekolah Berbasis Al-Qur'an
+            </span>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="index.html" class="logo">
+
+            <img src="./images/sdit.jpg" alt="Logo SDIT Ihyaussunnah">
+
+            <div class="logo-text">
+                <h2>SDIT Ihyaussunnah</h2>
+                <span>ISLAMIC INTEGRATED SCHOOL</span>
+            </div>
+
+        </a>
+
+
+        <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html" class="nav-link">
+                    Beranda
+                </a>
+            </li>
+
+
+            <li class="dropdown">
+
+                <a href="#" class="nav-link">
+                    Tentang Kami
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="sejarah.html">
+                            Sejarah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sambutan.html">
+                            Sambutan Kepala Sekolah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="visi-misi.html">
+                            Visi & Misi
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="organisasi.html">
+                            Organisasi SD
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="komite.html">
+                            Organisasi Komite
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="guru.html">
+                            Guru Kami
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="video-profile.html">
+                            Video Profile
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <li class="dropdown">
+
+                <a href="#" class="nav-link active">
+                    Kurikulum
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="kurikulum-umum.html">
+                            Umum
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kurikulum-diniyah.html">
+                            Diniyah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tahsin-tahfizh.html" class="active">
+                            Tahsin & Tahfizh
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="ekstrakurikuler.html">
+                            Intra & Ekstrakurikuler
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kaldik.html">
+                            Kalender Pendidikan
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <li>
+                <a href="fasilitas.html" class="nav-link">
+                    Fasilitas
+                </a>
+            </li>
+
+
+            <li>
+                <a href="berita.html" class="nav-link">
+                    Info Berita
+                </a>
+            </li>
+
+
+            <li>
+                <a href="kontak.html" class="nav-link">
+                    Kontak
+                </a>
+            </li>
+
+
+            <li>
+                <a href="medsos.html" class="nav-link">
+                    Medsos
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#" class="nav-link">
+                    PPDB 2026
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                <i class="fas fa-quran"></i>
+                KURIKULUM TAHsin & TAHFIZH
+            </div>
+
+            <h1>
+                Dekat dengan
+                <span>Al-Qur'an</span>
+            </h1>
+
+            <p>
+                Program pembelajaran Al-Qur'an yang membimbing peserta didik
+                secara bertahap, mulai dari memperbaiki bacaan hingga
+                menghafal Al-Qur'an sesuai target dan kemampuan masing-masing.
+            </p>
+
+            <div class="hero-arabic">
+                وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BREADCRUMB
+========================= -->
+
+<div class="breadcrumb">
+
+    <div class="container breadcrumb-inner">
+
+        <a href="index.html">
+            Beranda
+        </a>
+
+        <i class="fas fa-chevron-right"></i>
+
+        <a href="#">
+            Kurikulum
+        </a>
+
+        <i class="fas fa-chevron-right"></i>
+
+        <span>
+            Tahsin & Tahfizh
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+            <div class="intro-image reveal">
+
+                <img
+                    src="./images/kurikulum-tahsin-tahfizh.jpg"
+                    alt="Pembelajaran Tahsin dan Tahfizh Al-Qur'an"
+                >
+
+                <div class="intro-badge">
+                    <strong>
+                        Belajar • Membaca • Menghafal
+                    </strong>
+
+                    <span>
+                        Bertahap sesuai kemampuan peserta didik
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="intro-content reveal">
+
+                <div class="section-label">
+                    PROGRAM AL-QUR'AN
+                </div>
+
+                <h2>
+                    Membaca dengan Benar,
+                    Menghafal dengan Cinta
+                </h2>
+
+                <p>
+                    Tahsin dan Tahfizh merupakan bagian penting dalam
+                    pembelajaran di SDIT Ihyaussunnah. Peserta didik
+                    dibimbing untuk mengenal, membaca, memahami adab
+                    terhadap Al-Qur'an, serta menghafalkannya secara
+                    bertahap.
+                </p>
+
+                <p>
+                    Pembelajaran dimulai dari kemampuan dasar membaca
+                    melalui <strong>Iqro'</strong>, dilanjutkan dengan
+                    pengenalan <strong>Ghorib</strong> dan penerapan
+                    <strong>Tajwid</strong>, kemudian peserta didik
+                    diarahkan untuk menghafal Al-Qur'an secara bertahap.
+                </p>
+
+                <div class="quote-box">
+
+                    <div class="arabic">
+                        وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا
+                    </div>
+
+                    <p>
+                        "Dan bacalah Al-Qur'an itu dengan tartil."
+                        — QS. Al-Muzzammil: 4
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TAHAPAN TAHSIN
+========================= -->
+
+<section class="stages">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                TAHAPAN PEMBELAJARAN
+            </div>
+
+            <h2>
+                Tahsin Secara Bertahap
+            </h2>
+
+            <p>
+                Peserta didik mengikuti tahapan pembelajaran sesuai
+                kemampuan dan perkembangan bacaan masing-masing.
+            </p>
+
+        </div>
+
+
+        <div class="stage-grid">
+
+            <div class="stage-card reveal">
+
+                <div class="stage-number">
+                    01
+                </div>
+
+                <h3>
+                    Iqro'
+                </h3>
+
+                <p>
+                    Tahap dasar bagi peserta didik yang masih membutuhkan
+                    penguatan kemampuan membaca huruf dan rangkaian
+                    huruf hijaiyah.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Mengenal huruf hijaiyah
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Membaca huruf berharakat
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Membaca kata dan ayat sederhana
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="stage-card reveal">
+
+                <div class="stage-number">
+                    02
+                </div>
+
+                <h3>
+                    Ghorib
+                </h3>
+
+                <p>
+                    Peserta didik dikenalkan dengan bacaan-bacaan
+                    khusus dalam Al-Qur'an yang membutuhkan perhatian
+                    dan latihan secara lebih mendalam.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Mengenal bacaan Ghorib
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Mengenali bacaan khusus
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Latihan membaca secara tepat
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="stage-card reveal">
+
+                <div class="stage-number">
+                    03
+                </div>
+
+                <h3>
+                    Tajwid
+                </h3>
+
+                <p>
+                    Peserta didik mempelajari dan menerapkan kaidah
+                    tajwid agar bacaan Al-Qur'an semakin benar,
+                    tartil dan sesuai dengan kemampuan masing-masing.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Makharijul huruf
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Hukum bacaan
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Praktik membaca Al-Qur'an
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TAHFIZH JUZ
+========================= -->
+
+<section class="juz-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                PROGRAM TAHFIZH
+            </div>
+
+            <h2>
+                Target Hafalan Al-Qur'an
+            </h2>
+
+            <p>
+                Hafalan diarahkan secara bertahap dari juz 30 menuju
+                juz-juz sebelumnya sesuai target dan kemampuan setiap
+                peserta didik.
+            </p>
+
+        </div>
+
+
+        <p class="juz-intro reveal">
+            Tidak semua peserta didik memiliki kecepatan hafalan yang sama.
+            Karena itu, capaian hafalan dilakukan secara bertahap dengan
+            memperhatikan kemampuan, kelancaran, kualitas hafalan,
+            serta konsistensi murajaah masing-masing peserta didik.
+        </p>
+
+
+        <div class="juz-grid">
+
+            <div class="juz-card reveal">
+
+                <div class="juz-icon">
+                    30
+                </div>
+
+                <h3>
+                    Juz 30
+                </h3>
+
+                <p>
+                    Tahap awal hafalan Al-Qur'an
+                    dan penguatan surat-surat pendek.
+                </p>
+
+                <small>
+                    TARGET AWAL
+                </small>
+
+            </div>
+
+
+            <div class="juz-card reveal">
+
+                <div class="juz-icon">
+                    29
+                </div>
+
+                <h3>
+                    Juz 29
+                </h3>
+
+                <p>
+                    Melanjutkan hafalan setelah
+                    capaian Juz 30 terpenuhi.
+                </p>
+
+                <small>
+                    TAHAP LANJUTAN
+                </small>
+
+            </div>
+
+
+            <div class="juz-card reveal">
+
+                <div class="juz-icon">
+                    28
+                </div>
+
+                <h3>
+                    Juz 28
+                </h3>
+
+                <p>
+                    Pengembangan hafalan dengan
+                    penguatan murajaah.
+                </p>
+
+                <small>
+                    TAHAP LANJUTAN
+                </small>
+
+            </div>
+
+
+            <div class="juz-card reveal">
+
+                <div class="juz-icon">
+                    27
+                </div>
+
+                <h3>
+                    Juz 27
+                </h3>
+
+                <p>
+                    Penguatan hafalan Al-Qur'an
+                    secara bertahap dan terukur.
+                </p>
+
+                <small>
+                    TAHAP PENGEMBANGAN
+                </small>
+
+            </div>
+
+
+            <div class="juz-card reveal">
+
+                <div class="juz-icon">
+                    26
+                </div>
+
+                <h3>
+                    Juz 26
+                </h3>
+
+                <p>
+                    Tahap pengembangan hafalan
+                    menuju capaian yang lebih luas.
+                </p>
+
+                <small>
+                    TAHAP LANJUTAN
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     METODE PEMBELAJARAN
+========================= -->
+
+<section class="method-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                METODE PEMBELAJARAN
+            </div>
+
+            <h2>
+                Belajar Al-Qur'an dengan Pendekatan Bertahap
+            </h2>
+
+            <p>
+                Pembelajaran mengutamakan ketepatan bacaan, konsistensi
+                hafalan dan pembiasaan murajaah.
+            </p>
+
+        </div>
+
+
+        <div class="method-grid">
+
+            <div class="method-card reveal">
+
+                <div class="method-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+
+                <h3>
+                    Talaqqi
+                </h3>
+
+                <p>
+                    Peserta didik belajar secara langsung dengan guru
+                    melalui contoh bacaan dan koreksi.
+                </p>
+
+            </div>
+
+
+            <div class="method-card reveal">
+
+                <div class="method-icon">
+                    <i class="fas fa-volume-high"></i>
+                </div>
+
+                <h3>
+                    Musyafahah
+                </h3>
+
+                <p>
+                    Memperbaiki pelafalan dan makharijul huruf
+                    melalui praktik membaca secara langsung.
+                </p>
+
+            </div>
+
+
+            <div class="method-card reveal">
+
+                <div class="method-icon">
+                    <i class="fas fa-rotate"></i>
+                </div>
+
+                <h3>
+                    Murajaah
+                </h3>
+
+                <p>
+                    Mengulang hafalan secara rutin agar hafalan
+                    tetap kuat dan lancar.
+                </p>
+
+            </div>
+
+
+            <div class="method-card reveal">
+
+                <div class="method-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+
+                <h3>
+                    Setoran Hafalan
+                </h3>
+
+                <p>
+                    Peserta didik menyetorkan hafalan kepada guru
+                    sesuai kemampuan dan kesiapan masing-masing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TARGET INDIVIDUAL
+========================= -->
+
+<section class="individual">
+
+    <div class="container">
+
+        <div class="individual-box reveal">
+
+            <div class="individual-content">
+
+                <span class="mini-label">
+                    PRINSIP UTAMA PROGRAM
+                </span>
+
+                <h2>
+                    Setiap Anak Memiliki
+                    Perjalanan yang Berbeda
+                </h2>
+
+                <p>
+                    Target hafalan menjadi arah pembelajaran, bukan
+                    ukuran untuk menyamakan seluruh peserta didik.
+                    Setiap anak dibimbing berdasarkan kemampuan,
+                    perkembangan dan capaian masing-masing.
+                </p>
+
+            </div>
+
+
+            <div class="principles">
+
+                <div class="principle">
+
+                    <strong>
+                        <i class="fas fa-user"></i>
+                        Sesuai Kemampuan
+                    </strong>
+
+                    <span>
+                        Kecepatan belajar disesuaikan dengan kemampuan
+                        masing-masing peserta didik.
+                    </span>
+
+                </div>
+
+
+                <div class="principle">
+
+                    <strong>
+                        <i class="fas fa-chart-line"></i>
+                        Bertahap
+                    </strong>
+
+                    <span>
+                        Peserta didik berkembang dari tahap dasar
+                        menuju tahap berikutnya secara berkelanjutan.
+                    </span>
+
+                </div>
+
+
+                <div class="principle">
+
+                    <strong>
+                        <i class="fas fa-heart"></i>
+                        Tanpa Membebani
+                    </strong>
+
+                    <span>
+                        Pembelajaran memperhatikan kenyamanan dan
+                        kemampuan anak dalam menjaga hafalan.
+                    </span>
+
+                </div>
+
+
+                <div class="principle">
+
+                    <strong>
+                        <i class="fas fa-medal"></i>
+                        Menghargai Capaian
+                    </strong>
+
+                    <span>
+                        Setiap perkembangan peserta didik dihargai
+                        sebagai bagian dari proses belajar.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EVALUASI
+========================= -->
+
+<section class="evaluation">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                EVALUASI
+            </div>
+
+            <h2>
+                Pemantauan Perkembangan Peserta Didik
+            </h2>
+
+            <p>
+                Evaluasi dilakukan untuk mengetahui perkembangan bacaan
+                dan hafalan serta menentukan langkah pembelajaran berikutnya.
+            </p>
+
+        </div>
+
+
+        <div class="evaluation-grid">
+
+            <div class="evaluation-card reveal">
+
+                <h3>
+                    <i class="fas fa-quran"></i>
+                    Evaluasi Tahsin
+                </h3>
+
+                <p>
+                    Menilai perkembangan kemampuan membaca Al-Qur'an.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Kelancaran membaca
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Makharijul huruf
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Penerapan tajwid
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Bacaan Ghorib
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="evaluation-card reveal">
+
+                <h3>
+                    <i class="fas fa-brain"></i>
+                    Evaluasi Hafalan
+                </h3>
+
+                <p>
+                    Memantau kualitas hafalan yang telah diperoleh.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Kelancaran hafalan
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Ketepatan bacaan
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Konsistensi hafalan
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Kemampuan murajaah
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="evaluation-card reveal">
+
+                <h3>
+                    <i class="fas fa-clipboard-check"></i>
+                    Capaian Individu
+                </h3>
+
+                <p>
+                    Setiap peserta didik memiliki catatan perkembangan
+                    berdasarkan kemampuan dan targetnya.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Capaian bacaan
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Capaian hafalan
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Perkembangan murajaah
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check"></i>
+                        Target berikutnya
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     KERJA SAMA ORANG TUA
+========================= -->
+
+<section class="parent-section">
+
+    <div class="container">
+
+        <div class="parent-box reveal">
+
+            <div class="section-label">
+                SINERGI SEKOLAH & KELUARGA
+            </div>
+
+            <h2>
+                Membiasakan Al-Qur'an di Rumah
+            </h2>
+
+            <p>
+                Keberhasilan pembelajaran Al-Qur'an membutuhkan
+                pembiasaan yang dilakukan secara konsisten.
+                Sekolah dan orang tua dapat bekerja sama dalam
+                menjaga kebiasaan membaca dan murajaah peserta didik.
+            </p>
+
+
+            <div class="parent-points">
+
+                <div class="parent-point">
+
+                    <i class="fas fa-clock"></i>
+
+                    <h4>
+                        Waktu Murajaah
+                    </h4>
+
+                    <p>
+                        Membiasakan anak mengulang hafalan secara
+                        rutin di rumah.
+                    </p>
+
+                </div>
+
+
+                <div class="parent-point">
+
+                    <i class="fas fa-book-quran"></i>
+
+                    <h4>
+                        Membaca Al-Qur'an
+                    </h4>
+
+                    <p>
+                        Mendampingi anak menjaga kebiasaan membaca
+                        Al-Qur'an dengan baik.
+                    </p>
+
+                </div>
+
+
+                <div class="parent-point">
+
+                    <i class="fas fa-hands-praying"></i>
+
+                    <h4>
+                        Memberi Motivasi
+                    </h4>
+
+                    <p>
+                        Memberikan dukungan dan apresiasi terhadap
+                        setiap perkembangan anak.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Menumbuhkan Generasi Pecinta Al-Qur'an
+        </h2>
+
+        <p>
+            Bersama membangun kebiasaan membaca, mempelajari,
+            menghafal dan mengamalkan Al-Qur'an dalam kehidupan
+            sehari-hari.
+        </p>
+
+        <a href="kontak.html" class="cta-btn">
+            <i class="fas fa-envelope"></i>
+            Hubungi Kami
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+
+                <div class="footer-logo">
+
+                    <img
+                        src="./images/sdit.jpg"
+                        alt="Logo SDIT Ihyaussunnah"
+                    >
+
+                    <h3>
+                        SDIT Ihyaussunnah
+                    </h3>
+
+                </div>
+
+                <p>
+                    Sekolah Dasar Islam Terpadu yang berkomitmen
+                    membangun generasi berilmu, berakhlak dan
+                    dekat dengan Al-Qur'an.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4 class="footer-title">
+                    Kurikulum
+                </h4>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="kurikulum-umum.html">
+                            Kurikulum Umum
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kurikulum-diniyah.html">
+                            Kurikulum Diniyah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tahsin-tahfizh.html">
+                            Tahsin & Tahfizh
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="ekstrakurikuler.html">
+                            Intra & Ekstrakurikuler
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kaldik.html">
+                            Kalender Pendidikan
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4 class="footer-title">
+                    Informasi
+                </h4>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="berita.html">
+                            Berita & Kegiatan
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fasilitas.html">
+                            Fasilitas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="guru.html">
+                            Guru Kami
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kontak.html">
+                            Kontak
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="medsos.html">
+                            Media Sosial
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 SDIT Ihyaussunnah.
+            Semua Hak Dilindungi.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileToggle.addEventListener('click', function () {
+
+        navMenu.classList.toggle('active');
+
+        const icon = this.querySelector('i');
+
+        if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+
+    });
+
+
+    // Mobile dropdown
+    document.querySelectorAll('.dropdown > .nav-link').forEach(function(link) {
+
+        link.addEventListener('click', function(e) {
+
+            if (window.innerWidth <= 1000) {
+
+                e.preventDefault();
+
+                const parent = this.parentElement;
+
+                parent.classList.toggle('open');
+
+            }
+
+        });
+
+    });
+
+
+    // Reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver(
+        function(entries, observer) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('show');
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+    revealElements.forEach(function(element) {
+
+        revealObserver.observe(element);
+
+    });
+
+
+    // Close mobile menu after clicking normal link
+    document.querySelectorAll(
+        '.nav-menu a:not(.dropdown > .nav-link)'
+    ).forEach(function(link) {
+
+        link.addEventListener('click', function() {
+
+            if (window.innerWidth <= 1000) {
+
+                navMenu.classList.remove('active');
+
+                const icon = mobileToggle.querySelector('i');
+
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+
+            }
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
