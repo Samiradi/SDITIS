@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fasilitas | SDIT Ihyaussunnah</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+
+    :root {
+      --green-primary: #1b5e20;
+      --green-dark: #104315;
+      --green-light: #4caf50;
+      --green-soft: #f4fcf5;
+
+      --orange-accent: #ff8f00;
+      --orange-dark: #e68000;
+
+      --white: #ffffff;
+      --black: #1d1d1d;
+      --gray: #666666;
+      --gray-light: #f5f5f5;
+      --border: #e5e5e5;
+
+      --shadow-sm: 0 4px 15px rgba(0,0,0,.07);
+      --shadow-md: 0 10px 30px rgba(0,0,0,.10);
+      --shadow-lg: 0 18px 45px rgba(0,0,0,.14);
+
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--black);
+      line-height: 1.7;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,.94),
+          rgba(255,255,255,.94)
+        ),
+        url("https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80")
+        center / cover fixed;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+
+    /* =========================
+       TOP BAR
+    ========================= */
+
+    .top-bar {
+      background: var(--green-dark);
+      color: white;
+      padding: 8px 5%;
+      font-size: 13px;
+    }
+
+    .top-bar-container {
+      max-width: 1200px;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .top-info {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .top-info span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .top-info i {
+      color: #ffd166;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+
+      box-shadow: 0 3px 18px rgba(0,0,0,.08);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+
+      padding: 12px 5%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+      border: 2px solid var(--green-primary);
+    }
+
+    .brand-text strong {
+      display: block;
+
+      color: var(--green-primary);
+
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .brand-text small {
+      color: var(--gray);
+      font-size: 11px;
+    }
+
+
+    /* NAV MENU */
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+
+      gap: 5px;
+
+      list-style: none;
+    }
+
+    .nav-menu > li {
+      position: relative;
+    }
+
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      padding: 10px 12px;
+
+      font-size: 13px;
+      font-weight: 500;
+
+      color: #333;
+
+      border-radius: 8px;
+
+      transition: .3s;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--green-primary);
+      background: var(--green-soft);
+    }
+
+    .nav-menu .ppdb {
+      background: var(--orange-accent);
+      color: white;
+
+      border-radius: 25px;
+
+      padding: 9px 17px;
+    }
+
+    .nav-menu .ppdb:hover {
+      background: var(--orange-dark);
+      color: white;
+    }
+
+
+    /* DROPDOWN */
+
+    .dropdown-menu {
+      position: absolute;
+
+      top: 100%;
+      left: 0;
+
+      min-width: 220px;
+
+      background: white;
+
+      border-radius: 12px;
+
+      box-shadow: var(--shadow-md);
+
+      padding: 8px;
+
+      list-style: none;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: translateY(10px);
+
+      transition: .25s;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      width: 100%;
+      padding: 9px 12px;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--green-soft);
+    }
+
+    .dropdown-icon {
+      font-size: 10px;
+    }
+
+
+    /* MOBILE MENU */
+
+    .menu-toggle {
+      display: none;
+
+      border: none;
+      background: none;
+
+      font-size: 25px;
+
+      color: var(--green-primary);
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .page-hero {
+      position: relative;
+
+      min-height: 360px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(17,77,27,.93),
+          rgba(27,94,32,.82)
+        ),
+        url("./images/quran.jpg")
+        center / cover no-repeat;
+    }
+
+    .page-hero-content {
+      max-width: 800px;
+      padding: 50px 20px;
+    }
+
+    .page-hero .label {
+      display: inline-block;
+
+      padding: 7px 17px;
+
+      border-radius: 30px;
+
+      background: rgba(255,255,255,.14);
+
+      border: 1px solid rgba(255,255,255,.25);
+
+      font-size: 12px;
+
+      margin-bottom: 15px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Amiri', serif;
+
+      font-size: clamp(42px, 6vw, 65px);
+
+      line-height: 1.1;
+
+      margin-bottom: 12px;
+    }
+
+    .page-hero p {
+      max-width: 650px;
+
+      margin: auto;
+
+      color: rgba(255,255,255,.88);
+
+      font-size: 15px;
+    }
+
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .container {
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding: 70px 5%;
+    }
+
+    .section-heading {
+      text-align: center;
+
+      max-width: 750px;
+
+      margin: 0 auto 40px;
+    }
+
+    .section-heading .label {
+      color: var(--orange-dark);
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+    }
+
+    .section-heading h2 {
+      font-family: 'Amiri', serif;
+
+      color: var(--green-primary);
+
+      font-size: 42px;
+
+      line-height: 1.2;
+
+      margin: 7px 0;
+    }
+
+    .section-heading p {
+      color: var(--gray);
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       FILTER
+    ========================= */
+
+    .facility-filter {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-bottom: 45px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+
+      background: white;
+
+      color: #555;
+
+      padding: 9px 18px;
+
+      border-radius: 30px;
+
+      font-family: inherit;
+
+      font-size: 13px;
+
+      cursor: pointer;
+
+      transition: .3s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--green-primary);
+
+      border-color: var(--green-primary);
+
+      color: white;
+    }
+
+
+    /* =========================
+       FACILITY GRID
+    ========================= */
+
+    .facility-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 25px;
+    }
+
+
+    /* =========================
+       FACILITY CARD
+    ========================= */
+
+    .facility-card {
+      position: relative;
+
+      background: white;
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow-sm);
+
+      border: 1px solid rgba(0,0,0,.04);
+
+      transition: .35s;
+    }
+
+    .facility-card:hover {
+      transform: translateY(-8px);
+
+      box-shadow: var(--shadow-lg);
+    }
+
+
+    .facility-image {
+      position: relative;
+
+      height: 235px;
+
+      overflow: hidden;
+    }
+
+    .facility-image img {
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: .5s;
+    }
+
+    .facility-card:hover .facility-image img {
+      transform: scale(1.07);
+    }
+
+
+    /* CATEGORY */
+
+    .facility-category {
+      position: absolute;
+
+      top: 15px;
+      left: 15px;
+
+      padding: 6px 12px;
+
+      border-radius: 30px;
+
+      background: var(--orange-accent);
+
+      color: white;
+
+      font-size: 10px;
+
+      font-weight: 600;
+    }
+
+
+    /* ICON */
+
+    .facility-icon {
+      position: absolute;
+
+      right: 15px;
+      bottom: -24px;
+
+      width: 50px;
+      height: 50px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background: var(--green-primary);
+
+      color: white;
+
+      border-radius: 50%;
+
+      border: 4px solid white;
+
+      font-size: 19px;
+
+      z-index: 2;
+    }
+
+
+    /* CARD CONTENT */
+
+    .facility-content {
+      padding: 30px 23px 25px;
+    }
+
+    .facility-content h3 {
+      color: var(--green-primary);
+
+      font-size: 20px;
+
+      margin-bottom: 8px;
+    }
+
+    .facility-content p {
+      color: var(--gray);
+
+      font-size: 13px;
+
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       HIGHLIGHT
+    ========================= */
+
+    .facility-highlight {
+      margin-top: 65px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--green-primary),
+          var(--green-dark)
+        );
+
+      border-radius: 24px;
+
+      color: white;
+
+      padding: 45px;
+
+      display: grid;
+
+      grid-template-columns: 1.3fr 1fr;
+
+      gap: 40px;
+
+      align-items: center;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+    .facility-highlight::after {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.05);
+
+      right: -80px;
+      top: -100px;
+    }
+
+    .highlight-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .highlight-content .small-title {
+      color: #ffd166;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+    }
+
+    .highlight-content h2 {
+      font-family: 'Amiri', serif;
+
+      font-size: 38px;
+
+      line-height: 1.2;
+
+      margin: 8px 0 15px;
+    }
+
+    .highlight-content p {
+      color: rgba(255,255,255,.82);
+
+      font-size: 14px;
+    }
+
+    .highlight-list {
+      position: relative;
+
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+    }
+
+    .highlight-item {
+      padding: 15px;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,.09);
+
+      border: 1px solid rgba(255,255,255,.1);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+    }
+
+    .highlight-item i {
+      color: #ffd166;
+
+      font-size: 18px;
+    }
+
+    .highlight-item span {
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       NO RESULT
+    ========================= */
+
+    .no-facility {
+      display: none;
+
+      text-align: center;
+
+      padding: 60px 20px;
+
+      background: white;
+
+      border-radius: var(--radius);
+
+      color: var(--gray);
+    }
+
+    .no-facility i {
+      font-size: 40px;
+
+      color: #bbb;
+
+      margin-bottom: 15px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #103d16;
+
+      color: rgba(255,255,255,.8);
+
+      margin-top: 30px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding: 55px 5% 25px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.5fr 1fr 1fr;
+
+      gap: 45px;
+    }
+
+    .footer-brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      margin-bottom: 15px;
+    }
+
+    .footer-brand img {
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+    }
+
+    .footer-brand h3 {
+      color: white;
+
+      font-size: 18px;
+    }
+
+    .footer-about p {
+      font-size: 13px;
+
+      line-height: 1.8;
+    }
+
+    .footer-column h4 {
+      color: white;
+
+      margin-bottom: 15px;
+
+      font-size: 15px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 9px;
+
+      font-size: 13px;
+    }
+
+    .footer-column a {
+      font-size: 13px;
+
+      transition: .3s;
+    }
+
+    .footer-column a:hover {
+      color: #ffd166;
+
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+
+      padding: 18px 5%;
+
+      text-align: center;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-menu {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        background: white;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 10px 5%;
+
+        box-shadow: var(--shadow-md);
+
+        display: none;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-menu > li > a {
+        width: 100%;
+
+        justify-content: space-between;
+      }
+
+      .dropdown-menu {
+        position: static;
+
+        display: none;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform: none;
+
+        box-shadow: none;
+
+        padding-left: 15px;
+      }
+
+      .dropdown.active .dropdown-menu {
+        display: block;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .facility-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .facility-highlight {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns:
+          1fr 1fr;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .top-bar {
+        display: none;
+      }
+
+      .brand-text small {
+        display: none;
+      }
+
+      .brand img {
+        width: 45px;
+        height: 45px;
+      }
+
+      .container {
+        padding-top: 50px;
+
+        padding-bottom: 50px;
+      }
+
+      .page-hero {
+        min-height: 300px;
+      }
+
+      .section-heading h2 {
+        font-size: 35px;
+      }
+
+      .facility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facility-image {
+        height: 230px;
+      }
+
+      .facility-highlight {
+        padding: 30px 23px;
+      }
+
+      .highlight-content h2 {
+        font-size: 31px;
+      }
+
+      .highlight-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       TOP BAR
+  ========================= -->
+
+  <div class="top-bar">
+
+    <div class="top-bar-container">
+
+      <div class="top-info">
+
+        <span>
+          <i class="fas fa-phone"></i>
+          08xxxxxxxxxx
+        </span>
+
+        <span>
+          <i class="fas fa-envelope"></i>
+          info@sditihyaussunnah.sch.id
+        </span>
+
+      </div>
+
+
+      <div class="top-info">
+
+        <span>
+          <i class="fas fa-location-dot"></i>
+          Bontang, Kalimantan Timur
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <nav class="navbar">
+
+    <div class="nav-container">
+
+
+      <a href="index.html" class="brand">
+
+        <img
+          src="./images/sdit.jpg"
+          alt="Logo SDIT Ihyaussunnah">
+
+        <div class="brand-text">
+
+          <strong>
+            SDIT Ihyaussunnah
+          </strong>
+
+          <small>
+            Berakidah, Cerdas Berakhlak Mulia
+          </small>
+
+        </div>
+
+      </a>
+
+
+      <button
+        class="menu-toggle"
+        id="menuToggle">
+
+        <i class="fas fa-bars"></i>
+
+      </button>
+
+
+      <ul
+        class="nav-menu"
+        id="navMenu">
+
+
+        <li>
+
+          <a href="index.html">
+            Beranda
+          </a>
+
+        </li>
+
+
+        <!-- TENTANG -->
+
+        <li class="dropdown">
+
+          <a href="#">
+
+            Tentang Kami
+
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+
+          </a>
+
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a href="sejarah.html">
+                Sejarah
+              </a>
+            </li>
+
+            <li>
+              <a href="sambutan.html">
+                Sambutan Kepala Sekolah
+              </a>
+            </li>
+
+            <li>
+              <a href="visi-misi.html">
+                Visi & Misi
+              </a>
+            </li>
+
+            <li>
+              <a href="organisasi.html">
+                Organisasi SD
+              </a>
+            </li>
+
+            <li>
+              <a href="komite.html">
+                Organisasi Komite
+              </a>
+            </li>
+
+            <li>
+              <a href="guru.html">
+                Guru Kami
+              </a>
+            </li>
+
+            <li>
+              <a href="video-profile.html">
+                Video Profile
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <!-- KURIKULUM -->
+
+        <li class="dropdown">
+
+          <a href="#">
+
+            Kurikulum
+
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+
+          </a>
+
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a href="kurikulum-umum.html">
+                Umum
+              </a>
+            </li>
+
+            <li>
+              <a href="kurikulum-diniyah.html">
+                Diniyah
+              </a>
+            </li>
+
+            <li>
+              <a href="tahsin-tahfizh.html">
+                Tahsin & Tahfizh
+              </a>
+            </li>
+
+            <li>
+              <a href="ekstrakurikuler.html">
+                Intra & Ekstrakurikuler
+              </a>
+            </li>
+
+            <li>
+              <a href="kaldik.html">
+                Kalender Pendidikan
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <!-- FASILITAS -->
+
+        <li>
+
+          <a
+            href="fasilitas.html"
+            class="active">
+
+            Fasilitas
+
+          </a>
+
+        </li>
+
+
+        <!-- BERITA -->
+
+        <li>
+
+          <a href="berita.html">
+            Info Berita
+          </a>
+
+        </li>
+
+
+        <!-- KONTAK -->
+
+        <li>
+
+          <a href="kontak.html">
+            Kontak
+          </a>
+
+        </li>
+
+
+        <!-- MEDSOS -->
+
+        <li>
+
+          <a href="medsos.html">
+            Medsos
+          </a>
+
+        </li>
+
+
+        <!-- PPDB -->
+
+        <li>
+
+          <a
+            href="ppdb.html"
+            class="ppdb">
+
+            PPDB 2026
+
+          </a>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="page-hero">
+
+    <div class="page-hero-content">
+
+      <span class="label">
+
+        <i class="fas fa-school"></i>
+
+        LINGKUNGAN SEKOLAH
+
+      </span>
+
+
+      <h1>
+        Fasilitas Sekolah
+      </h1>
+
+
+      <p>
+
+        Fasilitas yang mendukung proses pembelajaran,
+        pembentukan karakter, ibadah, dan pengembangan
+        potensi peserta didik.
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FACILITY CONTENT
+  ========================= -->
+
+  <main>
+
+    <div class="container">
+
+
+      <div class="section-heading">
+
+        <span class="label">
+          SARANA & PRASARANA
+        </span>
+
+        <h2>
+          Fasilitas SDIT Ihyaussunnah
+        </h2>
+
+        <p>
+
+          Kami berupaya menyediakan lingkungan sekolah
+          yang nyaman, aman, dan mendukung kegiatan
+          pendidikan siswa secara optimal.
+
+        </p>
+
+      </div>
+
+
+      <!-- =========================
+           FILTER
+      ========================= -->
+
+      <div class="facility-filter">
+
+        <button
+          class="filter-btn active"
+          data-filter="all">
+
+          Semua
+
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="pembelajaran">
+
+          Pembelajaran
+
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="ibadah">
+
+          Ibadah
+
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="olahraga">
+
+          Olahraga
+
+        </button>
+
+
+        <button
+          class="filter-btn"
+          data-filter="pendukung">
+
+          Pendukung
+
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           FACILITY GRID
+      ========================= -->
+
+      <div
+        class="facility-grid"
+        id="facilityGrid">
+
+
+        <!-- 1 -->
+
+        <article
+          class="facility-card"
+          data-category="pembelajaran">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-kelas.jpg"
+              alt="Ruang kelas">
+
+            <span class="facility-category">
+              Pembelajaran
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-chalkboard-user"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              Ruang Kelas
+            </h3>
+
+            <p>
+
+              Ruang kelas yang dirancang untuk menciptakan
+              suasana belajar yang nyaman, kondusif,
+              dan menyenangkan bagi peserta didik.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- 2 -->
+
+        <article
+          class="facility-card"
+          data-category="ibadah">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-masjid.jpg"
+              alt="Masjid sekolah">
+
+            <span class="facility-category">
+              Ibadah
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-mosque"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              Masjid / Mushalla
+            </h3>
+
+            <p>
+
+              Sarana ibadah untuk mendukung pembiasaan
+              shalat berjamaah dan kegiatan keislaman
+              di lingkungan sekolah.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- 3 -->
+
+        <article
+          class="facility-card"
+          data-category="pembelajaran">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-perpustakaan.jpg"
+              alt="Perpustakaan sekolah">
+
+            <span class="facility-category">
+              Pembelajaran
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-book-open"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              Perpustakaan
+            </h3>
+
+            <p>
+
+              Tempat siswa membaca, mencari referensi,
+              dan mengembangkan budaya literasi
+              melalui berbagai sumber bacaan.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- 4 -->
+
+        <article
+          class="facility-card"
+          data-category="olahraga">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-lapangan.jpg"
+              alt="Lapangan olahraga">
+
+            <span class="facility-category">
+              Olahraga
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-futbol"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              Lapangan Olahraga
+            </h3>
+
+            <p>
+
+              Area olahraga yang digunakan untuk kegiatan
+              jasmani, permainan, ekstrakurikuler,
+              dan berbagai aktivitas siswa.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- 5 -->
+
+        <article
+          class="facility-card"
+          data-category="pembelajaran">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-lab.jpg"
+              alt="Laboratorium">
+
+            <span class="facility-category">
+              Pembelajaran
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-flask"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              Laboratorium
+            </h3>
+
+            <p>
+
+              Sarana pendukung pembelajaran praktik agar
+              siswa dapat memperoleh pengalaman belajar
+              yang lebih aktif dan aplikatif.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- 6 -->
+
+        <article
+          class="facility-card"
+          data-category="pendukung">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-uks.jpg"
+              alt="UKS">
+
+            <span class="facility-category">
+              Pendukung
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-kit-medical"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              UKS
+            </h3>
+
+            <p>
+
+              Fasilitas pendukung untuk membantu menjaga
+              kesehatan dan kenyamanan siswa selama
+              berada di lingkungan sekolah.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- 7 -->
+
+        <article
+          class="facility-card"
+          data-category="pendukung">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-guru.jpg"
+              alt="Ruang guru">
+
+            <span class="facility-category">
+              Pendukung
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-users"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              Ruang Guru
+            </h3>
+
+            <p>
+
+              Ruang kerja dan koordinasi guru dalam
+              merencanakan, melaksanakan, serta mengevaluasi
+              proses pendidikan.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- 8 -->
+
+        <article
+          class="facility-card"
+          data-category="pendukung">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-toilet.jpg"
+              alt="Toilet sekolah">
+
+            <span class="facility-category">
+              Pendukung
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-restroom"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              Toilet Siswa
+            </h3>
+
+            <p>
+
+              Fasilitas sanitasi yang disediakan untuk
+              mendukung kebersihan dan kenyamanan seluruh
+              warga sekolah.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- 9 -->
+
+        <article
+          class="facility-card"
+          data-category="ibadah">
+
+
+          <div class="facility-image">
+
+            <img
+              src="./images/fasilitas-quran.jpg"
+              alt="Ruang tahfizh">
+
+            <span class="facility-category">
+              Ibadah
+            </span>
+
+
+            <div class="facility-icon">
+
+              <i class="fas fa-quran"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="facility-content">
+
+            <h3>
+              Ruang Tahsin & Tahfizh
+            </h3>
+
+            <p>
+
+              Ruang yang digunakan untuk mendukung
+              pembelajaran Al-Qur'an, tahsin, tahfizh,
+              dan kegiatan keislaman siswa.
+
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+      <!-- EMPTY -->
+
+      <div
+        class="no-facility"
+        id="noFacility">
+
+        <i class="fas fa-school"></i>
+
+        <h3>
+          Fasilitas Tidak Ditemukan
+        </h3>
+
+        <p>
+          Belum tersedia fasilitas pada kategori ini.
+        </p>
+
+      </div>
+
+
+      <!-- =========================
+           HIGHLIGHT
+      ========================= -->
+
+      <section class="facility-highlight">
+
+
+        <div class="highlight-content">
+
+          <span class="small-title">
+            LINGKUNGAN PENDIDIKAN
+          </span>
+
+
+          <h2>
+            Belajar dalam Lingkungan
+            yang Nyaman
+          </h2>
+
+
+          <p>
+
+            Lingkungan sekolah merupakan bagian penting
+            dari proses pendidikan. Karena itu, fasilitas
+            sekolah diarahkan untuk mendukung perkembangan
+            akademik, spiritual, sosial, dan fisik siswa.
+
+          </p>
+
+        </div>
+
+
+        <div class="highlight-list">
+
+
+          <div class="highlight-item">
+
+            <i class="fas fa-book"></i>
+
+            <span>
+              Mendukung pembelajaran
+            </span>
+
+          </div>
+
+
+          <div class="highlight-item">
+
+            <i class="fas fa-mosque"></i>
+
+            <span>
+              Mendukung ibadah
+            </span>
+
+          </div>
+
+
+          <div class="highlight-item">
+
+            <i class="fas fa-heart"></i>
+
+            <span>
+              Lingkungan nyaman
+            </span>
+
+          </div>
+
+
+          <div class="highlight-item">
+
+            <i class="fas fa-shield-halved"></i>
+
+            <span>
+              Aman dan kondusif
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-container">
+
+
+      <div class="footer-about">
+
+        <div class="footer-brand">
+
+          <img
+            src="./images/sdit.jpg"
+            alt="Logo SDIT Ihyaussunnah">
+
+          <h3>
+            SDIT Ihyaussunnah
+          </h3>
+
+        </div>
+
+
+        <p>
+
+          Berakidah, Cerdas Berakhlak Mulia.
+          Membangun generasi yang mencintai Al-Qur'an,
+          berilmu, berakhlak, dan bermanfaat bagi umat.
+
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Menu
+        </h4>
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Beranda
+            </a>
+          </li>
+
+          <li>
+            <a href="tentang.html">
+              Tentang Kami
+            </a>
+          </li>
+
+          <li>
+            <a href="kurikulum.html">
+              Kurikulum
+            </a>
+          </li>
+
+          <li>
+            <a href="fasilitas.html">
+              Fasilitas
+            </a>
+          </li>
+
+          <li>
+            <a href="berita.html">
+              Berita
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Hubungi Kami
+        </h4>
+
+        <ul>
+
+          <li>
+            <i class="fas fa-location-dot"></i>
+            Bontang, Kalimantan Timur
+          </li>
+
+          <li>
+            <i class="fas fa-phone"></i>
+            08xxxxxxxxxx
+          </li>
+
+          <li>
+            <i class="fas fa-envelope"></i>
+            info@sditihyaussunnah.sch.id
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      © <span id="currentYear"></span>
+      SDIT Ihyaussunnah.
+      Semua Hak Dilindungi.
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuToggle =
+      document.getElementById('menuToggle');
+
+    const navMenu =
+      document.getElementById('navMenu');
+
+
+    menuToggle.addEventListener('click', function () {
+
+      navMenu.classList.toggle('active');
+
+    });
+
+
+    /* =========================
+       MOBILE DROPDOWN
+    ========================= */
+
+    const dropdowns =
+      document.querySelectorAll('.dropdown');
+
+
+    dropdowns.forEach(function(dropdown) {
+
+      const link =
+        dropdown.querySelector(':scope > a');
+
+
+      link.addEventListener('click', function(e) {
+
+        if (window.innerWidth <= 1000) {
+
+          e.preventDefault();
+
+          dropdown.classList.toggle('active');
+
+        }
+
+      });
+
+    });
+
+
+    /* =========================
+       FILTER FASILITAS
+    ========================= */
+
+    const filterButtons =
+      document.querySelectorAll('.filter-btn');
+
+    const facilityCards =
+      document.querySelectorAll('.facility-card');
+
+    const noFacility =
+      document.getElementById('noFacility');
+
+
+    filterButtons.forEach(function(button) {
+
+      button.addEventListener('click', function() {
+
+        const filter =
+          button.getAttribute('data-filter');
+
+
+        /* Active button */
+
+        filterButtons.forEach(function(btn) {
+
+          btn.classList.remove('active');
+
+        });
+
+        button.classList.add('active');
+
+
+        let visibleCount = 0;
+
+
+        /* Filter */
+
+        facilityCards.forEach(function(card) {
+
+          const category =
+            card.getAttribute('data-category');
+
+
+          if (
+            filter === 'all' ||
+            category === filter
+          ) {
+
+            card.style.display = 'block';
+
+            visibleCount++;
+
+          } else {
+
+            card.style.display = 'none';
+
+          }
+
+        });
+
+
+        /* Empty */
+
+        if (visibleCount === 0) {
+
+          noFacility.style.display = 'block';
+
+        } else {
+
+          noFacility.style.display = 'none';
+
+        }
+
+      });
+
+    });
+
+
+    /* =========================
+       YEAR
+    ========================= */
+
+    document.getElementById('currentYear').textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>

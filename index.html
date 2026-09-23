@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>SDIT Ihyaussunnah - Berakidah, Cerdas Berakhlak Mulia</title>
+  <title>SDIT Ihyaussunnah | Berakidah, Cerdas, Berakhlak Mulia</title>
 
   <!-- =====================================================
        GOOGLE FONTS
   ====================================================== -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
 
@@ -19,7 +19,7 @@
   ====================================================== -->
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   />
 
   <style>
@@ -35,35 +35,20 @@
 
     html {
       scroll-behavior: smooth;
-    }
-
-    html,
-    body {
-      overflow-x: hidden;
+      scroll-padding-top: 90px;
     }
 
     body {
-      background-color: #ffffff;
-      color: #333333;
       font-family: "Poppins", sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-
-      /* Background seluruh halaman */
-      background-image:
-        linear-gradient(
-          rgba(255, 255, 255, 0.90),
-          rgba(255, 255, 255, 0.90)
-        ),
-        url("https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80");
-
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      color: #26352b;
+      background: #f8fbf8;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     img {
       max-width: 100%;
+      display: block;
     }
 
     a {
@@ -75,80 +60,89 @@
       font-family: inherit;
     }
 
-    /* =====================================================
-       WARNA TEMA
-    ====================================================== */
-
     :root {
-      --green-primary: #1b5e20;
-      --green-light: #4caf50;
-      --green-soft: #f4fcf5;
+      --green-950: #063b22;
+      --green-900: #07552f;
+      --green-800: #0a6b3d;
+      --green-700: #138a50;
+      --green-600: #22a060;
+      --green-100: #eaf7ef;
+      --green-50: #f4fbf6;
 
-      --orange-accent: #ff8f00;
-      --orange-dark: #e68000;
+      --gold: #dca83a;
+      --gold-light: #f3d98b;
+      --gold-dark: #b8831e;
 
       --white: #ffffff;
-      --black: #222222;
-      --gray: #666666;
-      --border: #eeeeee;
+      --dark: #17231b;
+      --text: #536159;
+      --border: #e4eee7;
+
+      --shadow-sm: 0 5px 20px rgba(7, 85, 47, 0.07);
+      --shadow-md: 0 15px 40px rgba(7, 85, 47, 0.11);
+      --shadow-lg: 0 25px 70px rgba(7, 85, 47, 0.16);
+
+      --radius: 18px;
     }
+
 
     /* =====================================================
        TOP BAR
     ====================================================== */
 
     .top-bar {
-      background-color: var(--green-primary);
-      color: var(--white);
-
-      padding: 8px 5%;
-
-      font-size: 0.85rem;
-
+      background: var(--green-950);
+      color: rgba(255,255,255,.9);
+      min-height: 38px;
+      padding: 7px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
+      font-size: .78rem;
+    }
 
+    .top-info {
+      display: flex;
       flex-wrap: wrap;
-
-      border-bottom: 2px solid var(--orange-accent);
+      gap: 20px;
     }
 
     .top-bar span {
-      display: inline-block;
-      margin-right: 15px;
-      margin-bottom: 3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
     }
 
     .top-bar i {
-      margin-right: 5px;
+      color: var(--gold-light);
     }
+
 
     /* =====================================================
        HEADER
     ====================================================== */
 
     header {
-      background-color: var(--white);
-
-      box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.1);
-
       position: sticky;
       top: 0;
-
       z-index: 1000;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(7,85,47,.08);
     }
 
     .nav-container {
-      position: relative;
-
+      max-width: 1400px;
+      min-height: 78px;
+      margin: auto;
+      padding: 8px 4%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-
-      padding: 10px 3%;
+      gap: 30px;
     }
+
 
     /* =====================================================
        BRAND
@@ -156,45 +150,45 @@
 
     .brand {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-
+      align-items: center;
+      gap: 12px;
       flex-shrink: 0;
     }
 
     .brand img {
-      height: 45px;
-      width: auto;
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
 
-      margin-bottom: 4px;
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
     }
 
     .brand-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-
-      color: var(--green-primary);
-
-      line-height: 1.1;
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--green-900);
+      letter-spacing: -.3px;
     }
 
     .brand-name span {
-      color: var(--orange-accent);
+      color: var(--gold-dark);
     }
 
     .brand-slogan {
-      margin-top: 2px;
-
-      font-size: 0.75rem;
+      font-size: .61rem;
       font-weight: 600;
-
-      color: var(--green-light);
-
-      font-style: italic;
+      color: var(--green-700);
+      letter-spacing: .3px;
+      margin-top: 3px;
     }
 
+
     /* =====================================================
-       NAVBAR DESKTOP
+       NAVBAR
     ====================================================== */
 
     nav {
@@ -202,12 +196,10 @@
     }
 
     .main-menu {
-      list-style: none;
-
       display: flex;
       align-items: center;
-
       gap: 3px;
+      list-style: none;
     }
 
     .main-menu > li {
@@ -215,201 +207,131 @@
     }
 
     .main-menu > li > a {
-      display: block;
-
-      padding: 10px;
-
-      color: var(--green-primary);
-
-      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 11px 12px;
+      color: #34473a;
+      font-size: .84rem;
       font-weight: 600;
-
-      transition:
-        color 0.3s ease,
-        background-color 0.3s ease;
+      border-radius: 10px;
+      transition: .25s ease;
     }
 
     .main-menu > li > a:hover {
-      color: var(--orange-accent);
-    }
-
-    /* =====================================================
-       DROPDOWN DESKTOP
-    ====================================================== */
-
-    .has-dropdown {
-      position: relative;
-    }
-
-    .dropdown-toggle {
-      cursor: pointer;
+      color: var(--green-800);
+      background: var(--green-50);
     }
 
     .arrow {
-      display: inline-block;
-
-      margin-left: 3px;
-
-      transition: transform 0.3s ease;
+      font-size: .7rem;
+      transition: transform .3s ease;
     }
 
-    .has-dropdown:hover > .dropdown-toggle .arrow {
+    .has-dropdown:hover .arrow {
       transform: rotate(180deg);
     }
 
+
+    /* =====================================================
+       DROPDOWN
+    ====================================================== */
+
     .dropdown {
-      list-style: none;
-
       position: absolute;
-
-      top: calc(100% + 15px);
+      top: calc(100% + 10px);
       left: 0;
-
       min-width: 250px;
-
-      background-color: var(--green-primary);
-
-      border-top: 3px solid var(--orange-accent);
-
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
-
-      box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.2);
-
-      display: none;
-
-      flex-direction: column;
-
-      z-index: 2000;
-    }
-
-    /* Jembatan dropdown */
-    .dropdown::before {
-      content: "";
-
-      position: absolute;
-
-      top: -15px;
-      left: 0;
-
-      width: 100%;
-      height: 15px;
-
-      background: transparent;
+      padding: 8px;
+      list-style: none;
+      background: rgba(255,255,255,.98);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: .25s ease;
     }
 
     .has-dropdown:hover > .dropdown {
-      display: flex;
-    }
-
-    .dropdown li {
-      width: 100%;
-
-      border-bottom:
-        1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .dropdown li:last-child {
-      border-bottom: none;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .dropdown li a {
       display: block;
-
-      padding: 12px 20px;
-
-      color: var(--white);
-
-      font-size: 0.9rem;
-      font-weight: 400;
-
-      transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        padding-left 0.3s ease;
+      padding: 10px 13px;
+      border-radius: 9px;
+      font-size: .82rem;
+      color: #405147;
+      transition: .2s ease;
     }
 
     .dropdown li a:hover {
-      background-color:
-        rgba(255, 255, 255, 0.1);
-
-      color: var(--orange-accent);
-
-      padding-left: 25px;
+      color: var(--green-800);
+      background: var(--green-50);
+      padding-left: 18px;
     }
 
+
     /* =====================================================
-       TOMBOL PPDB
+       BUTTON
     ====================================================== */
 
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: .3s ease;
+      cursor: pointer;
+    }
+
     .btn-ppdb {
-      background-color: var(--orange-accent);
-
-      color: var(--white) !important;
-
-      padding: 8px 20px !important;
-
-      border-radius: 25px;
-
-      transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
+      background: var(--green-800) !important;
+      color: white !important;
+      padding: 10px 18px !important;
+      box-shadow: 0 7px 20px rgba(10,107,61,.22);
     }
 
     .btn-ppdb:hover {
-      background-color: var(--orange-dark);
-
-      color: var(--white) !important;
-
+      background: var(--gold-dark) !important;
       transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(184,131,30,.25);
     }
 
+
     /* =====================================================
-       HAMBURGER
+       MOBILE MENU
     ====================================================== */
 
     .menu-toggle {
       display: none;
-
-      width: 42px;
-      height: 42px;
-
-      border: none;
-      background: transparent;
-
-      cursor: pointer;
-
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      gap: 5px;
-
+      width: 44px;
+      height: 44px;
       margin-left: auto;
+      border: 0;
+      background: var(--green-50);
+      border-radius: 12px;
+      cursor: pointer;
     }
 
     .menu-toggle span {
       display: block;
-
-      width: 28px;
-      height: 3px;
-
-      background-color: var(--green-primary);
-
+      width: 22px;
+      height: 2px;
+      margin: 4px auto;
+      background: var(--green-900);
       border-radius: 5px;
-
-      transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+      transition: .3s ease;
     }
 
-    /* Animasi hamburger menjadi X */
-
     .menu-toggle.active span:nth-child(1) {
-      transform:
-        translateY(8px)
-        rotate(45deg);
+      transform: translateY(6px) rotate(45deg);
     }
 
     .menu-toggle.active span:nth-child(2) {
@@ -417,271 +339,443 @@
     }
 
     .menu-toggle.active span:nth-child(3) {
-      transform:
-        translateY(-8px)
-        rotate(-45deg);
+      transform: translateY(-6px) rotate(-45deg);
     }
+
 
     /* =====================================================
        HERO
     ====================================================== */
 
     .hero {
-      min-height: 80vh;
+      position: relative;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: white;
 
       background:
         linear-gradient(
-          rgba(18, 61, 21, 0.5),
-          rgba(18, 61, 21, 0.5)
+          90deg,
+          rgba(3,42,23,.92) 0%,
+          rgba(5,74,40,.78) 45%,
+          rgba(5,74,40,.35) 100%
         ),
-        url("./images/quran.jpg")
-        center / cover no-repeat;
+        url("./images/quran.jpg") center / cover no-repeat;
+    }
 
-      display: flex;
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      right: -220px;
+      top: -200px;
+      border: 1px solid rgba(243,217,139,.25);
+      border-radius: 50%;
+    }
 
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      color: var(--white);
-
-      padding: 80px 20px;
-
-      border-bottom:
-        5px solid var(--orange-accent);
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      right: -120px;
+      top: -120px;
+      border: 1px solid rgba(243,217,139,.15);
+      border-radius: 50%;
     }
 
     .hero-content {
-      max-width: 900px;
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 1250px;
+      margin: auto;
+      padding: 90px 0;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(243,217,139,.4);
+      border-radius: 50px;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      color: var(--gold-light);
+      font-size: .76rem;
+      font-weight: 600;
+    }
+
+    .hero-badge i {
+      font-size: .8rem;
     }
 
     .arabic-text {
       font-family: "Amiri", serif;
-
-      font-size: 2.2rem;
-
-      color: var(--orange-accent);
-
+      font-size: 2rem;
+      color: var(--gold-light);
       margin-bottom: 10px;
-
-      font-weight: 400;
-
-      text-shadow:
-        2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 3px 15px rgba(0,0,0,.3);
     }
 
-    .hero-content h1 {
-      font-size: 3rem;
-
-      margin-bottom: 10px;
-
-      text-transform: uppercase;
-
-      text-shadow:
-        2px 2px 4px rgba(0, 0, 0, 0.5);
+    .hero h1 {
+      max-width: 800px;
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+      font-weight: 800;
     }
 
-    .hero-content h2 {
-      font-size: 1.5rem;
+    .hero h1 span {
+      color: var(--gold-light);
+    }
 
+    .hero h2 {
+      font-size: clamp(1rem, 2vw, 1.35rem);
       font-weight: 400;
+      color: #e4f3e9;
+      margin-bottom: 22px;
+    }
 
+    .hero p {
+      max-width: 680px;
+      color: rgba(255,255,255,.86);
+      font-size: .98rem;
       margin-bottom: 30px;
-
-      font-style: italic;
-
-      color: #e0f2f1;
-
-      text-shadow:
-        1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
-    .hero-content p {
-      max-width: 750px;
-
-      margin:
-        0 auto 30px;
-
-      font-size: 1.1rem;
-
-      text-shadow:
-        1px 1px 3px rgba(0, 0, 0, 0.5);
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .btn-primary {
-      display: inline-block;
-
-      background-color: var(--orange-accent);
-
-      color: var(--white);
-
-      padding: 12px 35px;
-
-      font-size: 1.1rem;
-      font-weight: 600;
-
-      border-radius: 30px;
-
-      box-shadow:
-        0 4px 15px rgba(255, 143, 0, 0.4);
-
-      transition:
-        transform 0.3s ease,
-        background-color 0.3s ease;
+      padding: 13px 25px;
+      background: var(--gold);
+      color: var(--green-950);
+      box-shadow: 0 10px 30px rgba(220,168,58,.25);
     }
 
     .btn-primary:hover {
-      background-color: var(--orange-dark);
-
+      background: #edc765;
       transform: translateY(-3px);
     }
 
+    .btn-outline {
+      padding: 13px 25px;
+      color: white;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--green-900);
+      transform: translateY(-3px);
+    }
+
+
     /* =====================================================
-       CONTAINER
+       STATISTIK
     ====================================================== */
 
-    .container {
+    .stats-wrapper {
+      position: relative;
+      z-index: 5;
+      width: 90%;
+      max-width: 1150px;
+      margin: -55px auto 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat i {
+      color: var(--gold-dark);
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--green-900);
+      font-size: 1.65rem;
+      font-weight: 800;
+    }
+
+    .stat span {
+      color: var(--text);
+      font-size: .76rem;
+    }
+
+
+    /* =====================================================
+       GENERAL SECTION
+    ====================================================== */
+
+    .section {
       width: 90%;
       max-width: 1200px;
-
       margin: auto;
-
-      padding-bottom: 60px;
+      padding: 90px 0;
     }
 
-    /* =====================================================
-       SECTION TITLE
-    ====================================================== */
+    .section-header {
+      max-width: 700px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green-700);
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--gold);
+    }
 
     .section-title {
-      position: relative;
-
-      text-align: center;
-
-      font-size: 2rem;
-
-      color: var(--green-primary);
-
-      margin:
-        60px 0 30px;
+      color: var(--green-950);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
     }
 
-    .section-title::after {
-      content: "";
-
-      display: block;
-
-      width: 80px;
-      height: 4px;
-
-      background-color:
-        var(--orange-accent);
-
-      margin:
-        10px auto 0;
-
-      border-radius: 2px;
+    .section-description {
+      color: var(--text);
+      font-size: .9rem;
     }
+
 
     /* =====================================================
-       PROGRAM UNGGULAN
+       PROGRAM
     ====================================================== */
 
-    .features {
+    .program-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(300px, 1fr)
-        );
-
-      gap: 30px;
-
-      margin-top: 40px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .card {
-      background-color:
-        var(--white);
+    .program-card {
+      position: relative;
+      padding: 35px 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: .35s ease;
+    }
 
-      padding:
-        40px 30px;
+    .program-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green-800), var(--gold));
+    }
 
-      border-top-left-radius: 60px;
-      border-top-right-radius: 60px;
+    .program-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
 
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
+    .program-icon {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      background: var(--green-100);
+      color: var(--green-800);
+      font-size: 1.35rem;
+    }
 
-      box-shadow:
-        0 8px 25px
-        rgba(0, 0, 0, 0.06);
+    .program-card h3 {
+      color: var(--green-950);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
 
+    .program-card p {
+      color: var(--text);
+      font-size: .83rem;
+    }
+
+    .program-number {
+      position: absolute;
+      right: 22px;
+      top: 20px;
+      color: #edf5ef;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+
+    /* =====================================================
+       ABOUT / QUOTE
+    ====================================================== */
+
+    .about-section {
+      background: var(--green-950);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-section::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 50%;
+      right: -200px;
+      top: -150px;
+    }
+
+    .about-grid {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 0;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-label {
+      color: var(--gold-light);
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .about-grid h2 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
+      margin: 10px 0 18px;
+    }
+
+    .about-grid p {
+      color: rgba(255,255,255,.75);
+      font-size: .88rem;
+      margin-bottom: 18px;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 25px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,.88);
+      font-size: .84rem;
+    }
+
+    .about-list i {
+      color: var(--gold-light);
+    }
+
+    .quote-card {
+      padding: 40px 35px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
       text-align: center;
-
-      border-top:
-        1px solid #e0e0e0;
-
-      border-bottom:
-        5px solid var(--green-light);
-
-      transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
     }
 
-    .card:hover {
-      transform:
-        translateY(-10px);
-
-      border-bottom-color:
-        var(--orange-accent);
-    }
-
-    .card h3 {
-      color:
-        var(--green-primary);
-
+    .quote-card i {
+      color: var(--gold-light);
+      font-size: 2rem;
       margin-bottom: 15px;
-
-      font-size: 1.3rem;
     }
 
-    .card p {
-      color: var(--gray);
+    .quote-card .arabic {
+      font-family: "Amiri", serif;
+      font-size: 1.8rem;
+      line-height: 1.7;
+      color: white;
+      margin-bottom: 15px;
     }
+
+    .quote-card small {
+      color: var(--gold-light);
+    }
+
 
     /* =====================================================
        GALERI
     ====================================================== */
 
+    .gallery-section {
+      background: #f1f8f3;
+    }
+
     .gallery-wrapper {
       position: relative;
-
-      display: flex;
-      align-items: center;
-
-      margin-top: 40px;
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .gallery-slider {
-      width: 100%;
-
       display: flex;
-
       gap: 20px;
-
       overflow-x: auto;
-
       scroll-behavior: smooth;
-
       scroll-snap-type: x mandatory;
-
-      padding: 15px 5px;
-
-      -ms-overflow-style: none;
+      padding: 10px 3px 25px;
       scrollbar-width: none;
     }
 
@@ -690,651 +784,708 @@
     }
 
     .slide {
-      flex:
-        0 0 calc(33.333% - 14px);
-
+      flex: 0 0 calc(33.333% - 14px);
       aspect-ratio: 4 / 3;
-
-      scroll-snap-align: center;
-
-      border-radius: 15px;
-
       overflow: hidden;
-
-      box-shadow:
-        0 5px 15px
-        rgba(0, 0, 0, 0.1);
+      border-radius: 18px;
+      scroll-snap-align: start;
+      box-shadow: var(--shadow-sm);
+      background: #ddd;
     }
 
     .slide img {
       width: 100%;
       height: 100%;
-
-      display: block;
-
       object-fit: cover;
-
-      transition:
-        transform 0.3s ease;
+      transition: .5s ease;
     }
 
     .slide:hover img {
-      transform:
-        scale(1.08);
+      transform: scale(1.07);
     }
-
-    /* =====================================================
-       TOMBOL SLIDER
-    ====================================================== */
 
     .slider-btn {
       position: absolute;
-
-      z-index: 10;
-
+      z-index: 5;
+      top: 50%;
+      transform: translateY(-50%);
       width: 45px;
       height: 45px;
-
       border: none;
-
       border-radius: 50%;
-
-      background-color:
-        var(--orange-accent);
-
-      color: var(--white);
-
-      font-size: 1.5rem;
-
+      background: var(--green-900);
+      color: white;
+      box-shadow: var(--shadow-md);
       cursor: pointer;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      box-shadow:
-        0 4px 10px
-        rgba(0, 0, 0, 0.2);
-
-      transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
+      transition: .25s ease;
     }
 
     .slider-btn:hover {
-      background-color:
-        var(--orange-dark);
-
-      transform:
-        scale(1.1);
+      background: var(--gold-dark);
+      transform: translateY(-50%) scale(1.08);
     }
 
     .prev-btn {
-      left: -20px;
+      left: -22px;
     }
 
     .next-btn {
-      right: -20px;
+      right: -22px;
     }
+
+
+    /* =====================================================
+       CTA PPDB
+    ====================================================== */
+
+    .cta {
+      width: 90%;
+      max-width: 1200px;
+      margin: 90px auto;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      color: white;
+      background:
+        linear-gradient(
+          120deg,
+          var(--green-950),
+          var(--green-700)
+        );
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta::after {
+      content: "";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      right: 50px;
+      bottom: -60px;
+      font-size: 220px;
+      color: rgba(255,255,255,.04);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,.78);
+      font-size: .88rem;
+      margin-bottom: 25px;
+    }
+
+    /* =====================================================
+   HEADLINE BERITA
+====================================================== */
+
+.news-section {
+  background: #ffffff;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1.35fr .9fr;
+  gap: 25px;
+}
+
+/* Berita utama */
+
+.news-main {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #063b22;
+  box-shadow: var(--shadow-md);
+}
+
+.news-main img {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.news-main:hover img {
+  transform: scale(1.04);
+}
+
+.news-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(3, 38, 23, .95) 0%,
+      rgba(3, 38, 23, .55) 45%,
+      rgba(3, 38, 23, .05) 80%
+    );
+}
+
+.news-main-content {
+  position: absolute;
+  z-index: 2;
+  left: 30px;
+  right: 30px;
+  bottom: 28px;
+  color: white;
+}
+
+.news-category {
+  display: inline-block;
+
+  padding: 6px 12px;
+
+  margin-bottom: 10px;
+
+  border-radius: 30px;
+
+  background: var(--gold);
+  color: var(--green-950);
+
+  font-size: .68rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.news-main h3 {
+  font-size: 1.55rem;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.news-main p {
+  color: rgba(255,255,255,.8);
+  font-size: .8rem;
+  margin-bottom: 12px;
+}
+
+.news-date {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: rgba(255,255,255,.7);
+
+  font-size: .7rem;
+}
+
+
+/* Berita samping */
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 15px;
+
+  padding: 12px;
+
+  background: white;
+
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  box-shadow: var(--shadow-sm);
+
+  transition: .3s ease;
+}
+
+.news-item:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+  border-color: #cde5d4;
+}
+
+.news-item img {
+  width: 125px;
+  height: 95px;
+
+  object-fit: cover;
+
+  border-radius: 11px;
+}
+
+.news-item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-item-category {
+  color: var(--green-700);
+
+  font-size: .62rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  margin-bottom: 4px;
+}
+
+.news-item h4 {
+  color: var(--green-950);
+
+  font-size: .82rem;
+  line-height: 1.4;
+
+  margin-bottom: 6px;
+}
+
+.news-item-date {
+  color: #87948c;
+  font-size: .65rem;
+}
+
+.news-more {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.btn-news {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 22px;
+
+  border: 1px solid var(--green-800);
+  border-radius: 50px;
+
+  color: var(--green-800);
+
+  font-size: .78rem;
+  font-weight: 700;
+
+  transition: .3s ease;
+}
+
+.btn-news:hover {
+  background: var(--green-800);
+  color: white;
+}
+
+
+/* =====================================================
+   RESPONSIVE BERITA
+====================================================== */
+
+@media (max-width: 900px) {
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-main {
+    min-height: 380px;
+  }
+
+  .news-main img {
+    min-height: 380px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .news-main {
+    min-height: 350px;
+  }
+
+  .news-main img {
+    min-height: 350px;
+  }
+
+  .news-main-content {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .news-main h3 {
+    font-size: 1.2rem;
+  }
+
+  .news-main p {
+    font-size: .73rem;
+  }
+
+  .news-item {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .news-item img {
+    width: 100px;
+    height: 80px;
+  }
+
+}
+
 
     /* =====================================================
        FOOTER
     ====================================================== */
 
     footer {
-      background-color:
-        var(--green-primary);
-
-      color: var(--white);
-
-      padding:
-        50px 5% 20px;
-
-      border-top:
-        5px solid var(--orange-accent);
+      background: #032617;
+      color: rgba(255,255,255,.72);
+      padding: 65px 5% 20px;
     }
 
     .footer-grid {
+      max-width: 1200px;
+      margin: auto;
       display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
 
-      grid-template-columns:
-        repeat(
-          auto-fit,
-          minmax(250px, 1fr)
-        );
+    .footer-logo {
+      width: 62px;
+      height: 62px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
 
-      gap: 30px;
-
-      margin-bottom: 30px;
+    .footer-col p {
+      max-width: 320px;
+      font-size: .8rem;
     }
 
     .footer-col h4 {
-      color:
-        var(--orange-accent);
-
-      margin-bottom: 20px;
-
-      font-size: 1.2rem;
+      color: var(--gold-light);
+      font-size: .95rem;
+      margin-bottom: 17px;
     }
 
     .footer-col ul {
       list-style: none;
     }
 
-    .footer-col ul li {
+    .footer-col li {
       margin-bottom: 10px;
+      font-size: .79rem;
     }
 
-    .footer-col ul li a {
-      transition:
-        color 0.3s ease;
+    .footer-col li a {
+      transition: .2s ease;
     }
 
-    .footer-col ul li a:hover {
-      color:
-        var(--orange-accent);
+    .footer-col li a:hover {
+      color: var(--gold-light);
     }
 
-    .footer-logo {
-      height: 60px;
-
-      width: auto;
-
-      margin-bottom: 15px;
-
-      display: block;
+    .footer-col li i {
+      width: 22px;
+      color: var(--gold-light);
     }
 
     .social-link {
       display: flex;
-
       align-items: center;
-
-      gap: 12px;
-
-      transition:
-        color 0.3s ease;
-    }
-
-    .social-link i {
-      width: 24px;
-
-      text-align: center;
-
-      font-size: 1.3rem;
-
-      color: var(--white);
-
-      transition:
-        color 0.3s ease,
-        transform 0.3s ease;
-    }
-
-    .social-link:hover {
-      color:
-        var(--orange-accent);
-    }
-
-    .social-link:hover i {
-      color:
-        var(--orange-accent);
-
-      transform:
-        scale(1.2);
+      gap: 10px;
     }
 
     .copyright {
-      text-align: center;
-
+      max-width: 1200px;
+      margin: auto;
       padding-top: 20px;
-
-      border-top:
-        1px solid
-        rgba(255, 255, 255, 0.2);
-
-      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+      font-size: .72rem;
     }
 
+
     /* =====================================================
-       TABLET
+       RESPONSIVE TABLET
     ====================================================== */
 
-    @media screen and (max-width: 1100px) {
+    @media (max-width: 1100px) {
 
-      .main-menu {
-        gap: 0;
+      .nav-container {
+        padding-left: 3%;
+        padding-right: 3%;
       }
 
       .main-menu > li > a {
-        padding:
-          9px 7px;
-
-        font-size: 0.85rem;
-      }
-
-      .btn-ppdb {
-        padding:
-          7px 14px !important;
-      }
-    }
-
-    /* =====================================================
-       MOBILE / TABLET
-    ====================================================== */
-
-    @media screen and (max-width: 992px) {
-
-      /* -------------------------
-         TOP BAR
-      ------------------------- */
-
-      .top-bar {
-        flex-direction: column;
-
-        text-align: center;
-
-        gap: 3px;
-      }
-
-      .top-bar span {
-        margin-right: 5px;
-      }
-
-      /* -------------------------
-         HEADER
-      ------------------------- */
-
-      .nav-container {
-        min-height: 75px;
-
-        padding:
-          8px 5%;
-      }
-
-      .brand img {
-        height: 35px;
+        padding: 10px 7px;
+        font-size: .76rem;
       }
 
       .brand-name {
         font-size: 1rem;
       }
 
-      .brand-slogan {
-        font-size: 0.65rem;
+      .program-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      /* -------------------------
-         HAMBURGER
-      ------------------------- */
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+    /* =====================================================
+       MOBILE NAVBAR
+    ====================================================== */
+
+    @media (max-width: 900px) {
+
+      .top-bar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .top-info {
+        justify-content: center;
+      }
 
       .menu-toggle {
-        display: flex;
+        display: block;
       }
-
-      /* -------------------------
-         MENU UTAMA MOBILE
-      ------------------------- */
 
       nav {
         position: static;
-
-        margin-left: 0;
       }
 
       .main-menu {
         position: absolute;
-
         top: 100%;
         left: 0;
-
         width: 100%;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        background-color:
-          var(--white);
-
-        box-shadow:
-          0 5px 15px
-          rgba(0, 0, 0, 0.12);
-
+        padding: 8px 4%;
+        display: block;
+        background: rgba(255,255,255,.98);
+        backdrop-filter: blur(15px);
+        border-top: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
         opacity: 0;
-
         visibility: hidden;
-
-        transform:
-          translateY(-15px);
-
-        transition:
-          opacity 0.3s ease,
-          visibility 0.3s ease,
-          transform 0.3s ease;
-
-        z-index: 1500;
+        transform: translateY(-10px);
+        transition: .3s ease;
       }
-
-      /* MENU TERBUKA */
 
       .main-menu.active {
         opacity: 1;
-
         visibility: visible;
-
-        transform:
-          translateY(0);
+        transform: translateY(0);
       }
 
-      /* -------------------------
-         ITEM MENU UTAMA
-      ------------------------- */
-
       .main-menu > li {
-        width: 100%;
+        border-bottom: 1px solid var(--border);
+      }
 
-        border-bottom:
-          1px solid #f0f0f0;
+      .main-menu > li:last-child {
+        border-bottom: none;
       }
 
       .main-menu > li > a {
         width: 100%;
-
-        padding:
-          15px 5%;
-
-        font-size: 0.95rem;
+        padding: 14px 10px;
+        font-size: .86rem;
       }
 
-      /* -------------------------
-         DROPDOWN MOBILE
-      ------------------------- */
-
-      .main-menu .has-dropdown {
-        position: relative;
-      }
-
-      .main-menu .dropdown {
+      .dropdown {
         position: static;
-
-        width: 100%;
-
         min-width: 0;
-
+        width: 100%;
         display: none;
-
-        flex-direction: column;
-
-        background-color:
-          var(--green-soft);
-
-        box-shadow: none;
-
+        padding: 5px 10px 10px;
+        background: var(--green-50);
         border: none;
-
-        border-radius: 0;
-
+        border-radius: 12px;
+        box-shadow: none;
         opacity: 1;
-
         visibility: visible;
-
         transform: none;
       }
 
-      /* HANYA TERBUKA KETIKA CLASS .open ADA */
-
-      .main-menu
-        .has-dropdown.open
-        > .dropdown {
-        display: flex;
-      }
-
-      /* Hilangkan jembatan desktop */
-
-      .main-menu .dropdown::before {
-        display: none;
-      }
-
-      /* Jangan gunakan hover untuk dropdown mobile */
-
-      .main-menu
-        .has-dropdown:hover
-        > .dropdown {
-        display: none;
-      }
-
-      .main-menu
-        .has-dropdown.open:hover
-        > .dropdown {
-        display: flex;
-      }
-
-      /* -------------------------
-         ITEM DROPDOWN
-      ------------------------- */
-
-      .main-menu .dropdown li {
-        width: 100%;
-
-        border-bottom:
-          1px solid #e0e0e0;
-      }
-
-      .main-menu .dropdown li a {
+      .has-dropdown.open > .dropdown {
         display: block;
-
-        width: 100%;
-
-        padding:
-          13px 10%;
-
-        color:
-          var(--green-primary);
-
-        font-size: 0.9rem;
-
-        font-weight: 400;
       }
 
-      .main-menu .dropdown li a:hover {
-        background-color:
-          #e8f5e9;
-
-        color:
-          var(--orange-accent);
-
-        padding-left:
-          10%;
+      .has-dropdown.open .arrow {
+        transform: rotate(180deg);
       }
 
-      /* -------------------------
-         PANAH DROPDOWN
-      ------------------------- */
-
-      .has-dropdown.open
-        > .dropdown-toggle
-        .arrow {
-        transform:
-          rotate(180deg);
+      .dropdown li a {
+        padding: 10px 15px;
       }
-
-      /* -------------------------
-         PPDB
-      ------------------------- */
 
       .main-menu .btn-ppdb {
-        display: block;
-
-        width: 90%;
-
-        margin:
-          15px 5%;
-
+        margin: 10px 0;
+        width: 100%;
         text-align: center;
-
-        padding:
-          10px 20px !important;
-      }
-
-      /* -------------------------
-         HERO
-      ------------------------- */
-
-      .hero {
-        min-height:
-          calc(100vh - 75px);
-
-        padding:
-          60px 20px;
-      }
-
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero-content h2 {
-        font-size: 1.2rem;
-      }
-
-      .hero-content p {
-        font-size: 1rem;
-      }
-
-      .arabic-text {
-        font-size: 1.8rem;
       }
     }
 
+
     /* =====================================================
-       HP
+       MOBILE
     ====================================================== */
 
-    @media screen and (max-width: 768px) {
+    @media (max-width: 768px) {
 
       .top-bar {
-        font-size: 0.75rem;
-
-        padding:
-          7px 3%;
+        font-size: .68rem;
+        padding: 6px 3%;
       }
 
-      .brand-name {
-        font-size: 0.9rem;
+      .top-info {
+        gap: 8px 15px;
       }
 
-      .brand-slogan {
-        font-size: 0.58rem;
+      .nav-container {
+        min-height: 68px;
       }
 
       .brand img {
-        height: 32px;
+        width: 43px;
+        height: 43px;
       }
 
-      /* Hero */
+      .brand-name {
+        font-size: .9rem;
+      }
+
+      .brand-slogan {
+        font-size: .52rem;
+      }
 
       .hero {
-        min-height: 75vh;
+        min-height: 620px;
+        background:
+          linear-gradient(
+            rgba(3,42,23,.9),
+            rgba(5,74,40,.75)
+          ),
+          url("./images/quran.jpg") center / cover no-repeat;
       }
 
-      .hero-content h1 {
-        font-size: 1.8rem;
+      .hero-content {
+        padding: 70px 0;
       }
 
-      .hero-content h2 {
-        font-size: 1rem;
-
-        margin-bottom: 20px;
+      .hero h1 {
+        letter-spacing: -1px;
       }
 
-      .hero-content p {
-        font-size: 0.9rem;
-
-        margin-bottom: 25px;
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 330px;
       }
 
-      .arabic-text {
-        font-size: 1.6rem;
+      .btn-primary,
+      .btn-outline {
+        width: 100%;
       }
 
-      .btn-primary {
-        padding:
-          11px 25px;
-
-        font-size: 0.95rem;
+      .stats-wrapper {
+        margin-top: -35px;
       }
 
-      /* Section */
-
-      .section-title {
-        font-size: 1.6rem;
-
-        margin-top: 45px;
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      /* Cards */
-
-      .features {
-        grid-template-columns:
-          1fr;
-
-        gap: 20px;
+      .stat {
+        padding: 20px 10px;
+        border-bottom: 1px solid var(--border);
       }
 
-      .card {
-        padding:
-          30px 25px;
+      .stat:nth-child(2) {
+        border-right: none;
       }
 
-      /* Gallery */
+      .stat:nth-child(3),
+      .stat:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 65px 0;
+      }
 
       .slide {
-        flex:
-          0 0 85%;
+        flex: 0 0 82%;
       }
 
       .slider-btn {
         display: none;
       }
 
-      /* Footer */
-
-      footer {
-        padding:
-          40px 5% 20px;
+      .cta {
+        margin: 60px auto;
+        padding: 40px 25px;
+        border-radius: 22px;
       }
 
       .footer-grid {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
     }
 
+
     /* =====================================================
-       HP SANGAT KECIL
+       SMALL PHONE
     ====================================================== */
 
-    @media screen and (max-width: 400px) {
+    @media (max-width: 400px) {
 
       .brand-slogan {
         display: none;
       }
 
-      .hero-content h1 {
+      .arabic-text {
         font-size: 1.55rem;
       }
 
-      .hero-content h2 {
-        font-size: 0.9rem;
+      .stats-wrapper {
+        width: 92%;
       }
 
-      .arabic-text {
-        font-size: 1.4rem;
+      .stat strong {
+        font-size: 1.35rem;
       }
 
       .section-title {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
       }
     }
 
@@ -1343,13 +1494,15 @@
 
 <body>
 
+
   <!-- =====================================================
        TOP BAR
   ====================================================== -->
 
   <div class="top-bar">
 
-    <div>
+    <div class="top-info">
+
       <span>
         <i class="fa-solid fa-phone"></i>
         (021) 1234-5678
@@ -1359,27 +1512,24 @@
         <i class="fa-solid fa-envelope"></i>
         info@sditihyausunnah.sch.id
       </span>
+
     </div>
 
-    <div>
-      <span>
-        Waktu Operasional:
-        Senin - Jumat, 07:00 - 15:00
-      </span>
-    </div>
+    <span>
+      <i class="fa-regular fa-clock"></i>
+      Senin - Jumat, 07:00 - 15:00
+    </span>
 
   </div>
 
 
   <!-- =====================================================
-       HEADER / NAVBAR
+       HEADER
   ====================================================== -->
 
   <header>
 
     <div class="nav-container">
-
-      <!-- BRAND -->
 
       <a href="index.html" class="brand">
 
@@ -1388,54 +1538,47 @@
           alt="Logo SDIT Ihyaussunnah"
         />
 
-        <div class="brand-name">
-          SDIT
-          <span>Ihyaussunnah</span>
-        </div>
+        <div class="brand-text">
 
-        <div class="brand-slogan">
-          Berakidah - Cerdas - Berakhlak Mulia
+          <div class="brand-name">
+            SDIT <span>Ihyaussunnah</span>
+          </div>
+
+          <div class="brand-slogan">
+            Berakidah • Cerdas • Berakhlak Mulia
+          </div>
+
         </div>
 
       </a>
 
 
-      <!-- HAMBURGER -->
-
       <button
         class="menu-toggle"
         id="mobile-menu"
+        type="button"
         aria-label="Buka menu"
         aria-expanded="false"
-        type="button"
       >
+
         <span></span>
         <span></span>
         <span></span>
+
       </button>
 
 
-      <!-- NAVIGATION -->
-
       <nav>
 
-        <ul
-          id="nav-menu"
-          class="main-menu"
-        >
-
-          <!-- BERANDA -->
+        <ul class="main-menu" id="nav-menu">
 
           <li>
             <a href="index.html">
+              <i class="fa-solid fa-house"></i>
               Beranda
             </a>
           </li>
 
-
-          <!-- =================================================
-               TENTANG KAMI
-          ================================================== -->
 
           <li class="has-dropdown">
 
@@ -1451,9 +1594,7 @@
             <ul class="dropdown">
 
               <li>
-                <a href="sejarah.html">
-                  Sejarah
-                </a>
+                <a href="sejarah.html">Sejarah</a>
               </li>
 
               <li>
@@ -1497,10 +1638,6 @@
           </li>
 
 
-          <!-- =================================================
-               KURIKULUM
-          ================================================== -->
-
           <li class="has-dropdown">
 
             <a
@@ -1528,7 +1665,7 @@
 
               <li>
                 <a href="tahsin.html">
-                  Tahsin dan Tahfizh
+                  Tahsin &amp; Tahfizh
                 </a>
               </li>
 
@@ -1540,7 +1677,7 @@
 
               <li>
                 <a href="kaldik.html">
-                  Kaldik (Kalender Akademik)
+                  Kalender Akademik
                 </a>
               </li>
 
@@ -1548,8 +1685,6 @@
 
           </li>
 
-
-          <!-- MENU BIASA -->
 
           <li>
             <a href="fasilitas.html">
@@ -1559,7 +1694,7 @@
 
           <li>
             <a href="berita.html">
-              Info Berita
+              Berita
             </a>
           </li>
 
@@ -1575,14 +1710,12 @@
             </a>
           </li>
 
-
-          <!-- PPDB -->
-
           <li>
             <a
               href="ppdb.html"
               class="btn-ppdb"
             >
+              <i class="fa-solid fa-user-plus"></i>
               PPDB 2026
             </a>
           </li>
@@ -1604,93 +1737,339 @@
 
     <div class="hero-content">
 
+      <div class="hero-badge">
+        <i class="fa-solid fa-star-and-crescent"></i>
+        SEKOLAH DASAR ISLAM TERPADU
+      </div>
+
       <div class="arabic-text">
-        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
+        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
       </div>
 
       <h1>
-        SDIT Ihyaussunnah
+        Membentuk Generasi
+        <span>Qur'ani</span>
+        Masa Depan
       </h1>
 
       <h2>
-        Berakidah - Cerdas - Berakhlak Mulia
+        Berakidah • Cerdas • Berakhlak Mulia
       </h2>
 
       <p>
         Membentuk generasi Qur'ani yang berpegang teguh
-        pada sunnah, berprestasi secara akademik, dan
-        memiliki budi pekerti luhur sebagai bekal di dunia
-        dan akhirat.
+        pada Al-Qur'an dan Sunnah, berprestasi dalam
+        pendidikan, serta memiliki akhlak mulia sebagai
+        bekal kehidupan dunia dan akhirat.
       </p>
 
-      <a
-        href="ppdb.html"
-        class="btn-primary"
-      >
-        Informasi PPDB Terkini
-      </a>
+      <div class="hero-buttons">
+
+        <a
+          href="ppdb.html"
+          class="btn btn-primary"
+        >
+          Informasi PPDB
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <a
+          href="#program"
+          class="btn btn-outline"
+        >
+          Jelajahi Program
+          <i class="fa-solid fa-compass"></i>
+        </a>
+
+      </div>
 
     </div>
 
   </section>
+
+
+  <!-- =====================================================
+       STATISTIK
+  ====================================================== -->
+
+  <div class="stats-wrapper">
+
+    <div class="stats">
+
+      <div class="stat">
+        <i class="fa-solid fa-book-quran"></i>
+        <strong>Qur'ani</strong>
+        <span>Pendidikan Berbasis Al-Qur'an</span>
+      </div>
+
+      <div class="stat">
+        <i class="fa-solid fa-user-graduate"></i>
+        <strong>Terpadu</strong>
+        <span>Kurikulum Umum &amp; Diniyah</span>
+      </div>
+
+      <div class="stat">
+        <i class="fa-solid fa-heart"></i>
+        <strong>Akhlak</strong>
+        <span>Pembentukan Karakter Islami</span>
+      </div>
+
+      <div class="stat">
+        <i class="fa-solid fa-school"></i>
+        <strong>SDIT</strong>
+        <span>Pendidikan Islam Terpadu</span>
+      </div>
+
+    </div>
+
+  </div>
 
 
   <!-- =====================================================
        PROGRAM UNGGULAN
   ====================================================== -->
 
-  <section class="container">
+  <section class="section" id="program">
 
-    <h2 class="section-title">
-      Program Unggulan Kami
-    </h2>
+    <div class="section-header">
 
-    <div class="features">
+      <div class="section-label">
+        Program Pendidikan
+      </div>
 
-      <div class="card">
+      <h2 class="section-title">
+        Program Unggulan Kami
+      </h2>
+
+      <p class="section-description">
+        Pendidikan yang mengintegrasikan ilmu umum,
+        Al-Qur'an, pembentukan karakter, dan nilai-nilai
+        Islam dalam kehidupan sehari-hari.
+      </p>
+
+    </div>
+
+
+    <div class="program-grid">
+
+      <article class="program-card">
+
+        <div class="program-number">
+          01
+        </div>
+
+        <div class="program-icon">
+          <i class="fa-solid fa-mosque"></i>
+        </div>
 
         <h3>
           Pendidikan Diniyah &amp; Karakter
         </h3>
 
         <p>
-          Menanamkan akidah yang lurus,
-          akhlakul karimah, dan pembiasaan
-          ibadah harian sesuai dengan
-          pemahaman salafus shalih.
+          Menanamkan akidah yang lurus, akhlakul karimah,
+          adab, dan pembiasaan ibadah harian sesuai
+          dengan pemahaman salafus shalih.
         </p>
 
-      </div>
+      </article>
 
 
-      <div class="card">
+      <article class="program-card">
+
+        <div class="program-number">
+          02
+        </div>
+
+        <div class="program-icon">
+          <i class="fa-solid fa-book-quran"></i>
+        </div>
 
         <h3>
           Tahsin &amp; Tahfizh Al-Qur'an
         </h3>
 
         <p>
-          Metode hafalan dan perbaikan bacaan
-          Al-Qur'an secara intensif dengan
-          target kelulusan juz 30, 29, dan 28
-          menyesuaikan kemampuan siswa.
+          Pembelajaran membaca Al-Qur'an dengan bacaan
+          yang benar serta program hafalan yang
+          disesuaikan dengan kemampuan peserta didik.
         </p>
 
-      </div>
+      </article>
 
 
-      <div class="card">
+      <article class="program-card">
+
+        <div class="program-number">
+          03
+        </div>
+
+        <div class="program-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
 
         <h3>
           Akademik Terpadu
         </h3>
 
         <p>
-          Kurikulum nasional (Diknas) yang
-          diajarkan dengan pendekatan Islami,
-          dilengkapi fasilitas lab komputer
-          dan ruang kelas yang kondusif.
+          Pembelajaran akademik dengan pendekatan Islami
+          untuk membantu siswa berkembang secara intelektual,
+          sosial, dan spiritual.
         </p>
+
+      </article>
+
+
+      <article class="program-card">
+
+        <div class="program-number">
+          04
+        </div>
+
+        <div class="program-icon">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+
+        <h3>
+          Pembentukan Karakter
+        </h3>
+
+        <p>
+          Membiasakan sikap disiplin, tanggung jawab,
+          mandiri, peduli, dan santun dalam lingkungan
+          sekolah maupun kehidupan sehari-hari.
+        </p>
+
+      </article>
+
+
+      <article class="program-card">
+
+        <div class="program-number">
+          05
+        </div>
+
+        <div class="program-icon">
+          <i class="fa-solid fa-laptop"></i>
+        </div>
+
+        <h3>
+          Literasi &amp; Teknologi
+        </h3>
+
+        <p>
+          Membekali siswa dengan kemampuan literasi dan
+          pemanfaatan teknologi secara bijak untuk
+          mendukung proses pembelajaran.
+        </p>
+
+      </article>
+
+
+      <article class="program-card">
+
+        <div class="program-number">
+          06
+        </div>
+
+        <div class="program-icon">
+          <i class="fa-solid fa-medal"></i>
+        </div>
+
+        <h3>
+          Pengembangan Potensi
+        </h3>
+
+        <p>
+          Memberikan ruang bagi siswa untuk mengembangkan
+          bakat, minat, kreativitas, dan kemampuan melalui
+          kegiatan intra maupun ekstrakurikuler.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       TENTANG SEKOLAH
+  ====================================================== -->
+
+  <section class="about-section">
+
+    <div class="about-grid">
+
+      <div>
+
+        <div class="about-label">
+          Mengapa SDIT Ihyaussunnah?
+        </div>
+
+        <h2>
+          Pendidikan bukan hanya
+          tentang ilmu, tetapi juga
+          tentang pembentukan manusia.
+        </h2>
+
+        <p>
+          SDIT Ihyaussunnah berkomitmen menghadirkan
+          pendidikan yang memadukan pembelajaran akademik
+          dengan pendidikan Al-Qur'an, akidah, ibadah,
+          dan akhlak.
+        </p>
+
+        <p>
+          Setiap peserta didik diarahkan untuk berkembang
+          sesuai potensi mereka serta memiliki bekal ilmu
+          dan karakter Islami dalam menghadapi masa depan.
+        </p>
+
+        <ul class="about-list">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Pendidikan berbasis Al-Qur'an dan Sunnah
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Pembiasaan ibadah dan akhlak sehari-hari
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Integrasi pendidikan umum dan diniyah
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Pengembangan potensi dan karakter siswa
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="quote-card">
+
+        <i class="fa-solid fa-quote-right"></i>
+
+        <div class="arabic">
+          وَقُلْ رَبِّ زِدْنِي عِلْمًا
+        </div>
+
+        <p>
+          "Dan katakanlah:
+          Ya Tuhanku, tambahkanlah kepadaku ilmu."
+        </p>
+
+        <small>
+          QS. Thaha: 114
+        </small>
 
       </div>
 
@@ -1700,97 +2079,329 @@
 
 
   <!-- =====================================================
-       GALERI DOKUMENTASI
+       GALERI
   ====================================================== -->
 
-  <section class="container">
+  <section class="gallery-section">
 
-    <h2 class="section-title">
-      Galeri Dokumentasi
-    </h2>
+    <div class="section">
 
-    <div class="gallery-wrapper">
+      <div class="section-header">
 
-      <!-- TOMBOL PREVIOUS -->
-
-      <button
-        class="slider-btn prev-btn"
-        id="prevBtn"
-        type="button"
-        aria-label="Foto sebelumnya"
-      >
-        &#10094;
-      </button>
-
-
-      <!-- SLIDER -->
-
-      <div
-        class="gallery-slider"
-        id="gallerySlider"
-      >
-
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80"
-            alt="Dokumentasi kegiatan sekolah 1"
-            loading="lazy"
-          />
+        <div class="section-label">
+          Dokumentasi
         </div>
 
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80"
-            alt="Dokumentasi kegiatan sekolah 2"
-            loading="lazy"
-          />
-        </div>
+        <h2 class="section-title">
+          Aktivitas &amp; Kegiatan Sekolah
+        </h2>
 
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
-            alt="Dokumentasi kegiatan sekolah 3"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=600&q=80"
-            alt="Dokumentasi kegiatan sekolah 4"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80"
-            alt="Dokumentasi kegiatan sekolah 5"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="slide">
-          <img
-            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80"
-            alt="Dokumentasi kegiatan sekolah 6"
-            loading="lazy"
-          />
-        </div>
+        <p class="section-description">
+          Sekilas dokumentasi kegiatan pembelajaran
+          dan aktivitas peserta didik.
+        </p>
 
       </div>
 
 
-      <!-- TOMBOL NEXT -->
+      <div class="gallery-wrapper">
 
-      <button
-        class="slider-btn next-btn"
-        id="nextBtn"
-        type="button"
-        aria-label="Foto berikutnya"
+        <button
+          class="slider-btn prev-btn"
+          id="prevBtn"
+          type="button"
+          aria-label="Foto sebelumnya"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+
+        <div
+          class="gallery-slider"
+          id="gallerySlider"
+        >
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=85"
+              alt="Kegiatan pembelajaran sekolah"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=85"
+              alt="Aktivitas siswa di sekolah"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=85"
+              alt="Kegiatan pendidikan"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=85"
+              alt="Suasana kelas"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="slide">
+            <img
+              src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=85"
+              alt="Guru dan peserta didik"
+              loading="lazy"
+            />
+          </div>
+
+        </div>
+
+
+        <button
+          class="slider-btn next-btn"
+          id="nextBtn"
+          type="button"
+          aria-label="Foto berikutnya"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+     HEADLINE BERITA
+====================================================== -->
+
+<section class="news-section">
+
+  <div class="section">
+
+    <div class="section-header">
+
+      <div class="section-label">
+        Informasi Sekolah
+      </div>
+
+      <h2 class="section-title">
+        Berita &amp; Kegiatan Terkini
+      </h2>
+
+      <p class="section-description">
+        Ikuti informasi, kegiatan, dan berbagai kabar
+        terbaru dari SDIT Ihyaussunnah.
+      </p>
+
+    </div>
+
+
+    <div class="news-grid">
+
+
+      <!-- =================================================
+           BERITA UTAMA
+      ================================================== -->
+
+      <a href="berita-detail.html" class="news-main">
+
+        <img
+          src="./images/berita-utama.jpg"
+          alt="Kegiatan terbaru SDIT Ihyaussunnah"
+          loading="lazy"
+        />
+
+        <div class="news-main-content">
+
+          <span class="news-category">
+            Berita Utama
+          </span>
+
+          <h3>
+            SDIT Ihyaussunnah Gelar Kegiatan
+            Pembelajaran Qur'ani Bersama Siswa
+          </h3>
+
+          <p>
+            Kegiatan pembelajaran Al-Qur'an menjadi salah
+            satu bagian penting dalam membentuk karakter
+            dan kecintaan siswa terhadap Al-Qur'an.
+          </p>
+
+          <div class="news-date">
+
+            <i class="fa-regular fa-calendar"></i>
+
+            20 September 2026
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <!-- =================================================
+           BERITA LAINNYA
+      ================================================== -->
+
+      <div class="news-list">
+
+
+        <a
+          href="berita-detail.html"
+          class="news-item"
+        >
+
+          <img
+            src="./images/berita-1.jpg"
+            alt="Kegiatan sekolah"
+            loading="lazy"
+          />
+
+          <div class="news-item-content">
+
+            <div class="news-item-category">
+              Kegiatan
+            </div>
+
+            <h4>
+              Kegiatan Tahsin dan Tahfizh
+              Al-Qur'an Siswa
+            </h4>
+
+            <div class="news-item-date">
+              18 September 2026
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <a
+          href="berita-detail.html"
+          class="news-item"
+        >
+
+          <img
+            src="./images/berita-2.jpg"
+            alt="Kegiatan siswa"
+            loading="lazy"
+          />
+
+          <div class="news-item-content">
+
+            <div class="news-item-category">
+              Pendidikan
+            </div>
+
+            <h4>
+              Pembelajaran Aktif dan Menyenangkan
+              di Lingkungan Sekolah
+            </h4>
+
+            <div class="news-item-date">
+              15 September 2026
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <a
+          href="berita-detail.html"
+          class="news-item"
+        >
+
+          <img
+            src="./images/berita-3.jpg"
+            alt="Aktivitas siswa"
+            loading="lazy"
+          />
+
+          <div class="news-item-content">
+
+            <div class="news-item-category">
+              Informasi
+            </div>
+
+            <h4>
+              Informasi Terbaru SDIT Ihyaussunnah
+            </h4>
+
+            <div class="news-item-date">
+              12 September 2026
+            </div>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TOMBOL SEMUA BERITA
+    ================================================== -->
+
+    <div class="news-more">
+
+      <a
+        href="berita.html"
+        class="btn-news"
       >
-        &#10095;
-      </button>
+        Lihat Semua Berita
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- =====================================================
+       CTA PPDB
+  ====================================================== -->
+
+  <section class="cta">
+
+    <div class="cta-content">
+
+      <h2>
+        Bersama Membangun Generasi Qur'ani
+      </h2>
+
+      <p>
+        Dapatkan informasi penerimaan peserta didik baru,
+        persyaratan, jadwal, dan informasi pendaftaran
+        SDIT Ihyaussunnah.
+      </p>
+
+      <a
+        href="ppdb.html"
+        class="btn btn-primary"
+      >
+        Lihat Informasi PPDB
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
 
     </div>
 
@@ -1805,7 +2416,8 @@
 
     <div class="footer-grid">
 
-      <!-- KOLOM 1 -->
+
+      <!-- BRAND -->
 
       <div class="footer-col">
 
@@ -1816,58 +2428,46 @@
         />
 
         <p>
-          SDIT Ihyaussunnah berkomitmen
-          membentuk generasi Qur'ani yang
-          berakidah, cerdas, dan berakhlak mulia.
+          SDIT Ihyaussunnah berkomitmen membentuk
+          generasi yang berakidah, cerdas, berakhlak
+          mulia, dan dekat dengan Al-Qur'an.
         </p>
 
       </div>
 
 
-      <!-- KOLOM 2 -->
+      <!-- MENU -->
 
       <div class="footer-col">
 
         <h4>
-          Menu
+          Navigasi
         </h4>
 
         <ul>
 
           <li>
-            <a href="index.html">
-              Beranda
-            </a>
+            <a href="index.html">Beranda</a>
           </li>
 
           <li>
-            <a href="sejarah.html">
-              Sejarah
-            </a>
+            <a href="sejarah.html">Sejarah</a>
           </li>
 
           <li>
-            <a href="visi-misi.html">
-              Visi &amp; Misi
-            </a>
+            <a href="visi-misi.html">Visi &amp; Misi</a>
           </li>
 
           <li>
-            <a href="guru.html">
-              Guru Kami
-            </a>
+            <a href="guru.html">Guru Kami</a>
           </li>
 
           <li>
-            <a href="fasilitas.html">
-              Fasilitas
-            </a>
+            <a href="fasilitas.html">Fasilitas</a>
           </li>
 
           <li>
-            <a href="kontak.html">
-              Kontak
-            </a>
+            <a href="kontak.html">Kontak</a>
           </li>
 
         </ul>
@@ -1875,12 +2475,12 @@
       </div>
 
 
-      <!-- KOLOM 3 -->
+      <!-- KONTAK -->
 
       <div class="footer-col">
 
         <h4>
-          Kontak
+          Hubungi Kami
         </h4>
 
         <ul>
@@ -1910,7 +2510,7 @@
       </div>
 
 
-      <!-- KOLOM 4 -->
+      <!-- SOSIAL MEDIA -->
 
       <div class="footer-col">
 
@@ -1921,40 +2521,28 @@
         <ul>
 
           <li>
-            <a
-              href="#"
-              class="social-link"
-            >
+            <a href="#" class="social-link">
               <i class="fab fa-facebook"></i>
               Facebook
             </a>
           </li>
 
           <li>
-            <a
-              href="#"
-              class="social-link"
-            >
+            <a href="#" class="social-link">
               <i class="fab fa-instagram"></i>
               Instagram
             </a>
           </li>
 
           <li>
-            <a
-              href="#"
-              class="social-link"
-            >
+            <a href="#" class="social-link">
               <i class="fab fa-youtube"></i>
               YouTube
             </a>
           </li>
 
           <li>
-            <a
-              href="#"
-              class="social-link"
-            >
+            <a href="#" class="social-link">
               <i class="fab fa-whatsapp"></i>
               WhatsApp
             </a>
@@ -1966,8 +2554,6 @@
 
     </div>
 
-
-    <!-- COPYRIGHT -->
 
     <div class="copyright">
 
@@ -1988,7 +2574,7 @@
   <script>
 
     /* =====================================================
-       ELEMENT NAVBAR
+       NAVBAR
     ====================================================== */
 
     const mobileMenu =
@@ -2003,10 +2589,6 @@
     const dropdownParents =
       document.querySelectorAll(".has-dropdown");
 
-
-    /* =====================================================
-       HAMBURGER MENU
-    ====================================================== */
 
     mobileMenu.addEventListener("click", function () {
 
@@ -2030,60 +2612,50 @@
        DROPDOWN MOBILE
     ====================================================== */
 
-    dropdownToggles.forEach(function (toggle) {
+    dropdownToggles.forEach(function(toggle) {
 
-      toggle.addEventListener("click", function (event) {
+      toggle.addEventListener("click", function(event) {
 
-        /*
-          Mencegah href="#"
-          menggulir halaman ke atas.
-        */
+        if (window.innerWidth <= 900) {
 
-        event.preventDefault();
+          event.preventDefault();
 
-        const parent =
-          this.closest(".has-dropdown");
+          const parent =
+            this.closest(".has-dropdown");
 
-        const isCurrentlyOpen =
-          parent.classList.contains("open");
+          const wasOpen =
+            parent.classList.contains("open");
 
 
-        /*
-          Tutup semua dropdown
-        */
+          dropdownParents.forEach(function(item) {
 
-        dropdownParents.forEach(function (item) {
+            item.classList.remove("open");
 
-          item.classList.remove("open");
+            const itemToggle =
+              item.querySelector(".dropdown-toggle");
 
-          const itemToggle =
-            item.querySelector(".dropdown-toggle");
+            if (itemToggle) {
 
-          if (itemToggle) {
+              itemToggle.setAttribute(
+                "aria-expanded",
+                "false"
+              );
 
-            itemToggle.setAttribute(
+            }
+
+          });
+
+
+          if (!wasOpen) {
+
+            parent.classList.add("open");
+
+            this.setAttribute(
               "aria-expanded",
-              "false"
+              "true"
             );
 
           }
-
-        });
-
-
-        /*
-          Kalau sebelumnya tertutup,
-          buka dropdown yang diklik.
-        */
-
-        if (!isCurrentlyOpen) {
-
-          parent.classList.add("open");
-
-          this.setAttribute(
-            "aria-expanded",
-            "true"
-          );
 
         }
 
@@ -2093,7 +2665,7 @@
 
 
     /* =====================================================
-       TUTUP MENU KETIKA LINK BIASA DIKLIK
+       LINK MENU MOBILE
     ====================================================== */
 
     const normalLinks =
@@ -2101,18 +2673,11 @@
         "a:not(.dropdown-toggle)"
       );
 
-    normalLinks.forEach(function (link) {
+    normalLinks.forEach(function(link) {
 
-      link.addEventListener("click", function () {
+      link.addEventListener("click", function() {
 
-        /*
-          Jangan jalankan pada desktop.
-          Hanya berguna ketika menu mobile aktif.
-        */
-
-        if (
-          window.innerWidth <= 992
-        ) {
+        if (window.innerWidth <= 900) {
 
           navMenu.classList.remove("active");
 
@@ -2123,10 +2688,8 @@
             "false"
           );
 
-          dropdownParents.forEach(function (item) {
-
+          dropdownParents.forEach(function(item) {
             item.classList.remove("open");
-
           });
 
         }
@@ -2142,12 +2705,12 @@
 
     document.addEventListener(
       "click",
-      function (event) {
+      function(event) {
 
-        const clickedInsideNavbar =
-          event.target.closest("header");
-
-        if (!clickedInsideNavbar) {
+        if (
+          !event.target.closest("header") &&
+          window.innerWidth <= 900
+        ) {
 
           navMenu.classList.remove("active");
 
@@ -2158,24 +2721,8 @@
             "false"
           );
 
-          dropdownParents.forEach(function (item) {
-
+          dropdownParents.forEach(function(item) {
             item.classList.remove("open");
-
-            const toggle =
-              item.querySelector(
-                ".dropdown-toggle"
-              );
-
-            if (toggle) {
-
-              toggle.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-
-            }
-
           });
 
         }
@@ -2185,15 +2732,14 @@
 
 
     /* =====================================================
-       RESET NAVBAR KETIKA BERPINDAH DARI MOBILE
-       KE DESKTOP
+       RESET KETIKA DESKTOP
     ====================================================== */
 
     window.addEventListener(
       "resize",
-      function () {
+      function() {
 
-        if (window.innerWidth > 992) {
+        if (window.innerWidth > 900) {
 
           navMenu.classList.remove("active");
 
@@ -2204,10 +2750,8 @@
             "false"
           );
 
-          dropdownParents.forEach(function (item) {
-
+          dropdownParents.forEach(function(item) {
             item.classList.remove("open");
-
           });
 
         }
@@ -2230,11 +2774,6 @@
       document.getElementById("nextBtn");
 
 
-    /*
-      Fungsi untuk mendapatkan
-      jarak satu slide.
-    */
-
     function getSlideWidth() {
 
       const slide =
@@ -2244,9 +2783,6 @@
         return 0;
       }
 
-      const style =
-        window.getComputedStyle(slide);
-
       const gap =
         parseInt(
           window.getComputedStyle(
@@ -2254,18 +2790,14 @@
           ).gap
         ) || 0;
 
-      return (
-        slide.offsetWidth + gap
-      );
+      return slide.offsetWidth + gap;
 
     }
 
 
-    /* Tombol sebelumnya */
-
     prevBtn.addEventListener(
       "click",
-      function () {
+      function() {
 
         gallerySlider.scrollBy({
 
@@ -2281,11 +2813,9 @@
     );
 
 
-    /* Tombol berikutnya */
-
     nextBtn.addEventListener(
       "click",
-      function () {
+      function() {
 
         gallerySlider.scrollBy({
 
@@ -2314,3 +2844,4 @@
 
 </body>
 </html>
+```

@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Visi & Misi - SDIT Ihyaussunnah</title>
+  <title>Organisasi SD - SDIT Ihyaussunnah</title>
 
   <meta name="description"
-        content="Visi dan Misi SDIT Ihyaussunnah dalam membentuk generasi berakidah, cerdas, berakhlak mulia, dan mencintai Al-Qur'an.">
+        content="Struktur organisasi SDIT Ihyaussunnah. Kenali pimpinan, guru, dan tenaga kependidikan SDIT Ihyaussunnah.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -283,7 +283,8 @@
       color: var(--green-light);
     }
 
-    .dropdown-menu a:hover {
+    .dropdown-menu a:hover,
+    .dropdown-menu a.active {
       color: var(--green-primary);
       background: var(--green-soft);
     }
@@ -328,8 +329,8 @@
 
       background:
         linear-gradient(
-          rgba(11,66,25,.82),
-          rgba(27,94,32,.84)
+          rgba(11,66,25,.84),
+          rgba(27,94,32,.86)
         ),
         url("./images/quran.jpg")
         center / cover no-repeat;
@@ -414,8 +415,8 @@
     }
 
     .section-header {
-      max-width: 700px;
-      margin: 0 auto 45px;
+      max-width: 720px;
+      margin: 0 auto 50px;
       text-align: center;
     }
 
@@ -448,389 +449,389 @@
 
 
     /* =========================
-       VISI CARD
+       STRUKTUR ORGANISASI
     ========================= */
 
-    .visi-wrapper {
-      max-width: 900px;
+    .organization {
+      position: relative;
+      max-width: 1050px;
       margin: auto;
     }
 
-    .visi-card {
+
+    /* Level Kepala Sekolah */
+
+    .org-level-head {
+      display: flex;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .org-level-head::after {
+      content: "";
+
+      position: absolute;
+
+      width: 2px;
+      height: 45px;
+
+      background: #b7d8ba;
+
+      top: 100%;
+      left: 50%;
+    }
+
+
+    /* Kartu Organisasi */
+
+    .org-card {
       position: relative;
 
-      padding: 55px 50px;
+      width: 290px;
+
+      padding: 25px 20px;
 
       text-align: center;
 
+      background: var(--white);
+
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      box-shadow: var(--shadow-md);
+
+      transition: .3s ease;
+    }
+
+    .org-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+
+    .org-photo {
+      width: 95px;
+      height: 95px;
+
+      margin: 0 auto 15px;
+
+      border-radius: 50%;
+
+      overflow: hidden;
+
+      border: 4px solid #e3f2e5;
+
+      background: var(--green-soft);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .org-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .org-photo i {
+      font-size: 38px;
+      color: var(--green-light);
+    }
+
+
+    .org-card h3 {
+      color: var(--green-primary);
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .org-card .position {
+      color: var(--orange-dark);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .org-card .description {
+      margin-top: 10px;
+
+      color: var(--gray);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+
+    /* Kepala sekolah khusus */
+
+    .principal-card {
+      border: 2px solid #cce4cf;
       background:
         linear-gradient(
-          135deg,
+          145deg,
           #ffffff,
           #f4fcf5
         );
-
-      border: 1px solid #d9eddc;
-      border-radius: var(--radius-lg);
-
-      box-shadow: var(--shadow-md);
-
-      overflow: hidden;
     }
 
-    .visi-card::before {
+    .principal-card .org-photo {
+      width: 110px;
+      height: 110px;
+      border-color: #b7d8ba;
+    }
+
+
+    /* Connector */
+
+    .org-connector {
+      position: relative;
+
+      height: 80px;
+
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .org-connector::before {
       content: "";
 
       position: absolute;
 
-      width: 180px;
-      height: 180px;
+      width: 2px;
+      height: 40px;
 
-      top: -90px;
-      left: -90px;
+      background: #b7d8ba;
 
-      background: rgba(76,175,80,.08);
-
-      border-radius: 50%;
+      left: 50%;
+      top: 0;
     }
 
-    .visi-card::after {
+    .org-connector::after {
       content: "";
 
       position: absolute;
 
-      width: 180px;
-      height: 180px;
+      width: 70%;
+      height: 2px;
 
-      bottom: -90px;
-      right: -90px;
+      background: #b7d8ba;
 
-      background: rgba(255,143,0,.07);
-
-      border-radius: 50%;
-    }
-
-    .visi-icon {
-      position: relative;
-      z-index: 2;
-
-      width: 78px;
-      height: 78px;
-
-      margin: 0 auto 22px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: var(--green-primary);
-      color: var(--white);
-
-      font-size: 28px;
-
-      box-shadow: 0 10px 25px rgba(27,94,32,.22);
-    }
-
-    .visi-card h3 {
-      position: relative;
-      z-index: 2;
-
-      color: var(--green-primary);
-      font-family: 'Amiri', serif;
-      font-size: 30px;
-
-      margin-bottom: 18px;
-    }
-
-    .visi-text {
-      position: relative;
-      z-index: 2;
-
-      color: #374151;
-
-      font-family: 'Amiri', serif;
-      font-size: 25px;
-      font-weight: 700;
-      line-height: 1.7;
+      left: 15%;
+      top: 40px;
     }
 
 
-    /* =========================
-       MISI
-    ========================= */
+    /* Level Wakil */
 
-    .misi-section {
-      background: var(--green-soft);
-    }
-
-    .misi-grid {
+    .org-level-middle {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+      gap: 35px;
+
+      max-width: 760px;
+
+      margin: auto;
+
+      position: relative;
     }
 
-    .misi-card {
+    .org-level-middle .org-card:first-child::before,
+    .org-level-middle .org-card:last-child::before {
+      content: "";
+
+      position: absolute;
+
+      width: 2px;
+      height: 35px;
+
+      background: #b7d8ba;
+
+      top: -35px;
+    }
+
+    .org-level-middle .org-card:first-child::before {
+      right: 50%;
+    }
+
+    .org-level-middle .org-card:last-child::before {
+      left: 50%;
+    }
+
+
+    /* Connector bawah */
+
+    .org-connector-bottom {
       position: relative;
 
-      padding: 28px;
+      height: 75px;
+
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .org-connector-bottom::before {
+      content: "";
+
+      position: absolute;
+
+      width: 70%;
+      height: 2px;
+
+      background: #b7d8ba;
+
+      left: 15%;
+      top: 35px;
+    }
+
+    .org-connector-bottom::after {
+      content: "";
+
+      position: absolute;
+
+      width: 2px;
+      height: 40px;
+
+      background: #b7d8ba;
+
+      left: 50%;
+      top: 35px;
+    }
+
+
+    /* Guru */
+
+    .org-level-teachers {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+
+      position: relative;
+    }
+
+    .teacher-card {
+      width: auto;
+      padding: 22px 15px;
+    }
+
+    .teacher-card .org-photo {
+      width: 75px;
+      height: 75px;
+    }
+
+    .teacher-card .org-photo i {
+      font-size: 28px;
+    }
+
+    .teacher-card h3 {
+      font-size: 14px;
+    }
+
+    .teacher-card .position {
+      font-size: 11px;
+    }
+
+
+    /* =========================
+       KETERANGAN
+    ========================= */
+
+    .organization-note {
+      max-width: 850px;
+
+      margin: 45px auto 0;
+
+      padding: 18px 22px;
 
       display: flex;
       align-items: flex-start;
-      gap: 20px;
+      gap: 13px;
 
-      background: var(--white);
+      background: #fffaf0;
 
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-
-      box-shadow: var(--shadow-sm);
-
-      transition: .3s ease;
-    }
-
-    .misi-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-      border-color: #c5dfc8;
-    }
-
-    .misi-number {
-      flex-shrink: 0;
-
-      width: 48px;
-      height: 48px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--green-primary);
-      color: var(--white);
-
+      border: 1px solid #ffe0a3;
       border-radius: 14px;
 
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .misi-card h3 {
-      margin-bottom: 6px;
-
-      color: var(--green-primary);
-      font-size: 16px;
-    }
-
-    .misi-card p {
-      color: var(--gray);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-
-    /* =========================
-       NILAI
-    ========================= */
-
-    .nilai-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .nilai-card {
-      padding: 32px 25px;
-
-      text-align: center;
-
-      background: var(--white);
-
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-
-      box-shadow: var(--shadow-sm);
-
-      transition: .3s ease;
-    }
-
-    .nilai-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .nilai-icon {
-      width: 65px;
-      height: 65px;
-
-      margin: 0 auto 18px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 18px;
-
-      background: var(--green-soft);
-      color: var(--green-primary);
-
-      font-size: 25px;
-    }
-
-    .nilai-card h3 {
-      color: var(--green-primary);
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
-
-    .nilai-card p {
-      color: var(--gray);
-      font-size: 13px;
-    }
-
-
-    /* =========================
-       TARGET PENDIDIKAN
-    ========================= */
-
-    .target-section {
-      background: #fafafa;
-    }
-
-    .target-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 45px;
-
-      align-items: center;
-    }
-
-    .target-image {
-      position: relative;
-      min-height: 380px;
-
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-
-      box-shadow: var(--shadow-md);
-
-      background:
-        linear-gradient(
-          rgba(27,94,32,.25),
-          rgba(27,94,32,.25)
-        ),
-        url("./images/quran.jpg")
-        center / cover no-repeat;
-    }
-
-    .target-image-content {
-      position: absolute;
-      inset: 0;
-
-      display: flex;
-      align-items: flex-end;
-
-      padding: 30px;
-
-      background:
-        linear-gradient(
-          transparent 30%,
-          rgba(0,0,0,.72)
-        );
-    }
-
-    .target-image-content h3 {
-      color: var(--white);
-
-      font-family: 'Amiri', serif;
-      font-size: 30px;
-
-      line-height: 1.3;
-    }
-
-    .target-list {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .target-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-    }
-
-    .target-check {
-      flex-shrink: 0;
-
-      width: 32px;
-      height: 32px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--green-primary);
-      color: var(--white);
-
-      border-radius: 50%;
+      color: #78520a;
 
       font-size: 12px;
     }
 
-    .target-item h4 {
-      color: var(--green-primary);
-      font-size: 15px;
-      margin-bottom: 3px;
-    }
-
-    .target-item p {
-      color: var(--gray);
-      font-size: 13px;
+    .organization-note i {
+      color: var(--orange-accent);
+      margin-top: 4px;
     }
 
 
     /* =========================
-       QUOTE
+       TEAM SECTION
     ========================= */
 
-    .quote-section {
-      padding: 75px 0;
+    .team-section {
+      background: var(--green-soft);
+    }
 
-      background:
-        linear-gradient(
-          rgba(16,69,21,.92),
-          rgba(16,69,21,.92)
-        ),
-        url("./images/quran.jpg")
-        center / cover no-repeat;
+    .team-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 24px;
+    }
+
+    .team-card {
+      background: var(--white);
+
+      padding: 30px 22px;
 
       text-align: center;
-      color: var(--white);
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      box-shadow: var(--shadow-sm);
+
+      transition: .3s ease;
     }
 
-    .quote-icon {
-      color: var(--orange-accent);
-      font-size: 30px;
-      margin-bottom: 20px;
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
     }
 
-    .quote-section blockquote {
-      max-width: 850px;
-      margin: auto;
+    .team-icon {
+      width: 65px;
+      height: 65px;
 
-      font-family: 'Amiri', serif;
-      font-size: clamp(24px, 3vw, 34px);
+      margin: 0 auto 17px;
 
-      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--green-soft);
+
+      border-radius: 18px;
+
+      color: var(--green-primary);
+
+      font-size: 25px;
     }
 
-    .quote-section small {
-      display: block;
+    .team-card h3 {
+      color: var(--green-primary);
 
-      margin-top: 20px;
+      font-size: 17px;
 
-      color: rgba(255,255,255,.75);
+      margin-bottom: 7px;
+    }
+
+    .team-card p {
+      color: var(--gray);
+
       font-size: 12px;
     }
 
@@ -849,6 +850,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 30px;
 
       background:
@@ -868,6 +870,7 @@
     .cta-box h2 {
       font-family: 'Amiri', serif;
       font-size: 32px;
+
       margin-bottom: 5px;
     }
 
@@ -880,6 +883,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
       gap: 8px;
 
       padding: 13px 22px;
@@ -910,13 +914,18 @@
     footer {
       background: #0c3210;
       color: rgba(255,255,255,.75);
+
       padding-top: 60px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+      grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
       gap: 40px;
+
       padding-bottom: 45px;
     }
 
@@ -931,12 +940,15 @@
     .footer-brand img {
       width: 48px;
       height: 48px;
+
       object-fit: cover;
+
       border-radius: 10px;
     }
 
     .footer-brand strong {
       color: var(--white);
+
       display: block;
     }
 
@@ -948,23 +960,29 @@
     .footer-about {
       font-size: 13px;
       line-height: 1.8;
+
       max-width: 330px;
     }
 
     .footer-col h3 {
       color: var(--white);
+
       font-size: 15px;
+
       margin-bottom: 18px;
     }
 
     .footer-col ul {
       display: flex;
+
       flex-direction: column;
+
       gap: 9px;
     }
 
     .footer-col a {
       font-size: 12px;
+
       transition: .2s ease;
     }
 
@@ -975,13 +993,17 @@
 
     .footer-contact {
       display: flex;
+
       flex-direction: column;
+
       gap: 12px;
     }
 
     .footer-contact div {
       display: flex;
+
       align-items: flex-start;
+
       gap: 10px;
 
       font-size: 12px;
@@ -989,7 +1011,9 @@
 
     .footer-contact i {
       width: 18px;
+
       color: var(--orange-accent);
+
       margin-top: 4px;
     }
 
@@ -1001,6 +1025,7 @@
       text-align: center;
 
       font-size: 11px;
+
       color: rgba(255,255,255,.5);
     }
 
@@ -1020,6 +1045,10 @@
         font-size: 12px;
       }
 
+      .org-level-teachers {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -1030,6 +1059,7 @@
 
       .menu-toggle {
         display: flex;
+
         align-items: center;
         justify-content: center;
       }
@@ -1042,6 +1072,7 @@
         right: 0;
 
         display: none;
+
         flex-direction: column;
         align-items: stretch;
 
@@ -1050,9 +1081,11 @@
         background: var(--white);
 
         border-top: 1px solid var(--border);
+
         box-shadow: var(--shadow-md);
 
         max-height: calc(100vh - 80px);
+
         overflow-y: auto;
       }
 
@@ -1078,6 +1111,7 @@
         transform: none;
 
         box-shadow: none;
+
         border-radius: 10px;
 
         background: var(--green-soft);
@@ -1093,15 +1127,29 @@
         transform: none;
       }
 
-      .misi-grid {
+      .org-level-middle {
         grid-template-columns: 1fr;
+        max-width: 290px;
       }
 
-      .nilai-grid {
-        grid-template-columns: 1fr;
+      .org-level-middle .org-card:first-child::before,
+      .org-level-middle .org-card:last-child::before {
+        display: none;
       }
 
-      .target-wrapper {
+      .org-connector {
+        display: none;
+      }
+
+      .org-connector-bottom {
+        display: none;
+      }
+
+      .org-level-teachers {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .team-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1146,6 +1194,7 @@
       .hero-icon {
         width: 60px;
         height: 60px;
+
         font-size: 24px;
       }
 
@@ -1157,20 +1206,16 @@
         font-size: 32px;
       }
 
-      .visi-card {
-        padding: 40px 22px;
+      .org-card {
+        width: 100%;
       }
 
-      .visi-text {
-        font-size: 21px;
+      .org-level-teachers {
+        grid-template-columns: 1fr;
       }
 
-      .misi-card {
-        padding: 22px;
-      }
-
-      .target-image {
-        min-height: 300px;
+      .organization-note {
+        align-items: flex-start;
       }
 
       .cta-box {
@@ -1183,6 +1228,7 @@
 
       .footer-grid {
         grid-template-columns: 1fr;
+
         gap: 30px;
       }
     }
@@ -1241,22 +1287,31 @@
 
       <a href="index.html" class="brand">
 
-        <img src="./images/sdit.jpg" alt="Logo SDIT Ihyaussunnah">
+        <img src="./images/sdit.jpg"
+             alt="Logo SDIT Ihyaussunnah">
 
         <div class="brand-text">
+
           <strong>SDIT Ihyaussunnah</strong>
-          <small>Berakidah, Cerdas & Berakhlak Mulia</small>
+
+          <small>
+            Berakidah, Cerdas & Berakhlak Mulia
+          </small>
+
         </div>
 
       </a>
 
 
       <button class="menu-toggle" id="menuToggle">
+
         <i class="fa-solid fa-bars"></i>
+
       </button>
 
 
       <ul class="nav-menu" id="navMenu">
+
 
         <li>
           <a href="index.html">
@@ -1265,7 +1320,9 @@
         </li>
 
 
-        <!-- TENTANG KAMI -->
+        <!-- =========================
+             TENTANG KAMI
+        ========================= -->
 
         <li class="dropdown">
 
@@ -1291,14 +1348,14 @@
             </li>
 
             <li>
-              <a href="visi-misi.html" class="active">
+              <a href="visi-misi.html">
                 <i class="fa-solid fa-bullseye"></i>
                 Visi & Misi
               </a>
             </li>
 
             <li>
-              <a href="organisasi.html">
+              <a href="organisasi.html" class="active">
                 <i class="fa-solid fa-sitemap"></i>
                 Organisasi SD
               </a>
@@ -1330,7 +1387,9 @@
         </li>
 
 
-        <!-- KURIKULUM -->
+        <!-- =========================
+             KURIKULUM
+        ========================= -->
 
         <li class="dropdown">
 
@@ -1428,14 +1487,16 @@
     <div class="hero-content">
 
       <div class="hero-icon">
-        <i class="fa-solid fa-bullseye"></i>
+
+        <i class="fa-solid fa-sitemap"></i>
+
       </div>
 
-      <h1>Visi & Misi</h1>
+      <h1>Organisasi SD</h1>
 
       <p>
-        Landasan dan arah pendidikan SDIT Ihyaussunnah
-        dalam membentuk generasi Islami.
+        Struktur organisasi dan pembagian tugas
+        SDIT Ihyaussunnah.
       </p>
 
     </div>
@@ -1453,8 +1514,10 @@
     <div class="container breadcrumb-inner">
 
       <a href="index.html">
+
         <i class="fa-solid fa-house"></i>
         Beranda
+
       </a>
 
       <i class="fa-solid fa-chevron-right"></i>
@@ -1463,7 +1526,7 @@
 
       <i class="fa-solid fa-chevron-right"></i>
 
-      <span>Visi & Misi</span>
+      <span>Organisasi SD</span>
 
     </div>
 
@@ -1472,7 +1535,7 @@
 
 
   <!-- =========================
-       VISI
+       STRUKTUR ORGANISASI
   ========================= -->
 
   <section class="section">
@@ -1482,316 +1545,53 @@
       <div class="section-header">
 
         <span class="section-label">
-          Arah Pendidikan
+          Struktur Sekolah
         </span>
 
-        <h2>Visi Sekolah</h2>
+        <h2>Struktur Organisasi SD</h2>
 
         <p>
-          Visi menjadi landasan utama dalam seluruh proses
-          pendidikan dan pengembangan peserta didik.
+          Struktur organisasi SDIT Ihyaussunnah sebagai
+          landasan koordinasi dalam menjalankan proses
+          pendidikan dan pelayanan kepada peserta didik.
         </p>
 
       </div>
 
 
-      <div class="visi-wrapper">
 
-        <div class="visi-card">
+      <div class="organization">
 
-          <div class="visi-icon">
-            <i class="fa-solid fa-eye"></i>
-          </div>
 
-          <h3>Visi SDIT Ihyaussunnah</h3>
+        <!-- KEPALA SEKOLAH -->
 
-          <!--
-            GANTI TEKS DI BAWAH DENGAN
-            VISI RESMI SEKOLAH
-          -->
+        <div class="org-level-head">
 
-          <p class="visi-text">
-            "Terwujudnya generasi yang berakidah,
-            cerdas, berakhlak mulia, mencintai
-            Al-Qur'an, dan mampu memberikan manfaat
-            bagi agama, masyarakat, dan bangsa."
-          </p>
+          <div class="org-card principal-card">
 
-        </div>
+            <div class="org-photo">
 
-      </div>
+              <!--
+                GANTI DENGAN FOTO KEPALA SEKOLAH
+                Jika belum ada foto, ikon akan digunakan.
+              -->
 
-    </div>
+              <i class="fa-solid fa-user-tie"></i>
 
-  </section>
-
-
-
-  <!-- =========================
-       MISI
-  ========================= -->
-
-  <section class="section misi-section">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <span class="section-label">
-          Langkah Strategis
-        </span>
-
-        <h2>Misi Sekolah</h2>
-
-        <p>
-          Upaya nyata SDIT Ihyaussunnah dalam mewujudkan
-          visi pendidikan yang telah ditetapkan.
-        </p>
-
-      </div>
-
-
-      <div class="misi-grid">
-
-
-        <div class="misi-card">
-
-          <div class="misi-number">
-            01
-          </div>
-
-          <div>
-
-            <h3>Penguatan Akidah</h3>
-
-            <p>
-              Menanamkan akidah Islam yang benar berdasarkan
-              Al-Qur'an dan Sunnah sejak dini.
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="misi-card">
-
-          <div class="misi-number">
-            02
-          </div>
-
-          <div>
-
-            <h3>Pendidikan Al-Qur'an</h3>
-
-            <p>
-              Membimbing peserta didik agar mampu membaca,
-              memahami, menghafal, dan mencintai Al-Qur'an.
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="misi-card">
-
-          <div class="misi-number">
-            03
-          </div>
-
-          <div>
-
-            <h3>Pembentukan Akhlak</h3>
-
-            <p>
-              Membentuk karakter peserta didik yang berakhlak
-              mulia, disiplin, bertanggung jawab, dan santun.
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="misi-card">
-
-          <div class="misi-number">
-            04
-          </div>
-
-          <div>
-
-            <h3>Pengembangan Potensi</h3>
-
-            <p>
-              Mengembangkan kemampuan akademik, kreativitas,
-              keterampilan, dan bakat setiap peserta didik.
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="misi-card">
-
-          <div class="misi-number">
-            05
-          </div>
-
-          <div>
-
-            <h3>Pembelajaran Berkualitas</h3>
-
-            <p>
-              Menyelenggarakan pembelajaran yang aktif,
-              menyenangkan, inovatif, dan sesuai kebutuhan
-              perkembangan peserta didik.
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="misi-card">
-
-          <div class="misi-number">
-            06
-          </div>
-
-          <div>
-
-            <h3>Kerja Sama Pendidikan</h3>
-
-            <p>
-              Membangun sinergi antara sekolah, orang tua,
-              dan masyarakat dalam mendukung pendidikan anak.
-            </p>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       NILAI UTAMA
-  ========================= -->
-
-  <section class="section">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <span class="section-label">
-          Nilai Utama
-        </span>
-
-        <h2>Karakter yang Dibangun</h2>
-
-        <p>
-          Nilai yang menjadi bagian penting dalam pembentukan
-          karakter peserta didik.
-        </p>
-
-      </div>
-
-
-      <div class="nilai-grid">
-
-
-        <div class="nilai-card">
-
-          <div class="nilai-icon">
-            <i class="fa-solid fa-mosque"></i>
-          </div>
-
-          <h3>Akidah</h3>
-
-          <p>
-            Menanamkan keyakinan yang kokoh kepada Allah
-            Subhanahu wa Ta'ala.
-          </p>
-
-        </div>
-
-
-
-        <div class="nilai-card">
-
-          <div class="nilai-icon">
-            <i class="fa-solid fa-book-quran"></i>
-          </div>
-
-          <h3>Al-Qur'an</h3>
-
-          <p>
-            Menumbuhkan kecintaan kepada Al-Qur'an melalui
-            tahsin, tahfizh, dan pengamalannya.
-          </p>
-
-        </div>
-
-
-
-        <div class="nilai-card">
-
-          <div class="nilai-icon">
-            <i class="fa-solid fa-heart"></i>
-          </div>
-
-          <h3>Akhlak</h3>
-
-          <p>
-            Membiasakan perilaku terpuji dalam kehidupan
-            sehari-hari di sekolah maupun di rumah.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       TARGET PENDIDIKAN
-  ========================= -->
-
-  <section class="section target-section">
-
-    <div class="container">
-
-      <div class="target-wrapper">
-
-
-        <div class="target-image">
-
-          <div class="target-image-content">
+            </div>
 
             <h3>
-              Membentuk Generasi
-              Islami yang Unggul
+              Nama Kepala Sekolah
             </h3>
+
+            <div class="position">
+              Kepala Sekolah
+            </div>
+
+            <p class="description">
+              Memimpin, mengarahkan, dan mengoordinasikan
+              seluruh penyelenggaraan pendidikan di sekolah.
+            </p>
 
           </div>
 
@@ -1799,109 +1599,177 @@
 
 
 
-        <div>
+        <!-- CONNECTOR -->
 
-          <span class="section-label">
-            Tujuan Pendidikan
-          </span>
-
-          <h2 style="
-            color: var(--green-primary);
-            font-family: 'Amiri', serif;
-            font-size: 38px;
-            line-height: 1.3;
-            margin-bottom: 25px;
-          ">
-            Generasi yang Berilmu,
-            Beriman & Berakhlak
-          </h2>
+        <div class="org-connector"></div>
 
 
-          <div class="target-list">
+
+        <!-- WAKIL / KOORDINATOR -->
+
+        <div class="org-level-middle">
 
 
-            <div class="target-item">
+          <div class="org-card">
 
-              <div class="target-check">
-                <i class="fa-solid fa-check"></i>
-              </div>
+            <div class="org-photo">
 
-              <div>
-
-                <h4>Berakidah dengan Benar</h4>
-
-                <p>
-                  Memiliki dasar keimanan dan pemahaman
-                  agama yang kuat.
-                </p>
-
-              </div>
+              <i class="fa-solid fa-user"></i>
 
             </div>
 
+            <h3>
+              Nama Wakil / Koordinator
+            </h3>
+
+            <div class="position">
+              Wakil Kepala Sekolah
+            </div>
+
+            <p class="description">
+              Membantu kepala sekolah dalam pengelolaan
+              program dan kegiatan sekolah.
+            </p>
+
+          </div>
 
 
-            <div class="target-item">
 
-              <div class="target-check">
-                <i class="fa-solid fa-check"></i>
-              </div>
+          <div class="org-card">
 
-              <div>
+            <div class="org-photo">
 
-                <h4>Mencintai Al-Qur'an</h4>
-
-                <p>
-                  Dekat dengan Al-Qur'an dan terbiasa
-                  membacanya dalam kehidupan sehari-hari.
-                </p>
-
-              </div>
+              <i class="fa-solid fa-user"></i>
 
             </div>
 
+            <h3>
+              Nama Koordinator
+            </h3>
+
+            <div class="position">
+              Koordinator Kurikulum
+            </div>
+
+            <p class="description">
+              Mengkoordinasikan pelaksanaan kurikulum
+              dan kegiatan pembelajaran.
+            </p>
+
+          </div>
 
 
-            <div class="target-item">
+        </div>
 
-              <div class="target-check">
-                <i class="fa-solid fa-check"></i>
-              </div>
 
-              <div>
 
-                <h4>Memiliki Akhlak Mulia</h4>
+        <!-- CONNECTOR -->
 
-                <p>
-                  Menunjukkan sikap santun, jujur, disiplin,
-                  dan bertanggung jawab.
-                </p>
+        <div class="org-connector-bottom"></div>
 
-              </div>
+
+
+        <!-- GURU -->
+
+        <div class="org-level-teachers">
+
+
+          <div class="org-card teacher-card">
+
+            <div class="org-photo">
+
+              <i class="fa-solid fa-chalkboard-user"></i>
 
             </div>
 
+            <h3>
+              Nama Guru
+            </h3>
+
+            <div class="position">
+              Guru Kelas
+            </div>
+
+          </div>
 
 
-            <div class="target-item">
 
-              <div class="target-check">
-                <i class="fa-solid fa-check"></i>
-              </div>
+          <div class="org-card teacher-card">
 
-              <div>
+            <div class="org-photo">
 
-                <h4>Berprestasi dan Mandiri</h4>
-
-                <p>
-                  Mengembangkan potensi akademik dan
-                  keterampilan untuk menghadapi masa depan.
-                </p>
-
-              </div>
+              <i class="fa-solid fa-chalkboard-user"></i>
 
             </div>
 
+            <h3>
+              Nama Guru
+            </h3>
+
+            <div class="position">
+              Guru Kelas
+            </div>
+
+          </div>
+
+
+
+          <div class="org-card teacher-card">
+
+            <div class="org-photo">
+
+              <i class="fa-solid fa-chalkboard-user"></i>
+
+            </div>
+
+            <h3>
+              Nama Guru
+            </h3>
+
+            <div class="position">
+              Guru Al-Qur'an
+            </div>
+
+          </div>
+
+
+
+          <div class="org-card teacher-card">
+
+            <div class="org-photo">
+
+              <i class="fa-solid fa-chalkboard-user"></i>
+
+            </div>
+
+            <h3>
+              Nama Guru
+            </h3>
+
+            <div class="position">
+              Guru Diniyah
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- CATATAN -->
+
+        <div class="organization-note">
+
+          <i class="fa-solid fa-circle-info"></i>
+
+          <div>
+
+            <strong>Catatan:</strong>
+
+            Struktur di atas merupakan tampilan contoh.
+            Silakan sesuaikan nama, jabatan, dan susunan
+            organisasi dengan struktur resmi SDIT Ihyaussunnah.
 
           </div>
 
@@ -1917,25 +1785,159 @@
 
 
   <!-- =========================
-       QUOTE
+       BAGIAN UNIT KERJA
   ========================= -->
 
-  <section class="quote-section">
+  <section class="section team-section">
 
     <div class="container">
 
-      <div class="quote-icon">
-        <i class="fa-solid fa-quote-right"></i>
+      <div class="section-header">
+
+        <span class="section-label">
+          Unit Kerja
+        </span>
+
+        <h2>Bidang Pendukung Sekolah</h2>
+
+        <p>
+          Setiap bagian memiliki peran dalam mendukung
+          terciptanya proses pendidikan yang terarah dan berkualitas.
+        </p>
+
       </div>
 
-      <blockquote>
-        "Sebaik-baik kalian adalah orang yang
-        mempelajari Al-Qur'an dan mengajarkannya."
-      </blockquote>
 
-      <small>
-        HR. Bukhari
-      </small>
+
+      <div class="team-grid">
+
+
+        <div class="team-card">
+
+          <div class="team-icon">
+
+            <i class="fa-solid fa-book-open"></i>
+
+          </div>
+
+          <h3>
+            Bidang Kurikulum
+          </h3>
+
+          <p>
+            Mengelola perencanaan, pelaksanaan, dan evaluasi
+            program pembelajaran sekolah.
+          </p>
+
+        </div>
+
+
+
+        <div class="team-card">
+
+          <div class="team-icon">
+
+            <i class="fa-solid fa-quran"></i>
+
+          </div>
+
+          <h3>
+            Bidang Al-Qur'an
+          </h3>
+
+          <p>
+            Mendukung program tahsin, tahfizh, dan pembinaan
+            kecintaan peserta didik terhadap Al-Qur'an.
+          </p>
+
+        </div>
+
+
+
+        <div class="team-card">
+
+          <div class="team-icon">
+
+            <i class="fa-solid fa-users"></i>
+
+          </div>
+
+          <h3>
+            Bidang Kesiswaan
+          </h3>
+
+          <p>
+            Mengelola pembinaan peserta didik, kegiatan,
+            kedisiplinan, dan pengembangan karakter.
+          </p>
+
+        </div>
+
+
+
+        <div class="team-card">
+
+          <div class="team-icon">
+
+            <i class="fa-solid fa-handshake"></i>
+
+          </div>
+
+          <h3>
+            Hubungan Masyarakat
+          </h3>
+
+          <p>
+            Membangun komunikasi dan hubungan baik antara
+            sekolah, orang tua, dan masyarakat.
+          </p>
+
+        </div>
+
+
+
+        <div class="team-card">
+
+          <div class="team-icon">
+
+            <i class="fa-solid fa-clipboard-check"></i>
+
+          </div>
+
+          <h3>
+            Administrasi
+          </h3>
+
+          <p>
+            Mendukung pengelolaan administrasi dan pelayanan
+            sekolah secara tertib dan profesional.
+          </p>
+
+        </div>
+
+
+
+        <div class="team-card">
+
+          <div class="team-icon">
+
+            <i class="fa-solid fa-people-group"></i>
+
+          </div>
+
+          <h3>
+            Tenaga Kependidikan
+          </h3>
+
+          <p>
+            Memberikan dukungan operasional untuk menunjang
+            kegiatan pendidikan dan pelayanan sekolah.
+          </p>
+
+        </div>
+
+
+      </div>
 
     </div>
 
@@ -1956,20 +1958,20 @@
         <div>
 
           <h2>
-            Ingin Mengenal SDIT Ihyaussunnah Lebih Dekat?
+            Ingin Mengenal Tim Kami?
           </h2>
 
           <p>
-            Silakan hubungi kami untuk mendapatkan informasi
-            lebih lanjut mengenai program dan pendidikan sekolah.
+            Lihat profil guru dan tenaga pendidik
+            SDIT Ihyaussunnah.
           </p>
 
         </div>
 
 
-        <a href="kontak.html" class="btn btn-orange">
+        <a href="guru.html" class="btn btn-orange">
 
-          Hubungi Kami
+          Lihat Guru Kami
 
           <i class="fa-solid fa-arrow-right"></i>
 
@@ -2003,7 +2005,9 @@
 
             <div>
 
-              <strong>SDIT Ihyaussunnah</strong>
+              <strong>
+                SDIT Ihyaussunnah
+              </strong>
 
               <small>
                 Berakidah, Cerdas & Berakhlak Mulia
@@ -2033,7 +2037,9 @@
           <ul>
 
             <li>
-              <a href="sejarah.html">Sejarah</a>
+              <a href="sejarah.html">
+                Sejarah
+              </a>
             </li>
 
             <li>
@@ -2175,14 +2181,21 @@
 
   <script>
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const navMenu =
+      document.getElementById("navMenu");
+
+
+    /* Mobile menu */
 
     menuToggle.addEventListener("click", function () {
 
       navMenu.classList.toggle("active");
 
-      const icon = menuToggle.querySelector("i");
+      const icon =
+        menuToggle.querySelector("i");
 
       if (navMenu.classList.contains("active")) {
 
@@ -2201,26 +2214,29 @@
 
     /* Dropdown mobile */
 
-    document.querySelectorAll(".dropdown > a").forEach(function (dropdownLink) {
+    document
+      .querySelectorAll(".dropdown > a")
+      .forEach(function (dropdownLink) {
 
-      dropdownLink.addEventListener("click", function (e) {
+        dropdownLink.addEventListener("click", function (e) {
 
-        if (window.innerWidth <= 850) {
+          if (window.innerWidth <= 850) {
 
-          e.preventDefault();
+            e.preventDefault();
 
-          const parent = this.parentElement;
+            const parent =
+              this.parentElement;
 
-          parent.classList.toggle("open");
+            parent.classList.toggle("open");
 
-        }
+          }
+
+        });
 
       });
 
-    });
 
-
-    /* Tutup menu ketika klik di luar */
+    /* Klik di luar menu */
 
     document.addEventListener("click", function (e) {
 
@@ -2232,15 +2248,18 @@
 
         navMenu.classList.remove("active");
 
-        menuToggle.querySelector("i").classList.remove("fa-xmark");
-        menuToggle.querySelector("i").classList.add("fa-bars");
+        const icon =
+          menuToggle.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
 
       }
 
     });
 
 
-    /* Reset menu ketika resize */
+    /* Reset ketika resize */
 
     window.addEventListener("resize", function () {
 
@@ -2248,8 +2267,11 @@
 
         navMenu.classList.remove("active");
 
-        menuToggle.querySelector("i").classList.remove("fa-xmark");
-        menuToggle.querySelector("i").classList.add("fa-bars");
+        const icon =
+          menuToggle.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
 
       }
 
