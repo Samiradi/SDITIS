@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kalender Pendidikan - SDIT Ihyaussunnah</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        :root {
+            --green: #27AE60;
+            --green-dark: #1E8449;
+            --green-deep: #145A32;
+            --green-soft: #EAF8F0;
+
+            --orange: #F39C12;
+            --orange-dark: #D68910;
+            --orange-soft: #FFF4DF;
+
+            --white: #ffffff;
+            --black: #222222;
+            --gray: #666666;
+            --light-gray: #f5f7f6;
+            --border: #e4e9e6;
+
+            --shadow-sm: 0 5px 18px rgba(0,0,0,0.07);
+            --shadow-md: 0 12px 30px rgba(0,0,0,0.10);
+            --shadow-lg: 0 20px 45px rgba(20,90,50,0.14);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--black);
+            background: #fff;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+
+        /* ==================================================
+           TOPBAR
+        ================================================== */
+
+        .topbar {
+            background: var(--green-deep);
+            color: #fff;
+            font-size: 13px;
+        }
+
+
+        .topbar-inner {
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+
+        .topbar i {
+            color: var(--orange);
+            margin-right: 5px;
+        }
+
+
+        /* ==================================================
+           NAVBAR
+        ================================================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+
+
+        .nav-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+
+        .logo img {
+            width: 52px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--green);
+        }
+
+
+        .logo-text h2 {
+            font-family: 'Amiri', serif;
+            color: var(--green-deep);
+            font-size: 25px;
+            line-height: 1;
+        }
+
+
+        .logo-text span {
+            display: block;
+            color: var(--orange-dark);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 3px;
+        }
+
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+
+        .nav-menu > li {
+            position: relative;
+        }
+
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 27px 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            transition: 0.3s;
+        }
+
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--green);
+        }
+
+
+        .nav-link i {
+            font-size: 10px;
+        }
+
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% - 5px);
+            left: 0;
+            min-width: 235px;
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+            box-shadow: var(--shadow-md);
+            list-style: none;
+            padding: 8px 0;
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+        }
+
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 18px;
+            font-size: 13px;
+            color: #444;
+            transition: 0.25s;
+        }
+
+
+        .dropdown-menu a:hover {
+            background: var(--green-soft);
+            color: var(--green-dark);
+            padding-left: 23px;
+        }
+
+
+        .mobile-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: none;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero {
+            position: relative;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(20,90,50,0.95),
+                    rgba(39,174,96,0.87)
+                ),
+                url('./images/kaldik.jpg') center/cover;
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 520px;
+            height: 520px;
+
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 50%;
+
+            right: -190px;
+            top: -170px;
+
+            animation: rotateCircle 18s linear infinite;
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+
+            left: -130px;
+            bottom: -140px;
+        }
+
+
+        @keyframes rotateCircle {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            color: #fff;
+
+            padding: 70px 0;
+        }
+
+
+        .hero-label {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 8px;
+
+            padding: 7px 15px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.13);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero-label i {
+            color: var(--orange);
+        }
+
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+
+            font-size: clamp(42px, 6vw, 62px);
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+
+            animation: fadeUp 0.8s ease both;
+        }
+
+
+        .hero p {
+            max-width: 720px;
+
+            font-size: 14px;
+
+            color: rgba(255,255,255,0.9);
+
+            animation: fadeUp 0.9s 0.1s ease both;
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ==================================================
+           BREADCRUMB
+        ================================================== */
+
+        .breadcrumb {
+            background: var(--green-soft);
+            padding: 13px 0;
+        }
+
+
+        .breadcrumb-inner {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            gap: 9px;
+
+            font-size: 13px;
+            color: #777;
+        }
+
+
+        .breadcrumb a {
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+
+        .breadcrumb i {
+            font-size: 9px;
+            color: var(--orange);
+        }
+
+
+        /* ==================================================
+           INTRO
+        ================================================== */
+
+        .intro {
+            padding: 75px 0;
+        }
+
+
+        .intro-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 55px;
+
+            align-items: center;
+        }
+
+
+        .intro-image {
+            position: relative;
+        }
+
+
+        .intro-image img {
+            width: 100%;
+            height: 420px;
+
+            object-fit: cover;
+
+            border-radius: 22px;
+
+            box-shadow: var(--shadow-lg);
+        }
+
+
+        .intro-image::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            right: -18px;
+            bottom: -18px;
+
+            border-right: 5px solid var(--orange);
+            border-bottom: 5px solid var(--orange);
+
+            border-radius: 0 0 20px 0;
+
+            z-index: -1;
+        }
+
+
+        .section-label {
+            display: inline-block;
+
+            color: var(--orange-dark);
+
+            background: var(--orange-soft);
+
+            padding: 6px 15px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .intro-content h2 {
+            font-family: 'Amiri', serif;
+
+            color: var(--green-deep);
+
+            font-size: 40px;
+
+            line-height: 1.25;
+
+            margin-bottom: 18px;
+        }
+
+
+        .intro-content p {
+            color: var(--gray);
+
+            font-size: 14px;
+
+            margin-bottom: 16px;
+        }
+
+
+        .intro-highlight {
+            margin-top: 25px;
+
+            padding: 20px 22px;
+
+            background: var(--green-soft);
+
+            border-left: 5px solid var(--green);
+
+            border-radius: 0 14px 14px 0;
+        }
+
+
+        .intro-highlight p {
+            margin: 0;
+
+            color: var(--green-deep);
+
+            font-weight: 600;
+
+            font-size: 13px;
+        }
+
+
+        /* ==================================================
+           INFO TAHUN AJARAN
+        ================================================== */
+
+        .year-section {
+            background: var(--light-gray);
+
+            padding: 70px 0;
+        }
+
+
+        .year-card {
+            max-width: 850px;
+
+            margin: auto;
+
+            background: #fff;
+
+            border-radius: 22px;
+
+            padding: 35px;
+
+            box-shadow: var(--shadow-md);
+
+            border: 1px solid var(--border);
+
+            text-align: center;
+        }
+
+
+        .year-icon {
+            width: 72px;
+            height: 72px;
+
+            margin: 0 auto 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: var(--green-soft);
+
+            color: var(--green);
+
+            font-size: 28px;
+        }
+
+
+        .year-card h2 {
+            font-family: 'Amiri', serif;
+
+            color: var(--green-deep);
+
+            font-size: 36px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .year-card p {
+            color: var(--gray);
+
+            font-size: 13px;
+
+            max-width: 650px;
+
+            margin: auto;
+        }
+
+
+        .year-badge {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 8px 18px;
+
+            border-radius: 30px;
+
+            background: var(--orange-soft);
+
+            color: var(--orange-dark);
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        /* ==================================================
+           KALENDER KEGIATAN
+        ================================================== */
+
+        .calendar-section {
+            padding: 80px 0;
+        }
+
+
+        .section-heading {
+            text-align: center;
+
+            max-width: 720px;
+
+            margin: 0 auto 45px;
+        }
+
+
+        .section-heading h2 {
+            font-family: 'Amiri', serif;
+
+            font-size: 42px;
+
+            line-height: 1.2;
+
+            color: var(--green-deep);
+
+            margin-bottom: 10px;
+        }
+
+
+        .section-heading p {
+            font-size: 13px;
+
+            color: var(--gray);
+        }
+
+
+        .calendar-wrapper {
+            background: #fff;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow-md);
+        }
+
+
+        .calendar-header {
+            display: grid;
+
+            grid-template-columns: 190px 1fr 180px;
+
+            background: var(--green-deep);
+
+            color: #fff;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .calendar-header div {
+            padding: 16px 18px;
+        }
+
+
+        .calendar-row {
+            display: grid;
+
+            grid-template-columns: 190px 1fr 180px;
+
+            border-bottom: 1px solid var(--border);
+
+            transition: 0.25s;
+        }
+
+
+        .calendar-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .calendar-row:hover {
+            background: var(--green-soft);
+        }
+
+
+        .calendar-row div {
+            padding: 17px 18px;
+
+            font-size: 12px;
+
+            color: var(--gray);
+        }
+
+
+        .calendar-row .month {
+            font-weight: 700;
+
+            color: var(--green-deep);
+        }
+
+
+        .calendar-row .activity {
+            color: #555;
+        }
+
+
+        .calendar-row .date {
+            color: var(--orange-dark);
+
+            font-weight: 600;
+        }
+
+
+        /* ==================================================
+           AGENDA PENTING
+        ================================================== */
+
+        .agenda-section {
+            background: var(--green-soft);
+
+            padding: 75px 0;
+        }
+
+
+        .agenda-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .agenda-card {
+            background: #fff;
+
+            padding: 28px 23px;
+
+            border-radius: 18px;
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow-sm);
+
+            transition: 0.35s;
+        }
+
+
+        .agenda-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow: var(--shadow-md);
+        }
+
+
+        .agenda-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background: var(--orange-soft);
+
+            color: var(--orange-dark);
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .agenda-card h3 {
+            font-family: 'Amiri', serif;
+
+            color: var(--green-deep);
+
+            font-size: 26px;
+
+            line-height: 1.2;
+
+            margin-bottom: 8px;
+        }
+
+
+        .agenda-card p {
+            color: var(--gray);
+
+            font-size: 12px;
+
+            line-height: 1.75;
+        }
+
+
+        /* ==================================================
+           LIBUR & PEMBELAJARAN
+        ================================================== */
+
+        .period-section {
+            padding: 80px 0;
+        }
+
+
+        .period-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+
+        .period-card {
+            border-radius: 20px;
+
+            padding: 30px;
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow-sm);
+
+            background: #fff;
+        }
+
+
+        .period-card.green-card {
+            background: var(--green-soft);
+
+            border-color: rgba(39,174,96,0.12);
+        }
+
+
+        .period-card.orange-card {
+            background: var(--orange-soft);
+
+            border-color: rgba(243,156,18,0.15);
+        }
+
+
+        .period-card h3 {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-family: 'Amiri', serif;
+
+            font-size: 29px;
+
+            color: var(--green-deep);
+
+            margin-bottom: 15px;
+        }
+
+
+        .period-card h3 i {
+            font-size: 20px;
+        }
+
+
+        .period-card p {
+            font-size: 13px;
+
+            color: var(--gray);
+
+            line-height: 1.8;
+
+            margin-bottom: 12px;
+        }
+
+
+        .period-card ul {
+            list-style: none;
+        }
+
+
+        .period-card li {
+            position: relative;
+
+            padding-left: 23px;
+
+            color: var(--gray);
+
+            font-size: 12px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .period-card li::before {
+            content: "\f00c";
+
+            font-family: "Font Awesome 6 Free";
+
+            font-weight: 900;
+
+            position: absolute;
+
+            left: 0;
+
+            color: var(--green);
+        }
+
+
+        /* ==================================================
+           CATATAN
+        ================================================== */
+
+        .note-section {
+            padding: 0 0 80px;
+        }
+
+
+        .note-box {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+
+            padding: 25px;
+
+            background: #fff;
+
+            border: 1px solid var(--border);
+
+            border-left: 5px solid var(--orange);
+
+            border-radius: 0 15px 15px 0;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+
+        .note-icon {
+            flex-shrink: 0;
+
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: var(--orange-soft);
+
+            color: var(--orange-dark);
+        }
+
+
+        .note-box h3 {
+            color: var(--green-deep);
+
+            font-size: 15px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .note-box p {
+            color: var(--gray);
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* ==================================================
+           CTA
+        ================================================== */
+
+        .cta {
+            padding: 75px 0;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    rgba(20,90,50,0.97),
+                    rgba(39,174,96,0.94)
+                );
+
+            color: #fff;
+
+            text-align: center;
+        }
+
+
+        .cta h2 {
+            font-family: 'Amiri', serif;
+
+            font-size: 44px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .cta p {
+            max-width: 650px;
+
+            margin: 0 auto 25px;
+
+            color: rgba(255,255,255,0.86);
+
+            font-size: 13px;
+        }
+
+
+        .cta-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            background: var(--orange);
+
+            color: #fff;
+
+            padding: 13px 23px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+
+        .cta-btn:hover {
+            background: var(--orange-dark);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+            background: #0f3f25;
+
+            color: rgba(255,255,255,0.75);
+
+            padding: 55px 0 20px;
+        }
+
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr;
+
+            gap: 45px;
+
+            padding-bottom: 35px;
+        }
+
+
+        .footer-logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-logo img {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+        }
+
+
+        .footer-logo h3 {
+            font-family: 'Amiri', serif;
+
+            color: #fff;
+
+            font-size: 22px;
+        }
+
+
+        .footer-about p {
+            font-size: 12px;
+
+            line-height: 1.8;
+
+            max-width: 400px;
+        }
+
+
+        .footer-title {
+            color: #fff;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-links {
+            list-style: none;
+        }
+
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+
+        .footer-links a {
+            font-size: 12px;
+
+            transition: 0.25s;
+        }
+
+
+        .footer-links a:hover {
+            color: var(--orange);
+
+            padding-left: 4px;
+        }
+
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+
+            padding-top: 18px;
+
+            text-align: center;
+
+            font-size: 11px;
+        }
+
+
+        /* ==================================================
+           REVEAL
+        ================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition: 0.7s ease;
+        }
+
+
+        .reveal.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (max-width: 1050px) {
+
+            .nav-menu {
+                position: absolute;
+
+                top: 76px;
+                left: 0;
+
+                width: 100%;
+
+                background: #fff;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 10px 5%;
+
+                box-shadow: var(--shadow-md);
+
+                display: none;
+
+                max-height: 80vh;
+
+                overflow-y: auto;
+            }
+
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+
+            .nav-link {
+                padding: 13px 8px;
+
+                justify-content: space-between;
+            }
+
+
+            .dropdown-menu {
+                position: static;
+
+                display: none;
+
+                opacity: 1;
+
+                visibility: visible;
+
+                transform: none;
+
+                box-shadow: none;
+
+                background: var(--green-soft);
+
+                border-radius: 8px;
+            }
+
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+
+            .mobile-toggle {
+                display: block;
+            }
+
+
+            .calendar-header,
+            .calendar-row {
+                grid-template-columns: 150px 1fr 150px;
+            }
+
+        }
+
+
+        @media (max-width: 850px) {
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+
+            .intro-image img {
+                height: 350px;
+            }
+
+
+            .agenda-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .period-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .topbar-left {
+                display: none;
+            }
+
+
+            .topbar-inner {
+                justify-content: center;
+            }
+
+
+            .logo img {
+                width: 45px;
+                height: 45px;
+            }
+
+
+            .logo-text h2 {
+                font-size: 21px;
+            }
+
+
+            .hero {
+                min-height: 320px;
+            }
+
+
+            .hero-content {
+                padding: 55px 0;
+            }
+
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+
+            .intro {
+                padding: 55px 0;
+            }
+
+
+            .intro-content h2 {
+                font-size: 34px;
+            }
+
+
+            .intro-image img {
+                height: 290px;
+            }
+
+
+            .year-card {
+                padding: 28px 20px;
+            }
+
+
+            .year-card h2 {
+                font-size: 31px;
+            }
+
+
+            .calendar-wrapper {
+                overflow-x: auto;
+            }
+
+
+            .calendar-header,
+            .calendar-row {
+                min-width: 650px;
+            }
+
+
+            .agenda-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .cta h2 {
+                font-size: 35px;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     TOPBAR
+================================================== -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <div class="topbar-left">
+
+            <span>
+                <i class="fas fa-envelope"></i>
+                info@sditihyaussunnah.sch.id
+            </span>
+
+            <span>
+                <i class="fas fa-phone"></i>
+                08xxxxxxxxxx
+            </span>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <span>
+                <i class="fas fa-quran"></i>
+                Sekolah Berbasis Al-Qur'an
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<nav class="navbar">
+
+    <div class="container nav-inner">
+
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="./images/sdit.jpg"
+                alt="Logo SDIT Ihyaussunnah"
+            >
+
+            <div class="logo-text">
+
+                <h2>
+                    SDIT Ihyaussunnah
+                </h2>
+
+                <span>
+                    ISLAMIC INTEGRATED SCHOOL
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <button
+            class="mobile-toggle"
+            id="mobileToggle"
+        >
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+
+
+        <ul class="nav-menu" id="navMenu">
+
+
+            <li>
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Beranda
+                </a>
+            </li>
+
+
+
+            <!-- TENTANG KAMI -->
+
+            <li class="dropdown">
+
+                <a href="#" class="nav-link">
+
+                    Tentang Kami
+
+                    <i class="fas fa-chevron-down"></i>
+
+                </a>
+
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="sejarah.html">
+                            Sejarah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="sambutan.html">
+                            Sambutan Kepala Sekolah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="visi-misi.html">
+                            Visi & Misi
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="organisasi.html">
+                            Organisasi SD
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="komite.html">
+                            Organisasi Komite
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="guru.html">
+                            Guru Kami
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="video-profile.html">
+                            Video Profile
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+
+            <!-- KURIKULUM -->
+
+            <li class="dropdown">
+
+                <a
+                    href="#"
+                    class="nav-link active"
+                >
+
+                    Kurikulum
+
+                    <i class="fas fa-chevron-down"></i>
+
+                </a>
+
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="kurikulum-umum.html">
+                            Umum
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kurikulum-diniyah.html">
+                            Diniyah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tahsin-tahfizh.html">
+                            Tahsin & Tahfizh
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="ekstrakurikuler.html">
+                            Intra & Ekstrakurikuler
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="kaldik.html"
+                            style="
+                                background:var(--green-soft);
+                                color:var(--green-dark);
+                            "
+                        >
+                            Kalender Pendidikan
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+
+            <li>
+                <a
+                    href="fasilitas.html"
+                    class="nav-link"
+                >
+                    Fasilitas
+                </a>
+            </li>
+
+
+
+            <li>
+                <a
+                    href="berita.html"
+                    class="nav-link"
+                >
+                    Info Berita
+                </a>
+            </li>
+
+
+
+            <li>
+                <a
+                    href="kontak.html"
+                    class="nav-link"
+                >
+                    Kontak
+                </a>
+            </li>
+
+
+
+            <li>
+                <a
+                    href="medsos.html"
+                    class="nav-link"
+                >
+                    Medsos
+                </a>
+            </li>
+
+
+
+            <li>
+                <a
+                    href="#"
+                    class="nav-link"
+                >
+                    PPDB 2026
+                </a>
+            </li>
+
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+
+                <i class="fas fa-calendar-days"></i>
+
+                KURIKULUM SEKOLAH
+
+            </div>
+
+
+            <h1>
+                Kalender Pendidikan
+            </h1>
+
+
+            <p>
+                Informasi jadwal dan rangkaian kegiatan pendidikan
+                SDIT Ihyaussunnah dalam satu tahun ajaran.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     BREADCRUMB
+================================================== -->
+
+<div class="breadcrumb">
+
+    <div class="container breadcrumb-inner">
+
+        <a href="index.html">
+            Beranda
+        </a>
+
+        <i class="fas fa-chevron-right"></i>
+
+        <span>
+            Kurikulum
+        </span>
+
+        <i class="fas fa-chevron-right"></i>
+
+        <span>
+            Kalender Pendidikan
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     INTRO
+================================================== -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+
+            <div class="intro-image reveal">
+
+                <img
+                    src="./images/kaldik.jpg"
+                    alt="Kalender Pendidikan SDIT Ihyaussunnah"
+                >
+
+            </div>
+
+
+
+            <div class="intro-content reveal">
+
+                <div class="section-label">
+                    KALENDER PENDIDIKAN
+                </div>
+
+
+                <h2>
+                    Mengatur Waktu Belajar dengan Terarah
+                </h2>
+
+
+                <p>
+                    Kalender pendidikan menjadi acuan dalam
+                    pelaksanaan berbagai kegiatan pendidikan
+                    selama satu tahun ajaran di SDIT Ihyaussunnah.
+                </p>
+
+
+                <p>
+                    Melalui kalender pendidikan, sekolah dapat
+                    mengatur kegiatan pembelajaran, asesmen,
+                    kegiatan sekolah, hari libur dan berbagai
+                    agenda pendidikan secara terencana.
+                </p>
+
+
+                <div class="intro-highlight">
+
+                    <p>
+
+                        <i class="fas fa-circle-check"></i>
+
+                        Kalender pendidikan disusun dan disesuaikan
+                        dengan ketentuan yang berlaku serta program
+                        pendidikan SDIT Ihyaussunnah.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     TAHUN AJARAN
+================================================== -->
+
+<section class="year-section">
+
+    <div class="container">
+
+        <div class="year-card reveal">
+
+            <div class="year-icon">
+
+                <i class="fas fa-calendar-check"></i>
+
+            </div>
+
+
+            <!-- GANTI TAHUN AJARAN DI SINI -->
+
+            <h2>
+                Tahun Ajaran 2026/2027
+            </h2>
+
+
+            <p>
+                Kalender pendidikan berikut merupakan template
+                yang dapat disesuaikan dengan kalender resmi
+                sekolah, ketentuan pemerintah daerah dan program
+                SDIT Ihyaussunnah.
+            </p>
+
+
+            <div class="year-badge">
+
+                <i class="fas fa-calendar"></i>
+
+                TAHUN AJARAN 2026 / 2027
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     KALENDER UTAMA
+================================================== -->
+
+<section class="calendar-section">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                AGENDA TAHUNAN
+            </div>
+
+
+            <h2>
+                Rangkaian Kegiatan Pendidikan
+            </h2>
+
+
+            <p>
+                Contoh susunan agenda pendidikan yang dapat
+                disesuaikan dengan kalender resmi sekolah.
+            </p>
+
+        </div>
+
+
+
+        <div class="calendar-wrapper reveal">
+
+
+            <div class="calendar-header">
+
+                <div>
+                    Bulan / Periode
+                </div>
+
+                <div>
+                    Kegiatan
+                </div>
+
+                <div>
+                    Waktu
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 GANTI DATA KALENDER DI BAWAH INI
+            ========================================== -->
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Juli
+                </div>
+
+                <div class="activity">
+                    Awal Tahun Ajaran & Pengenalan
+                    Lingkungan Sekolah
+                </div>
+
+                <div class="date">
+                    Sesuai kalender sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Agustus
+                </div>
+
+                <div class="activity">
+                    Kegiatan pembelajaran dan program
+                    pengembangan peserta didik
+                </div>
+
+                <div class="date">
+                    Sesuai jadwal sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    September
+                </div>
+
+                <div class="activity">
+                    Pembelajaran, evaluasi dan kegiatan
+                    pengembangan diri
+                </div>
+
+                <div class="date">
+                    Sesuai jadwal sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Oktober
+                </div>
+
+                <div class="activity">
+                    Kegiatan pembelajaran dan asesmen
+                </div>
+
+                <div class="date">
+                    Sesuai jadwal sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    November
+                </div>
+
+                <div class="activity">
+                    Pembelajaran dan kegiatan sekolah
+                </div>
+
+                <div class="date">
+                    Sesuai jadwal sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Desember
+                </div>
+
+                <div class="activity">
+                    Asesmen akhir semester dan pembagian
+                    hasil belajar
+                </div>
+
+                <div class="date">
+                    Sesuai kalender sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Januari
+                </div>
+
+                <div class="activity">
+                    Awal semester genap dan kegiatan
+                    pembelajaran
+                </div>
+
+                <div class="date">
+                    Sesuai kalender sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Februari
+                </div>
+
+                <div class="activity">
+                    Pembelajaran dan pengembangan potensi
+                    peserta didik
+                </div>
+
+                <div class="date">
+                    Sesuai jadwal sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Maret
+                </div>
+
+                <div class="activity">
+                    Kegiatan pembelajaran dan evaluasi
+                </div>
+
+                <div class="date">
+                    Sesuai kalender sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    April
+                </div>
+
+                <div class="activity">
+                    Kegiatan pembelajaran dan program
+                    keagamaan
+                </div>
+
+                <div class="date">
+                    Sesuai kalender sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Mei
+                </div>
+
+                <div class="activity">
+                    Asesmen dan kegiatan akhir tahun
+                </div>
+
+                <div class="date">
+                    Sesuai kalender sekolah
+                </div>
+
+            </div>
+
+
+
+            <div class="calendar-row">
+
+                <div class="month">
+                    Juni
+                </div>
+
+                <div class="activity">
+                    Asesmen akhir tahun, pembagian hasil belajar
+                    dan persiapan tahun ajaran berikutnya
+                </div>
+
+                <div class="date">
+                    Sesuai kalender sekolah
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     AGENDA PENTING
+================================================== -->
+
+<section class="agenda-section">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                AGENDA SEKOLAH
+            </div>
+
+
+            <h2>
+                Kegiatan Penting
+            </h2>
+
+
+            <p>
+                Beberapa jenis kegiatan yang dapat dicantumkan
+                dalam kalender pendidikan sekolah.
+            </p>
+
+        </div>
+
+
+
+        <div class="agenda-grid">
+
+
+            <!-- 1 -->
+
+            <div class="agenda-card reveal">
+
+                <div class="agenda-icon">
+
+                    <i class="fas fa-school"></i>
+
+                </div>
+
+
+                <h3>
+                    Awal Tahun Ajaran
+                </h3>
+
+
+                <p>
+                    Kegiatan persiapan dan awal pelaksanaan
+                    pembelajaran pada tahun ajaran baru.
+                </p>
+
+            </div>
+
+
+
+            <!-- 2 -->
+
+            <div class="agenda-card reveal">
+
+                <div class="agenda-icon">
+
+                    <i class="fas fa-users"></i>
+
+                </div>
+
+
+                <h3>
+                    Kegiatan Siswa
+                </h3>
+
+
+                <p>
+                    Berbagai kegiatan pengembangan diri,
+                    pembiasaan, keagamaan dan aktivitas sekolah.
+                </p>
+
+            </div>
+
+
+
+            <!-- 3 -->
+
+            <div class="agenda-card reveal">
+
+                <div class="agenda-icon">
+
+                    <i class="fas fa-file-pen"></i>
+
+                </div>
+
+
+                <h3>
+                    Asesmen
+                </h3>
+
+
+                <p>
+                    Pelaksanaan asesmen dan evaluasi pembelajaran
+                    sesuai dengan program sekolah.
+                </p>
+
+            </div>
+
+
+
+            <!-- 4 -->
+
+            <div class="agenda-card reveal">
+
+                <div class="agenda-icon">
+
+                    <i class="fas fa-chart-column"></i>
+
+                </div>
+
+
+                <h3>
+                    Hasil Belajar
+                </h3>
+
+
+                <p>
+                    Pengolahan dan penyampaian hasil belajar
+                    peserta didik kepada orang tua atau wali.
+                </p>
+
+            </div>
+
+
+
+            <!-- 5 -->
+
+            <div class="agenda-card reveal">
+
+                <div class="agenda-icon">
+
+                    <i class="fas fa-mosque"></i>
+
+                </div>
+
+
+                <h3>
+                    Program Keagamaan
+                </h3>
+
+
+                <p>
+                    Kegiatan keagamaan yang menjadi bagian dari
+                    pembiasaan dan pendidikan karakter Islami.
+                </p>
+
+            </div>
+
+
+
+            <!-- 6 -->
+
+            <div class="agenda-card reveal">
+
+                <div class="agenda-icon">
+
+                    <i class="fas fa-umbrella-beach"></i>
+
+                </div>
+
+
+                <h3>
+                    Hari Libur
+                </h3>
+
+
+                <p>
+                    Waktu libur peserta didik yang mengikuti
+                    ketentuan kalender pendidikan yang berlaku.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PERIODE BELAJAR & LIBUR
+================================================== -->
+
+<section class="period-section">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="section-label">
+                PENGATURAN WAKTU
+            </div>
+
+
+            <h2>
+                Pembelajaran & Masa Libur
+            </h2>
+
+
+            <p>
+                Pengaturan periode pembelajaran dan libur
+                disesuaikan dengan kalender pendidikan yang
+                berlaku.
+            </p>
+
+        </div>
+
+
+
+        <div class="period-grid">
+
+
+            <!-- PEMBELAJARAN -->
+
+            <div class="period-card green-card reveal">
+
+                <h3>
+
+                    <i class="fas fa-book-open"></i>
+
+                    Periode Pembelajaran
+
+                </h3>
+
+
+                <p>
+                    Periode pembelajaran digunakan untuk
+                    melaksanakan seluruh proses pendidikan
+                    dan kegiatan sekolah.
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        Pembelajaran intrakurikuler
+                    </li>
+
+                    <li>
+                        Pembelajaran Al-Qur'an dan Diniyah
+                    </li>
+
+                    <li>
+                        Kegiatan pengembangan diri
+                    </li>
+
+                    <li>
+                        Asesmen dan evaluasi pembelajaran
+                    </li>
+
+                    <li>
+                        Kegiatan sekolah lainnya
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- LIBUR -->
+
+            <div class="period-card orange-card reveal">
+
+                <h3>
+
+                    <i class="fas fa-calendar-xmark"></i>
+
+                    Periode Libur
+
+                </h3>
+
+
+                <p>
+                    Masa libur menjadi waktu istirahat bagi
+                    peserta didik dan keluarga sesuai dengan
+                    ketentuan yang berlaku.
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        Libur semester
+                    </li>
+
+                    <li>
+                        Libur akhir tahun ajaran
+                    </li>
+
+                    <li>
+                        Libur hari besar keagamaan
+                    </li>
+
+                    <li>
+                        Libur nasional sesuai ketentuan
+                    </li>
+
+                    <li>
+                        Hari libur khusus sesuai keputusan
+                        sekolah
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CATATAN
+================================================== -->
+
+<section class="note-section">
+
+    <div class="container">
+
+        <div class="note-box reveal">
+
+
+            <div class="note-icon">
+
+                <i class="fas fa-circle-info"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Catatan Kalender Pendidikan
+                </h3>
+
+
+                <p>
+                    Jadwal dan tanggal pada halaman ini merupakan
+                    template yang dapat diperbarui oleh pihak
+                    sekolah. Untuk informasi resmi, gunakan
+                    kalender pendidikan yang telah ditetapkan
+                    oleh pihak berwenang dan disesuaikan dengan
+                    program SDIT Ihyaussunnah.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CTA
+================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Pendidikan yang Terencana
+        </h2>
+
+
+        <p>
+            Setiap kegiatan pendidikan direncanakan agar proses
+            belajar peserta didik berjalan terarah, teratur dan
+            tetap menyenangkan.
+        </p>
+
+
+        <a
+            href="kontak.html"
+            class="cta-btn"
+        >
+
+            <i class="fas fa-comments"></i>
+
+            Hubungi Kami
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-about">
+
+                <div class="footer-logo">
+
+                    <img
+                        src="./images/sdit.jpg"
+                        alt="Logo SDIT Ihyaussunnah"
+                    >
+
+                    <h3>
+                        SDIT Ihyaussunnah
+                    </h3>
+
+                </div>
+
+
+                <p>
+                    Sekolah Dasar Islam Terpadu yang berkomitmen
+                    membangun generasi berilmu, berakhlak dan
+                    dekat dengan Al-Qur'an.
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h4 class="footer-title">
+                    Kurikulum
+                </h4>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="kurikulum-umum.html">
+                            Kurikulum Umum
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kurikulum-diniyah.html">
+                            Kurikulum Diniyah
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tahsin-tahfizh.html">
+                            Tahsin & Tahfizh
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="ekstrakurikuler.html">
+                            Intra & Ekstrakurikuler
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kaldik.html">
+                            Kalender Pendidikan
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div>
+
+                <h4 class="footer-title">
+                    Informasi
+                </h4>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="berita.html">
+                            Berita & Kegiatan
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fasilitas.html">
+                            Fasilitas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="guru.html">
+                            Guru Kami
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="kontak.html">
+                            Kontak
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="medsos.html">
+                            Media Sosial
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 SDIT Ihyaussunnah.
+            Semua Hak Dilindungi.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    const mobileToggle =
+        document.getElementById('mobileToggle');
+
+    const navMenu =
+        document.getElementById('navMenu');
+
+
+    mobileToggle.addEventListener(
+        'click',
+        function () {
+
+            navMenu.classList.toggle('active');
+
+            const icon =
+                this.querySelector('i');
+
+
+            if (
+                navMenu.classList.contains('active')
+            ) {
+
+                icon.classList.remove('fa-bars');
+
+                icon.classList.add('fa-xmark');
+
+            } else {
+
+                icon.classList.remove('fa-xmark');
+
+                icon.classList.add('fa-bars');
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       MOBILE DROPDOWN
+    ========================================= */
+
+    document.querySelectorAll(
+        '.dropdown > .nav-link'
+    ).forEach(function(link) {
+
+        link.addEventListener(
+            'click',
+            function(e) {
+
+                if (window.innerWidth <= 1050) {
+
+                    e.preventDefault();
+
+                    const parent =
+                        this.parentElement;
+
+                    parent.classList.toggle('open');
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* =========================================
+       REVEAL ANIMATION
+    ========================================= */
+
+    const revealElements =
+        document.querySelectorAll('.reveal');
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            function(entries, observer) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add('show');
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(function(element) {
+
+        revealObserver.observe(element);
+
+    });
+
+
+    /* =========================================
+       CLOSE MOBILE MENU
+    ========================================= */
+
+    document.querySelectorAll(
+        '.nav-menu a:not(.dropdown > .nav-link)'
+    ).forEach(function(link) {
+
+        link.addEventListener(
+            'click',
+            function() {
+
+                if (window.innerWidth <= 1050) {
+
+                    navMenu.classList.remove('active');
+
+                    const icon =
+                        mobileToggle.querySelector('i');
+
+                    icon.classList.remove('fa-xmark');
+
+                    icon.classList.add('fa-bars');
+
+                }
+
+            }
+        );
+
+    });
+
+</script>
+
+
+</body>
+</html>
