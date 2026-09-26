@@ -1,1480 +1,1624 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Berita & Kegiatan | SDIT Ihyaussunnah</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <style>
-    :root {
-      --green-primary: #1b5e20;
-      --green-dark: #104315;
-      --green-light: #4caf50;
-      --green-soft: #f4fcf5;
-
-      --orange-accent: #ff8f00;
-      --orange-dark: #e68000;
-
-      --white: #ffffff;
-      --black: #1d1d1d;
-      --gray: #666666;
-      --gray-light: #f5f5f5;
-      --border: #e5e5e5;
-
-      --shadow-sm: 0 4px 15px rgba(0,0,0,.07);
-      --shadow-md: 0 10px 30px rgba(0,0,0,.10);
-      --shadow-lg: 0 18px 45px rgba(0,0,0,.14);
-
-      --radius: 18px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--black);
-      background:
-        linear-gradient(rgba(255,255,255,.94), rgba(255,255,255,.94)),
-        url("https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80")
-        center / cover fixed;
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    /* =========================
-       TOP BAR
-    ========================= */
-
-    .top-bar {
-      background: var(--green-dark);
-      color: var(--white);
-      padding: 8px 5%;
-      font-size: 13px;
-    }
-
-    .top-bar-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .top-info {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .top-info span {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .top-info i {
-      color: #ffd166;
-    }
-
-    /* =========================
-       NAVBAR
-    ========================= */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.96);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 3px 18px rgba(0,0,0,.08);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 12px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid var(--green-primary);
-    }
-
-    .brand-text strong {
-      display: block;
-      color: var(--green-primary);
-      font-size: 17px;
-      line-height: 1.2;
-    }
-
-    .brand-text small {
-      color: var(--gray);
-      font-size: 11px;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      list-style: none;
-    }
-
-    .nav-menu > li {
-      position: relative;
-    }
-
-    .nav-menu a {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 10px 12px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #333;
-      border-radius: 8px;
-      transition: .3s;
-    }
-
-    .nav-menu a:hover,
-    .nav-menu a.active {
-      color: var(--green-primary);
-      background: var(--green-soft);
-    }
-
-    .nav-menu .ppdb {
-      background: var(--orange-accent);
-      color: white;
-      border-radius: 25px;
-      padding: 9px 17px;
-    }
-
-    .nav-menu .ppdb:hover {
-      background: var(--orange-dark);
-      color: white;
-    }
-
-    /* Dropdown */
-
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 220px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      padding: 8px;
-      list-style: none;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: .25s;
-    }
-
-    .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-menu a {
-      width: 100%;
-      padding: 9px 12px;
-    }
-
-    .dropdown-menu a:hover {
-      background: var(--green-soft);
-    }
-
-    .dropdown-icon {
-      font-size: 10px;
-    }
-
-    /* Mobile */
-
-    .menu-toggle {
-      display: none;
-      border: none;
-      background: none;
-      font-size: 25px;
-      color: var(--green-primary);
-      cursor: pointer;
-    }
-
-    /* =========================
-       PAGE HERO
-    ========================= */
-
-    .page-hero {
-      position: relative;
-      min-height: 350px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(17,77,27,.92),
-          rgba(27,94,32,.82)
-        ),
-        url("./images/quran.jpg") center / cover no-repeat;
-    }
-
-    .page-hero-content {
-      max-width: 800px;
-      padding: 50px 20px;
-    }
-
-    .page-hero .label {
-      display: inline-block;
-      padding: 7px 17px;
-      border-radius: 30px;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.25);
-      font-size: 12px;
-      margin-bottom: 15px;
-    }
-
-    .page-hero h1 {
-      font-family: 'Amiri', serif;
-      font-size: clamp(42px, 6vw, 65px);
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
-
-    .page-hero p {
-      max-width: 650px;
-      margin: auto;
-      color: rgba(255,255,255,.88);
-      font-size: 15px;
-    }
-
-    /* =========================
-       CONTENT
-    ========================= */
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 70px 5%;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-heading .label {
-      color: var(--orange-dark);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .section-heading h2 {
-      font-family: 'Amiri', serif;
-      color: var(--green-primary);
-      font-size: 42px;
-      line-height: 1.2;
-      margin: 7px 0;
-    }
-
-    .section-heading p {
-      color: var(--gray);
-      font-size: 14px;
-    }
-
-    /* =========================
-       CATEGORY FILTER
-    ========================= */
-
-    .news-filter {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 45px;
-    }
-
-    .filter-btn {
-      border: 1px solid var(--border);
-      background: white;
-      color: #555;
-      padding: 9px 18px;
-      border-radius: 30px;
-      font-family: inherit;
-      font-size: 13px;
-      cursor: pointer;
-      transition: .3s;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--green-primary);
-      border-color: var(--green-primary);
-      color: white;
-    }
-
-    /* =========================
-       FEATURED NEWS
-    ========================= */
-
-    .featured-news {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      background: white;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 55px;
-    }
-
-    .featured-image {
-      min-height: 400px;
-      overflow: hidden;
-    }
-
-    .featured-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: .5s;
-    }
-
-    .featured-news:hover .featured-image img {
-      transform: scale(1.04);
-    }
-
-    .featured-content {
-      padding: 45px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .news-category {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 7px;
-      background: var(--green-soft);
-      color: var(--green-primary);
-      padding: 6px 12px;
-      border-radius: 30px;
-      font-size: 11px;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-
-    .featured-content h3 {
-      color: var(--green-primary);
-      font-family: 'Amiri', serif;
-      font-size: 34px;
-      line-height: 1.25;
-      margin-bottom: 13px;
-    }
-
-    .news-date {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      color: #888;
-      font-size: 12px;
-      margin-bottom: 17px;
-    }
-
-    .news-excerpt {
-      color: var(--gray);
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      width: fit-content;
-      padding: 10px 19px;
-      background: var(--green-primary);
-      color: white;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      transition: .3s;
-    }
-
-    .read-more:hover {
-      background: var(--green-dark);
-      transform: translateY(-2px);
-    }
-
-    /* =========================
-       NEWS GRID
-    ========================= */
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .news-card {
-      background: white;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(0,0,0,.04);
-      transition: .3s;
-    }
-
-    .news-card:hover {
-      transform: translateY(-7px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .news-card-image {
-      position: relative;
-      height: 220px;
-      overflow: hidden;
-    }
-
-    .news-card-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: .5s;
-    }
-
-    .news-card:hover .news-card-image img {
-      transform: scale(1.06);
-    }
-
-    .news-card-category {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: var(--orange-accent);
-      color: white;
-      padding: 5px 11px;
-      border-radius: 20px;
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .news-card-content {
-      padding: 23px;
-    }
-
-    .news-card-content h3 {
-      color: #222;
-      font-size: 18px;
-      line-height: 1.4;
-      margin-bottom: 10px;
-      transition: .3s;
-    }
-
-    .news-card:hover h3 {
-      color: var(--green-primary);
-    }
-
-    .news-card-content .news-date {
-      margin-bottom: 10px;
-    }
-
-    .news-card-content p {
-      color: var(--gray);
-      font-size: 13px;
-      margin-bottom: 18px;
-
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .card-link {
-      color: var(--green-primary);
-      font-size: 12px;
-      font-weight: 700;
-      display: inline-flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .card-link:hover {
-      color: var(--orange-dark);
-    }
-
-    /* =========================
-       EMPTY STATE
-    ========================= */
-
-    .no-news {
-      display: none;
-      text-align: center;
-      padding: 60px 20px;
-      background: white;
-      border-radius: var(--radius);
-      color: var(--gray);
-    }
-
-    .no-news i {
-      font-size: 40px;
-      color: #bbb;
-      margin-bottom: 15px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: #103d16;
-      color: rgba(255,255,255,.8);
-      margin-top: 30px;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 55px 5% 25px;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 45px;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-
-    .footer-brand img {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .footer-brand h3 {
-      color: white;
-      font-size: 18px;
-    }
-
-    .footer-about p {
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .footer-column h4 {
-      color: white;
-      margin-bottom: 15px;
-      font-size: 15px;
-    }
-
-    .footer-column ul {
-      list-style: none;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      font-size: 13px;
-      transition: .3s;
-    }
-
-    .footer-column a:hover {
-      color: #ffd166;
-      padding-left: 4px;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.1);
-      padding: 18px 5%;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 1000px) {
-
-      .nav-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 10px 5%;
-        box-shadow: var(--shadow-md);
-
-        display: none;
-      }
-
-      .nav-menu.active {
-        display: flex;
-      }
-
-      .nav-menu > li > a {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .dropdown-menu {
-        position: static;
-        display: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        padding-left: 15px;
-      }
-
-      .dropdown.active .dropdown-menu {
-        display: block;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .featured-news {
-        grid-template-columns: 1fr;
-      }
-
-      .featured-image {
-        min-height: 300px;
-      }
-
-      .news-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-container {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
-
-      .top-bar {
-        display: none;
-      }
-
-      .brand-text small {
-        display: none;
-      }
-
-      .brand img {
-        width: 45px;
-        height: 45px;
-      }
-
-      .container {
-        padding-top: 50px;
-        padding-bottom: 50px;
-      }
-
-      .page-hero {
-        min-height: 300px;
-      }
-
-      .section-heading h2 {
-        font-size: 35px;
-      }
-
-      .featured-content {
-        padding: 28px 23px;
-      }
-
-      .featured-content h3 {
-        font-size: 29px;
-      }
-
-      .featured-image {
-        min-height: 240px;
-      }
-
-      .news-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Berita & Kegiatan - SDIT Ihyaussunnah</title>
+
+    <meta name="description"
+          content="Berita, kegiatan, prestasi, pendidikan dan pengumuman SDIT Ihyaussunnah.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        :root {
+            --green: #27AE60;
+            --green-dark: #1E8449;
+            --green-deep: #145A32;
+            --green-soft: #EAF8F0;
+
+            --orange: #F39C12;
+            --orange-dark: #D68910;
+            --orange-soft: #FFF4DF;
+
+            --white: #ffffff;
+            --black: #1f2937;
+            --gray: #6b7280;
+            --light: #f7faf8;
+
+            --border: #e5e7eb;
+
+            --shadow-sm:
+                0 5px 18px rgba(0,0,0,.06);
+
+            --shadow-md:
+                0 15px 40px rgba(0,0,0,.10);
+
+            --radius: 18px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--black);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           TOPBAR
+        ========================= */
+
+        .topbar {
+            background: var(--green-deep);
+            color: white;
+            font-size: 13px;
+        }
+
+        .topbar-inner {
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .topbar-left,
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .topbar i {
+            color: var(--orange);
+            margin-right: 6px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,.05);
+        }
+
+        .nav-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            line-height: 1.2;
+        }
+
+        .logo-text strong {
+            display: block;
+            color: var(--green-deep);
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            color: var(--gray);
+            letter-spacing: .5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-menu > li {
+            position: relative;
+        }
+
+        .nav-menu > li > a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 11px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            border-radius: 10px;
+            transition: .3s;
+        }
+
+        .nav-menu > li > a:hover,
+        .nav-menu > li.active > a {
+            color: var(--green);
+            background: var(--green-soft);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            min-width: 220px;
+            padding: 8px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: .25s;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 13px;
+            border-radius: 9px;
+            font-size: 13px;
+            color: #4b5563;
+            transition: .25s;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--green-soft);
+            color: var(--green-dark);
+        }
+
+        .ppdb-btn {
+            background: var(--orange) !important;
+            color: white !important;
+            padding: 11px 17px !important;
+            border-radius: 30px !important;
+            box-shadow: 0 5px 15px rgba(243,156,18,.25);
+        }
+
+        .ppdb-btn:hover {
+            background: var(--orange-dark) !important;
+            transform: translateY(-2px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            border: none;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            width: 43px;
+            height: 43px;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(20,90,50,.94),
+                    rgba(39,174,96,.80)
+                ),
+                url('./images/berita.jpg') center/cover;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.06);
+            right: -120px;
+            top: -180px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(243,156,18,.10);
+            left: -130px;
+            bottom: -160px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            background: rgba(255,255,255,.13);
+            border: 1px solid rgba(255,255,255,.20);
+            border-radius: 30px;
+            font-size: 12px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(45px, 6vw, 72px);
+            line-height: 1;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 15px;
+            color: rgba(255,255,255,.90);
+        }
+
+        /* =========================
+           BREADCRUMB
+        ========================= */
+
+        .breadcrumb {
+            padding: 18px 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb-inner {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        .breadcrumb a {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 45px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--orange-dark);
+            background: var(--orange-soft);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            color: var(--green-deep);
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* =========================
+           FILTER
+        ========================= */
+
+        .filter-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            border: 1px solid var(--border);
+            background: white;
+            color: #4b5563;
+            padding: 10px 19px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+            box-shadow: 0 7px 18px rgba(39,174,96,.22);
+        }
+
+        /* =========================
+           FEATURED
+        ========================= */
+
+        .featured {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            margin-bottom: 45px;
+        }
+
+        .featured-image {
+            min-height: 370px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .featured:hover .featured-image img {
+            transform: scale(1.04);
+        }
+
+        .featured-content {
+            padding: 42px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            width: fit-content;
+            background: var(--orange-soft);
+            color: var(--orange-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 13px;
+        }
+
+        .featured-content h2 {
+            color: var(--green-deep);
+            font-size: 27px;
+            line-height: 1.3;
+            margin-bottom: 13px;
+        }
+
+        .date {
+            color: var(--gray);
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+
+        .date i {
+            color: var(--green);
+            margin-right: 5px;
+        }
+
+        .featured-content p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            width: fit-content;
+            color: var(--green-dark);
+            font-size: 13px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .read-more i {
+            transition: .3s;
+        }
+
+        .read-more:hover {
+            color: var(--orange-dark);
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* =========================
+           NEWS GRID
+        ========================= */
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: .35s;
+            animation: cardIn .5s ease both;
+        }
+
+        .news-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .news-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.07);
+        }
+
+        .news-category {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            background: var(--orange);
+            color: white;
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .news-body {
+            padding: 22px;
+        }
+
+        .news-meta {
+            color: var(--gray);
+            font-size: 11px;
+            margin-bottom: 9px;
+        }
+
+        .news-meta i {
+            color: var(--green);
+            margin-right: 4px;
+        }
+
+        .news-body h3 {
+            color: var(--green-deep);
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .news-body p {
+            color: var(--gray);
+            font-size: 13px;
+            margin-bottom: 17px;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* =========================
+           EMPTY
+        ========================= */
+
+        .empty-state {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 18px;
+            border: 1px dashed var(--border);
+        }
+
+        .empty-state i {
+            font-size: 45px;
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            color: var(--green-deep);
+            margin-bottom: 5px;
+        }
+
+        .empty-state p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info-box {
+            margin-top: 55px;
+            padding: 25px;
+            background: var(--green-soft);
+            border-left: 5px solid var(--green);
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-box i {
+            color: var(--green);
+            font-size: 23px;
+            margin-top: 3px;
+        }
+
+        .info-box p {
+            color: #4b5563;
+            font-size: 13px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 75px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green-deep),
+                    var(--green)
+                );
+            color: white;
+        }
+
+        .cta-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cta h2 {
+            font-family: 'Amiri', serif;
+            font-size: 39px;
+            margin-bottom: 5px;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,.8);
+            font-size: 14px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 22px;
+            background: var(--orange);
+            color: white;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: .3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0e3d24;
+            color: white;
+            padding-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 45px;
+        }
+
+        .footer-brand img {
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,.65);
+            font-size: 12px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--orange);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,.68);
+            font-size: 12px;
+            margin-bottom: 9px;
+            transition: .25s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.1);
+            padding: 18px 0;
+            text-align: center;
+            color: rgba(255,255,255,.5);
+            font-size: 11px;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1050px) {
+
+            .nav-menu {
+                gap: 0;
+            }
+
+            .nav-menu > li > a {
+                padding: 10px 7px;
+                font-size: 12px;
+            }
+
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            .topbar-left {
+                display: none;
+            }
+
+            .topbar-inner {
+                justify-content: center;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 78px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 15px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                box-shadow: var(--shadow-md);
+                border-top: 1px solid var(--border);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu > li > a {
+                padding: 13px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding-left: 15px;
+            }
+
+            .dropdown.open .dropdown-menu {
+                display: block;
+            }
+
+            .featured {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                min-height: 280px;
+            }
+
+            .cta-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .logo-text span {
+                display: none;
+            }
+
+            .logo-text strong {
+                font-size: 15px;
+            }
+
+            .hero-content {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .featured-content {
+                padding: 28px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       TOP BAR
-  ========================= -->
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="container topbar-inner">
 
-  <div class="top-bar">
-    <div class="top-bar-container">
+        <div class="topbar-left">
+            <span>
+                <i class="fa-solid fa-envelope"></i>
+                info@sditihyaussunnah.sch.id
+            </span>
 
-      <div class="top-info">
-        <span>
-          <i class="fas fa-phone"></i>
-          08xxxxxxxxxx
-        </span>
-
-        <span>
-          <i class="fas fa-envelope"></i>
-          info@sditihyaussunnah.sch.id
-        </span>
-      </div>
-
-      <div class="top-info">
-        <span>
-          <i class="fas fa-location-dot"></i>
-          Bontang, Kalimantan Timur
-        </span>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- =========================
-       NAVBAR
-  ========================= -->
-
-  <nav class="navbar">
-
-    <div class="nav-container">
-
-      <a href="index.html" class="brand">
-
-        <img src="./images/sdit.jpg" alt="Logo SDIT Ihyaussunnah">
-
-        <div class="brand-text">
-          <strong>SDIT Ihyaussunnah</strong>
-          <small>Berakidah, Cerdas Berakhlak Mulia</small>
+            <span>
+                <i class="fa-solid fa-phone"></i>
+                08xxxxxxxxxx
+            </span>
         </div>
 
-      </a>
+        <div class="topbar-right">
+            <span>
+                <i class="fa-solid fa-location-dot"></i>
+                Bontang, Kalimantan Timur
+            </span>
+        </div>
+
+    </div>
+</div>
 
 
-      <button class="menu-toggle" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </button>
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="index.html" class="logo">
+
+            <img src="./images/sdit.jpg"
+                 alt="Logo SDIT Ihyaussunnah">
+
+            <div class="logo-text">
+                <strong>SDIT Ihyaussunnah</strong>
+                <span>Berakidah • Cerdas • Berakhlak Mulia</span>
+            </div>
+
+        </a>
 
 
-      <ul class="nav-menu" id="navMenu">
+        <button class="mobile-toggle" id="mobileToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
-        <li>
-          <a href="index.html">
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">
+                    Beranda
+                </a>
+            </li>
+
+
+            <li class="dropdown">
+
+                <a href="#">
+                    Tentang Kami
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <a href="sejarah.html">Sejarah</a>
+
+                    <a href="sambutan.html">
+                        Sambutan Kepala Sekolah
+                    </a>
+
+                    <a href="visi-misi.html">
+                        Visi & Misi
+                    </a>
+
+                    <a href="organisasi.html">
+                        Organisasi SD
+                    </a>
+
+                    <a href="komite.html">
+                        Organisasi Komite
+                    </a>
+
+                    <a href="guru.html">
+                        Guru Kami
+                    </a>
+
+                    <a href="video-profile.html">
+                        Video Profile
+                    </a>
+
+                </div>
+
+            </li>
+
+
+            <li class="dropdown">
+
+                <a href="#">
+                    Kurikulum
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <a href="kurikulum-umum.html">
+                        Umum
+                    </a>
+
+                    <a href="kurikulum-diniyah.html">
+                        Diniyah
+                    </a>
+
+                    <a href="tahsin-tahfizh.html">
+                        Tahsin & Tahfizh
+                    </a>
+
+                    <a href="ekstrakurikuler.html">
+                        Intra & Ekstrakurikuler
+                    </a>
+
+                    <a href="kaldik.html">
+                        Kalender Pendidikan
+                    </a>
+
+                </div>
+
+            </li>
+
+
+            <li>
+                <a href="fasilitas.html">
+                    Fasilitas
+                </a>
+            </li>
+
+
+            <li class="active">
+                <a href="berita.html">
+                    Info Berita
+                </a>
+            </li>
+
+
+            <li>
+                <a href="kontak.html">
+                    Kontak
+                </a>
+            </li>
+
+
+            <li>
+                <a href="medsos.html">
+                    Medsos
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#" class="ppdb-btn">
+                    PPDB 2026
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+
+    <div class="container hero-content">
+
+        <div class="hero-label">
+            <i class="fa-solid fa-newspaper"></i>
+            Informasi Sekolah
+        </div>
+
+        <h1>
+            Berita &
+            <span>Kegiatan</span>
+        </h1>
+
+        <p>
+            Informasi terbaru seputar kegiatan, prestasi, pendidikan,
+            dan pengumuman SDIT Ihyaussunnah.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+
+    <div class="container breadcrumb-inner">
+
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
             Beranda
-          </a>
-        </li>
+        </a>
 
+        <i class="fa-solid fa-angle-right"></i>
 
-        <li class="dropdown">
-
-          <a href="#">
-            Tentang Kami
-            <i class="fas fa-chevron-down dropdown-icon"></i>
-          </a>
-
-          <ul class="dropdown-menu">
-
-            <li><a href="sejarah.html">Sejarah</a></li>
-            <li><a href="sambutan.html">Sambutan Kepala Sekolah</a></li>
-            <li><a href="visi-misi.html">Visi & Misi</a></li>
-            <li><a href="organisasi.html">Organisasi SD</a></li>
-            <li><a href="komite.html">Organisasi Komite</a></li>
-            <li><a href="guru.html">Guru Kami</a></li>
-            <li><a href="video-profile.html">Video Profile</a></li>
-
-          </ul>
-
-        </li>
-
-
-        <li class="dropdown">
-
-          <a href="#">
-            Kurikulum
-            <i class="fas fa-chevron-down dropdown-icon"></i>
-          </a>
-
-          <ul class="dropdown-menu">
-
-            <li><a href="kurikulum-umum.html">Umum</a></li>
-            <li><a href="kurikulum-diniyah.html">Diniyah</a></li>
-            <li><a href="tahsin-tahfizh.html">Tahsin & Tahfizh</a></li>
-            <li><a href="ekstrakurikuler.html">Intra & Ekstrakurikuler</a></li>
-            <li><a href="kaldik.html">Kalender Pendidikan</a></li>
-
-          </ul>
-
-        </li>
-
-
-        <li>
-          <a href="fasilitas.html">
-            Fasilitas
-          </a>
-        </li>
-
-
-        <li>
-          <a href="berita.html" class="active">
-            Info Berita
-          </a>
-        </li>
-
-
-        <li>
-          <a href="kontak.html">
-            Kontak
-          </a>
-        </li>
-
-
-        <li>
-          <a href="medsos.html">
-            Medsos
-          </a>
-        </li>
-
-
-        <li>
-          <a href="ppdb.html" class="ppdb">
-            PPDB 2026
-          </a>
-        </li>
-
-      </ul>
+        <span>Berita & Kegiatan</span>
 
     </div>
 
-  </nav>
+</div>
 
 
-  <!-- =========================
-       PAGE HERO
-  ========================= -->
-
-  <section class="page-hero">
-
-    <div class="page-hero-content">
-
-      <span class="label">
-        <i class="fas fa-newspaper"></i>
-        INFORMASI TERKINI
-      </span>
-
-      <h1>
-        Berita & Kegiatan
-      </h1>
-
-      <p>
-        Informasi terbaru seputar kegiatan, prestasi,
-        program pendidikan, dan aktivitas siswa
-        SDIT Ihyaussunnah.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       NEWS CONTENT
-  ========================= -->
-
-  <main>
+<!-- NEWS -->
+<section class="section">
 
     <div class="container">
 
-      <div class="section-heading">
+        <div class="section-heading">
 
-        <span class="label">
-          KABAR SEKOLAH
-        </span>
+            <span class="section-label">
+                INFORMASI TERBARU
+            </span>
 
-        <h2>
-          Berita Terbaru
-        </h2>
+            <h2>
+                Berita SDIT Ihyaussunnah
+            </h2>
 
-        <p>
-          Ikuti perkembangan dan berbagai kegiatan
-          terbaru di SDIT Ihyaussunnah.
-        </p>
-
-      </div>
-
-
-      <!-- FILTER -->
-
-      <div class="news-filter">
-
-        <button class="filter-btn active" data-filter="all">
-          Semua
-        </button>
-
-        <button class="filter-btn" data-filter="kegiatan">
-          Kegiatan
-        </button>
-
-        <button class="filter-btn" data-filter="prestasi">
-          Prestasi
-        </button>
-
-        <button class="filter-btn" data-filter="pendidikan">
-          Pendidikan
-        </button>
-
-        <button class="filter-btn" data-filter="pengumuman">
-          Pengumuman
-        </button>
-
-      </div>
-
-
-      <!-- =========================
-           BERITA UTAMA
-      ========================= -->
-
-      <article class="featured-news"
-               data-category="kegiatan">
-
-        <div class="featured-image">
-
-          <img
-            src="./images/berita-utama.jpg"
-            alt="Berita utama SDIT Ihyaussunnah">
+            <p>
+                Temukan berbagai informasi terbaru mengenai kegiatan,
+                prestasi, pendidikan, dan pengumuman sekolah.
+            </p>
 
         </div>
 
 
-        <div class="featured-content">
+        <!-- FILTER -->
+        <div class="filter-wrapper">
 
-          <span class="news-category">
-            <i class="fas fa-star"></i>
-            Berita Utama
-          </span>
+            <button class="filter-btn active"
+                    data-filter="Semua">
+                Semua
+            </button>
 
+            <button class="filter-btn"
+                    data-filter="Kegiatan">
+                Kegiatan
+            </button>
 
-          <h3>
-            Kegiatan Pembelajaran dan Aktivitas
-            Siswa SDIT Ihyaussunnah
-          </h3>
+            <button class="filter-btn"
+                    data-filter="Prestasi">
+                Prestasi
+            </button>
 
+            <button class="filter-btn"
+                    data-filter="Pendidikan">
+                Pendidikan
+            </button>
 
-          <div class="news-date">
-
-            <i class="far fa-calendar"></i>
-
-            20 September 2026
-
-          </div>
-
-
-          <p class="news-excerpt">
-
-            Berbagai kegiatan pembelajaran dan aktivitas
-            siswa terus dilaksanakan untuk membentuk
-            generasi yang berilmu, berakhlak, mandiri,
-            dan mencintai Al-Qur'an.
-
-          </p>
-
-
-          <a href="berita-detail.html" class="read-more">
-
-            Baca Selengkapnya
-
-            <i class="fas fa-arrow-right"></i>
-
-          </a>
+            <button class="filter-btn"
+                    data-filter="Pengumuman">
+                Pengumuman
+            </button>
 
         </div>
 
-      </article>
+
+        <!-- FEATURED -->
+        <div id="featuredNews"></div>
 
 
-      <!-- =========================
-           DAFTAR BERITA
-      ========================= -->
-
-      <div class="news-grid" id="newsGrid">
-
-
-        <!-- BERITA 1 -->
-
-        <article class="news-card"
-                 data-category="pendidikan">
-
-          <div class="news-card-image">
-
-            <img
-              src="./images/berita-1.jpg"
-              alt="Kegiatan pembelajaran">
-
-            <span class="news-card-category">
-              Pendidikan
-            </span>
-
-          </div>
+        <!-- GRID -->
+        <div class="news-grid"
+             id="newsGrid">
+        </div>
 
 
-          <div class="news-card-content">
+        <!-- EMPTY -->
+        <div class="empty-state"
+             id="emptyState">
 
-            <div class="news-date">
-              <i class="far fa-calendar"></i>
-              18 September 2026
-            </div>
+            <i class="fa-regular fa-folder-open"></i>
 
             <h3>
-              Pembelajaran Al-Qur'an Menjadi Bagian
-              Penting dalam Pendidikan Siswa
+                Belum Ada Berita
             </h3>
 
             <p>
-              Pembelajaran Al-Qur'an dilaksanakan secara
-              terarah untuk membantu siswa meningkatkan
-              kemampuan membaca dan menghafal Al-Qur'an.
+                Belum terdapat berita pada kategori ini.
             </p>
-
-            <a href="berita-1.html" class="card-link">
-              Baca Selengkapnya
-              <i class="fas fa-arrow-right"></i>
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <!-- BERITA 2 -->
-
-        <article class="news-card"
-                 data-category="kegiatan">
-
-          <div class="news-card-image">
-
-            <img
-              src="./images/berita-2.jpg"
-              alt="Kegiatan siswa">
-
-            <span class="news-card-category">
-              Kegiatan
-            </span>
-
-          </div>
-
-
-          <div class="news-card-content">
-
-            <div class="news-date">
-              <i class="far fa-calendar"></i>
-              15 September 2026
-            </div>
-
-            <h3>
-              Semangat Siswa Mengikuti Kegiatan
-              Sekolah
-            </h3>
-
-            <p>
-              Siswa mengikuti berbagai aktivitas sekolah
-              dengan penuh semangat dan antusias sebagai
-              bagian dari proses pendidikan karakter.
-            </p>
-
-            <a href="berita-2.html" class="card-link">
-              Baca Selengkapnya
-              <i class="fas fa-arrow-right"></i>
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <!-- BERITA 3 -->
-
-        <article class="news-card"
-                 data-category="prestasi">
-
-          <div class="news-card-image">
-
-            <img
-              src="./images/berita-3.jpg"
-              alt="Prestasi siswa">
-
-            <span class="news-card-category">
-              Prestasi
-            </span>
-
-          </div>
-
-
-          <div class="news-card-content">
-
-            <div class="news-date">
-              <i class="far fa-calendar"></i>
-              12 September 2026
-            </div>
-
-            <h3>
-              Siswa SDIT Ihyaussunnah Raih
-              Prestasi Membanggakan
-            </h3>
-
-            <p>
-              Prestasi siswa menjadi salah satu bentuk
-              apresiasi terhadap usaha, kedisiplinan,
-              dan semangat belajar.
-            </p>
-
-            <a href="berita-3.html" class="card-link">
-              Baca Selengkapnya
-              <i class="fas fa-arrow-right"></i>
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <!-- BERITA 4 -->
-
-        <article class="news-card"
-                 data-category="pengumuman">
-
-          <div class="news-card-image">
-
-            <img
-              src="./images/berita-4.jpg"
-              alt="Pengumuman sekolah">
-
-            <span class="news-card-category">
-              Pengumuman
-            </span>
-
-          </div>
-
-
-          <div class="news-card-content">
-
-            <div class="news-date">
-              <i class="far fa-calendar"></i>
-              10 September 2026
-            </div>
-
-            <h3>
-              Informasi Penting untuk Orang Tua
-              dan Wali Siswa
-            </h3>
-
-            <p>
-              Informasi terbaru mengenai agenda sekolah
-              dan kegiatan yang perlu diperhatikan oleh
-              orang tua dan wali siswa.
-            </p>
-
-            <a href="berita-4.html" class="card-link">
-              Baca Selengkapnya
-              <i class="fas fa-arrow-right"></i>
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <!-- BERITA 5 -->
-
-        <article class="news-card"
-                 data-category="kegiatan">
-
-          <div class="news-card-image">
-
-            <img
-              src="./images/berita-5.jpg"
-              alt="Kegiatan sekolah">
-
-            <span class="news-card-category">
-              Kegiatan
-            </span>
-
-          </div>
-
-
-          <div class="news-card-content">
-
-            <div class="news-date">
-              <i class="far fa-calendar"></i>
-              7 September 2026
-            </div>
-
-            <h3>
-              Aktivitas Siswa dalam Membangun
-              Karakter dan Kemandirian
-            </h3>
-
-            <p>
-              Kegiatan sekolah dirancang tidak hanya
-              untuk pembelajaran akademik tetapi juga
-              pembentukan karakter siswa.
-            </p>
-
-            <a href="berita-5.html" class="card-link">
-              Baca Selengkapnya
-              <i class="fas fa-arrow-right"></i>
-            </a>
-
-          </div>
-
-        </article>
-
-
-        <!-- BERITA 6 -->
-
-        <article class="news-card"
-                 data-category="pendidikan">
-
-          <div class="news-card-image">
-
-            <img
-              src="./images/berita-6.jpg"
-              alt="Pendidikan Islam">
-
-            <span class="news-card-category">
-              Pendidikan
-            </span>
-
-          </div>
-
-
-          <div class="news-card-content">
-
-            <div class="news-date">
-              <i class="far fa-calendar"></i>
-              5 September 2026
-            </div>
-
-            <h3>
-              Menanamkan Nilai-Nilai Islam dalam
-              Kehidupan Sehari-hari
-            </h3>
-
-            <p>
-              Pendidikan Islam diterapkan melalui
-              pembiasaan dan keteladanan dalam kehidupan
-              sehari-hari di lingkungan sekolah.
-            </p>
-
-            <a href="berita-6.html" class="card-link">
-              Baca Selengkapnya
-              <i class="fas fa-arrow-right"></i>
-            </a>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-
-      <!-- EMPTY STATE -->
-
-      <div class="no-news" id="noNews">
-
-        <i class="fas fa-newspaper"></i>
-
-        <h3>
-          Belum Ada Berita
-        </h3>
-
-        <p>
-          Belum tersedia berita untuk kategori ini.
-        </p>
-
-      </div>
-
-    </div>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-
-    <div class="footer-container">
-
-
-      <div class="footer-about">
-
-        <div class="footer-brand">
-
-          <img src="./images/sdit.jpg"
-               alt="Logo SDIT Ihyaussunnah">
-
-          <h3>
-            SDIT Ihyaussunnah
-          </h3>
 
         </div>
 
-        <p>
-          Berakidah, Cerdas Berakhlak Mulia.
-          Membangun generasi yang mencintai Al-Qur'an,
-          berilmu, berakhlak, dan bermanfaat bagi umat.
-        </p>
 
-      </div>
+        <div class="info-box">
 
+            <i class="fa-solid fa-circle-info"></i>
 
-      <div class="footer-column">
+            <p>
+                <strong>Catatan:</strong>
+                Halaman berita ini menggunakan sistem data terpusat.
+                Untuk menambahkan berita baru, cukup tambahkan data
+                berita pada file <strong>data-berita.js</strong>.
+                Halaman detail akan dibuat secara otomatis berdasarkan ID berita.
+            </p>
 
-        <h4>
-          Menu
-        </h4>
-
-        <ul>
-
-          <li>
-            <a href="index.html">Beranda</a>
-          </li>
-
-          <li>
-            <a href="tentang.html">Tentang Kami</a>
-          </li>
-
-          <li>
-            <a href="kurikulum.html">Kurikulum</a>
-          </li>
-
-          <li>
-            <a href="fasilitas.html">Fasilitas</a>
-          </li>
-
-          <li>
-            <a href="berita.html">Berita</a>
-          </li>
-
-        </ul>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h4>
-          Hubungi Kami
-        </h4>
-
-        <ul>
-
-          <li>
-            <i class="fas fa-location-dot"></i>
-            Bontang, Kalimantan Timur
-          </li>
-
-          <li>
-            <i class="fas fa-phone"></i>
-            08xxxxxxxxxx
-          </li>
-
-          <li>
-            <i class="fas fa-envelope"></i>
-            info@sditihyaussunnah.sch.id
-          </li>
-
-        </ul>
-
-      </div>
-
+        </div>
 
     </div>
 
+</section>
 
-    <div class="footer-bottom">
 
-      © <span id="currentYear"></span>
-      SDIT Ihyaussunnah. Semua Hak Dilindungi.
+<!-- CTA -->
+<section class="cta">
+
+    <div class="container cta-inner">
+
+        <div>
+            <h2>
+                Ikuti Informasi Terbaru Kami
+            </h2>
+
+            <p>
+                Jangan lewatkan berbagai kegiatan dan informasi
+                terbaru dari SDIT Ihyaussunnah.
+            </p>
+        </div>
+
+        <a href="kontak.html" class="cta-btn">
+            Hubungi Sekolah
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
 
     </div>
 
-  </footer>
+</section>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+<!-- FOOTER -->
+<footer>
 
-  <script>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <img src="./images/sdit.jpg"
+                     alt="SDIT Ihyaussunnah">
+
+                <h3>
+                    SDIT Ihyaussunnah
+                </h3>
+
+                <p>
+                    Berakidah, Cerdas, Berakhlak Mulia.
+                    Membangun generasi Qur'ani yang berilmu
+                    dan berkarakter.
+                </p>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Tentang Kami
+                </h4>
+
+                <a href="sejarah.html">Sejarah</a>
+                <a href="visi-misi.html">Visi & Misi</a>
+                <a href="organisasi.html">Organisasi</a>
+                <a href="guru.html">Guru Kami</a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Kurikulum
+                </h4>
+
+                <a href="kurikulum-umum.html">
+                    Kurikulum Umum
+                </a>
+
+                <a href="kurikulum-diniyah.html">
+                    Kurikulum Diniyah
+                </a>
+
+                <a href="tahsin-tahfizh.html">
+                    Tahsin & Tahfizh
+                </a>
+
+                <a href="ekstrakurikuler.html">
+                    Ekstrakurikuler
+                </a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    Informasi
+                </h4>
+
+                <a href="berita.html">
+                    Berita
+                </a>
+
+                <a href="fasilitas.html">
+                    Fasilitas
+                </a>
+
+                <a href="kontak.html">
+                    Kontak
+                </a>
+
+                <a href="medsos.html">
+                    Media Sosial
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 SDIT Ihyaussunnah.
+            Semua Hak Dilindungi.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- DATA BERITA -->
+<script src="data-berita.js"></script>
+
+
+<script>
+
+    const newsGrid =
+        document.getElementById("newsGrid");
+
+    const featuredNews =
+        document.getElementById("featuredNews");
+
+    const emptyState =
+        document.getElementById("emptyState");
+
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+
+    /* =========================
+       RENDER BERITA
+    ========================= */
+
+    function renderNews(category = "Semua") {
+
+        let filteredNews =
+            category === "Semua"
+                ? newsData
+                : newsData.filter(
+                    news => news.category === category
+                );
+
+
+        newsGrid.innerHTML = "";
+        featuredNews.innerHTML = "";
+
+
+        if (filteredNews.length === 0) {
+
+            emptyState.style.display = "block";
+
+            return;
+
+        }
+
+
+        emptyState.style.display = "none";
+
+
+        /* =========================
+           FEATURED NEWS
+        ========================= */
+
+        const featured =
+            filteredNews[0];
+
+
+        featuredNews.innerHTML = `
+
+            <article class="featured">
+
+                <div class="featured-image">
+
+                    <img
+                        src="${featured.image}"
+                        alt="${featured.title}"
+                    >
+
+                </div>
+
+                <div class="featured-content">
+
+                    <span class="badge">
+                        ${featured.category}
+                    </span>
+
+                    <h2>
+                        ${featured.title}
+                    </h2>
+
+                    <div class="date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        ${featured.date}
+
+                    </div>
+
+                    <p>
+                        ${featured.summary}
+                    </p>
+
+                    <a
+                        href="detail-berita.html?id=${featured.id}"
+                        class="read-more"
+                    >
+                        Baca Selengkapnya
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        `;
+
+
+        /* =========================
+           NEWS CARD
+        ========================= */
+
+        const cards =
+            filteredNews.slice(1);
+
+
+        cards.forEach((news, index) => {
+
+            const card =
+                document.createElement("article");
+
+            card.className = "news-card";
+
+            card.style.animationDelay =
+                `${index * 0.08}s`;
+
+
+            card.innerHTML = `
+
+                <div class="news-image">
+
+                    <img
+                        src="${news.image}"
+                        alt="${news.title}"
+                    >
+
+                    <span class="news-category">
+                        ${news.category}
+                    </span>
+
+                </div>
+
+
+                <div class="news-body">
+
+                    <div class="news-meta">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        ${news.date}
+
+                    </div>
+
+
+                    <h3>
+                        ${news.title}
+                    </h3>
+
+
+                    <p>
+                        ${news.summary}
+                    </p>
+
+
+                    <a
+                        href="detail-berita.html?id=${news.id}"
+                        class="read-more"
+                    >
+
+                        Baca Selengkapnya
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            `;
+
+
+            newsGrid.appendChild(card);
+
+        });
+
+    }
+
+
+    /* =========================
+       FILTER
+    ========================= */
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            filterButtons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            const filter =
+                button.dataset.filter;
+
+            renderNews(filter);
+
+            window.scrollTo({
+                top:
+                    document.querySelector(".section")
+                        .offsetTop - 90,
+
+                behavior: "smooth"
+            });
+
+        });
+
+    });
+
 
     /* =========================
        MOBILE MENU
     ========================= */
 
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
+    const mobileToggle =
+        document.getElementById("mobileToggle");
 
-    menuToggle.addEventListener('click', function () {
+    const navMenu =
+        document.getElementById("navMenu");
 
-      navMenu.classList.toggle('active');
+
+    mobileToggle.addEventListener("click", () => {
+
+        navMenu.classList.toggle("active");
+
+        const icon =
+            mobileToggle.querySelector("i");
+
+        if (navMenu.classList.contains("active")) {
+
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+
+        } else {
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        }
 
     });
 
@@ -1483,113 +1627,32 @@
        MOBILE DROPDOWN
     ========================= */
 
-    const dropdowns = document.querySelectorAll('.dropdown');
+    document.querySelectorAll(".dropdown > a")
+        .forEach(link => {
 
-    dropdowns.forEach(function(dropdown) {
+            link.addEventListener("click", function(event) {
 
-      const link = dropdown.querySelector(':scope > a');
+                if (window.innerWidth <= 800) {
 
-      link.addEventListener('click', function(e) {
+                    event.preventDefault();
 
-        if (window.innerWidth <= 1000) {
+                    this.parentElement
+                        .classList.toggle("open");
 
-          e.preventDefault();
+                }
 
-          dropdown.classList.toggle('active');
-
-        }
-
-      });
-
-    });
-
-
-    /* =========================
-       FILTER BERITA
-    ========================= */
-
-    const filterButtons =
-      document.querySelectorAll('.filter-btn');
-
-    const newsCards =
-      document.querySelectorAll('.news-card');
-
-    const noNews =
-      document.getElementById('noNews');
-
-    filterButtons.forEach(function(button) {
-
-      button.addEventListener('click', function() {
-
-        const filter =
-          button.getAttribute('data-filter');
-
-
-        /* Active button */
-
-        filterButtons.forEach(function(btn) {
-
-          btn.classList.remove('active');
-
-        });
-
-        button.classList.add('active');
-
-
-        let visibleCount = 0;
-
-
-        /* Filter card */
-
-        newsCards.forEach(function(card) {
-
-          const category =
-            card.getAttribute('data-category');
-
-
-          if (
-            filter === 'all' ||
-            category === filter
-          ) {
-
-            card.style.display = 'block';
-
-            visibleCount++;
-
-          } else {
-
-            card.style.display = 'none';
-
-          }
+            });
 
         });
 
 
-        /* Empty state */
-
-        if (visibleCount === 0) {
-
-          noNews.style.display = 'block';
-
-        } else {
-
-          noNews.style.display = 'none';
-
-        }
-
-      });
-
-    });
-
-
     /* =========================
-       CURRENT YEAR
+       INITIAL RENDER
     ========================= */
 
-    document.getElementById('currentYear').textContent =
-      new Date().getFullYear();
+    renderNews();
 
-  </script>
+</script>
 
 </body>
 </html>
