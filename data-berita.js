@@ -58,12 +58,20 @@ const newsData = [
         title: "Prestasi Peserta Didik SDIT Ihyaussunnah",
         summary:
             "Peserta didik SDIT Ihyaussunnah berhasil meraih prestasi dalam kegiatan perlombaan.",
-        image: "./images/berita-2.jpg",
+        image: "./images/berita-prestasi.jpg",
 
         content: `
             <p>
-                Alhamdulillah, peserta didik SDIT Ihyaussunnah kembali
-                menunjukkan prestasi dalam kegiatan perlombaan.
+                🏆✨ Alhamdulillah, Prestasi Membanggakan!
+
+Selamat dan sukses kepada ananda Abdurrohman Baz Multazam (Kelas 1 Abdurrahman Bin Auf) atas raihan Juara Perak Sains Level 1 pada Jenius Science Olympiad (JSO) 2026 Tingkat Provinsi Kalimantan Timur 🌟
+
+Semoga pencapaian ini menjadi motivasi untuk terus belajar, semangat meraih ilmu, dan mengukir prestasi yang lebih gemilang di masa depan 📚✨
+
+Barakallahu fiikum 🌷
+__________
+SD IT IHYAUSSUNNAH BONTANG
+Berakidah - Cerdas - Berakhlak Mulia
             </p>
 
             <p>
