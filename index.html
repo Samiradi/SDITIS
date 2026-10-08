@@ -4,64 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>SDIT Ihyaussunnah - Berakidah, Cerdas, Berakhlak Mulia</title>
+    <title>SDIT Ihyaussunnah | Berakidah, Cerdas, Berakhlak Mulia</title>
 
-    <meta name="description"
-        content="SDIT Ihyaussunnah - Sekolah Dasar Islam Terpadu yang berkomitmen membentuk generasi berakidah, cerdas, berakhlak mulia, dan mencintai Al-Qur'an.">
-
-    <!-- Google Fonts -->
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
+        /* =========================================================
+           ROOT
+        ========================================================= */
 
         :root {
             --green: #27AE60;
             --green-dark: #1E8449;
-            --green-deep: #176B3A;
-            --green-soft: #EAF8F0;
+            --green-deep: #145A32;
 
             --orange: #F39C12;
             --orange-dark: #D68910;
-            --orange-soft: #FFF4DF;
 
             --white: #ffffff;
-            --black: #222222;
-            --gray: #666666;
-            --gray-light: #888888;
-            --light: #f7f9f8;
+            --text: #183028;
 
-            --border: #e5e8e6;
+            --space-bg-1: #dff5ff;
+            --space-bg-2: #eefaf5;
+            --space-bg-3: #ffffff;
 
-            --shadow-sm:
-                0 5px 18px rgba(0, 0, 0, 0.07);
+            --glass: rgba(255,255,255,.70);
+            --glass-border: rgba(255,255,255,.8);
 
-            --shadow-md:
-                0 12px 35px rgba(0, 0, 0, 0.11);
+            --shadow:
+                0 15px 40px rgba(17, 76, 54, .12);
 
-            --shadow-lg:
-                0 20px 50px rgba(0, 0, 0, 0.15);
-
-            --radius-sm: 8px;
-            --radius-md: 15px;
-            --radius-lg: 24px;
+            --nav-text: #16372b;
         }
 
+        /* =========================================================
+           NIGHT THEME
+        ========================================================= */
 
-        /* =====================================================
-           RESET
-        ===================================================== */
+        body.night {
+            --space-bg-1: #020617;
+            --space-bg-2: #07142f;
+            --space-bg-3: #111b3d;
+
+            --glass: rgba(7,18,45,.68);
+            --glass-border: rgba(255,255,255,.12);
+
+            --text: #eef7ff;
+            --nav-text: #ffffff;
+
+            --shadow:
+                0 20px 60px rgba(0,0,0,.45);
+        }
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
 
         * {
             margin: 0;
@@ -75,14 +79,12 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--black);
-            background: var(--white);
-            line-height: 1.7;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
+            color: var(--text);
+            background: var(--space-bg-1);
+            overflow-x: hidden;
+            transition:
+                background .8s ease,
+                color .5s ease;
         }
 
         a {
@@ -90,212 +92,692 @@
             color: inherit;
         }
 
-        ul {
-            list-style: none;
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         button {
             font-family: inherit;
         }
 
+        /* =========================================================
+           SPACE BACKGROUND
+        ========================================================= */
 
-        /* =====================================================
-           CONTAINER
-        ===================================================== */
+        .space-world {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            overflow: hidden;
 
-        .container {
-            width: min(1180px, 92%);
-            margin: auto;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(39,174,96,.12),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(243,156,18,.13),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    var(--space-bg-1),
+                    var(--space-bg-2),
+                    var(--space-bg-3)
+                );
+
+            transition: background 1s ease;
         }
 
+        body.night .space-world {
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(58,118,255,.20),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(126,73,255,.20),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 50% 80%,
+                    rgba(39,174,96,.08),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #01030d,
+                    #06122d,
+                    #11163a
+                );
+        }
 
-        /* =====================================================
-           TOP BAR
-        ===================================================== */
+        /* =========================================================
+           GALAXIES
+        ========================================================= */
 
-        .top-bar {
+        .galaxy {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(4px);
+            opacity: .65;
+            transition: opacity .8s ease;
+        }
+
+        .galaxy-one {
+            width: 650px;
+            height: 650px;
+            top: -250px;
+            left: -200px;
+
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(39,174,96,.22),
+                    rgba(39,174,96,.08) 35%,
+                    transparent 70%
+                );
+
+            animation: galaxyFloat 12s ease-in-out infinite;
+        }
+
+        .galaxy-two {
+            width: 750px;
+            height: 750px;
+            right: -300px;
+            bottom: -300px;
+
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(243,156,18,.20),
+                    rgba(243,156,18,.07) 35%,
+                    transparent 70%
+                );
+
+            animation: galaxyFloat 16s ease-in-out infinite reverse;
+        }
+
+        body.night .galaxy-one {
+            opacity: 1;
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(73,112,255,.25),
+                    rgba(128,74,255,.13) 35%,
+                    transparent 70%
+                );
+        }
+
+        body.night .galaxy-two {
+            opacity: 1;
+            background:
+                radial-gradient(
+                    ellipse,
+                    rgba(179,80,255,.24),
+                    rgba(30,144,255,.10) 35%,
+                    transparent 70%
+                );
+        }
+
+        @keyframes galaxyFloat {
+            0%,100% {
+                transform: translate(0,0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(25px,-20px) rotate(8deg);
+            }
+        }
+
+        /* =========================================================
+           SUN — DAY MODE
+        ========================================================= */
+
+        .sun {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: 10%;
+            top: 13%;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #fff8bd 0%,
+                    #ffd76a 45%,
+                    #f39c12 70%,
+                    rgba(243,156,18,0) 72%
+                );
+
+            filter: blur(.5px);
+            opacity: 1;
+
+            animation: sunPulse 5s ease-in-out infinite;
+        }
+
+        body.night .sun {
+            opacity: 0;
+            transform: scale(.5);
+        }
+
+        @keyframes sunPulse {
+            0%,100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        /* =========================================================
+           STARS
+        ========================================================= */
+
+        .stars {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.95);
+
+            opacity: 0;
+            transform: scale(.5);
+
+            transition: opacity .8s ease;
+        }
+
+        body.night .star {
+            opacity: .8;
+            animation:
+                twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%,100% {
+                opacity: .25;
+                transform: scale(.6);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* =========================================================
+           MATH SYMBOLS
+        ========================================================= */
+
+        .math-symbol {
+            position: absolute;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+
+            color: rgba(30,132,73,.13);
+
+            user-select: none;
+            pointer-events: none;
+
+            animation: mathFloat 10s ease-in-out infinite;
+            transition: color .6s ease;
+        }
+
+        body.night .math-symbol {
+            color: rgba(255,255,255,.20);
+            text-shadow:
+                0 0 15px rgba(95,155,255,.4);
+        }
+
+        .math-1 {
+            left: 8%;
+            top: 32%;
+            font-size: 70px;
+        }
+
+        .math-2 {
+            right: 13%;
+            top: 42%;
+            font-size: 90px;
+            animation-delay: 2s;
+        }
+
+        .math-3 {
+            left: 18%;
+            bottom: 15%;
+            font-size: 65px;
+            animation-delay: 4s;
+        }
+
+        .math-4 {
+            right: 27%;
+            bottom: 22%;
+            font-size: 75px;
+            animation-delay: 1s;
+        }
+
+        .math-5 {
+            left: 48%;
+            top: 10%;
+            font-size: 55px;
+            animation-delay: 3s;
+        }
+
+        @keyframes mathFloat {
+            0%,100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(8deg);
+            }
+        }
+
+        /* =========================================================
+           PLANET SYSTEM
+        ========================================================= */
+
+        .planet-system {
+            position: absolute;
+
+            width: 620px;
+            height: 620px;
+
+            right: -80px;
+            top: 13%;
+
+            transition: transform .3s ease;
+        }
+
+        .planet {
+            position: absolute;
+
+            width: 190px;
+            height: 190px;
+
+            left: 215px;
+            top: 215px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 30% 28%,
+                    #69e6a0,
+                    #27AE60 45%,
+                    #176b3b 75%,
+                    #0b3a20
+                );
+
+            box-shadow:
+                inset -25px -20px 40px rgba(0,0,0,.35),
+                0 0 60px rgba(39,174,96,.25);
+
+            transition: box-shadow .6s ease;
+        }
+
+        body.night .planet {
+            box-shadow:
+                inset -30px -25px 45px rgba(0,0,0,.55),
+                0 0 45px rgba(39,174,96,.30),
+                0 0 100px rgba(73,112,255,.12);
+        }
+
+        /* continents */
+
+        .planet::before {
+            content: "";
+            position: absolute;
+            width: 75px;
+            height: 40px;
+            left: 35px;
+            top: 45px;
+
+            border-radius: 60% 40% 55% 35%;
+
+            background: rgba(170,230,180,.35);
+
+            transform: rotate(-18deg);
+        }
+
+        .planet::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 32px;
+            right: 30px;
+            bottom: 45px;
+
+            border-radius: 50%;
+
+            background: rgba(170,230,180,.25);
+
+            transform: rotate(20deg);
+        }
+
+        /* =========================================================
+           ORBIT
+        ========================================================= */
+
+        .orbit {
+            position: absolute;
+
+            width: 560px;
+            height: 260px;
+
+            left: 30px;
+            top: 180px;
+
+            border: 2px dashed rgba(39,174,96,.35);
+
+            border-radius: 50%;
+
+            transform: rotate(-16deg);
+
+            transition:
+                border-color .6s ease,
+                box-shadow .6s ease;
+        }
+
+        body.night .orbit {
+            border-color: rgba(255,255,255,.35);
+            box-shadow:
+                0 0 20px rgba(80,150,255,.12);
+        }
+
+        /* =========================================================
+           ROCKET
+        ========================================================= */
+
+        .rocket {
+            position: absolute;
+
+            left: 0;
+            top: 50%;
+
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--orange);
+
+            font-size: 42px;
+
+            transform-origin: 310px 0;
+
+            animation:
+                orbitRocket 10s linear infinite;
+
+            filter:
+                drop-shadow(
+                    0 0 10px rgba(243,156,18,.35)
+                );
+        }
+
+        body.night .rocket {
+            filter:
+                drop-shadow(
+                    0 0 14px rgba(255,174,54,.8)
+                );
+        }
+
+        @keyframes orbitRocket {
+            from {
+                transform:
+                    rotate(0deg)
+                    translateX(280px)
+                    rotate(90deg);
+            }
+
+            to {
+                transform:
+                    rotate(360deg)
+                    translateX(280px)
+                    rotate(90deg);
+            }
+        }
+
+        /* =========================================================
+           METEORS
+        ========================================================= */
+
+        .meteor {
+            position: absolute;
+
+            width: 100px;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--orange),
+                    transparent
+                );
+
+            transform: rotate(-35deg);
+
+            opacity: 0;
+
+            animation: meteorMove 8s linear infinite;
+        }
+
+        .meteor-one {
+            top: 15%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+
+        .meteor-two {
+            top: 35%;
+            right: 5%;
+            animation-delay: 6s;
+        }
+
+        body:not(.night) .meteor {
+            opacity: .15;
+        }
+
+        body.night .meteor {
+            opacity: 1;
+            box-shadow: 0 0 10px rgba(243,156,18,.8);
+        }
+
+        @keyframes meteorMove {
+            0% {
+                transform:
+                    translate(0,0)
+                    rotate(-35deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            40% {
+                transform:
+                    translate(300px,220px)
+                    rotate(-35deg);
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* =========================================================
+           TOPBAR
+        ========================================================= */
+
+        .topbar {
             background: var(--green-deep);
-            color: var(--white);
-            font-size: 13px;
-        }
+            color: white;
+            padding: 8px 5%;
+            font-size: 12px;
 
-        .top-bar-inner {
-            min-height: 38px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 20px;
-        }
-
-        .top-info {
-            display: flex;
             align-items: center;
-            gap: 20px;
+
+            position: relative;
+            z-index: 1000;
         }
 
-        .top-info span {
+        .topbar-left,
+        .topbar-right {
             display: flex;
+            gap: 18px;
             align-items: center;
-            gap: 7px;
         }
 
-        .top-info i {
+        .topbar i {
+            margin-right: 5px;
             color: var(--orange);
         }
 
-        .top-social {
-            display: flex;
-            gap: 14px;
-        }
-
-        .top-social a {
-            transition: .3s;
-        }
-
-        .top-social a:hover {
-            color: var(--orange);
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            NAVBAR
-        ===================================================== */
+        ========================================================= */
 
         .navbar {
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 999;
 
-            background: rgba(255, 255, 255, .96);
-            backdrop-filter: blur(12px);
+            background: var(--glass);
 
-            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
 
-            box-shadow: 0 3px 18px rgba(0,0,0,.05);
+            border-bottom:
+                1px solid var(--glass-border);
+
+            transition: background .6s ease;
         }
 
-        .nav-inner {
-            min-height: 78px;
+        .nav-container {
+            max-width: 1250px;
+            margin: auto;
+
+            padding: 14px 25px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-
-            gap: 30px;
         }
 
-        .brand {
+        .logo {
             display: flex;
             align-items: center;
             gap: 12px;
-            flex-shrink: 0;
+
+            font-weight: 800;
+            color: var(--nav-text);
         }
 
-        .brand img {
+        .logo img {
             width: 48px;
             height: 48px;
-            object-fit: cover;
+
             border-radius: 50%;
-            border: 2px solid var(--green);
+            object-fit: cover;
+
+            border: 3px solid var(--orange);
         }
 
-        .brand-text strong {
+        .logo-text span {
             display: block;
-            color: var(--green-dark);
-            font-size: 18px;
-            line-height: 1.2;
+            font-size: 11px;
+            color: var(--green);
+            font-weight: 600;
         }
 
-        .brand-text span {
-            display: block;
-            font-size: 10px;
-            color: var(--gray);
-            letter-spacing: .7px;
+        .logo-text strong {
+            font-size: 17px;
         }
-
-
-        /* NAV MENU */
 
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
+            list-style: none;
         }
 
         .nav-menu > li {
             position: relative;
         }
 
-        .nav-menu > li > a {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .nav-menu a {
+            display: block;
+            padding: 10px 12px;
 
-            padding: 11px 13px;
-
-            color: #333;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
 
-            border-radius: 8px;
+            color: var(--nav-text);
+
+            border-radius: 10px;
 
             transition: .3s;
         }
 
-        .nav-menu > li > a:hover {
+        .nav-menu a:hover,
+        .nav-menu .active {
+            background: rgba(39,174,96,.12);
             color: var(--green);
-            background: var(--green-soft);
         }
 
-        /* BERANDA AKTIF */
-
-        .nav-menu > li > a.active {
-            color: var(--white);
-            background: linear-gradient(
-                135deg,
-                var(--green),
-                var(--green-dark)
-            );
-
-            box-shadow:
-                0 5px 14px rgba(39,174,96,.25);
+        .dropdown > a i {
+            font-size: 10px;
+            margin-left: 5px;
         }
-
-        .nav-menu > li > a.active:hover {
-            color: var(--white);
-
-            background: linear-gradient(
-                135deg,
-                var(--orange),
-                var(--orange-dark)
-            );
-        }
-
-
-        /* DROPDOWN */
 
         .dropdown-menu {
             position: absolute;
+
             top: calc(100% + 10px);
             left: 0;
 
-            width: 230px;
+            min-width: 220px;
 
-            background: var(--white);
+            background: rgba(255,255,255,.95);
 
-            border-radius: 12px;
+            border-radius: 14px;
 
-            box-shadow: var(--shadow-md);
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.15);
 
             padding: 8px;
 
             opacity: 0;
             visibility: hidden;
-            transform: translateY(8px);
 
-            transition: .25s;
+            transform: translateY(10px);
 
-            border-top: 3px solid var(--orange);
+            transition: .3s;
+        }
+
+        body.night .dropdown-menu {
+            background: rgba(8,17,42,.97);
         }
 
         .dropdown:hover .dropdown-menu {
@@ -305,108 +787,122 @@
         }
 
         .dropdown-menu a {
-            display: block;
-
-            padding: 10px 13px;
-
-            border-radius: 7px;
-
-            font-size: 13px;
-
-            color: #444;
-
-            transition: .25s;
+            color: var(--nav-text);
+            border-radius: 9px;
         }
 
         .dropdown-menu a:hover {
-            background: var(--green-soft);
-            color: var(--green-dark);
-            padding-left: 17px;
+            background: rgba(39,174,96,.12);
         }
 
-        .dropdown-menu a.active {
-            background: var(--green-soft);
-            color: var(--green-dark);
-            font-weight: 600;
-        }
+        /* =========================================================
+           THEME TOGGLE
+        ========================================================= */
 
+        .theme-toggle {
+            border: none;
 
-        /* MOBILE BUTTON */
+            width: 43px;
+            height: 43px;
 
-        .menu-toggle {
-            display: none;
+            border-radius: 50%;
 
-            width: 42px;
-            height: 42px;
+            cursor: pointer;
 
-            border: 0;
-            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
+            color: white;
             background: var(--green);
 
-            color: var(--white);
+            box-shadow:
+                0 8px 20px rgba(39,174,96,.25);
 
-            font-size: 19px;
+            transition: .3s;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(15deg) scale(1.08);
+            background: var(--orange);
+        }
+
+        .mobile-toggle {
+            display: none;
+
+            border: none;
+            background: none;
+
+            color: var(--nav-text);
+            font-size: 25px;
 
             cursor: pointer;
         }
 
-
-        /* =====================================================
+        /* =========================================================
            HERO
-        ===================================================== */
+        ========================================================= */
 
         .hero {
-            min-height: 640px;
+            min-height: 730px;
 
             position: relative;
 
             display: flex;
             align-items: center;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(12, 67, 36, .92),
-                    rgba(27, 100, 58, .72),
-                    rgba(39,174,96,.25)
-                ),
-                url("./images/quran.jpg")
-                center / cover no-repeat;
+            padding:
+                80px 6%
+                100px;
+
+            overflow: hidden;
         }
 
         .hero-content {
+            width: 55%;
             max-width: 700px;
-            color: var(--white);
+
+            position: relative;
+            z-index: 10;
         }
 
-        .hero-label {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
 
-            padding: 7px 14px;
+            padding: 8px 15px;
 
-            background: rgba(243,156,18,.95);
+            border-radius: 30px;
 
-            color: #fff;
+            background: rgba(39,174,96,.10);
 
-            border-radius: 50px;
+            border:
+                1px solid rgba(39,174,96,.18);
+
+            color: var(--green-dark);
 
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
 
-            margin-bottom: 18px;
+            margin-bottom: 20px;
+        }
+
+        body.night .hero-badge {
+            color: #9df2bf;
+            background: rgba(39,174,96,.14);
         }
 
         .hero h1 {
-            font-family: 'Amiri', serif;
+            font-size: clamp(42px, 5vw, 72px);
 
-            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.05;
 
-            line-height: 1.1;
+            color: var(--nav-text);
 
-            margin-bottom: 18px;
+            margin-bottom: 22px;
+
+            letter-spacing: -2px;
         }
 
         .hero h1 span {
@@ -414,13 +910,44 @@
         }
 
         .hero p {
-            max-width: 620px;
+            max-width: 600px;
+
+            line-height: 1.8;
 
             font-size: 16px;
 
-            color: rgba(255,255,255,.92);
+            opacity: .8;
 
-            margin-bottom: 30px;
+            margin-bottom: 28px;
+        }
+
+        .quran-quote {
+            border-left:
+                4px solid var(--orange);
+
+            padding-left: 18px;
+
+            margin: 25px 0;
+        }
+
+        .quran-quote .arabic {
+            font-family: 'Amiri', serif;
+
+            font-size: 28px;
+
+            color: var(--green-dark);
+
+            direction: rtl;
+
+            margin-bottom: 4px;
+        }
+
+        body.night .quran-quote .arabic {
+            color: #8cebb0;
+        }
+
+        .quran-quote small {
+            opacity: .7;
         }
 
         .hero-buttons {
@@ -431,803 +958,568 @@
 
         .btn {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
+
             gap: 8px;
 
-            padding: 12px 22px;
+            padding: 13px 21px;
 
-            border-radius: 9px;
+            border-radius: 12px;
 
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
 
             transition: .3s;
         }
 
         .btn-primary {
-            background: var(--orange);
-            color: var(--white);
+            background: var(--green);
+            color: white;
 
             box-shadow:
-                0 8px 20px rgba(243,156,18,.25);
+                0 10px 25px rgba(39,174,96,.22);
         }
 
         .btn-primary:hover {
-            background: var(--orange-dark);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            background: var(--green-dark);
         }
 
         .btn-outline {
-            color: var(--white);
+            border:
+                1px solid rgba(39,174,96,.35);
 
-            border: 1px solid rgba(255,255,255,.7);
+            color: var(--green-dark);
 
-            background: rgba(255,255,255,.08);
+            background: rgba(255,255,255,.35);
+        }
+
+        body.night .btn-outline {
+            color: white;
+            background: rgba(255,255,255,.05);
+            border-color: rgba(255,255,255,.20);
         }
 
         .btn-outline:hover {
-            background: var(--white);
-            color: var(--green-dark);
+            transform: translateY(-3px);
+            background: rgba(39,174,96,.10);
         }
 
+        /* =========================================================
+           SECTION
+        ========================================================= */
 
-        /* HERO DECORATION */
-
-        .hero-bottom {
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 70px;
-
-            background: var(--white);
-
-            clip-path: ellipse(65% 100% at 50% 100%);
-        }
-
-
-        /* =====================================================
-           GENERAL SECTION
-        ===================================================== */
-
-        .section {
-            padding: 90px 0;
-        }
-
-        .section-soft {
-            background: var(--light);
-        }
-
-        .section-heading {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-        }
-
-        .section-label {
-            display: inline-block;
-
-            color: var(--green);
-
-            font-size: 12px;
-            font-weight: 700;
-
-            letter-spacing: 1.5px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 8px;
-        }
-
-        .section-heading h2 {
-            font-family: 'Amiri', serif;
-
-            color: var(--green-dark);
-
-            font-size: clamp(32px, 4vw, 44px);
-
-            line-height: 1.2;
-
-            margin-bottom: 12px;
-        }
-
-        .section-heading p {
-            color: var(--gray);
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           SAMBUTAN
-        ===================================================== */
-
-        .welcome-grid {
-            display: grid;
-
-            grid-template-columns: 1fr 1.2fr;
-
-            gap: 60px;
-
-            align-items: center;
-        }
-
-        .welcome-image {
+        section {
             position: relative;
+            padding: 90px 6%;
         }
 
-        .welcome-image img {
-            width: 100%;
-            height: 430px;
-
-            object-fit: cover;
-
-            border-radius: var(--radius-lg);
-
-            box-shadow: var(--shadow-lg);
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
         }
 
-        .welcome-badge {
-            position: absolute;
-
-            right: -20px;
-            bottom: 25px;
-
-            background: var(--orange);
-
-            color: var(--white);
-
-            padding: 18px 22px;
-
-            border-radius: 13px;
-
-            box-shadow: var(--shadow-md);
-
+        .section-title {
             text-align: center;
+            margin-bottom: 45px;
         }
 
-        .welcome-badge strong {
-            display: block;
-            font-size: 24px;
+        .section-title span {
+            color: var(--orange);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .welcome-badge span {
-            font-size: 11px;
+        .section-title h2 {
+            font-size: clamp(30px,4vw,44px);
+            margin: 7px 0 12px;
+            color: var(--nav-text);
         }
 
-        .welcome-content h3 {
-            font-family: 'Amiri', serif;
-
-            font-size: 36px;
-
-            color: var(--green-dark);
-
-            margin-bottom: 15px;
-        }
-
-        .welcome-content p {
-            color: var(--gray);
-
+        .section-title p {
+            max-width: 650px;
+            margin: auto;
+            opacity: .7;
+            line-height: 1.8;
             font-size: 14px;
-
-            margin-bottom: 15px;
         }
 
-        .quote {
-            margin: 25px 0;
-
-            padding: 20px;
-
-            border-left: 4px solid var(--orange);
-
-            background: var(--orange-soft);
-
-            border-radius: 0 10px 10px 0;
-        }
-
-        .quote p {
-            margin: 0;
-
-            font-family: 'Amiri', serif;
-
-            font-size: 20px;
-
-            color: #555;
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            PROGRAM
-        ===================================================== */
+        ========================================================= */
 
         .program-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                repeat(3,1fr);
 
-            gap: 20px;
+            gap: 22px;
         }
 
         .program-card {
-            padding: 30px 22px;
+            padding: 30px;
 
-            background: var(--white);
+            border-radius: 20px;
 
-            border: 1px solid var(--border);
+            background: var(--glass);
 
-            border-radius: var(--radius-md);
+            border:
+                1px solid var(--glass-border);
 
-            text-align: center;
+            backdrop-filter: blur(15px);
 
-            transition: .35s;
+            box-shadow: var(--shadow);
 
-            position: relative;
-
-            overflow: hidden;
-        }
-
-        .program-card::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 4px;
-
-            background: linear-gradient(
-                90deg,
-                var(--green),
-                var(--orange)
-            );
+            transition: .4s;
         }
 
         .program-card:hover {
-            transform: translateY(-8px);
-
-            box-shadow: var(--shadow-md);
-
-            border-color: transparent;
+            transform:
+                translateY(-10px);
         }
 
         .program-icon {
-            width: 68px;
-            height: 68px;
-
-            margin: 10px auto 18px;
+            width: 58px;
+            height: 58px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            border-radius: 50%;
+            border-radius: 15px;
 
-            background: var(--green-soft);
+            background:
+                rgba(39,174,96,.12);
 
             color: var(--green);
 
-            font-size: 25px;
-        }
+            font-size: 24px;
 
-        .program-card:nth-child(even) .program-icon {
-            background: var(--orange-soft);
-            color: var(--orange-dark);
+            margin-bottom: 20px;
         }
 
         .program-card h3 {
-            color: var(--green-dark);
-
-            font-size: 17px;
-
             margin-bottom: 10px;
+            color: var(--nav-text);
         }
 
         .program-card p {
-            color: var(--gray);
-
-            font-size: 12px;
+            font-size: 13px;
+            line-height: 1.8;
+            opacity: .72;
         }
 
+        /* =========================================================
+           ABOUT
+        ========================================================= */
 
-        /* =====================================================
-           KEUNGGULAN
-        ===================================================== */
-
-        .feature-grid {
+        .about-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                1fr 1fr;
 
-            gap: 25px;
+            gap: 50px;
+
+            align-items: center;
         }
 
-        .feature-card {
-            padding: 28px;
-
-            border-radius: var(--radius-md);
-
-            background: var(--green-soft);
-
-            border: 1px solid rgba(39,174,96,.12);
-        }
-
-        .feature-card:nth-child(2) {
-            background: var(--orange-soft);
-            border-color: rgba(243,156,18,.15);
-        }
-
-        .feature-card:nth-child(3) {
-            background: #f0f4ff;
-            border-color: #e0e7ff;
-        }
-
-        .feature-number {
-            font-size: 13px;
-
-            font-weight: 700;
-
-            color: var(--orange);
-
-            margin-bottom: 10px;
-        }
-
-        .feature-card h3 {
-            color: var(--green-dark);
-
-            margin-bottom: 10px;
-        }
-
-        .feature-card p {
-            font-size: 13px;
-            color: var(--gray);
-        }
-
-
-        /* =====================================================
-           GALERI
-        ===================================================== */
-
-        .gallery-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 18px;
-        }
-
-        .gallery-item {
-            height: 250px;
-
+        .about-image {
+            border-radius: 25px;
             overflow: hidden;
 
-            border-radius: var(--radius-md);
+            box-shadow: var(--shadow);
 
-            position: relative;
-
-            background: #ddd;
+            border:
+                1px solid var(--glass-border);
         }
 
-        .gallery-item img {
+        .about-image img {
             width: 100%;
-            height: 100%;
-
+            height: 420px;
             object-fit: cover;
-
-            transition: .5s;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.08);
+        .about-content h2 {
+            font-size: 40px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--nav-text);
         }
 
-        .gallery-overlay {
-            position: absolute;
-
-            inset: 0;
-
-            display: flex;
-            align-items: flex-end;
-
-            padding: 20px;
-
-            background:
-                linear-gradient(
-                    transparent 40%,
-                    rgba(0,0,0,.7)
-                );
-
-            color: var(--white);
-
-            opacity: 0;
-
-            transition: .3s;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay span {
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-
-        /* =====================================================
-           BERITA
-        ===================================================== */
-
-        .news-grid {
-            display: grid;
-
-            grid-template-columns:
-                1.3fr 1fr;
-
-            gap: 25px;
-        }
-
-        .news-featured {
-            background: var(--white);
-
-            border-radius: var(--radius-md);
-
-            overflow: hidden;
-
-            border: 1px solid var(--border);
-
-            box-shadow: var(--shadow-sm);
-
-            transition: .3s;
-        }
-
-        .news-featured:hover {
-            transform: translateY(-5px);
-
-            box-shadow: var(--shadow-md);
-        }
-
-        .news-featured-image {
-            height: 300px;
-
-            overflow: hidden;
-        }
-
-        .news-featured-image img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: .5s;
-        }
-
-        .news-featured:hover img {
-            transform: scale(1.05);
-        }
-
-        .news-content {
-            padding: 25px;
-        }
-
-        .news-date {
-            color: var(--orange-dark);
-
-            font-size: 11px;
-
-            font-weight: 600;
-        }
-
-        .news-content h3 {
-            color: var(--green-dark);
-
-            font-size: 21px;
-
-            margin: 8px 0 10px;
-        }
-
-        .news-content p {
-            color: var(--gray);
-
-            font-size: 13px;
-
+        .about-content p {
+            line-height: 1.9;
+            font-size: 14px;
+            opacity: .75;
             margin-bottom: 15px;
         }
 
-        .read-more {
-            color: var(--green);
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 6px;
-        }
-
-        .read-more:hover {
-            color: var(--orange-dark);
-        }
-
-        .news-list {
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 15px;
-        }
-
-        .news-small {
+        .about-list {
             display: grid;
-
-            grid-template-columns: 125px 1fr;
-
-            gap: 15px;
-
-            padding: 12px;
-
-            background: var(--white);
-
-            border: 1px solid var(--border);
-
-            border-radius: 12px;
-
-            transition: .3s;
+            gap: 12px;
+            margin-top: 20px;
         }
 
-        .news-small:hover {
-            transform: translateX(5px);
-
-            border-color: var(--green);
+        .about-list div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 13px;
         }
 
-        .news-small-image {
-            height: 100px;
+        .about-list i {
+            color: var(--orange);
+        }
 
-            border-radius: 9px;
+        /* =========================================================
+           QURAN SECTION
+        ========================================================= */
+
+        .quran-section {
+            text-align: center;
+
+            padding:
+                100px 20px;
 
             overflow: hidden;
         }
 
-        .news-small-image img {
-            width: 100%;
-            height: 100%;
+        .quran-section::before {
+            content: "";
 
-            object-fit: cover;
+            position: absolute;
+            inset: 20% 15%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(39,174,96,.10),
+                    transparent 65%
+                );
+
+            filter: blur(10px);
         }
 
-        .news-small h4 {
-            font-size: 13px;
+        .quran-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .quran-content .arabic {
+            font-family: 'Amiri', serif;
+
+            font-size: clamp(35px,6vw,65px);
 
             line-height: 1.5;
 
             color: var(--green-dark);
 
-            margin: 5px 0;
-        }
-
-        .news-small span {
-            font-size: 10px;
-            color: var(--orange-dark);
-        }
-
-
-        /* =====================================================
-           CTA
-        ===================================================== */
-
-        .cta {
-            position: relative;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--green-dark),
-                    var(--green)
-                );
-
-            color: var(--white);
-
-            border-radius: var(--radius-lg);
-
-            padding: 55px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 30px;
-        }
-
-        .cta::after {
-            content: "";
-
-            position: absolute;
-
-            width: 230px;
-            height: 230px;
-
-            border-radius: 50%;
-
-            background: rgba(243,156,18,.18);
-
-            right: -70px;
-            top: -80px;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta h2 {
-            font-family: 'Amiri', serif;
-
-            font-size: 36px;
-
-            margin-bottom: 8px;
-        }
-
-        .cta p {
-            font-size: 13px;
-
-            color: rgba(255,255,255,.85);
-
-            max-width: 650px;
-        }
-
-        .cta .btn {
-            position: relative;
-            z-index: 2;
-
-            background: var(--orange);
-
-            flex-shrink: 0;
-        }
-
-        .cta .btn:hover {
-            background: var(--orange-dark);
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            margin-top: 90px;
-
-            background: #123c27;
-
-            color: rgba(255,255,255,.78);
-
-            padding-top: 65px;
-        }
-
-        .footer-grid {
-            display: grid;
-
-            grid-template-columns:
-                1.5fr 1fr 1fr 1fr;
-
-            gap: 40px;
-
-            padding-bottom: 45px;
-        }
-
-        .footer-brand strong {
-            display: block;
-
-            color: var(--white);
-
-            font-size: 20px;
-
-            margin-bottom: 10px;
-        }
-
-        .footer-brand p {
-            font-size: 12px;
-
-            line-height: 1.8;
-
-            max-width: 320px;
-        }
-
-        .footer h3 {
-            color: var(--white);
-
-            font-size: 14px;
+            direction: rtl;
 
             margin-bottom: 15px;
         }
 
-        .footer-links li {
+        body.night .quran-content .arabic {
+            color: #9ff3be;
+            text-shadow:
+                0 0 30px rgba(39,174,96,.25);
+        }
+
+        .quran-content h3 {
+            font-size: 20px;
+            color: var(--nav-text);
+            margin-bottom: 10px;
+        }
+
+        .quran-content p {
+            opacity: .7;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           NEWS
+        ========================================================= */
+
+        .news-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 22px;
+        }
+
+        .news-card {
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background: var(--glass);
+
+            border:
+                1px solid var(--glass-border);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow: var(--shadow);
+
+            transition: .4s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .news-body {
+            padding: 22px;
+        }
+
+        .news-meta {
+            color: var(--orange);
+            font-size: 11px;
+            font-weight: 700;
             margin-bottom: 8px;
+        }
+
+        .news-body h3 {
+            color: var(--nav-text);
+            font-size: 17px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .news-body p {
+            font-size: 12px;
+            line-height: 1.7;
+            opacity: .7;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+            padding-bottom: 110px;
+        }
+
+        .cta-box {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 55px 50px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green-deep),
+                    var(--green)
+                );
+
+            color: white;
+
+            position: relative;
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 70px rgba(20,90,50,.25);
+        }
+
+        .cta-box::after {
+            content: "∞";
+
+            position: absolute;
+
+            right: 30px;
+            bottom: -70px;
+
+            font-family: 'Amiri', serif;
+
+            font-size: 280px;
+
+            opacity: .07;
+        }
+
+        .cta-box h2 {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .cta-box p {
+            max-width: 650px;
+            opacity: .85;
+            line-height: 1.8;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .cta-box .btn {
+            background: var(--orange);
+            color: white;
+        }
+
+        .cta-box .btn:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background:
+                rgba(20,90,50,.96);
+
+            color: white;
+
+            padding:
+                55px 6% 25px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr;
+
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            opacity: .75;
+            max-width: 420px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 9px;
         }
 
         .footer-links a {
             font-size: 12px;
-
-            transition: .25s;
+            opacity: .75;
+            transition: .3s;
         }
 
         .footer-links a:hover {
+            opacity: 1;
             color: var(--orange);
-            padding-left: 4px;
         }
 
-        .footer-contact li {
-            display: flex;
+        .copyright {
+            max-width: 1200px;
+            margin: 35px auto 0;
 
-            gap: 10px;
+            padding-top: 20px;
 
-            font-size: 12px;
-
-            margin-bottom: 10px;
-        }
-
-        .footer-contact i {
-            color: var(--orange);
-
-            width: 16px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,.1);
-
-            padding: 18px 0;
+            border-top:
+                1px solid rgba(255,255,255,.15);
 
             text-align: center;
 
             font-size: 11px;
+
+            opacity: .65;
         }
 
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
 
-        /* =====================================================
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
            RESPONSIVE
-        ===================================================== */
+        ========================================================= */
 
-        @media (max-width: 1050px) {
+        @media(max-width: 1000px) {
 
             .nav-menu {
                 gap: 0;
             }
 
-            .nav-menu > li > a {
-                padding: 10px 8px;
+            .nav-menu a {
+                padding: 9px;
                 font-size: 12px;
             }
 
-            .program-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+            .planet-system {
+                right: -240px;
+                opacity: .45;
             }
 
+            .hero-content {
+                width: 70%;
+            }
         }
 
+        @media(max-width: 800px) {
 
-        @media (max-width: 850px) {
-
-            .top-info span:last-child {
+            .topbar-left span:nth-child(2),
+            .topbar-right {
                 display: none;
             }
 
-            .menu-toggle {
-                display: flex;
-
-                align-items: center;
-                justify-content: center;
+            .mobile-toggle {
+                display: block;
             }
 
             .nav-menu {
@@ -1235,163 +1527,136 @@
 
                 top: 100%;
                 left: 0;
-
-                width: 100%;
-
-                background: var(--white);
+                right: 0;
 
                 display: none;
 
                 flex-direction: column;
-
                 align-items: stretch;
 
-                padding: 10px;
+                padding: 12px 20px 20px;
 
-                box-shadow: var(--shadow-md);
+                background:
+                    rgba(255,255,255,.96);
 
-                border-top: 2px solid var(--orange);
+                backdrop-filter: blur(20px);
+
+                box-shadow:
+                    0 20px 40px rgba(0,0,0,.12);
             }
 
-            .nav-menu.show {
+            body.night .nav-menu {
+                background:
+                    rgba(5,12,30,.97);
+            }
+
+            .nav-menu.open {
                 display: flex;
             }
 
-            .nav-menu > li > a {
+            .nav-menu > li {
                 width: 100%;
-                padding: 12px 14px;
+            }
+
+            .nav-menu a {
+                padding: 12px;
             }
 
             .dropdown-menu {
                 position: static;
 
-                width: 100%;
+                opacity: 1;
+                visibility: visible;
+
+                transform: none;
 
                 display: none;
 
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-
                 box-shadow: none;
 
-                border-top: 0;
+                background: rgba(39,174,96,.06);
 
-                background: var(--green-soft);
+                margin-top: 4px;
             }
 
             .dropdown.open .dropdown-menu {
                 display: block;
             }
 
-            .dropdown:hover .dropdown-menu {
-                display: none;
+            .hero {
+                min-height: 780px;
+                padding: 70px 6%;
             }
 
-            .dropdown.open:hover .dropdown-menu {
-                display: block;
+            .hero-content {
+                width: 100%;
+                max-width: 650px;
             }
 
-            .welcome-grid,
+            .planet-system {
+                right: -330px;
+                top: 28%;
+                opacity: .25;
+            }
+
+            .program-grid,
             .news-grid {
                 grid-template-columns: 1fr;
             }
 
-            .feature-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+            .about-grid {
+                grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+            .about-image img {
+                height: 330px;
             }
 
             .footer-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
 
+            .cta-box {
+                padding: 40px 25px;
+            }
+
+            .cta-box h2 {
+                font-size: 28px;
+            }
         }
 
+        @media(max-width: 480px) {
 
-        @media (max-width: 600px) {
-
-            .top-bar {
-                display: none;
-            }
-
-            .nav-inner {
-                min-height: 68px;
-            }
-
-            .brand img {
-                width: 42px;
-                height: 42px;
-            }
-
-            .brand-text strong {
-                font-size: 16px;
-            }
-
-            .brand-text span {
-                font-size: 8px;
+            .topbar {
+                justify-content: center;
             }
 
             .hero {
-                min-height: 580px;
+                min-height: 720px;
             }
 
             .hero h1 {
-                font-size: 44px;
+                font-size: 42px;
             }
 
-            .hero p {
-                font-size: 13px;
+            .quran-quote .arabic {
+                font-size: 23px;
             }
 
-            .section {
-                padding: 65px 0;
+            .planet-system {
+                transform:
+                    scale(.75);
+                right: -370px;
             }
 
-            .program-grid,
-            .feature-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            section {
+                padding:
+                    70px 5%;
             }
 
-            .welcome-image img {
-                height: 350px;
+            .math-symbol {
+                display: none;
             }
-
-            .welcome-badge {
-                right: 15px;
-            }
-
-            .news-small {
-                grid-template-columns: 100px 1fr;
-            }
-
-            .news-small-image {
-                height: 90px;
-            }
-
-            .cta {
-                padding: 35px 25px;
-
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-            .cta h2 {
-                font-size: 30px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
         }
 
     </style>
@@ -1399,43 +1664,37 @@
 
 <body>
 
+<!-- =========================================================
+     SPACE BACKGROUND
+========================================================= -->
 
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
+<div class="space-world">
 
-<div class="top-bar">
+    <div class="galaxy galaxy-one"></div>
+    <div class="galaxy galaxy-two"></div>
 
-    <div class="container top-bar-inner">
+    <div class="sun"></div>
 
-        <div class="top-info">
+    <div class="stars" id="stars"></div>
 
-            <span>
-                <i class="fa-solid fa-location-dot"></i>
-                Bontang, Kalimantan Timur
-            </span>
+    <div class="math-symbol math-1">π</div>
+    <div class="math-symbol math-2">√</div>
+    <div class="math-symbol math-3">∑</div>
+    <div class="math-symbol math-4">∞</div>
+    <div class="math-symbol math-5">x²</div>
 
-            <span>
-                <i class="fa-solid fa-envelope"></i>
-                info@sditihyaussunnah.sch.id
-            </span>
+    <div class="meteor meteor-one"></div>
+    <div class="meteor meteor-two"></div>
 
-        </div>
+    <!-- PLANET + ORBIT -->
+    <div class="planet-system" id="planetSystem">
 
-        <div class="top-social">
+        <div class="orbit"></div>
 
-            <a href="#">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
+        <div class="planet"></div>
 
-            <a href="#">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-
-            <a href="#">
-                <i class="fa-brands fa-youtube"></i>
-            </a>
-
+        <div class="rocket">
+            <i class="fa-solid fa-rocket"></i>
         </div>
 
     </div>
@@ -1443,38 +1702,67 @@
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
+     TOPBAR
+========================================================= -->
+
+<div class="topbar">
+
+    <div class="topbar-left">
+
+        <span>
+            <i class="fa-solid fa-location-dot"></i>
+            Bontang, Kalimantan Timur
+        </span>
+
+        <span>
+            <i class="fa-solid fa-envelope"></i>
+            info@sditihyaussunnah.sch.id
+        </span>
+
+    </div>
+
+    <div class="topbar-right">
+
+        <span>
+            <i class="fa-solid fa-graduation-cap"></i>
+            SDIT Ihyaussunnah
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
      NAVBAR
-===================================================== -->
+========================================================= -->
 
-<header class="navbar">
+<nav class="navbar">
 
-    <div class="container nav-inner">
+    <div class="nav-container">
 
-        <a href="index.html" class="brand">
+        <a href="index.html" class="logo">
 
             <img
                 src="./images/sdit.jpg"
                 alt="Logo SDIT Ihyaussunnah"
             >
 
-            <div class="brand-text">
-
+            <div class="logo-text">
+                <span>SEKOLAH DASAR ISLAM TERPADU</span>
                 <strong>SDIT Ihyaussunnah</strong>
-
-                <span>
-                    BERAKIDAH • CERDAS • BERAKHLAK MULIA
-                </span>
-
             </div>
 
         </a>
 
 
-        <button class="menu-toggle" id="menuToggle">
-
+        <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Buka menu"
+        >
             <i class="fa-solid fa-bars"></i>
-
         </button>
 
 
@@ -1487,8 +1775,7 @@
             </li>
 
 
-            <!-- TENTANG KAMI -->
-
+            <!-- TENTANG -->
             <li class="dropdown">
 
                 <a href="#">
@@ -1532,7 +1819,6 @@
 
 
             <!-- KURIKULUM -->
-
             <li class="dropdown">
 
                 <a href="#">
@@ -1592,213 +1878,118 @@
             </li>
 
             <li>
-                <a href="#" class="ppdb-link">
+                <a href="#ppdb">
                     PPDB 2026
                 </a>
+            </li>
+
+            <!-- THEME -->
+            <li>
+
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    title="Ganti mode siang/malam"
+                    aria-label="Ganti mode siang malam"
+                >
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
             </li>
 
         </ul>
 
     </div>
 
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+
+    <div class="hero-content reveal">
+
+        <div class="hero-badge">
+            <i class="fa-solid fa-atom"></i>
+            Islam • Ilmu • Eksplorasi
+        </div>
+
+        <h1>
+            Menjelajah Ilmu,
+            <br>
+            <span>Menumbuhkan Generasi Qur'ani.</span>
+        </h1>
+
+        <p>
+            SDIT Ihyaussunnah menghadirkan pendidikan yang
+            memadukan Al-Qur'an, ilmu pengetahuan, matematika,
+            karakter dan keterampilan dalam lingkungan belajar
+            yang menyenangkan.
+        </p>
+
+
+        <div class="quran-quote">
+
+            <div class="arabic">
+                وَقُلْ رَبِّ زِدْنِي عِلْمًا
+            </div>
+
+            <small>
+                “Ya Rabbku, tambahkanlah kepadaku ilmu.”
+                — QS. Taha: 114
+            </small>
+
+        </div>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="sejarah.html"
+                class="btn btn-primary"
+            >
+                <i class="fa-solid fa-school"></i>
+                Tentang Sekolah
+            </a>
+
+            <a
+                href="berita.html"
+                class="btn btn-outline"
+            >
+                <i class="fa-solid fa-newspaper"></i>
+                Berita & Kegiatan
+            </a>
+
+        </div>
+
+    </div>
+
 </header>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- =========================================================
+     PROGRAM
+========================================================= -->
 
-<section class="hero">
+<section>
 
-    <div class="container">
+    <div class="section-container">
 
-        <div class="hero-content">
+        <div class="section-title reveal">
 
-            <div class="hero-label">
-
-                <i class="fa-solid fa-star"></i>
-
-                Sekolah Dasar Islam Terpadu
-
-            </div>
-
-
-            <h1>
-
-                Membentuk Generasi
-
-                <span>Qur'ani</span>
-
-                & Berakhlak Mulia
-
-            </h1>
-
-
-            <p>
-
-                SDIT Ihyaussunnah hadir sebagai tempat
-                pendidikan yang mengintegrasikan ilmu
-                pengetahuan, Al-Qur'an, akidah, dan akhlak
-                untuk membentuk generasi yang cerdas,
-                mandiri, dan berkarakter Islami. Sesuai dengan Manhaj Salafus Shalih
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a href="visi-misi.html"
-                    class="btn btn-primary">
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                    Kenali Sekolah Kami
-
-                </a>
-
-
-                <a href="kontak.html"
-                    class="btn btn-outline">
-
-                    <i class="fa-solid fa-phone"></i>
-
-                    Hubungi Kami
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="hero-bottom"></div>
-
-</section>
-
-
-<!-- =====================================================
-     SAMBUTAN
-===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="welcome-grid">
-
-
-            <div class="welcome-image">
-
-                <img
-                    src="./images/kepala-sekolah.jpg"
-                    alt="Kepala Sekolah SDIT Ihyaussunnah"
-                >
-
-
-                <div class="welcome-badge">
-
-                    <strong>SDIT</strong>
-
-                    <span>
-                        Ihyaussunnah
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="welcome-content">
-
-                <span class="section-label">
-                    Sambutan
-                </span>
-
-                <h3>
-                    Selamat Datang di SDIT Ihyaussunnah
-                </h3>
-
-
-                <p>
-
-                    Bismillahirrahmanirrahim.
-
-                    Selamat datang di website resmi
-                    SDIT Ihyaussunnah. Website ini menjadi
-                    sarana informasi dan komunikasi bagi
-                    sekolah, peserta didik, orang tua,
-                    serta masyarakat.
-
-                </p>
-
-
-                <p>
-
-                    Kami berkomitmen menghadirkan pendidikan
-                    yang tidak hanya berorientasi pada
-                    kemampuan akademik, tetapi juga pada
-                    pembentukan akidah, akhlak, karakter,
-                    dan kecintaan terhadap Al-Qur'an. Sesuai dengan Manhaj Salafus Shalih
-
-                </p>
-
-
-                <div class="quote">
-
-                    <p>
-
-                        "Pendidikan adalah proses menanamkan
-                        ilmu, iman, dan akhlak untuk membentuk
-                        generasi yang bermanfaat."
-
-                    </p>
-
-                </div>
-
-
-                <a href="sambutan.html"
-                    class="btn btn-primary">
-
-                    Baca Sambutan Lengkap
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PROGRAM UNGGULAN
-===================================================== -->
-
-<section class="section section-soft">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                Program Unggulan
-            </span>
+            <span>Program Unggulan</span>
 
             <h2>
-                Pendidikan yang Seimbang
+                Belajar dengan Iman & Ilmu
             </h2>
 
             <p>
-
-                Mengintegrasikan pendidikan umum dan
-                pendidikan Islam dalam proses pembelajaran
-                sehari-hari.
-
+                Pendidikan yang mengembangkan kemampuan
+                akademik sekaligus membangun akidah dan akhlak
+                peserta didik.
             </p>
 
         </div>
@@ -1806,82 +1997,48 @@
 
         <div class="program-grid">
 
-
-            <div class="program-card">
+            <article class="program-card reveal">
 
                 <div class="program-icon">
-
                     <i class="fa-solid fa-book-quran"></i>
-
                 </div>
 
                 <h3>
-                    Al-Qur'an
+                    Al-Qur'an & Tahfizh
                 </h3>
 
                 <p>
-
-                    Pembelajaran Al-Qur'an melalui program
-                    tahsin dan tahfizh secara bertahap
-                    sesuai kemampuan peserta didik.
-
+                    Pembelajaran Iqro', Ghorib, Tajwid,
+                    Tahsin dan Tahfizh Al-Qur'an sesuai
+                    kemampuan setiap peserta didik.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="program-card">
+            <article class="program-card reveal">
 
                 <div class="program-icon">
-
-                    <i class="fa-solid fa-graduation-cap"></i>
-
+                    <i class="fa-solid fa-calculator"></i>
                 </div>
 
                 <h3>
-                    Akademik
+                    Akademik & Matematika
                 </h3>
 
                 <p>
-
-                    Pembelajaran akademik yang mendorong
-                    peserta didik untuk berpikir kritis,
-                    kreatif, dan aktif.
-
+                    Mengembangkan kemampuan berpikir logis,
+                    kritis dan kreatif melalui pembelajaran
+                    akademik yang aktif dan menyenangkan.
                 </p>
 
-            </div>
+            </article>
 
 
-            <div class="program-card">
-
-                <div class="program-icon">
-
-                    <i class="fa-solid fa-mosque"></i>
-
-                </div>
-
-                <h3>
-                    Diniyah
-                </h3>
-
-                <p>
-
-                    Pembelajaran keislaman untuk memperkuat
-                    pemahaman agama dan penerapannya dalam
-                    kehidupan sehari-hari.
-
-                </p>
-
-            </div>
-
-
-            <div class="program-card">
+            <article class="program-card reveal">
 
                 <div class="program-icon">
-
                     <i class="fa-solid fa-heart"></i>
-
                 </div>
 
                 <h3>
@@ -1889,15 +2046,12 @@
                 </h3>
 
                 <p>
-
-                    Membentuk kebiasaan baik, kedisiplinan,
-                    tanggung jawab, dan kepedulian terhadap
-                    sesama.
-
+                    Membiasakan adab Islami, kedisiplinan,
+                    tanggung jawab dan kepedulian dalam
+                    kehidupan sehari-hari.
                 </p>
 
-            </div>
-
+            </article>
 
         </div>
 
@@ -1906,99 +2060,78 @@
 </section>
 
 
-<!-- =====================================================
-     KEUNGGULAN
-===================================================== -->
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
-<section class="section">
+<section>
 
-    <div class="container">
+    <div class="section-container">
 
-        <div class="section-heading">
+        <div class="about-grid">
 
-            <span class="section-label">
-                Nilai Pendidikan
-            </span>
+            <div class="about-image reveal">
 
-            <h2>
-                Tumbuh dengan Nilai Islam
-            </h2>
-
-            <p>
-
-                Pendidikan diarahkan untuk mengembangkan
-                potensi peserta didik secara menyeluruh.
-
-            </p>
-
-        </div>
-
-
-        <div class="feature-grid">
-
-
-            <div class="feature-card">
-
-                <div class="feature-number">
-                    01 — AKIDAH
-                </div>
-
-                <h3>
-                    Berakidah Kokoh
-                </h3>
-
-                <p>
-
-                    Menanamkan dasar keimanan dan pemahaman
-                    Islam sejak usia dini sebagai landasan
-                    dalam kehidupan.
-
-                </p>
+                <img
+                    src="./images/quran.jpg"
+                    alt="Pembelajaran SDIT Ihyaussunnah"
+                >
 
             </div>
 
 
-            <div class="feature-card">
+            <div class="about-content reveal">
 
-                <div class="feature-number">
-                    02 — ILMU
+                <div class="section-title"
+                     style="text-align:left;margin-bottom:20px;">
+
+                    <span>Tentang Kami</span>
+
                 </div>
 
-                <h3>
-                    Cerdas dan Berilmu
-                </h3>
+                <h2>
+                    Pendidikan yang
+                    Berakar pada Al-Qur'an
+                </h2>
 
                 <p>
-
-                    Mendorong peserta didik untuk mencintai
-                    ilmu, aktif belajar, berpikir kritis,
-                    dan mengembangkan potensi diri.
-
+                    SDIT Ihyaussunnah berkomitmen menghadirkan
+                    pendidikan yang mengintegrasikan ilmu agama
+                    dan ilmu pengetahuan.
                 </p>
 
-            </div>
+                <p>
+                    Peserta didik diarahkan untuk memiliki
+                    kecintaan kepada Al-Qur'an, semangat belajar,
+                    kemampuan berpikir dan akhlak yang mulia.
+                </p>
 
 
-            <div class="feature-card">
+                <div class="about-list">
 
-                <div class="feature-number">
-                    03 — AKHLAK
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Berakidah
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Cerdas
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Berakhlak Mulia
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Mencintai Al-Qur'an
+                    </div>
+
                 </div>
 
-                <h3>
-                    Berakhlak Mulia
-                </h3>
-
-                <p>
-
-                    Membiasakan adab dan akhlak Islami
-                    dalam interaksi dengan Allah, manusia,
-                    dan lingkungan.
-
-                </p>
-
             </div>
-
 
         </div>
 
@@ -2007,163 +2140,51 @@
 </section>
 
 
-<!-- =====================================================
-     GALERI
-===================================================== -->
+<!-- =========================================================
+     QURAN
+========================================================= -->
 
-<section class="section section-soft">
+<section class="quran-section">
 
-    <div class="container">
+    <div class="quran-content reveal">
 
-        <div class="section-heading">
-
-            <span class="section-label">
-                Dokumentasi
-            </span>
-
-            <h2>
-                Galeri Kegiatan
-            </h2>
-
-            <p>
-
-                Dokumentasi berbagai kegiatan pembelajaran
-                dan aktivitas peserta didik SDIT Ihyaussunnah.
-
-            </p>
-
+        <div class="arabic">
+            سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ
         </div>
 
+        <h3>
+            “Kami akan memperlihatkan kepada mereka
+            tanda-tanda (kebesaran) Kami di segenap ufuk.”
+        </h3>
 
-        <div class="gallery-grid">
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80"
-                    alt="Kegiatan pembelajaran"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Kegiatan Pembelajaran
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80"
-                    alt="Aktivitas siswa"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Aktivitas Peserta Didik
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
-                    alt="Belajar bersama"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Belajar Bersama
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80"
-                    alt="Kegiatan sekolah"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Kegiatan Sekolah
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80"
-                    alt="Guru dan siswa"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Guru dan Peserta Didik
-                    </span>
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80"
-                    alt="Lingkungan belajar"
-                >
-
-                <div class="gallery-overlay">
-                    <span>
-                        Lingkungan Belajar
-                    </span>
-                </div>
-
-            </div>
-
-
-        </div>
+        <p>
+            QS. Fussilat: 53
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     BERITA
-===================================================== -->
+<!-- =========================================================
+     NEWS
+========================================================= -->
 
-<section class="section">
+<section>
 
-    <div class="container">
+    <div class="section-container">
 
-        <div class="section-heading">
+        <div class="section-title reveal">
 
-            <span class="section-label">
-                Informasi
-            </span>
+            <span>Info Terkini</span>
 
             <h2>
-                Berita & Kegiatan Terkini
+                Berita & Kegiatan
             </h2>
 
             <p>
-
-                Informasi terbaru seputar kegiatan dan
-                perkembangan SDIT Ihyaussunnah.
-
+                Informasi terbaru mengenai kegiatan,
+                prestasi dan perkembangan SDIT Ihyaussunnah.
             </p>
 
         </div>
@@ -2171,49 +2192,34 @@
 
         <div class="news-grid">
 
+            <article class="news-card reveal">
 
-            <!-- BERITA UTAMA -->
+                <img
+                    src="./images/berita-1.jpg"
+                    alt="Kegiatan sekolah"
+                >
 
-            <article class="news-featured">
+                <div class="news-body">
 
-                <div class="news-featured-image">
-
-                    <img
-                        src="./images/berita-utama.jpg"
-                        alt="Berita utama SDIT Ihyaussunnah"
-                    >
-
-                </div>
-
-
-                <div class="news-content">
-
-                    <span class="news-date">
-                        <i class="fa-regular fa-calendar"></i>
-                        Informasi Sekolah
-                    </span>
+                    <div class="news-meta">
+                        KEGIATAN • 25 SEPTEMBER 2026
+                    </div>
 
                     <h3>
-                        Kegiatan dan Program Unggulan
-                        SDIT Ihyaussunnah
+                        Kegiatan Pembelajaran Al-Qur'an
                     </h3>
 
                     <p>
-
-                        Informasi mengenai kegiatan,
-                        pembelajaran, dan berbagai program
-                        unggulan yang dilaksanakan di
-                        SDIT Ihyaussunnah.
-
+                        Dokumentasi kegiatan peserta didik
+                        dalam pembelajaran Al-Qur'an.
                     </p>
 
-                    <a href="berita.html"
-                        class="read-more">
-
+                    <a
+                        href="berita.html"
+                        class="read-more"
+                    >
                         Baca Selengkapnya
-
                         <i class="fa-solid fa-arrow-right"></i>
-
                     </a>
 
                 </div>
@@ -2221,117 +2227,74 @@
             </article>
 
 
-            <!-- BERITA KECIL -->
+            <article class="news-card reveal">
 
-            <div class="news-list">
+                <img
+                    src="./images/berita-2.jpg"
+                    alt="Prestasi siswa"
+                >
 
+                <div class="news-body">
 
-                <article class="news-small">
-
-                    <div class="news-small-image">
-
-                        <img
-                            src="./images/berita-1.jpg"
-                            alt="Berita sekolah"
-                        >
-
+                    <div class="news-meta">
+                        PRESTASI
                     </div>
 
-                    <div>
+                    <h3>
+                        Prestasi Peserta Didik
+                    </h3>
 
-                        <span>
-                            Kegiatan
-                        </span>
+                    <p>
+                        Informasi prestasi dan pencapaian
+                        peserta didik SDIT Ihyaussunnah.
+                    </p>
 
-                        <h4>
-                            Aktivitas Pembelajaran
-                            Peserta Didik
-                        </h4>
+                    <a
+                        href="berita.html"
+                        class="read-more"
+                    >
+                        Baca Selengkapnya
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
 
-                        <a href="berita.html"
-                            class="read-more">
+                </div>
 
-                            Selengkapnya
-                            <i class="fa-solid fa-arrow-right"></i>
+            </article>
 
-                        </a>
 
+            <article class="news-card reveal">
+
+                <img
+                    src="./images/berita-3.jpg"
+                    alt="Kegiatan pendidikan"
+                >
+
+                <div class="news-body">
+
+                    <div class="news-meta">
+                        PENDIDIKAN
                     </div>
 
-                </article>
+                    <h3>
+                        Pembelajaran yang Menyenangkan
+                    </h3>
 
+                    <p>
+                        Berbagai kegiatan pembelajaran yang
+                        mengembangkan potensi peserta didik.
+                    </p>
 
-                <article class="news-small">
+                    <a
+                        href="berita.html"
+                        class="read-more"
+                    >
+                        Baca Selengkapnya
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
 
-                    <div class="news-small-image">
+                </div>
 
-                        <img
-                            src="./images/berita-2.jpg"
-                            alt="Kegiatan Al-Qur'an"
-                        >
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Al-Qur'an
-                        </span>
-
-                        <h4>
-                            Program Tahsin dan Tahfizh
-                            Al-Qur'an
-                        </h4>
-
-                        <a href="berita.html"
-                            class="read-more">
-
-                            Selengkapnya
-                            <i class="fa-solid fa-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-small">
-
-                    <div class="news-small-image">
-
-                        <img
-                            src="./images/berita-3.jpg"
-                            alt="Kegiatan sekolah"
-                        >
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Sekolah
-                        </span>
-
-                        <h4>
-                            Kegiatan Bersama
-                            di Lingkungan Sekolah
-                        </h4>
-
-                        <a href="berita.html"
-                            class="read-more">
-
-                            Selengkapnya
-                            <i class="fa-solid fa-arrow-right"></i>
-
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-            </div>
+            </article>
 
         </div>
 
@@ -2340,336 +2303,485 @@
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      CTA
-===================================================== -->
+========================================================= -->
 
-<section class="section">
+<section class="cta" id="ppdb">
 
-    <div class="container">
+    <div class="cta-box reveal">
 
-        <div class="cta">
+        <h2>
+            Mari Tumbuh dan Belajar Bersama
+        </h2>
 
-            <div class="cta-content">
+        <p>
+            Menjadikan pendidikan sebagai perjalanan untuk
+            mengenal Allah, mencintai Al-Qur'an, memahami ilmu
+            dan membangun akhlak mulia.
+        </p>
 
-                <h2>
-                    Mari Tumbuhkan Generasi Qur'ani
-                </h2>
-
-                <p>
-
-                    Bersama SDIT Ihyaussunnah, mari
-                    membangun pendidikan yang memadukan
-                    ilmu, iman, Al-Qur'an, dan akhlak.
-
-                </p>
-
-            </div>
-
-
-            <a href="kontak.html"
-                class="btn">
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-                Hubungi Kami
-
-            </a>
-
-        </div>
+        <a
+            href="kontak.html"
+            class="btn"
+        >
+            <i class="fa-solid fa-phone"></i>
+            Hubungi Kami
+        </a>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
-<footer class="footer">
+<footer>
 
-    <div class="container">
+    <div class="footer-grid">
 
-        <div class="footer-grid">
+        <div class="footer-brand">
 
+            <img
+                src="./images/sdit.jpg"
+                alt="Logo"
+            >
 
-            <div class="footer-brand">
+            <h3>
+                SDIT Ihyaussunnah
+            </h3>
 
-                <strong>
-                    SDIT Ihyaussunnah
-                </strong>
-
-                <p>
-
-                    Sekolah Dasar Islam Terpadu yang
-                    berkomitmen membentuk generasi
-                    berakidah, cerdas, berilmu,
-                    dan berakhlak mulia.
-
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Tentang Kami
-                </h3>
-
-                <ul class="footer-links">
-
-                    <li>
-                        <a href="sejarah.html">
-                            Sejarah
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="visi-misi.html">
-                            Visi & Misi
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="organisasi.html">
-                            Organisasi
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="guru.html">
-                            Guru Kami
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Kurikulum
-                </h3>
-
-                <ul class="footer-links">
-
-                    <li>
-                        <a href="kurikulum-umum.html">
-                            Kurikulum Umum
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="kurikulum-diniyah.html">
-                            Kurikulum Diniyah
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="tahsin-tahfizh.html">
-                            Tahsin & Tahfizh
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="ekstrakurikuler.html">
-                            Ekstrakurikuler
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Kontak
-                </h3>
-
-                <ul class="footer-contact">
-
-                    <li>
-
-                        <i class="fa-solid fa-location-dot"></i>
-
-                        <span>
-                            Bontang,
-                            Kalimantan Timur
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <i class="fa-solid fa-phone"></i>
-
-                        <span>
-                            08xxxxxxxxxx
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <i class="fa-solid fa-envelope"></i>
-
-                        <span>
-                            info@sditihyaussunnah.sch.id
-                        </span>
-
-                    </li>
-
-                </ul>
-
-            </div>
+            <p>
+                Berakidah, Cerdas, Berakhlak Mulia.
+                Membangun generasi yang mencintai
+                Al-Qur'an dan ilmu pengetahuan.
+            </p>
 
         </div>
 
 
-        <div class="footer-bottom">
+        <div>
 
-            © <span id="year"></span>
-            SDIT Ihyaussunnah.
-            Semua Hak Dilindungi.
+            <h3>
+                Navigasi
+            </h3>
+
+            <ul class="footer-links">
+
+                <li>
+                    <a href="index.html">
+                        Beranda
+                    </a>
+                </li>
+
+                <li>
+                    <a href="sejarah.html">
+                        Sejarah
+                    </a>
+                </li>
+
+                <li>
+                    <a href="guru.html">
+                        Guru
+                    </a>
+                </li>
+
+                <li>
+                    <a href="berita.html">
+                        Berita
+                    </a>
+                </li>
+
+            </ul>
 
         </div>
+
+
+        <div>
+
+            <h3>
+                Kurikulum
+            </h3>
+
+            <ul class="footer-links">
+
+                <li>
+                    <a href="kurikulum-umum.html">
+                        Kurikulum Umum
+                    </a>
+                </li>
+
+                <li>
+                    <a href="kurikulum-diniyah.html">
+                        Kurikulum Diniyah
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tahsin-tahfizh.html">
+                        Tahsin & Tahfizh
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ekstrakurikuler.html">
+                        Ekstrakurikuler
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 SDIT Ihyaussunnah.
+        Semua Hak Dilindungi.
 
     </div>
 
 </footer>
 
 
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT
-===================================================== -->
+========================================================= -->
 
 <script>
 
-    const menuToggle =
-        document.getElementById('menuToggle');
+    /* =========================================================
+       CREATE STARS
+    ========================================================= */
 
-    const navMenu =
-        document.getElementById('navMenu');
+    const starsContainer =
+        document.getElementById("stars");
 
-    const dropdowns =
-        document.querySelectorAll('.dropdown');
+    for (let i = 0; i < 120; i++) {
+
+        const star =
+            document.createElement("span");
+
+        star.className = "star";
+
+        star.style.left =
+            Math.random() * 100 + "%";
+
+        star.style.top =
+            Math.random() * 100 + "%";
+
+        star.style.width =
+            (Math.random() * 3 + 1) + "px";
+
+        star.style.height =
+            star.style.width;
+
+        star.style.animationDelay =
+            Math.random() * 5 + "s";
+
+        starsContainer.appendChild(star);
+    }
 
 
-    /* MOBILE MENU */
+    /* =========================================================
+       THEME
+    ========================================================= */
 
-    menuToggle.addEventListener('click', function () {
+    const themeToggle =
+        document.getElementById("themeToggle");
 
-        navMenu.classList.toggle('show');
+    function setTheme(mode) {
 
-        const icon =
-            menuToggle.querySelector('i');
+        if (mode === "night") {
 
-        if (navMenu.classList.contains('show')) {
+            document.body.classList.add("night");
 
-            icon.classList.remove('fa-bars');
+            themeToggle.innerHTML =
+                '<i class="fa-solid fa-sun"></i>';
 
-            icon.classList.add('fa-xmark');
+            themeToggle.title =
+                "Ganti ke mode siang";
 
         } else {
 
-            icon.classList.remove('fa-xmark');
+            document.body.classList.remove("night");
 
-            icon.classList.add('fa-bars');
+            themeToggle.innerHTML =
+                '<i class="fa-solid fa-moon"></i>';
 
+            themeToggle.title =
+                "Ganti ke mode malam";
         }
 
-    });
+        localStorage.setItem(
+            "sdit-theme",
+            mode
+        );
+    }
 
 
-    /* MOBILE DROPDOWN */
+    function getAutomaticTheme() {
 
-    dropdowns.forEach(function (dropdown) {
+        const hour =
+            new Date().getHours();
 
-        const link =
-            dropdown.querySelector(':scope > a');
+        if (hour >= 18 || hour < 6) {
+            return "night";
+        }
 
-        link.addEventListener('click', function (e) {
+        return "day";
+    }
 
-            if (window.innerWidth <= 850) {
 
-                e.preventDefault();
+    const savedTheme =
+        localStorage.getItem("sdit-theme");
 
-                dropdown.classList.toggle('open');
 
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        setTheme(getAutomaticTheme());
+    }
+
+
+    themeToggle.addEventListener(
+        "click",
+        function () {
+
+            const isNight =
+                document.body.classList.contains("night");
+
+            setTheme(
+                isNight
+                    ? "day"
+                    : "night"
+            );
+
+        }
+    );
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const mobileToggle =
+        document.getElementById("mobileToggle");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    mobileToggle.addEventListener(
+        "click",
+        function () {
+
+            navMenu.classList.toggle("open");
+
+            const icon =
+                mobileToggle.querySelector("i");
+
+            if (navMenu.classList.contains("open")) {
+
+                icon.className =
+                    "fa-solid fa-xmark";
+
+            } else {
+
+                icon.className =
+                    "fa-solid fa-bars";
             }
+
+        }
+    );
+
+
+    /* =========================================================
+       MOBILE DROPDOWN
+    ========================================================= */
+
+    document
+        .querySelectorAll(".dropdown > a")
+        .forEach(function(link) {
+
+            link.addEventListener(
+                "click",
+                function(event) {
+
+                    if (window.innerWidth <= 800) {
+
+                        event.preventDefault();
+
+                        const parent =
+                            link.parentElement;
+
+                        parent.classList.toggle(
+                            "open"
+                        );
+
+                    }
+
+                }
+            );
 
         });
 
+
+    /* =========================================================
+       CLOSE MOBILE MENU
+    ========================================================= */
+
+    document
+        .querySelectorAll(".nav-menu a")
+        .forEach(function(link) {
+
+            link.addEventListener(
+                "click",
+                function() {
+
+                    if (
+                        !link.parentElement.classList
+                            .contains("dropdown")
+                    ) {
+
+                        navMenu.classList.remove("open");
+
+                        mobileToggle
+                            .querySelector("i")
+                            .className =
+                            "fa-solid fa-bars";
+
+                    }
+
+                }
+            );
+
+        });
+
+
+    /* =========================================================
+       REVEAL ON SCROLL
+    ========================================================= */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: .12
+            }
+        );
+
+
+    revealElements.forEach(function(element) {
+
+        revealObserver.observe(element);
+
     });
 
 
-    /* CLOSE MENU */
+    /* =========================================================
+       PLANET PARALLAX
+    ========================================================= */
 
-    document.addEventListener('click', function (e) {
+    const planetSystem =
+        document.getElementById("planetSystem");
 
-        if (
-            window.innerWidth <= 850 &&
-            !navMenu.contains(e.target) &&
-            !menuToggle.contains(e.target)
-        ) {
 
-            navMenu.classList.remove('show');
+    window.addEventListener(
+        "scroll",
+        function() {
 
-            menuToggle
-                .querySelector('i')
-                .classList.remove('fa-xmark');
+            const scrollY =
+                window.scrollY;
 
-            menuToggle
-                .querySelector('i')
-                .classList.add('fa-bars');
+            const movement =
+                scrollY * .08;
+
+            planetSystem.style.transform =
+                `translateY(${movement}px)`;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =========================================================
+       MOUSE PARALLAX
+    ========================================================= */
+
+    document.addEventListener(
+        "mousemove",
+        function(event) {
+
+            if (window.innerWidth < 800) return;
+
+            const x =
+                (event.clientX / window.innerWidth - .5);
+
+            const y =
+                (event.clientY / window.innerHeight - .5);
+
+            const moveX =
+                x * 18;
+
+            const moveY =
+                y * 18;
+
+            planetSystem.style.marginLeft =
+                moveX + "px";
+
+            planetSystem.style.marginTop =
+                moveY + "px";
 
         }
+    );
 
-    });
 
+    /* =========================================================
+       RESET PARALLAX WHEN LEAVING DESKTOP
+    ========================================================= */
 
-    /* RESET MOBILE MENU */
+    window.addEventListener(
+        "resize",
+        function() {
 
-    window.addEventListener('resize', function () {
+            if (window.innerWidth < 800) {
 
-        if (window.innerWidth > 850) {
+                planetSystem.style.marginLeft = "0";
+                planetSystem.style.marginTop = "0";
 
-            navMenu.classList.remove('show');
-
-            dropdowns.forEach(function (dropdown) {
-
-                dropdown.classList.remove('open');
-
-            });
-
-            menuToggle
-                .querySelector('i')
-                .classList.remove('fa-xmark');
-
-            menuToggle
-                .querySelector('i')
-                .classList.add('fa-bars');
+            }
 
         }
-
-    });
-
-
-    /* CURRENT YEAR */
-
-    document.getElementById('year').textContent =
-        new Date().getFullYear();
+    );
 
 </script>
-
 
 </body>
 </html>
