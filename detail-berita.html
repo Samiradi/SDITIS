@@ -706,6 +706,378 @@
 
     </style>
 
+
+    <style>
+
+        /* =========================
+           TEMA LUAR ANGKASA
+        ========================= */
+
+        :root {
+            --space-card: rgba(12, 18, 40, .72);
+            --space-border: rgba(148, 163, 255, .14);
+            --space-text: #e2e8f0;
+            --space-muted: #94a3b8;
+            --space-heading: #f1f5f9;
+            --space-accent: #7dd3fc;
+            --space-gold: #fbbf24;
+        }
+
+        html {
+            background: #050816;
+        }
+
+        body {
+            background: transparent;
+            color: var(--space-text);
+        }
+
+        .topbar {
+            background: rgba(3, 6, 20, .85);
+            color: #cbd5e1;
+        }
+
+        .navbar {
+            background: rgba(5, 8, 22, .78);
+            border-bottom: 1px solid var(--space-border);
+        }
+
+        .logo strong {
+            color: var(--space-heading);
+        }
+
+        .logo span {
+            color: var(--space-muted);
+        }
+
+        .nav-menu > li > a {
+            color: #cbd5e1;
+        }
+
+        .nav-menu > li > a:hover,
+        .nav-menu > li.active > a {
+            color: var(--space-accent);
+            background: rgba(125, 211, 252, .10);
+        }
+
+        .dropdown-menu {
+            background: #0b1028;
+            border-color: var(--space-border);
+        }
+
+        .dropdown-menu a {
+            color: #cbd5e1;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(125, 211, 252, .10);
+            color: var(--space-accent);
+        }
+
+        .mobile-toggle {
+            background: rgba(125, 211, 252, .12);
+            color: var(--space-accent);
+        }
+
+        .hero {
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(8, 10, 40, .9),
+                    rgba(76, 29, 149, .6)
+                ),
+                url("./images/berita.jpg") center/cover;
+        }
+
+        .breadcrumb {
+            background: rgba(5, 8, 22, .6);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--space-border);
+        }
+
+        .breadcrumb-inner {
+            color: var(--space-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--space-accent);
+        }
+
+        .breadcrumb span {
+            color: var(--space-text);
+        }
+
+        .article,
+        .side-card {
+            background: var(--space-card);
+            border-color: var(--space-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .article-category {
+            background: rgba(251, 191, 36, .14);
+            color: var(--space-gold);
+        }
+
+        .article-title,
+        .gallery-title,
+        .side-card h3 {
+            color: var(--space-heading);
+        }
+
+        .article-meta {
+            color: var(--space-muted);
+            border-bottom-color: var(--space-border);
+        }
+
+        .article-meta i,
+        .side-card i {
+            color: var(--space-accent);
+        }
+
+        .article-body {
+            color: #cbd5e1;
+        }
+
+        .article-body h2 {
+            color: var(--space-heading);
+        }
+
+        .article-body blockquote {
+            background: rgba(99, 102, 241, .12);
+            border-left-color: #818cf8;
+            color: #e0e7ff;
+        }
+
+        .share {
+            border-top-color: var(--space-border);
+        }
+
+        .share strong {
+            color: var(--space-heading);
+        }
+
+        .share a {
+            background: rgba(125, 211, 252, .12);
+            color: var(--space-accent);
+        }
+
+        .share a:hover {
+            background: linear-gradient(135deg, #6366f1, #0ea5e9);
+            color: #fff;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #6366f1, #0ea5e9);
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, #4f46e5, #0284c7);
+        }
+
+        .latest-item {
+            border-bottom-color: var(--space-border);
+        }
+
+        .latest-item h4 {
+            color: var(--space-heading);
+        }
+
+        .latest-item span {
+            color: var(--space-muted);
+        }
+
+        .category-list a {
+            color: #cbd5e1;
+            border-bottom-color: var(--space-border);
+        }
+
+        .category-list a:hover {
+            color: var(--space-accent);
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #1e1b4b, #0c4a6e);
+        }
+
+        .cta h2 {
+            color: var(--space-heading);
+        }
+
+        footer {
+            background: rgba(3, 5, 15, .92);
+            border-top: 1px solid var(--space-border);
+        }
+
+        .footer-bottom {
+            border-top-color: var(--space-border);
+        }
+
+        /* =========================
+           GALERI DOKUMENTASI
+        ========================= */
+
+        .article-gallery img.zoomable {
+            cursor: zoom-in;
+            border: 1px solid var(--space-border);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .article-gallery img.zoomable:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 22px rgba(99, 102, 241, .45);
+        }
+
+        /* =========================
+           LIGHTBOX
+        ========================= */
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            display: none;
+            flex-direction: column;
+            background: rgba(2, 4, 14, .93);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lb-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            color: #e2e8f0;
+            font-size: 13px;
+        }
+
+        .lb-tools {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lb-btn {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: .2s;
+        }
+
+        .lb-btn:hover {
+            background: rgba(125, 211, 252, .2);
+        }
+
+        .lb-btn-text {
+            width: auto;
+            padding: 0 12px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .lb-stage {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        .lb-stage.zoomed {
+            cursor: grab;
+        }
+
+        .lb-stage.dragging {
+            cursor: grabbing;
+        }
+
+        .lb-stage img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 10px;
+            user-select: none;
+            -webkit-user-drag: none;
+            transition: transform .15s ease-out;
+            cursor: zoom-in;
+        }
+
+        .lb-stage.zoomed img {
+            cursor: grab;
+        }
+
+        .lb-stage.dragging img {
+            transition: none;
+        }
+
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .lb-prev {
+            left: 16px;
+        }
+
+        .lb-next {
+            right: 16px;
+        }
+
+        .lb-hint {
+            text-align: center;
+            padding: 10px;
+            color: rgba(255, 255, 255, .5);
+            font-size: 11px;
+        }
+
+        @media (max-width: 600px) {
+
+            .lb-toolbar {
+                padding: 10px;
+            }
+
+            .lb-hint {
+                display: none;
+            }
+
+            .lb-prev {
+                left: 6px;
+            }
+
+            .lb-next {
+                right: 6px;
+            }
+
+        }
+
+        @media (max-width: 800px) {
+
+            .nav-menu {
+                background: #0b1028;
+            }
+
+        }
+
+    </style>
 </head>
 
 
@@ -1275,6 +1647,7 @@
 
 <!-- DATA -->
 
+<script src="space-bg.js"></script>
 <script src="data-berita.js"></script>
 
 
@@ -1446,6 +1819,19 @@
                     img.src = image;
 
                     img.alt = news.title;
+
+                    img.classList.add("zoomable");
+
+                    img.title = "Klik untuk memperbesar";
+
+                    img.addEventListener("click", () => {
+
+                        openLightbox(
+                            news.gallery,
+                            news.gallery.indexOf(image)
+                        );
+
+                    });
 
                     articleGallery.appendChild(img);
 
@@ -1654,6 +2040,307 @@
             );
 
         });
+
+</script>
+
+
+<!-- LIGHTBOX FOTO -->
+
+<div class="lightbox"
+     id="lightbox"
+     aria-hidden="true"
+     role="dialog">
+
+    <div class="lb-toolbar">
+
+        <span id="lbCounter"></span>
+
+        <div class="lb-tools">
+
+            <button class="lb-btn"
+                    id="lbZoomOut"
+                    title="Perkecil">
+                <i class="fa-solid fa-magnifying-glass-minus"></i>
+            </button>
+
+            <button class="lb-btn lb-btn-text"
+                    id="lbZoomReset"
+                    title="Kembali ke ukuran awal">
+                100%
+            </button>
+
+            <button class="lb-btn"
+                    id="lbZoomIn"
+                    title="Perbesar">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </button>
+
+            <button class="lb-btn"
+                    id="lbClose"
+                    title="Tutup (Esc)">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="lb-stage" id="lbStage">
+
+        <img id="lbImg" alt="">
+
+    </div>
+
+    <button class="lb-btn lb-nav lb-prev"
+            id="lbPrev"
+            title="Foto sebelumnya">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="lb-btn lb-nav lb-next"
+            id="lbNext"
+            title="Foto berikutnya">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <p class="lb-hint">
+        Scroll atau tombol + / − untuk zoom · seret untuk menggeser ·
+        klik dua kali untuk zoom cepat · ← → untuk pindah foto · Esc untuk menutup
+    </p>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       LIGHTBOX FOTO
+    ========================= */
+
+    const lightbox = document.getElementById("lightbox");
+    const lbStage = document.getElementById("lbStage");
+    const lbImg = document.getElementById("lbImg");
+    const lbCounter = document.getElementById("lbCounter");
+    const lbZoomReset = document.getElementById("lbZoomReset");
+    const lbPrev = document.getElementById("lbPrev");
+    const lbNext = document.getElementById("lbNext");
+
+    const MIN_SCALE = 1;
+    const MAX_SCALE = 5;
+
+    let lbImages = [];
+    let lbIndex = 0;
+    let lbScale = 1;
+    let lbX = 0;
+    let lbY = 0;
+    let dragStart = null;
+
+
+    function openLightbox(images, index) {
+
+        lbImages = images;
+        lbIndex = index;
+
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        showImage();
+    }
+
+
+    function closeLightbox() {
+
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+
+    function showImage() {
+
+        lbImg.src = lbImages[lbIndex];
+        lbImg.alt = "Foto dokumentasi " + (lbIndex + 1);
+
+        lbCounter.textContent =
+            (lbIndex + 1) + " / " + lbImages.length;
+
+        const multiple = lbImages.length > 1;
+
+        lbPrev.style.display = multiple ? "grid" : "none";
+        lbNext.style.display = multiple ? "grid" : "none";
+
+        resetZoom();
+    }
+
+
+    function showRelative(step) {
+
+        lbIndex = (lbIndex + step + lbImages.length) % lbImages.length;
+        showImage();
+    }
+
+
+    function applyTransform() {
+
+        lbImg.style.transform =
+            `translate(${lbX}px, ${lbY}px) scale(${lbScale})`;
+
+        lbZoomReset.textContent =
+            Math.round(lbScale * 100) + "%";
+
+        lbStage.classList.toggle("zoomed", lbScale > 1);
+    }
+
+
+    function resetZoom() {
+
+        lbScale = 1;
+        lbX = 0;
+        lbY = 0;
+
+        applyTransform();
+    }
+
+
+    function clampPan() {
+
+        const maxX = Math.max(
+            0,
+            (lbImg.offsetWidth * lbScale - lbStage.clientWidth) / 2
+        );
+
+        const maxY = Math.max(
+            0,
+            (lbImg.offsetHeight * lbScale - lbStage.clientHeight) / 2
+        );
+
+        lbX = Math.min(maxX, Math.max(-maxX, lbX));
+        lbY = Math.min(maxY, Math.max(-maxY, lbY));
+    }
+
+
+    function zoomBy(factor) {
+
+        lbScale = Math.min(
+            MAX_SCALE,
+            Math.max(MIN_SCALE, lbScale * factor)
+        );
+
+        if (lbScale === MIN_SCALE) {
+            lbX = 0;
+            lbY = 0;
+        }
+
+        clampPan();
+        applyTransform();
+    }
+
+
+    /* =========================
+       KONTROL
+    ========================= */
+
+    document.getElementById("lbClose")
+        .addEventListener("click", closeLightbox);
+
+    document.getElementById("lbZoomIn")
+        .addEventListener("click", () => zoomBy(1.4));
+
+    document.getElementById("lbZoomOut")
+        .addEventListener("click", () => zoomBy(1 / 1.4));
+
+    lbZoomReset.addEventListener("click", resetZoom);
+
+    lbPrev.addEventListener("click", () => showRelative(-1));
+    lbNext.addEventListener("click", () => showRelative(1));
+
+    // Klik di area gelap (bukan foto) untuk menutup
+    lbStage.addEventListener("click", event => {
+
+        if (event.target === lbStage) {
+            closeLightbox();
+        }
+
+    });
+
+    // Klik dua kali pada foto untuk zoom cepat / kembali normal
+    lbImg.addEventListener("dblclick", () => {
+
+        if (lbScale > 1) {
+            resetZoom();
+        } else {
+            zoomBy(2.5);
+        }
+
+    });
+
+    // Scroll mouse untuk zoom
+    lbStage.addEventListener("wheel", event => {
+
+        event.preventDefault();
+
+        zoomBy(event.deltaY < 0 ? 1.15 : 1 / 1.15);
+
+    }, { passive: false });
+
+
+    /* =========================
+       GESER FOTO SAAT ZOOM
+    ========================= */
+
+    lbStage.addEventListener("pointerdown", event => {
+
+        if (lbScale <= 1) return;
+
+        dragStart = {
+            x: event.clientX - lbX,
+            y: event.clientY - lbY
+        };
+
+        lbStage.classList.add("dragging");
+        lbStage.setPointerCapture(event.pointerId);
+
+    });
+
+    lbStage.addEventListener("pointermove", event => {
+
+        if (!dragStart) return;
+
+        lbX = event.clientX - dragStart.x;
+        lbY = event.clientY - dragStart.y;
+
+        clampPan();
+        applyTransform();
+
+    });
+
+    function endDrag() {
+
+        dragStart = null;
+        lbStage.classList.remove("dragging");
+
+    }
+
+    lbStage.addEventListener("pointerup", endDrag);
+    lbStage.addEventListener("pointercancel", endDrag);
+
+
+    /* =========================
+       KEYBOARD
+    ========================= */
+
+    document.addEventListener("keydown", event => {
+
+        if (!lightbox.classList.contains("open")) return;
+
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowLeft") showRelative(-1);
+        if (event.key === "ArrowRight") showRelative(1);
+        if (event.key === "+" || event.key === "=") zoomBy(1.4);
+        if (event.key === "-") zoomBy(1 / 1.4);
+
+    });
 
 </script>
 

@@ -180,38 +180,34 @@ Berakidah - Cerdas - Berakhlak Mulia
     {
         id: 5,
         category: "Kegiatan",
-        date: "5 September 2026",
+        date: "Jum'at 9 Oktober 2026",
         author: "Admin SDIT Ihyaussunnah",
-        title: "Kegiatan Pramuka SDIT Ihyaussunnah",
+        title: "Kegiatan Jum'at Pramuka SDIT Ihyaussunnah",
         summary:
-            "Kegiatan Pramuka menjadi sarana pembentukan kedisiplinan, kemandirian, kerja sama, dan kepemimpinan peserta didik.",
-        image: "./images/berita-5.jpg",
+            "Para Murid SDIT Ihyaussunnah dari kelas 3-6 menggelar latihan Peraturan Baris Berbaris (PBB).",
+        image: "./images/SDIT/berita-pramuka2.jpg",
 
         content: `
             <p>
-                Kegiatan Pramuka menjadi salah satu kegiatan yang memberikan
-                pengalaman belajar di luar kelas bagi peserta didik.
+                Para Murid SDIT Ihyaussunnah dari kelas 3-6 menggelar latihan Peraturan Baris Berbaris (PBB).
             </p>
 
             <p>
-                Melalui kegiatan yang menyenangkan dan edukatif, peserta didik
-                belajar mengenai kedisiplinan, kerja sama, keberanian,
-                tanggung jawab, dan kemandirian.
+                Kegiatan ini dilaksanakan untuk menanamkan nilai kedisiplinan, melatih konsentrasi, serta mempererat kekompakan antaranggota. Dalam pelatihan tersebut, para peserta dibekali materi gerakan dasar di tempat, gerakan berpindah tempat, hingga variasi formasi di bawah arahan instruktur.
             </p>
 
-            <h2>Belajar dan Bekerja Sama</h2>
+            <h2>Menempa kedisiplinan dan kekompakan!</h2>
 
             <p>
-                Peserta didik mengikuti berbagai aktivitas secara berkelompok
-                sehingga mereka belajar untuk saling membantu dan menghargai
-                satu sama lain.
+                Selama kegiatan berlangsung, para peserta tampak antusias memperagakan berbagai materi, mulai dari gerakan dasar di tempat seperti sikap sempurna dan penghormatan, hingga gerakan berpindah tempat seperti langkah tegap dan variasi formasi. Kedisiplinan dan respon cepat peserta terhadap setiap instruksi menjadi fokus utama dalam pelatihan kali ini.
             </p>
         `,
 
         gallery: [
-            "./images/berita-5.jpg",
-            "./images/berita-5-1.jpg",
-            "./images/berita-5-2.jpg"
+            "./images/SDIT/berita-pramuka1.jpg",
+            "./images/SDIT/berita-pramuka3.jpg",
+            "./images/SDIT/berita-pramuka4.jpg",
+            "./images/SDIT/berita-pramuka5.jpg"
         ]
     },
 
