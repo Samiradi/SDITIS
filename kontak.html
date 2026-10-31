@@ -9,40 +9,37 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
-
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
 
     :root {
-      --green-primary: #1b5e20;
-      --green-dark: #104315;
-      --green-light: #4caf50;
-      --green-soft: #f4fcf5;
+      --green-primary: #166534;
+      --green-dark: #14532d;
+      --green-light: #16a34a;
+      --green-soft: #dcfce7;
 
-      --orange-accent: #ff8f00;
-      --orange-dark: #e68000;
+      --orange-accent: #f97316;
+      --orange-dark: #ea580c;
+      --orange-soft: #ffedd5;
 
-      --white: #ffffff;
-      --black: #1d1d1d;
-      --gray: #666666;
-      --gray-light: #f5f5f5;
-      --border: #e5e5e5;
+      --black: #1f2937;
+      --gray: #4b5563;
+      --border: rgba(22, 101, 52, .16);
 
-      --shadow-sm: 0 4px 15px rgba(0,0,0,.07);
-      --shadow-md: 0 10px 30px rgba(0,0,0,.10);
-      --shadow-lg: 0 18px 45px rgba(0,0,0,.14);
+      --glass: rgba(255, 255, 255, .86);
+      --glass-border: rgba(255, 255, 255, .9);
+
+      --shadow-sm: 0 4px 15px rgba(20, 83, 45, .08);
+      --shadow-md: 0 10px 30px rgba(20, 83, 45, .12);
+      --shadow-lg: 0 18px 45px rgba(20, 83, 45, .16);
 
       --radius: 18px;
     }
-
 
     * {
       margin: 0;
@@ -50,34 +47,22 @@
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
+      background: linear-gradient(180deg, #f0fdf4 0%, #fffaf0 100%) fixed;
     }
-
 
     body {
       font-family: 'Poppins', sans-serif;
-
       color: var(--black);
-
       line-height: 1.7;
-
-      background:
-        linear-gradient(
-          rgba(255,255,255,.94),
-          rgba(255,255,255,.94)
-        ),
-        url("https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80")
-        center / cover fixed;
+      background: transparent;
     }
-
 
     a {
       text-decoration: none;
       color: inherit;
     }
-
 
     img {
       width: 100%;
@@ -90,51 +75,37 @@
     ================================= */
 
     .top-bar {
-      background: var(--green-dark);
-
-      color: white;
-
+      background: var(--green-primary);
+      color: #ecfdf5;
       padding: 8px 5%;
-
       font-size: 13px;
+      position: relative;
+      z-index: 1000;
     }
-
 
     .top-bar-container {
       max-width: 1200px;
-
       margin: auto;
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       gap: 20px;
     }
-
 
     .top-info {
       display: flex;
-
       gap: 20px;
-
       flex-wrap: wrap;
     }
 
-
     .top-info span {
       display: flex;
-
       align-items: center;
-
       gap: 7px;
     }
 
-
     .top-info i {
-      color: #ffd166;
+      color: #fdba74;
     }
 
 
@@ -144,70 +115,47 @@
 
     .navbar {
       position: sticky;
-
       top: 0;
-
-      z-index: 1000;
-
-      background: rgba(255,255,255,.96);
-
-      backdrop-filter: blur(12px);
-
-      box-shadow:
-        0 3px 18px rgba(0,0,0,.08);
+      z-index: 999;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 3px 18px rgba(20, 83, 45, .08);
     }
-
 
     .nav-container {
       max-width: 1200px;
-
       margin: auto;
-
       padding: 12px 5%;
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
     }
 
-
     .brand {
       display: flex;
-
       align-items: center;
-
       gap: 12px;
     }
-
 
     .brand img {
       width: 52px;
       height: 52px;
-
       object-fit: cover;
-
       border-radius: 50%;
-
-      border: 2px solid var(--green-primary);
+      border: 2px solid var(--orange-accent);
     }
-
 
     .brand-text strong {
       display: block;
-
-      color: var(--green-primary);
-
+      color: var(--green-dark);
       font-size: 17px;
-
       line-height: 1.2;
     }
 
-
     .brand-text small {
       color: var(--gray);
-
       font-size: 11px;
     }
 
@@ -216,63 +164,42 @@
 
     .nav-menu {
       display: flex;
-
       align-items: center;
-
       gap: 5px;
-
       list-style: none;
     }
-
 
     .nav-menu > li {
       position: relative;
     }
 
-
     .nav-menu a {
       display: flex;
-
       align-items: center;
-
       gap: 5px;
-
       padding: 10px 12px;
-
       font-size: 13px;
-
       font-weight: 500;
-
-      color: #333;
-
+      color: #374151;
       border-radius: 8px;
-
       transition: .3s;
     }
 
-
     .nav-menu a:hover,
     .nav-menu a.active {
-      color: var(--green-primary);
-
+      color: #15803d;
       background: var(--green-soft);
     }
 
-
     .nav-menu .ppdb {
       background: var(--orange-accent);
-
       color: white;
-
       border-radius: 25px;
-
       padding: 9px 17px;
     }
 
-
     .nav-menu .ppdb:hover {
       background: var(--orange-dark);
-
       color: white;
     }
 
@@ -281,52 +208,34 @@
 
     .dropdown-menu {
       position: absolute;
-
       top: 100%;
       left: 0;
-
       min-width: 220px;
-
-      background: white;
-
+      background: rgba(255, 255, 255, .97);
       border-radius: 12px;
-
       box-shadow: var(--shadow-md);
-
       padding: 8px;
-
       list-style: none;
-
       opacity: 0;
-
       visibility: hidden;
-
       transform: translateY(10px);
-
       transition: .25s;
     }
 
-
     .dropdown:hover .dropdown-menu {
       opacity: 1;
-
       visibility: visible;
-
       transform: translateY(0);
     }
 
-
     .dropdown-menu a {
       width: 100%;
-
       padding: 9px 12px;
     }
-
 
     .dropdown-menu a:hover {
       background: var(--green-soft);
     }
-
 
     .dropdown-icon {
       font-size: 10px;
@@ -337,15 +246,10 @@
 
     .menu-toggle {
       display: none;
-
       border: none;
-
       background: none;
-
       font-size: 25px;
-
       color: var(--green-primary);
-
       cursor: pointer;
     }
 
@@ -356,72 +260,48 @@
 
     .page-hero {
       position: relative;
-
       min-height: 360px;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       text-align: center;
-
       color: white;
-
       background:
         linear-gradient(
           135deg,
-          rgba(17,77,27,.93),
-          rgba(27,94,32,.82)
+          rgba(20, 83, 45, .93),
+          rgba(234, 88, 12, .72)
         ),
         url("./images/quran.jpg")
         center / cover no-repeat;
     }
 
-
     .page-hero-content {
       max-width: 800px;
-
       padding: 50px 20px;
     }
 
-
     .page-hero .label {
       display: inline-block;
-
       padding: 7px 17px;
-
       border-radius: 30px;
-
-      background: rgba(255,255,255,.14);
-
-      border: 1px solid rgba(255,255,255,.25);
-
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .3);
       font-size: 12px;
-
       margin-bottom: 15px;
     }
 
-
     .page-hero h1 {
       font-family: 'Amiri', serif;
-
       font-size: clamp(42px, 6vw, 65px);
-
       line-height: 1.1;
-
       margin-bottom: 12px;
     }
 
-
     .page-hero p {
       max-width: 650px;
-
       margin: auto;
-
-      color: rgba(255,255,255,.88);
-
+      color: rgba(255, 255, 255, .9);
       font-size: 15px;
     }
 
@@ -432,51 +312,34 @@
 
     .container {
       max-width: 1200px;
-
       margin: auto;
-
       padding: 70px 5%;
     }
 
-
     .section-heading {
       text-align: center;
-
       max-width: 750px;
-
       margin: 0 auto 45px;
     }
 
-
     .section-heading .label {
       color: var(--orange-dark);
-
       font-size: 12px;
-
       font-weight: 700;
-
       text-transform: uppercase;
-
       letter-spacing: 2px;
     }
 
-
     .section-heading h2 {
       font-family: 'Amiri', serif;
-
       color: var(--green-primary);
-
       font-size: 42px;
-
       line-height: 1.2;
-
       margin: 7px 0;
     }
 
-
     .section-heading p {
       color: var(--gray);
-
       font-size: 14px;
     }
 
@@ -487,75 +350,50 @@
 
     .contact-info-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
-
       margin-bottom: 60px;
     }
 
-
     .contact-info-card {
-      background: white;
-
+      background: var(--glass);
       padding: 28px 20px;
-
       text-align: center;
-
       border-radius: var(--radius);
-
       box-shadow: var(--shadow-sm);
-
-      border: 1px solid rgba(0,0,0,.04);
-
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       transition: .3s;
     }
 
-
     .contact-info-card:hover {
       transform: translateY(-6px);
-
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 0 26px rgba(22, 163, 74, .22), var(--shadow-md);
     }
-
 
     .contact-icon {
       width: 58px;
       height: 58px;
-
       margin: 0 auto 16px;
-
       display: flex;
-
       align-items: center;
       justify-content: center;
-
       border-radius: 50%;
-
       background: var(--green-soft);
-
       color: var(--green-primary);
-
       font-size: 21px;
     }
 
-
     .contact-info-card h3 {
       color: var(--green-primary);
-
       font-size: 16px;
-
       margin-bottom: 7px;
     }
 
-
     .contact-info-card p {
       color: var(--gray);
-
       font-size: 12px;
-
       line-height: 1.7;
     }
 
@@ -566,12 +404,8 @@
 
     .contact-layout {
       display: grid;
-
-      grid-template-columns:
-        1fr 1.2fr;
-
+      grid-template-columns: 1fr 1.2fr;
       gap: 30px;
-
       align-items: start;
     }
 
@@ -581,130 +415,86 @@
     ================================= */
 
     .contact-form {
-      background: white;
-
+      background: var(--glass);
       padding: 35px;
-
       border-radius: var(--radius);
-
       box-shadow: var(--shadow-md);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-
 
     .contact-form h3 {
       color: var(--green-primary);
-
       font-family: 'Amiri', serif;
-
       font-size: 32px;
-
       margin-bottom: 5px;
     }
 
-
     .contact-form .form-description {
       color: var(--gray);
-
       font-size: 13px;
-
       margin-bottom: 25px;
     }
-
 
     .form-group {
       margin-bottom: 17px;
     }
 
-
     .form-group label {
       display: block;
-
       font-size: 12px;
-
       font-weight: 600;
-
-      color: #333;
-
+      color: #1f2937;
       margin-bottom: 7px;
     }
-
 
     .form-group input,
     .form-group textarea,
     .form-group select {
       width: 100%;
-
       border: 1px solid var(--border);
-
       border-radius: 9px;
-
       padding: 12px 14px;
-
       font-family: inherit;
-
       font-size: 13px;
-
       outline: none;
-
       transition: .3s;
-
       background: #fff;
     }
 
-
     .form-group textarea {
       min-height: 130px;
-
       resize: vertical;
     }
-
 
     .form-group input:focus,
     .form-group textarea:focus,
     .form-group select:focus {
       border-color: var(--green-light);
-
-      box-shadow:
-        0 0 0 3px rgba(76,175,80,.10);
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, .15);
     }
-
 
     .submit-btn {
       width: 100%;
-
       border: none;
-
       cursor: pointer;
-
       padding: 13px 20px;
-
       border-radius: 9px;
-
-      background: var(--green-primary);
-
+      background: linear-gradient(135deg, #16a34a, #f97316);
       color: white;
-
       font-family: inherit;
-
       font-size: 13px;
-
       font-weight: 600;
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
-
       gap: 8px;
-
       transition: .3s;
     }
 
-
     .submit-btn:hover {
-      background: var(--green-dark);
-
+      box-shadow: 0 0 18px rgba(249, 115, 22, .35);
       transform: translateY(-2px);
     }
 
@@ -714,90 +504,63 @@
     ================================= */
 
     .map-card {
-      background: white;
-
+      background: var(--glass);
       border-radius: var(--radius);
-
       overflow: hidden;
-
       box-shadow: var(--shadow-md);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-
 
     .map-header {
       padding: 23px 25px;
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 15px;
     }
 
-
     .map-header h3 {
       color: var(--green-primary);
-
       font-family: 'Amiri', serif;
-
       font-size: 29px;
     }
 
-
     .map-header p {
       color: var(--gray);
-
       font-size: 12px;
     }
-
 
     .map-header i {
       font-size: 25px;
-
       color: var(--orange-accent);
     }
 
-
     .map-wrapper {
       width: 100%;
-
       height: 430px;
-
-      background: #eee;
+      background: #e5e7eb;
     }
-
 
     .map-wrapper iframe {
       width: 100%;
-
       height: 100%;
-
       border: 0;
     }
 
-
     .map-address {
       padding: 18px 25px;
-
       border-top: 1px solid var(--border);
-
       display: flex;
-
       gap: 10px;
-
       align-items: flex-start;
-
       color: var(--gray);
-
       font-size: 12px;
     }
 
-
     .map-address i {
       color: var(--green-primary);
-
       margin-top: 4px;
     }
 
@@ -808,94 +571,64 @@
 
     .whatsapp-box {
       margin-top: 30px;
-
       padding: 28px;
-
       border-radius: var(--radius);
-
       background:
         linear-gradient(
           135deg,
-          #1b5e20,
-          #2e7d32
+          var(--green-primary),
+          #15803d 60%,
+          var(--orange-dark)
         );
-
       color: white;
-
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
       gap: 25px;
+      box-shadow: var(--shadow-lg);
     }
-
 
     .whatsapp-content {
       display: flex;
-
       align-items: center;
-
       gap: 17px;
     }
-
 
     .whatsapp-icon {
       width: 55px;
       height: 55px;
-
       flex-shrink: 0;
-
       border-radius: 50%;
-
-      background: rgba(255,255,255,.13);
-
+      background: rgba(255, 255, 255, .15);
       display: flex;
-
       align-items: center;
       justify-content: center;
-
       font-size: 27px;
     }
 
-
     .whatsapp-content h3 {
       font-size: 17px;
-
       margin-bottom: 3px;
     }
 
-
     .whatsapp-content p {
-      color: rgba(255,255,255,.8);
-
+      color: rgba(255, 255, 255, .88);
       font-size: 12px;
     }
-
 
     .whatsapp-btn {
       flex-shrink: 0;
-
       background: white;
-
       color: var(--green-primary);
-
       padding: 11px 19px;
-
       border-radius: 8px;
-
       font-size: 12px;
-
       font-weight: 700;
-
       transition: .3s;
     }
 
-
     .whatsapp-btn:hover {
-      background: #f4f4f4;
-
+      background: #fff7ed;
       transform: translateY(-2px);
     }
 
@@ -908,80 +641,54 @@
       margin-top: 70px;
     }
 
-
     .faq-list {
       max-width: 850px;
-
       margin: auto;
     }
 
-
     .faq-item {
-      background: white;
-
+      background: var(--glass);
       border-radius: 12px;
-
       margin-bottom: 12px;
-
       box-shadow: var(--shadow-sm);
-
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       overflow: hidden;
     }
 
-
     .faq-question {
       width: 100%;
-
       border: none;
-
-      background: white;
-
+      background: transparent;
       cursor: pointer;
-
       padding: 19px 22px;
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 20px;
-
       text-align: left;
-
       font-family: inherit;
-
-      color: #333;
-
+      color: #1f2937;
       font-size: 13px;
-
       font-weight: 600;
     }
 
-
     .faq-question i {
-      color: var(--green-primary);
-
+      color: var(--orange-dark);
       transition: .3s;
     }
 
-
     .faq-answer {
       display: none;
-
       padding: 0 22px 20px;
-
       color: var(--gray);
-
       font-size: 13px;
     }
-
 
     .faq-item.active .faq-answer {
       display: block;
     }
-
 
     .faq-item.active .faq-question i {
       transform: rotate(180deg);
@@ -993,107 +700,73 @@
     ================================= */
 
     footer {
-      background: #103d16;
-
-      color: rgba(255,255,255,.8);
-
+      background: #052e16;
+      color: rgba(255, 255, 255, .8);
       margin-top: 30px;
     }
 
-
     .footer-container {
       max-width: 1200px;
-
       margin: auto;
-
       padding: 55px 5% 25px;
-
       display: grid;
-
-      grid-template-columns:
-        1.5fr 1fr 1fr;
-
+      grid-template-columns: 1.5fr 1fr 1fr;
       gap: 45px;
     }
 
-
     .footer-brand {
       display: flex;
-
       align-items: center;
-
       gap: 12px;
-
       margin-bottom: 15px;
     }
-
 
     .footer-brand img {
       width: 52px;
       height: 52px;
-
       border-radius: 50%;
-
       object-fit: cover;
     }
 
-
     .footer-brand h3 {
       color: white;
-
       font-size: 18px;
     }
 
-
     .footer-about p {
       font-size: 13px;
-
       line-height: 1.8;
     }
 
-
     .footer-column h4 {
       color: white;
-
       margin-bottom: 15px;
-
       font-size: 15px;
     }
-
 
     .footer-column ul {
       list-style: none;
     }
 
-
     .footer-column li {
       margin-bottom: 9px;
-
       font-size: 13px;
     }
-
 
     .footer-column a {
       font-size: 13px;
-
       transition: .3s;
     }
 
-
     .footer-column a:hover {
-      color: #ffd166;
-
+      color: #fdba74;
       padding-left: 4px;
     }
 
-
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.1);
-
+      border-top: 1px solid rgba(255, 255, 255, .12);
       padding: 18px 5%;
-
       text-align: center;
-
       font-size: 12px;
     }
 
@@ -1106,83 +779,56 @@
 
       .nav-menu {
         position: absolute;
-
         top: 100%;
         left: 0;
-
         width: 100%;
-
-        background: white;
-
+        background: rgba(255, 255, 255, .97);
         flex-direction: column;
-
         align-items: stretch;
-
         padding: 10px 5%;
-
         box-shadow: var(--shadow-md);
-
         display: none;
       }
-
 
       .nav-menu.active {
         display: flex;
       }
 
-
       .nav-menu > li > a {
         width: 100%;
-
         justify-content: space-between;
       }
 
-
       .dropdown-menu {
         position: static;
-
         display: none;
-
         opacity: 1;
-
         visibility: visible;
-
         transform: none;
-
         box-shadow: none;
-
         padding-left: 15px;
       }
-
 
       .dropdown.active .dropdown-menu {
         display: block;
       }
 
-
       .menu-toggle {
         display: block;
       }
 
-
       .contact-info-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
-
 
       .contact-layout {
         grid-template-columns: 1fr;
       }
 
-
       .footer-container {
-        grid-template-columns:
-          1fr 1fr;
+        grid-template-columns: 1fr 1fr;
       }
-
     }
-
 
     @media (max-width: 650px) {
 
@@ -1190,71 +836,111 @@
         display: none;
       }
 
-
       .brand-text small {
         display: none;
       }
-
 
       .brand img {
         width: 45px;
         height: 45px;
       }
 
-
       .container {
         padding-top: 50px;
-
         padding-bottom: 50px;
       }
-
 
       .page-hero {
         min-height: 300px;
       }
 
-
       .section-heading h2 {
         font-size: 35px;
       }
-
 
       .contact-info-grid {
         grid-template-columns: 1fr;
       }
 
-
       .contact-form {
         padding: 25px 20px;
       }
-
 
       .map-wrapper {
         height: 320px;
       }
 
-
       .whatsapp-box {
         flex-direction: column;
-
         align-items: flex-start;
       }
 
-
       .whatsapp-btn {
         width: 100%;
-
         text-align: center;
       }
 
-
       .footer-container {
         grid-template-columns: 1fr;
-
         gap: 30px;
       }
-
     }
+
+    /* =================================
+       DEKORASI MEDIA SOSIAL (ringan)
+       Hanya transform & opacity, jumlah dibatasi
+    ================================= */
+
+    .sm-deco {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .sm-deco .d {
+      position: absolute;
+      font-size: 34px;
+      opacity: .13;
+      will-change: transform;
+      animation: smFloat 16s ease-in-out infinite;
+    }
+
+    .d1 { left: 6%;  top: 18%; color: var(--ig); animation-delay: 0s; }
+    .d2 { right: 8%; top: 14%; color: var(--yt); font-size: 42px; animation-delay: -3s; }
+    .d3 { left: 14%; top: 62%; color: var(--fb); font-size: 38px; animation-delay: -6s; }
+    .d4 { right: 12%; top: 58%; color: var(--tt); animation-delay: -9s; }
+    .d5 { left: 46%; top: 8%;  color: var(--wa); font-size: 30px; animation-delay: -4s; }
+    .d6 { right: 30%; bottom: 10%; color: var(--tg); font-size: 40px; animation-delay: -11s; }
+    .d7 { left: 26%; bottom: 14%; color: var(--orange-accent); animation-delay: -7s; }
+    .d8 { right: 46%; top: 36%; color: var(--green-light); font-size: 30px; animation-delay: -13s; }
+
+    @keyframes smFloat {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+      50% {
+        transform: translate3d(0, -18px, 0) rotate(6deg);
+      }
+    }
+
+    /* Di HP, dekorasi dikurangi agar ringan */
+    @media (max-width: 800px) {
+      .sm-deco .d3,
+      .sm-deco .d4,
+      .sm-deco .d6,
+      .sm-deco .d8 {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sm-deco .d {
+        animation: none;
+      }
+    }
+
 
   </style>
 
@@ -1262,6 +948,22 @@
 
 
 <body>
+
+  <!-- DEKORASI MEDIA SOSIAL (ringan, hanya transform & opacity) -->
+
+  <div class="sm-deco" aria-hidden="true">
+    <i class="fab fa-instagram d d1"></i>
+    <i class="fab fa-youtube d d2"></i>
+    <i class="fab fa-facebook d d3"></i>
+    <i class="fab fa-tiktok d d4"></i>
+    <i class="fab fa-whatsapp d d5"></i>
+    <i class="fab fa-telegram d d6"></i>
+    <i class="fas fa-heart d d7"></i>
+    <i class="fas fa-share-nodes d d8"></i>
+  </div>
+
+
+
 
 
   <!-- =================================
@@ -1272,42 +974,32 @@
 
     <div class="top-bar-container">
 
-
       <div class="top-info">
 
         <span>
           <i class="fas fa-phone"></i>
-
           08xxxxxxxxxx
         </span>
 
-
         <span>
           <i class="fas fa-envelope"></i>
-
           info@sditihyaussunnah.sch.id
         </span>
 
       </div>
 
-
       <div class="top-info">
 
         <span>
-
           <i class="fas fa-location-dot"></i>
-
           Bontang, Kalimantan Timur
-
         </span>
 
       </div>
 
-
     </div>
 
   </div>
-
 
 
   <!-- =================================
@@ -1318,15 +1010,11 @@
 
     <div class="nav-container">
 
-
-      <a
-        href="index.html"
-        class="brand">
+      <a href="index.html" class="brand">
 
         <img
           src="./images/sdit.jpg"
           alt="Logo SDIT Ihyaussunnah">
-
 
         <div class="brand-text">
 
@@ -1356,13 +1044,10 @@
         class="nav-menu"
         id="navMenu">
 
-
         <li>
-
           <a href="index.html">
             Beranda
           </a>
-
         </li>
 
 
@@ -1371,13 +1056,9 @@
         <li class="dropdown">
 
           <a href="#">
-
             Tentang Kami
-
             <i class="fas fa-chevron-down dropdown-icon"></i>
-
           </a>
-
 
           <ul class="dropdown-menu">
 
@@ -1433,13 +1114,9 @@
         <li class="dropdown">
 
           <a href="#">
-
             Kurikulum
-
             <i class="fas fa-chevron-down dropdown-icon"></i>
-
           </a>
-
 
           <ul class="dropdown-menu">
 
@@ -1481,65 +1158,50 @@
         <!-- FASILITAS -->
 
         <li>
-
           <a href="fasilitas.html">
             Fasilitas
           </a>
-
         </li>
 
 
         <!-- BERITA -->
 
         <li>
-
           <a href="berita.html">
             Info Berita
           </a>
-
         </li>
 
 
         <!-- KONTAK -->
 
         <li>
-
           <a
             href="kontak.html"
             class="active">
-
             Kontak
-
           </a>
-
         </li>
 
 
         <!-- MEDSOS -->
 
         <li>
-
           <a href="medsos.html">
             Medsos
           </a>
-
         </li>
 
 
         <!-- PPDB -->
 
         <li>
-
           <a
             href="ppdb.html"
             class="ppdb">
-
             PPDB 2026
-
           </a>
-
         </li>
-
 
       </ul>
 
@@ -1548,45 +1210,33 @@
   </nav>
 
 
-
   <!-- =================================
        HERO
   ================================= -->
 
   <section class="page-hero">
 
-
     <div class="page-hero-content">
 
-
       <span class="label">
-
         <i class="fas fa-comments"></i>
-
         HUBUNGI KAMI
-
       </span>
-
 
       <h1>
         Kontak
       </h1>
 
-
       <p>
-
         Silakan hubungi SDIT Ihyaussunnah untuk
         mendapatkan informasi mengenai sekolah,
         program pendidikan, pendaftaran, dan
         berbagai informasi lainnya.
-
       </p>
-
 
     </div>
 
   </section>
-
 
 
   <!-- =================================
@@ -1595,13 +1245,10 @@
 
   <main>
 
-
     <div class="container">
 
 
-      <!-- =================================
-           CONTACT INFO
-      ================================= -->
+      <!-- CONTACT INFO -->
 
       <div class="section-heading">
 
@@ -1609,18 +1256,14 @@
           INFORMASI KONTAK
         </span>
 
-
         <h2>
           Kami Siap Membantu
         </h2>
 
-
         <p>
-
           Jangan ragu untuk menghubungi kami apabila
           membutuhkan informasi lebih lanjut mengenai
           SDIT Ihyaussunnah.
-
         </p>
 
       </div>
@@ -1628,28 +1271,21 @@
 
       <div class="contact-info-grid">
 
-
         <!-- ALAMAT -->
 
         <div class="contact-info-card">
 
           <div class="contact-icon">
-
             <i class="fas fa-location-dot"></i>
-
           </div>
-
 
           <h3>
             Alamat
           </h3>
 
-
           <p>
-
             Jl. _______________________<br>
             Bontang, Kalimantan Timur
-
           </p>
 
         </div>
@@ -1660,22 +1296,16 @@
         <div class="contact-info-card">
 
           <div class="contact-icon">
-
             <i class="fas fa-phone"></i>
-
           </div>
-
 
           <h3>
             Telepon
           </h3>
 
-
           <p>
-
             08xxxxxxxxxx<br>
             Senin – Jumat
-
           </p>
 
         </div>
@@ -1686,21 +1316,15 @@
         <div class="contact-info-card">
 
           <div class="contact-icon">
-
             <i class="fas fa-envelope"></i>
-
           </div>
-
 
           <h3>
             Email
           </h3>
 
-
           <p>
-
             info@sditihyaussunnah.sch.id
-
           </p>
 
         </div>
@@ -1711,34 +1335,24 @@
         <div class="contact-info-card">
 
           <div class="contact-icon">
-
             <i class="fas fa-clock"></i>
-
           </div>
-
 
           <h3>
             Jam Layanan
           </h3>
 
-
           <p>
-
             Senin – Jumat<br>
             07.30 – 15.30 WITA
-
           </p>
 
         </div>
 
-
       </div>
 
 
-
-      <!-- =================================
-           CONTACT FORM + MAP
-      ================================= -->
+      <!-- CONTACT FORM + MAP -->
 
       <div class="contact-layout">
 
@@ -1747,23 +1361,16 @@
 
         <div class="contact-form">
 
-
           <h3>
             Kirim Pesan
           </h3>
 
-
           <p class="form-description">
-
             Isi formulir berikut dan sampaikan pertanyaan
             atau informasi yang ingin ditanyakan.
-
           </p>
 
-
-          <form
-            id="contactForm">
-
+          <form id="contactForm">
 
             <div class="form-group">
 
@@ -1819,7 +1426,6 @@
                 Keperluan
               </label>
 
-
               <select
                 id="subjek"
                 name="subjek"
@@ -1860,7 +1466,6 @@
                 Pesan
               </label>
 
-
               <textarea
                 id="pesan"
                 name="pesan"
@@ -1880,17 +1485,14 @@
 
             </button>
 
-
           </form>
 
         </div>
 
 
-
         <!-- MAP -->
 
         <div class="map-card">
-
 
           <div class="map-header">
 
@@ -1906,11 +1508,9 @@
 
             </div>
 
-
             <i class="fas fa-map-location-dot"></i>
 
           </div>
-
 
           <div class="map-wrapper">
 
@@ -1927,44 +1527,31 @@
 
           </div>
 
-
           <div class="map-address">
 
             <i class="fas fa-location-dot"></i>
 
             <span>
-
               SDIT Ihyaussunnah<br>
               Bontang, Kalimantan Timur
-
             </span>
 
           </div>
 
-
         </div>
-
 
       </div>
 
 
-
-      <!-- =================================
-           WHATSAPP
-      ================================= -->
+      <!-- WHATSAPP -->
 
       <div class="whatsapp-box">
 
-
         <div class="whatsapp-content">
 
-
           <div class="whatsapp-icon">
-
             <i class="fab fa-whatsapp"></i>
-
           </div>
-
 
           <div>
 
@@ -1972,19 +1559,14 @@
               Ingin bertanya lebih cepat?
             </h3>
 
-
             <p>
-
               Hubungi admin sekolah secara langsung
               melalui WhatsApp.
-
             </p>
 
           </div>
 
-
         </div>
-
 
         <!--
           GANTI NOMOR DI BAWAH
@@ -2002,17 +1584,12 @@
 
         </a>
 
-
       </div>
 
 
-
-      <!-- =================================
-           FAQ
-      ================================= -->
+      <!-- FAQ -->
 
       <section class="faq-section">
-
 
         <div class="section-heading">
 
@@ -2020,17 +1597,13 @@
             FAQ
           </span>
 
-
           <h2>
             Pertanyaan Umum
           </h2>
 
-
           <p>
-
             Beberapa pertanyaan yang sering ditanyakan
             oleh orang tua dan calon peserta didik.
-
           </p>
 
         </div>
@@ -2043,8 +1616,7 @@
 
           <div class="faq-item">
 
-            <button
-              class="faq-question">
+            <button class="faq-question">
 
               Bagaimana cara mendapatkan informasi PPDB?
 
@@ -2052,13 +1624,10 @@
 
             </button>
 
-
             <div class="faq-answer">
-
               Informasi mengenai PPDB dapat diperoleh
               melalui halaman PPDB di website atau dengan
               menghubungi admin sekolah melalui WhatsApp.
-
             </div>
 
           </div>
@@ -2068,8 +1637,7 @@
 
           <div class="faq-item">
 
-            <button
-              class="faq-question">
+            <button class="faq-question">
 
               Apakah orang tua dapat mengunjungi sekolah?
 
@@ -2077,14 +1645,11 @@
 
             </button>
 
-
             <div class="faq-answer">
-
               Orang tua atau calon wali siswa dapat
               menghubungi pihak sekolah terlebih dahulu
               untuk mendapatkan informasi mengenai waktu
               kunjungan dan layanan sekolah.
-
             </div>
 
           </div>
@@ -2094,8 +1659,7 @@
 
           <div class="faq-item">
 
-            <button
-              class="faq-question">
+            <button class="faq-question">
 
               Bagaimana cara menghubungi pihak sekolah?
 
@@ -2103,14 +1667,11 @@
 
             </button>
 
-
             <div class="faq-answer">
-
               Pihak sekolah dapat dihubungi melalui
               nomor telepon, WhatsApp, email, atau
               formulir kontak yang tersedia pada halaman
               ini.
-
             </div>
 
           </div>
@@ -2120,8 +1681,7 @@
 
           <div class="faq-item">
 
-            <button
-              class="faq-question">
+            <button class="faq-question">
 
               Di mana lokasi SDIT Ihyaussunnah?
 
@@ -2129,28 +1689,22 @@
 
             </button>
 
-
             <div class="faq-answer">
-
               SDIT Ihyaussunnah berada di wilayah
               Bontang, Kalimantan Timur. Silakan melihat
               peta lokasi pada halaman ini untuk mengetahui
               lokasi sekolah secara lebih detail.
-
             </div>
 
           </div>
-
 
         </div>
 
       </section>
 
-
     </div>
 
   </main>
-
 
 
   <!-- =================================
@@ -2159,12 +1713,9 @@
 
   <footer>
 
-
     <div class="footer-container">
 
-
       <div class="footer-about">
-
 
         <div class="footer-brand">
 
@@ -2172,33 +1723,26 @@
             src="./images/sdit.jpg"
             alt="Logo SDIT Ihyaussunnah">
 
-
           <h3>
             SDIT Ihyaussunnah
           </h3>
 
         </div>
 
-
         <p>
-
           Berakidah, Cerdas Berakhlak Mulia.
           Membangun generasi yang mencintai Al-Qur'an,
           berilmu, berakhlak, dan bermanfaat bagi umat.
-
         </p>
 
       </div>
 
 
-
       <div class="footer-column">
-
 
         <h4>
           Menu
         </h4>
-
 
         <ul>
 
@@ -2237,66 +1781,42 @@
       </div>
 
 
-
       <div class="footer-column">
-
 
         <h4>
           Hubungi Kami
         </h4>
 
-
         <ul>
 
           <li>
-
             <i class="fas fa-location-dot"></i>
-
             Bontang, Kalimantan Timur
-
           </li>
 
-
           <li>
-
             <i class="fas fa-phone"></i>
-
             08xxxxxxxxxx
-
           </li>
 
-
           <li>
-
             <i class="fas fa-envelope"></i>
-
             info@sditihyaussunnah.sch.id
-
           </li>
 
         </ul>
 
       </div>
 
-
     </div>
-
 
     <div class="footer-bottom">
-
-      ©
-
-      <span id="currentYear"></span>
-
+      © <span id="currentYear"></span>
       SDIT Ihyaussunnah.
-
       Semua Hak Dilindungi.
-
     </div>
 
-
   </footer>
-
 
 
   <!-- =================================
@@ -2305,183 +1825,123 @@
 
   <script>
 
-
-    /* =================================
-       MOBILE MENU
-    ================================= */
+    /* MOBILE MENU */
 
     const menuToggle =
       document.getElementById('menuToggle');
 
-
     const navMenu =
       document.getElementById('navMenu');
 
+    menuToggle.addEventListener('click', function() {
 
-    menuToggle.addEventListener(
-      'click',
-      function() {
+      navMenu.classList.toggle('active');
 
-        navMenu.classList.toggle('active');
-
-      }
-    );
+    });
 
 
-
-    /* =================================
-       MOBILE DROPDOWN
-    ================================= */
+    /* MOBILE DROPDOWN */
 
     const dropdowns =
       document.querySelectorAll('.dropdown');
 
+    dropdowns.forEach(function(dropdown) {
 
-    dropdowns.forEach(
-      function(dropdown) {
+      const link =
+        dropdown.querySelector(':scope > a');
 
+      link.addEventListener('click', function(e) {
 
-        const link =
-          dropdown.querySelector(':scope > a');
+        if (window.innerWidth <= 1000) {
 
+          e.preventDefault();
 
-        link.addEventListener(
-          'click',
-          function(e) {
+          dropdown.classList.toggle('active');
 
+        }
 
-            if (window.innerWidth <= 1000) {
+      });
 
-              e.preventDefault();
-
-              dropdown.classList.toggle('active');
-
-            }
-
-          }
-        );
-
-      }
-    );
+    });
 
 
-
-    /* =================================
-       CONTACT FORM
-    ================================= */
+    /* CONTACT FORM */
 
     const contactForm =
       document.getElementById('contactForm');
 
+    contactForm.addEventListener('submit', function(e) {
 
-    contactForm.addEventListener(
-      'submit',
-      function(e) {
+      e.preventDefault();
 
-        e.preventDefault();
+      const nama =
+        document.getElementById('nama').value;
 
+      const telepon =
+        document.getElementById('telepon').value;
 
-        const nama =
-          document.getElementById('nama').value;
+      const subjek =
+        document.getElementById('subjek').value;
 
+      const pesan =
+        document.getElementById('pesan').value;
 
-        const telepon =
-          document.getElementById('telepon').value;
+      /*
+        GANTI NOMOR WHATSAPP SEKOLAH
+        FORMAT: 628xxxxxxxxxx
+      */
 
+      const nomorSekolah =
+        '628xxxxxxxxxx';
 
-        const subjek =
-          document.getElementById('subjek').value;
+      const text =
+        `Assalamu'alaikum, Admin SDIT Ihyaussunnah.%0A%0A` +
+        `Nama: ${nama}%0A` +
+        `WhatsApp: ${telepon}%0A` +
+        `Keperluan: ${subjek}%0A%0A` +
+        `Pesan:%0A${pesan}`;
 
+      const url =
+        `https://wa.me/${nomorSekolah}?text=${text}`;
 
-        const pesan =
-          document.getElementById('pesan').value;
+      window.open(url, '_blank');
 
-
-        /*
-          GANTI NOMOR WHATSAPP SEKOLAH
-          FORMAT:
-          628xxxxxxxxxx
-        */
-
-        const nomorSekolah =
-          '628xxxxxxxxxx';
-
-
-        const text =
-          `Assalamu'alaikum, Admin SDIT Ihyaussunnah.%0A%0A` +
-          `Nama: ${nama}%0A` +
-          `WhatsApp: ${telepon}%0A` +
-          `Keperluan: ${subjek}%0A%0A` +
-          `Pesan:%0A${pesan}`;
+    });
 
 
-        const url =
-          `https://wa.me/${nomorSekolah}?text=${text}`;
-
-
-        window.open(
-          url,
-          '_blank'
-        );
-
-      }
-    );
-
-
-
-    /* =================================
-       FAQ
-    ================================= */
+    /* FAQ */
 
     const faqItems =
       document.querySelectorAll('.faq-item');
 
+    faqItems.forEach(function(item) {
 
-    faqItems.forEach(
-      function(item) {
+      const question =
+        item.querySelector('.faq-question');
 
+      question.addEventListener('click', function() {
 
-        const question =
-          item.querySelector('.faq-question');
+        faqItems.forEach(function(otherItem) {
 
+          if (otherItem !== item) {
 
-        question.addEventListener(
-          'click',
-          function() {
-
-
-            faqItems.forEach(
-              function(otherItem) {
-
-                if (otherItem !== item) {
-
-                  otherItem.classList.remove('active');
-
-                }
-
-              }
-            );
-
-
-            item.classList.toggle('active');
+            otherItem.classList.remove('active');
 
           }
-        );
 
-      }
-    );
+        });
+
+        item.classList.toggle('active');
+
+      });
+
+    });
 
 
+    /* YEAR */
 
-    /* =================================
-       YEAR
-    ================================= */
-
-    document.getElementById(
-      'currentYear'
-    ).textContent =
+    document.getElementById('currentYear').textContent =
       new Date().getFullYear();
-
 
   </script>
 

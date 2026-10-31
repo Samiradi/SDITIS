@@ -4,36 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Medsos - SDIT Ihyaussunnah</title>
-  <meta name="description" content="Media sosial resmi SDIT Ihyaussunnah. Ikuti informasi, kegiatan, dan dokumentasi terbaru melalui media sosial kami.">
+  <title>Media Sosial | SDIT Ihyaussunnah</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
+
     :root {
-      --green-primary: #1b5e20;
-      --green-light: #4caf50;
-      --green-soft: #f4fcf5;
-      --green-dark: #124116;
-      --orange-accent: #ff8f00;
-      --orange-dark: #e68000;
+      --green-primary: #166534;
+      --green-dark: #14532d;
+      --green-light: #16a34a;
+      --green-soft: #dcfce7;
 
-      --white: #ffffff;
-      --black: #1b1b1b;
-      --gray: #666666;
-      --gray-light: #f5f5f5;
-      --border: #e5e5e5;
+      --orange-accent: #f97316;
+      --orange-dark: #ea580c;
 
-      --shadow-sm: 0 4px 15px rgba(0,0,0,.07);
-      --shadow-md: 0 10px 30px rgba(0,0,0,.10);
+      --black: #1f2937;
+      --gray: #4b5563;
+      --border: rgba(22, 101, 52, .16);
+
+      --glass: rgba(255, 255, 255, .86);
+      --glass-border: rgba(255, 255, 255, .9);
+
+      --shadow-sm: 0 4px 15px rgba(20, 83, 45, .08);
+      --shadow-md: 0 10px 30px rgba(20, 83, 45, .12);
+      --shadow-lg: 0 18px 45px rgba(20, 83, 45, .16);
+
       --radius: 18px;
+
+      /* Warna brand media sosial */
+      --ig: #e1306c;
+      --yt: #ff0000;
+      --fb: #1877f2;
+      --tt: #111111;
+      --wa: #25d366;
+      --tg: #229ed9;
     }
 
     * {
@@ -44,16 +56,14 @@
 
     html {
       scroll-behavior: smooth;
+      background: linear-gradient(180deg, #f0fdf4 0%, #fffaf0 100%) fixed;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--black);
-      background:
-        linear-gradient(rgba(255,255,255,.94), rgba(255,255,255,.94)),
-        url("https://images.unsplash.com/photo-1584144512760-492c01997d95?auto=format&fit=crop&w=1920&q=80")
-        center / cover fixed;
       line-height: 1.7;
+      background: transparent;
     }
 
     a {
@@ -61,14 +71,79 @@
       color: inherit;
     }
 
-    /* =========================
+    img {
+      width: 100%;
+      display: block;
+    }
+
+
+    /* =================================
+       DEKORASI MEDIA SOSIAL (ringan)
+       Hanya transform & opacity, jumlah dibatasi
+    ================================= */
+
+    .sm-deco {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .sm-deco .d {
+      position: absolute;
+      font-size: 34px;
+      opacity: .13;
+      will-change: transform;
+      animation: smFloat 16s ease-in-out infinite;
+    }
+
+    .d1 { left: 6%;  top: 18%; color: var(--ig); animation-delay: 0s; }
+    .d2 { right: 8%; top: 14%; color: var(--yt); font-size: 42px; animation-delay: -3s; }
+    .d3 { left: 14%; top: 62%; color: var(--fb); font-size: 38px; animation-delay: -6s; }
+    .d4 { right: 12%; top: 58%; color: var(--tt); animation-delay: -9s; }
+    .d5 { left: 46%; top: 8%;  color: var(--wa); font-size: 30px; animation-delay: -4s; }
+    .d6 { right: 30%; bottom: 10%; color: var(--tg); font-size: 40px; animation-delay: -11s; }
+    .d7 { left: 26%; bottom: 14%; color: var(--orange-accent); animation-delay: -7s; }
+    .d8 { right: 46%; top: 36%; color: var(--green-light); font-size: 30px; animation-delay: -13s; }
+
+    @keyframes smFloat {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+      50% {
+        transform: translate3d(0, -18px, 0) rotate(6deg);
+      }
+    }
+
+    /* Di HP, dekorasi dikurangi agar ringan */
+    @media (max-width: 800px) {
+      .sm-deco .d3,
+      .sm-deco .d4,
+      .sm-deco .d6,
+      .sm-deco .d8 {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sm-deco .d {
+        animation: none;
+      }
+    }
+
+
+    /* =================================
        TOP BAR
-    ========================= */
+    ================================= */
+
     .top-bar {
-      background: var(--green-dark);
-      color: white;
-      font-size: 13px;
+      background: var(--green-primary);
+      color: #ecfdf5;
       padding: 8px 5%;
+      font-size: 13px;
+      position: relative;
+      z-index: 1000;
     }
 
     .top-bar-container {
@@ -77,7 +152,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 15px;
+      gap: 20px;
     }
 
     .top-info {
@@ -93,27 +168,29 @@
     }
 
     .top-info i {
-      color: #a5d6a7;
+      color: #fdba74;
     }
 
-    /* =========================
+
+    /* =================================
        NAVBAR
-    ========================= */
+    ================================= */
+
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.97);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 3px 15px rgba(0,0,0,.08);
+      z-index: 999;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 3px 18px rgba(20, 83, 45, .08);
     }
 
     .nav-container {
       max-width: 1200px;
       margin: auto;
-      min-height: 75px;
-      padding: 0 5%;
-
+      padding: 12px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -123,36 +200,32 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 700;
-      color: var(--green-primary);
     }
 
     .brand img {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .brand-text {
-      line-height: 1.2;
+      border-radius: 50%;
+      border: 2px solid var(--orange-accent);
     }
 
     .brand-text strong {
       display: block;
+      color: var(--green-dark);
       font-size: 17px;
+      line-height: 1.2;
     }
 
     .brand-text small {
-      font-size: 10px;
       color: var(--gray);
-      font-weight: 500;
+      font-size: 11px;
     }
 
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 5px;
       list-style: none;
     }
 
@@ -160,22 +233,34 @@
       position: relative;
     }
 
-    .nav-menu > li > a {
+    .nav-menu a {
       display: flex;
       align-items: center;
       gap: 5px;
-      padding: 12px 10px;
+      padding: 10px 12px;
       font-size: 13px;
       font-weight: 500;
-      color: #333;
+      color: #374151;
       border-radius: 8px;
       transition: .3s;
     }
 
-    .nav-menu > li > a:hover,
-    .nav-menu > li.active > a {
-      color: var(--green-primary);
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #15803d;
       background: var(--green-soft);
+    }
+
+    .nav-menu .ppdb {
+      background: var(--orange-accent);
+      color: white;
+      border-radius: 25px;
+      padding: 9px 17px;
+    }
+
+    .nav-menu .ppdb:hover {
+      background: var(--orange-dark);
+      color: white;
     }
 
     .dropdown-menu {
@@ -183,12 +268,11 @@
       top: 100%;
       left: 0;
       min-width: 220px;
-      background: white;
+      background: rgba(255, 255, 255, .97);
       border-radius: 12px;
       box-shadow: var(--shadow-md);
       padding: 8px;
       list-style: none;
-
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
@@ -202,126 +286,97 @@
     }
 
     .dropdown-menu a {
-      display: block;
+      width: 100%;
       padding: 9px 12px;
-      font-size: 13px;
-      border-radius: 8px;
-      transition: .25s;
     }
 
     .dropdown-menu a:hover {
       background: var(--green-soft);
-      color: var(--green-primary);
     }
 
-    .mobile-toggle {
+    .dropdown-icon {
+      font-size: 10px;
+    }
+
+    .menu-toggle {
       display: none;
       border: none;
       background: none;
-      color: var(--green-primary);
       font-size: 25px;
+      color: var(--green-primary);
       cursor: pointer;
     }
 
-    /* =========================
+
+    /* =================================
        HERO
-    ========================= */
+    ================================= */
+
     .page-hero {
+      position: relative;
       min-height: 360px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-
-      position: relative;
-      overflow: hidden;
-
+      color: white;
       background:
         linear-gradient(
-          rgba(27,94,32,.88),
-          rgba(18,65,22,.92)
+          135deg,
+          rgba(20, 83, 45, .93),
+          rgba(234, 88, 12, .72)
         ),
-        url("./images/quran.jpg") center / cover no-repeat;
-
-      color: white;
+        url("./images/quran.jpg")
+        center / cover no-repeat;
     }
 
-    .page-hero::after {
-      content: "";
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 50%;
-      right: -150px;
-      top: -180px;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
+    .page-hero-content {
+      max-width: 800px;
       padding: 50px 20px;
     }
 
-    .hero-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 18px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-      background: rgba(255,255,255,.13);
-      border: 1px solid rgba(255,255,255,.25);
-
-      font-size: 30px;
-      color: #fff;
+    .page-hero .label {
+      display: inline-block;
+      padding: 7px 17px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .3);
+      font-size: 12px;
+      margin-bottom: 15px;
     }
 
-    .hero-content h1 {
+    .page-hero h1 {
       font-family: 'Amiri', serif;
       font-size: clamp(42px, 6vw, 65px);
       line-height: 1.1;
       margin-bottom: 12px;
     }
 
-    .hero-content p {
+    .page-hero p {
       max-width: 650px;
       margin: auto;
-      color: rgba(255,255,255,.88);
+      color: rgba(255, 255, 255, .9);
       font-size: 15px;
     }
 
-    .breadcrumb {
-      margin-top: 20px;
-      font-size: 13px;
-      color: rgba(255,255,255,.75);
-    }
 
-    .breadcrumb a:hover {
-      color: white;
-    }
+    /* =================================
+       CONTAINER & HEADING
+    ================================= */
 
-    /* =========================
-       SECTION
-    ========================= */
-    .section {
+    .container {
       max-width: 1200px;
       margin: auto;
-      padding: 80px 5%;
+      padding: 70px 5%;
     }
 
-    .section-header {
+    .section-heading {
       text-align: center;
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto 45px;
     }
 
-    .section-label {
-      display: inline-block;
-      margin-bottom: 10px;
+    .section-heading .label {
       color: var(--orange-dark);
       font-size: 12px;
       font-weight: 700;
@@ -329,317 +384,252 @@
       letter-spacing: 2px;
     }
 
-    .section-header h2 {
+    .section-heading h2 {
+      font-family: 'Amiri', serif;
       color: var(--green-primary);
-      font-size: 32px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      line-height: 1.2;
+      margin: 7px 0;
     }
 
-    .section-header p {
+    .section-heading p {
       color: var(--gray);
       font-size: 14px;
     }
 
-    /* =========================
-       SOCIAL CARDS
-    ========================= */
-    .social-grid {
+
+    /* =================================
+       KARTU MEDIA SOSIAL
+    ================================= */
+
+    .sm-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
+      gap: 22px;
     }
 
-    .social-card {
-      background: rgba(255,255,255,.96);
-      border: 1px solid var(--border);
+    .sm-card {
+      background: var(--glass);
       border-radius: var(--radius);
-      padding: 30px 25px;
-      text-align: center;
-
+      border: 1px solid var(--glass-border);
       box-shadow: var(--shadow-sm);
-      transition: .3s;
-      position: relative;
-      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform .3s, box-shadow .3s;
     }
 
-    .social-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--green-primary);
+    .sm-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
 
-    .social-card:hover {
-      transform: translateY(-7px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .social-icon {
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 18px;
-
+    .sm-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: white;
+      font-size: 26px;
+    }
 
-      border-radius: 22px;
-
-      background: var(--green-soft);
+    .sm-card h3 {
       color: var(--green-primary);
+      font-size: 18px;
+    }
 
-      font-size: 32px;
+    .sm-handle {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--orange-dark);
+    }
 
+    .sm-card p {
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .sm-btn {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 25px;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
       transition: .3s;
     }
 
-    .social-card:hover .social-icon {
-      background: var(--green-primary);
-      color: white;
-      transform: rotate(-5deg);
+    .sm-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .15);
     }
 
-    .social-card h3 {
-      font-size: 20px;
+    .ig .sm-icon { background: linear-gradient(135deg, #feda75, #d62976, #962fbf); }
+    .ig .sm-btn  { background: var(--ig); }
+    .yt .sm-icon { background: var(--yt); }
+    .yt .sm-btn  { background: var(--yt); }
+    .fb .sm-icon { background: var(--fb); }
+    .fb .sm-btn  { background: var(--fb); }
+    .tt .sm-icon { background: var(--tt); }
+    .tt .sm-btn  { background: var(--tt); }
+    .wa .sm-icon { background: var(--wa); }
+    .wa .sm-btn  { background: var(--wa); }
+    .tg .sm-icon { background: var(--tg); }
+    .tg .sm-btn  { background: var(--tg); }
+
+
+    /* =================================
+       HASHTAG
+    ================================= */
+
+    .hashtag-box {
+      margin-top: 60px;
+      background: var(--glass);
+      border-radius: var(--radius);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 35px 30px;
+      text-align: center;
+    }
+
+    .hashtag-box h3 {
       color: var(--green-primary);
-      margin-bottom: 7px;
+      font-family: 'Amiri', serif;
+      font-size: 30px;
+      margin-bottom: 8px;
     }
 
-    .social-card p {
+    .hashtag-box > p {
       color: var(--gray);
       font-size: 13px;
-      min-height: 50px;
       margin-bottom: 20px;
     }
 
-    .social-username {
-      display: block;
-      color: var(--green-primary);
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 17px;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
+    .hashtag-list {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
+    }
 
-      padding: 10px 20px;
-
-      border-radius: 8px;
-      background: var(--green-primary);
-      color: white;
-
-      font-size: 13px;
+    .hashtag-list span {
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: var(--green-soft);
+      color: var(--green-primary);
+      font-size: 12px;
       font-weight: 600;
-
-      transition: .3s;
     }
 
-    .social-btn:hover {
-      background: var(--green-dark);
-      transform: translateY(-2px);
+    .hashtag-list span:nth-child(3n+2) {
+      background: #ffedd5;
+      color: #c2410c;
     }
 
-    /* =========================
-       FOLLOW CTA
-    ========================= */
-    .follow-section {
-      padding: 0 5% 80px;
-    }
 
-    .follow-box {
-      max-width: 1100px;
-      margin: auto;
+    /* =================================
+       CTA
+    ================================= */
 
+    .cta-box {
+      margin-top: 50px;
+      padding: 40px 36px;
+      border-radius: 24px;
       background:
         linear-gradient(
           135deg,
           var(--green-primary),
-          var(--green-dark)
+          #15803d 60%,
+          var(--orange-dark)
         );
-
-      border-radius: 25px;
-      padding: 50px 40px;
-
-      text-align: center;
       color: white;
-
-      position: relative;
-      overflow: hidden;
-
-      box-shadow: var(--shadow-md);
-    }
-
-    .follow-box::before,
-    .follow-box::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 50%;
-    }
-
-    .follow-box::before {
-      width: 250px;
-      height: 250px;
-      left: -100px;
-      top: -120px;
-    }
-
-    .follow-box::after {
-      width: 300px;
-      height: 300px;
-      right: -130px;
-      bottom: -170px;
-    }
-
-    .follow-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .follow-box h2 {
-      font-family: 'Amiri', serif;
-      font-size: 36px;
-      margin-bottom: 8px;
-    }
-
-    .follow-box p {
-      max-width: 600px;
-      margin: 0 auto 25px;
-      color: rgba(255,255,255,.82);
-      font-size: 14px;
-    }
-
-    .follow-buttons {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      box-shadow: var(--shadow-lg);
     }
 
-    .follow-btn {
+    .cta-box h3 {
+      font-family: 'Amiri', serif;
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, .9);
+      font-size: 13px;
+      max-width: 520px;
+    }
+
+    .cta-btn {
+      flex-shrink: 0;
+      background: white;
+      color: var(--green-primary);
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-
-      padding: 11px 20px;
-
-      background: white;
-      color: var(--green-primary);
-
-      border-radius: 9px;
-      font-size: 13px;
-      font-weight: 600;
-
       transition: .3s;
     }
 
-    .follow-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    .cta-btn:hover {
+      background: #fff7ed;
+      transform: translateY(-2px);
     }
 
-    /* =========================
-       NEWS / CONTENT PREVIEW
-    ========================= */
-    .content-preview {
-      background: var(--green-soft);
-      padding: 80px 5%;
-    }
 
-    .preview-grid {
-      max-width: 1200px;
-      margin: auto;
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    .preview-card {
-      background: white;
-      border-radius: var(--radius);
-      padding: 30px;
-
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .preview-card h3 {
-      color: var(--green-primary);
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .preview-card p {
-      color: var(--gray);
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .preview-list {
-      list-style: none;
-    }
-
-    .preview-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-
-    .preview-list li:last-child {
-      border-bottom: none;
-    }
-
-    .preview-list i {
-      color: var(--green-light);
-      width: 20px;
-    }
-
-    /* =========================
+    /* =================================
        FOOTER
-    ========================= */
+    ================================= */
+
     footer {
-      background: #103814;
-      color: rgba(255,255,255,.8);
+      background: #052e16;
+      color: rgba(255, 255, 255, .8);
+      margin-top: 30px;
     }
 
-    .footer-main {
+    .footer-container {
       max-width: 1200px;
       margin: auto;
-      padding: 60px 5% 35px;
-
+      padding: 55px 5% 25px;
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 35px;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 45px;
     }
 
     .footer-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 15px;
     }
 
     .footer-brand img {
-      width: 45px;
-      height: 45px;
-      border-radius: 8px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
       object-fit: cover;
     }
 
-    .footer-brand strong {
+    .footer-brand h3 {
       color: white;
-      font-size: 17px;
+      font-size: 18px;
     }
 
     .footer-about p {
@@ -647,108 +637,56 @@
       line-height: 1.8;
     }
 
-    .footer-col h4 {
+    .footer-column h4 {
       color: white;
       margin-bottom: 15px;
       font-size: 15px;
     }
 
-    .footer-col ul {
+    .footer-column ul {
       list-style: none;
     }
 
-    .footer-col li {
-      margin-bottom: 8px;
-    }
-
-    .footer-col a {
+    .footer-column li {
+      margin-bottom: 9px;
       font-size: 13px;
-      transition: .25s;
     }
 
-    .footer-col a:hover {
-      color: #a5d6a7;
-      padding-left: 4px;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .footer-social a {
-      width: 35px;
-      height: 35px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 8px;
-      background: rgba(255,255,255,.08);
-      color: white;
-
+    .footer-column a {
+      font-size: 13px;
       transition: .3s;
     }
 
-    .footer-social a:hover {
-      background: var(--green-light);
-      transform: translateY(-3px);
+    .footer-column a:hover {
+      color: #fdba74;
+      padding-left: 4px;
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.1);
+      border-top: 1px solid rgba(255, 255, 255, .12);
       padding: 18px 5%;
       text-align: center;
       font-size: 12px;
     }
 
-    /* =========================
+
+    /* =================================
        RESPONSIVE
-    ========================= */
+    ================================= */
+
     @media (max-width: 1000px) {
-      .nav-menu {
-        gap: 0;
-      }
-
-      .nav-menu > li > a {
-        padding: 10px 7px;
-        font-size: 12px;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 800px) {
-      .top-bar-container {
-        justify-content: center;
-      }
-
-      .top-info {
-        justify-content: center;
-      }
-
-      .mobile-toggle {
-        display: block;
-      }
 
       .nav-menu {
         position: absolute;
-        top: 75px;
+        top: 100%;
         left: 0;
         width: 100%;
-
-        background: white;
-        padding: 10px 5% 20px;
-
-        display: none;
+        background: rgba(255, 255, 255, .97);
         flex-direction: column;
         align-items: stretch;
-
-        box-shadow: 0 10px 20px rgba(0,0,0,.1);
+        padding: 10px 5%;
+        box-shadow: var(--shadow-md);
+        display: none;
       }
 
       .nav-menu.active {
@@ -757,7 +695,7 @@
 
       .nav-menu > li > a {
         width: 100%;
-        padding: 12px;
+        justify-content: space-between;
       }
 
       .dropdown-menu {
@@ -767,784 +705,784 @@
         visibility: visible;
         transform: none;
         box-shadow: none;
-        background: var(--green-soft);
-        margin: 4px 0 8px;
+        padding-left: 15px;
       }
 
       .dropdown.active .dropdown-menu {
         display: block;
       }
 
-      .social-grid {
-        grid-template-columns: 1fr 1fr;
+      .menu-toggle {
+        display: block;
       }
 
-      .preview-grid {
-        grid-template-columns: 1fr;
+      .sm-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
+
+      .top-bar {
+        display: none;
+      }
+
       .brand-text small {
         display: none;
       }
 
-      .top-bar {
-        display: none;
+      .brand img {
+        width: 45px;
+        height: 45px;
+      }
+
+      .container {
+        padding-top: 50px;
+        padding-bottom: 50px;
       }
 
       .page-hero {
         min-height: 300px;
       }
 
-      .section {
-        padding: 60px 5%;
+      .section-heading h2 {
+        font-size: 35px;
       }
 
-      .section-header h2 {
-        font-size: 27px;
-      }
-
-      .social-grid {
+      .sm-grid {
         grid-template-columns: 1fr;
       }
 
-      .follow-box {
-        padding: 40px 20px;
-        border-radius: 18px;
+      .cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 24px;
       }
 
-      .follow-box h2 {
-        font-size: 30px;
+      .cta-btn {
+        width: 100%;
+        justify-content: center;
       }
 
-      .footer-main {
+      .footer-container {
         grid-template-columns: 1fr;
-        padding-top: 45px;
+        gap: 30px;
       }
     }
+
   </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
-     TOP BAR
-========================= -->
-<div class="top-bar">
-  <div class="top-bar-container">
-    <div class="top-info">
-      <span>
-        <i class="fas fa-phone"></i>
-        08xxxxxxxxxx
-      </span>
+  <!-- DEKORASI MEDIA SOSIAL (ringan, hanya transform & opacity) -->
 
-      <span>
-        <i class="fas fa-envelope"></i>
-        info@sditihyaussunnah.sch.id
-      </span>
-    </div>
-  </div>
-</div>
-
-
-<!-- =========================
-     NAVBAR
-========================= -->
-<nav class="navbar">
-  <div class="nav-container">
-
-    <a href="index.html" class="brand">
-      <img src="./images/sdit.jpg" alt="Logo SDIT Ihyaussunnah">
-
-      <div class="brand-text">
-        <strong>SDIT Ihyaussunnah</strong>
-        <small>Berakidah, Cerdas, Berakhlak Mulia</small>
-      </div>
-    </a>
-
-    <button class="mobile-toggle" id="mobileToggle">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <ul class="nav-menu" id="navMenu">
-
-      <li>
-        <a href="index.html">
-          <i class="fas fa-home"></i>
-          Beranda
-        </a>
-      </li>
-
-      <!-- TENTANG KAMI -->
-      <li class="dropdown">
-        <a href="#">
-          Tentang Kami
-          <i class="fas fa-chevron-down"></i>
-        </a>
-
-        <ul class="dropdown-menu">
-          <li><a href="sejarah.html">Sejarah</a></li>
-          <li><a href="sambutan.html">Sambutan Kepala Sekolah</a></li>
-          <li><a href="visi-misi.html">Visi & Misi</a></li>
-          <li><a href="organisasi.html">Organisasi SD</a></li>
-          <li><a href="komite.html">Organisasi Komite</a></li>
-          <li><a href="guru.html">Guru Kami</a></li>
-          <li><a href="video-profile.html">Video Profile</a></li>
-        </ul>
-      </li>
-
-      <!-- KURIKULUM -->
-      <li class="dropdown">
-        <a href="#">
-          Kurikulum
-          <i class="fas fa-chevron-down"></i>
-        </a>
-
-        <ul class="dropdown-menu">
-          <li><a href="kurikulum-umum.html">Kurikulum Umum</a></li>
-          <li><a href="kurikulum-diniyah.html">Kurikulum Diniyah</a></li>
-          <li><a href="tahsin-tahfizh.html">Tahsin & Tahfizh</a></li>
-          <li><a href="ekstrakurikuler.html">Intra & Ekstrakurikuler</a></li>
-          <li><a href="kaldik.html">Kalender Pendidikan</a></li>
-        </ul>
-      </li>
-
-      <li>
-        <a href="fasilitas.html">
-          Fasilitas
-        </a>
-      </li>
-
-      <li>
-        <a href="berita.html">
-          Info Berita
-        </a>
-      </li>
-
-      <li>
-        <a href="kontak.html">
-          Kontak
-        </a>
-      </li>
-
-      <li class="active">
-        <a href="medsos.html">
-          Medsos
-        </a>
-      </li>
-
-      <li>
-        <a href="ppdb.html">
-          PPDB 2026
-        </a>
-      </li>
-
-    </ul>
-  </div>
-</nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
-<section class="page-hero">
-
-  <div class="hero-content">
-
-    <div class="hero-icon">
-      <i class="fas fa-share-nodes"></i>
-    </div>
-
-    <h1>Media Sosial</h1>
-
-    <p>
-      Ikuti informasi, kegiatan, prestasi, dan dokumentasi
-      terbaru SDIT Ihyaussunnah melalui media sosial resmi kami.
-    </p>
-
-    <div class="breadcrumb">
-      <a href="index.html">Beranda</a>
-      &nbsp; / &nbsp;
-      Medsos
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     SOCIAL MEDIA
-========================= -->
-<section class="section">
-
-  <div class="section-header">
-
-    <span class="section-label">
-      Tetap Terhubung
-    </span>
-
-    <h2>Media Sosial Resmi Kami</h2>
-
-    <p>
-      Jangan lewatkan berbagai informasi dan aktivitas
-      sekolah dengan mengikuti akun media sosial resmi
-      SDIT Ihyaussunnah.
-    </p>
-
+  <div class="sm-deco" aria-hidden="true">
+    <i class="fab fa-instagram d d1"></i>
+    <i class="fab fa-youtube d d2"></i>
+    <i class="fab fa-facebook d d3"></i>
+    <i class="fab fa-tiktok d d4"></i>
+    <i class="fab fa-whatsapp d d5"></i>
+    <i class="fab fa-telegram d d6"></i>
+    <i class="fas fa-heart d d7"></i>
+    <i class="fas fa-share-nodes d d8"></i>
   </div>
 
 
-  <div class="social-grid">
+  <!-- =================================
+       TOP BAR
+  ================================= -->
 
-    <!-- FACEBOOK -->
-    <div class="social-card">
+  <div class="top-bar">
 
-      <div class="social-icon">
-        <i class="fab fa-facebook-f"></i>
-      </div>
+    <div class="top-bar-container">
 
-      <h3>Facebook</h3>
+      <div class="top-info">
 
-      <p>
-        Informasi sekolah, kegiatan siswa,
-        pengumuman, dan dokumentasi kegiatan.
-      </p>
-
-      <span class="social-username">
-        <i class="fab fa-facebook"></i>
-        SDIT Ihyaussunnah
-      </span>
-
-      <!-- GANTI LINK -->
-      <a href="#" class="social-btn" target="_blank">
-        Kunjungi Facebook
-        <i class="fas fa-arrow-right"></i>
-      </a>
-
-    </div>
-
-
-    <!-- INSTAGRAM -->
-    <div class="social-card">
-
-      <div class="social-icon">
-        <i class="fab fa-instagram"></i>
-      </div>
-
-      <h3>Instagram</h3>
-
-      <p>
-        Lihat foto, video, kegiatan siswa,
-        prestasi, dan aktivitas sekolah sehari-hari.
-      </p>
-
-      <span class="social-username">
-        <i class="fab fa-instagram"></i>
-        @sditihyaussunnah
-      </span>
-
-      <!-- GANTI LINK -->
-      <a href="#" class="social-btn" target="_blank">
-        Kunjungi Instagram
-        <i class="fas fa-arrow-right"></i>
-      </a>
-
-    </div>
-
-
-    <!-- YOUTUBE -->
-    <div class="social-card">
-
-      <div class="social-icon">
-        <i class="fab fa-youtube"></i>
-      </div>
-
-      <h3>YouTube</h3>
-
-      <p>
-        Saksikan video kegiatan sekolah,
-        pembelajaran, dokumentasi, dan profil sekolah.
-      </p>
-
-      <span class="social-username">
-        <i class="fab fa-youtube"></i>
-        SDIT Ihyaussunnah
-      </span>
-
-      <!-- GANTI LINK -->
-      <a href="#" class="social-btn" target="_blank">
-        Kunjungi YouTube
-        <i class="fas fa-arrow-right"></i>
-      </a>
-
-    </div>
-
-
-    <!-- TIKTOK -->
-    <div class="social-card">
-
-      <div class="social-icon">
-        <i class="fab fa-tiktok"></i>
-      </div>
-
-      <h3>TikTok</h3>
-
-      <p>
-        Konten singkat seputar kegiatan,
-        kreativitas, dan keseharian siswa.
-      </p>
-
-      <span class="social-username">
-        <i class="fab fa-tiktok"></i>
-        @sditihyaussunnah
-      </span>
-
-      <!-- GANTI LINK -->
-      <a href="#" class="social-btn" target="_blank">
-        Kunjungi TikTok
-        <i class="fas fa-arrow-right"></i>
-      </a>
-
-    </div>
-
-
-    <!-- WHATSAPP -->
-    <div class="social-card">
-
-      <div class="social-icon">
-        <i class="fab fa-whatsapp"></i>
-      </div>
-
-      <h3>WhatsApp</h3>
-
-      <p>
-        Hubungi pihak sekolah untuk informasi
-        pendaftaran, kegiatan, dan layanan sekolah.
-      </p>
-
-      <span class="social-username">
-        <i class="fab fa-whatsapp"></i>
-        08xxxxxxxxxx
-      </span>
-
-      <!-- GANTI NOMOR -->
-      <a href="https://wa.me/628xxxxxxxxxx"
-         class="social-btn"
-         target="_blank">
-
-        Chat WhatsApp
-        <i class="fas fa-arrow-right"></i>
-
-      </a>
-
-    </div>
-
-
-    <!-- WEBSITE -->
-    <div class="social-card">
-
-      <div class="social-icon">
-        <i class="fas fa-globe"></i>
-      </div>
-
-      <h3>Website</h3>
-
-      <p>
-        Dapatkan informasi lengkap mengenai
-        profil, program, berita, dan kegiatan sekolah.
-      </p>
-
-      <span class="social-username">
-        <i class="fas fa-globe"></i>
-        sditihyaussunnah.sch.id
-      </span>
-
-      <a href="index.html" class="social-btn">
-        Buka Website
-        <i class="fas fa-arrow-right"></i>
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FOLLOW CTA
-========================= -->
-<section class="follow-section">
-
-  <div class="follow-box">
-
-    <div class="follow-content">
-
-      <h2>Mari Tetap Terhubung</h2>
-
-      <p>
-        Ikuti media sosial SDIT Ihyaussunnah agar
-        selalu mendapatkan informasi terbaru tentang
-        kegiatan, pembelajaran, prestasi, dan berbagai
-        aktivitas sekolah.
-      </p>
-
-      <div class="follow-buttons">
-
-        <!-- GANTI LINK -->
-        <a href="#" class="follow-btn" target="_blank">
-          <i class="fab fa-instagram"></i>
-          Instagram
-        </a>
-
-        <a href="#" class="follow-btn" target="_blank">
-          <i class="fab fa-facebook-f"></i>
-          Facebook
-        </a>
-
-        <a href="#" class="follow-btn" target="_blank">
-          <i class="fab fa-youtube"></i>
-          YouTube
-        </a>
-
-        <a href="https://wa.me/628xxxxxxxxxx"
-           class="follow-btn"
-           target="_blank">
-
-          <i class="fab fa-whatsapp"></i>
-          WhatsApp
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     CONTENT PREVIEW
-========================= -->
-<section class="content-preview">
-
-  <div class="section-header">
-
-    <span class="section-label">
-      Apa yang Kami Bagikan?
-    </span>
-
-    <h2>Ikuti Aktivitas Sekolah</h2>
-
-    <p>
-      Media sosial menjadi salah satu sarana bagi sekolah
-      untuk berbagi informasi dan membangun komunikasi
-      dengan orang tua serta masyarakat.
-    </p>
-
-  </div>
-
-
-  <div class="preview-grid">
-
-    <div class="preview-card">
-
-      <h3>
-        <i class="fas fa-camera-retro"></i>
-        Dokumentasi Kegiatan
-      </h3>
-
-      <p>
-        Berbagai kegiatan siswa dan guru
-        terdokumentasi melalui media sosial sekolah.
-      </p>
-
-      <ul class="preview-list">
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Kegiatan pembelajaran
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Kegiatan keagamaan
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Kegiatan ekstrakurikuler
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Perlombaan dan prestasi siswa
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="preview-card">
-
-      <h3>
-        <i class="fas fa-bullhorn"></i>
-        Informasi Sekolah
-      </h3>
-
-      <p>
-        Dapatkan informasi penting dan terbaru
-        dari SDIT Ihyaussunnah.
-      </p>
-
-      <ul class="preview-list">
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Pengumuman sekolah
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Informasi PPDB
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Agenda kegiatan
-        </li>
-
-        <li>
-          <i class="fas fa-check-circle"></i>
-          Berita dan prestasi sekolah
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-<footer>
-
-  <div class="footer-main">
-
-    <!-- ABOUT -->
-    <div class="footer-about">
-
-      <div class="footer-brand">
-
-        <img src="./images/sdit.jpg"
-             alt="Logo SDIT Ihyaussunnah">
-
-        <strong>SDIT Ihyaussunnah</strong>
-
-      </div>
-
-      <p>
-        Sekolah Dasar Islam Terpadu yang berkomitmen
-        membentuk generasi yang berakidah, cerdas,
-        berakhlak mulia, dan mencintai Al-Qur'an.
-      </p>
-
-      <div class="footer-social">
-
-        <a href="#" target="_blank">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-
-        <a href="#" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-
-        <a href="#" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-
-        <a href="https://wa.me/628xxxxxxxxxx"
-           target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- MENU -->
-    <div class="footer-col">
-
-      <h4>Menu</h4>
-
-      <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="fasilitas.html">Fasilitas</a></li>
-        <li><a href="berita.html">Berita</a></li>
-        <li><a href="kontak.html">Kontak</a></li>
-        <li><a href="medsos.html">Medsos</a></li>
-        <li><a href="ppdb.html">PPDB 2026</a></li>
-      </ul>
-
-    </div>
-
-
-    <!-- INFORMASI -->
-    <div class="footer-col">
-
-      <h4>Informasi</h4>
-
-      <ul>
-        <li><a href="sejarah.html">Sejarah</a></li>
-        <li><a href="visi-misi.html">Visi & Misi</a></li>
-        <li><a href="guru.html">Guru Kami</a></li>
-        <li><a href="tahsin-tahfizh.html">Tahsin & Tahfizh</a></li>
-        <li><a href="ekstrakurikuler.html">Ekstrakurikuler</a></li>
-      </ul>
-
-    </div>
-
-
-    <!-- KONTAK -->
-    <div class="footer-col">
-
-      <h4>Kontak</h4>
-
-      <ul>
-
-        <li>
-          <i class="fas fa-location-dot"></i>
-          Bontang, Kalimantan Timur
-        </li>
-
-        <li>
+        <span>
           <i class="fas fa-phone"></i>
           08xxxxxxxxxx
-        </li>
+        </span>
 
-        <li>
+        <span>
           <i class="fas fa-envelope"></i>
           info@sditihyaussunnah.sch.id
-        </li>
+        </span>
 
-      </ul>
+      </div>
+
+      <div class="top-info">
+
+        <span>
+          <i class="fas fa-location-dot"></i>
+          Bontang, Kalimantan Timur
+        </span>
+
+      </div>
 
     </div>
 
   </div>
 
 
-  <div class="footer-bottom">
-    &copy; <span id="year"></span>
-    SDIT Ihyaussunnah. Semua Hak Dilindungi.
-  </div>
+  <!-- =================================
+       NAVBAR
+  ================================= -->
 
-</footer>
+  <nav class="navbar">
 
+    <div class="nav-container">
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-<script>
+      <a href="index.html" class="brand">
 
-  const mobileToggle = document.getElementById("mobileToggle");
-  const navMenu = document.getElementById("navMenu");
+        <img
+          src="./images/sdit.jpg"
+          alt="Logo SDIT Ihyaussunnah">
 
-  mobileToggle.addEventListener("click", function () {
-    navMenu.classList.toggle("active");
+        <div class="brand-text">
 
-    const icon = mobileToggle.querySelector("i");
+          <strong>
+            SDIT Ihyaussunnah
+          </strong>
 
-    if (navMenu.classList.contains("active")) {
-      icon.classList.remove("fa-bars");
-      icon.classList.add("fa-xmark");
-    } else {
-      icon.classList.remove("fa-xmark");
-      icon.classList.add("fa-bars");
-    }
-  });
+          <small>
+            Berakidah, Cerdas Berakhlak Mulia
+          </small>
+
+        </div>
+
+      </a>
 
 
-  // Dropdown mobile
-  document.querySelectorAll(".dropdown > a").forEach(function(link) {
+      <button
+        class="menu-toggle"
+        id="menuToggle">
 
-    link.addEventListener("click", function(e) {
+        <i class="fas fa-bars"></i>
 
-      if (window.innerWidth <= 800) {
+      </button>
 
-        e.preventDefault();
 
-        const parent = this.parentElement;
+      <ul
+        class="nav-menu"
+        id="navMenu">
 
-        parent.classList.toggle("active");
+        <li>
+          <a href="index.html">
+            Beranda
+          </a>
+        </li>
 
-      }
+
+        <!-- TENTANG -->
+
+        <li class="dropdown">
+
+          <a href="#">
+            Tentang Kami
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a href="sejarah.html">
+                Sejarah
+              </a>
+            </li>
+
+            <li>
+              <a href="sambutan.html">
+                Sambutan Kepala Sekolah
+              </a>
+            </li>
+
+            <li>
+              <a href="visi-misi.html">
+                Visi & Misi
+              </a>
+            </li>
+
+            <li>
+              <a href="organisasi.html">
+                Organisasi SD
+              </a>
+            </li>
+
+            <li>
+              <a href="komite.html">
+                Organisasi Komite
+              </a>
+            </li>
+
+            <li>
+              <a href="guru.html">
+                Guru Kami
+              </a>
+            </li>
+
+            <li>
+              <a href="video-profile.html">
+                Video Profile
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <!-- KURIKULUM -->
+
+        <li class="dropdown">
+
+          <a href="#">
+            Kurikulum
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a href="kurikulum-umum.html">
+                Umum
+              </a>
+            </li>
+
+            <li>
+              <a href="kurikulum-diniyah.html">
+                Diniyah
+              </a>
+            </li>
+
+            <li>
+              <a href="tahsin-tahfizh.html">
+                Tahsin & Tahfizh
+              </a>
+            </li>
+
+            <li>
+              <a href="ekstrakurikuler.html">
+                Intra & Ekstrakurikuler
+              </a>
+            </li>
+
+            <li>
+              <a href="kaldik.html">
+                Kalender Pendidikan
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <li>
+          <a href="fasilitas.html">
+            Fasilitas
+          </a>
+        </li>
+
+        <li>
+          <a href="berita.html">
+            Info Berita
+          </a>
+        </li>
+
+        <li>
+          <a href="kontak.html">
+            Kontak
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="medsos.html"
+            class="active">
+            Medsos
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="ppdb.html"
+            class="ppdb">
+            PPDB 2026
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =================================
+       HERO
+  ================================= -->
+
+  <section class="page-hero">
+
+    <div class="page-hero-content">
+
+      <span class="label">
+        <i class="fas fa-share-nodes"></i>
+        MEDIA SOSIAL
+      </span>
+
+      <h1>
+        Ikuti Kami
+      </h1>
+
+      <p>
+        Dapatkan kabar terbaru kegiatan, prestasi, dan
+        keseruan belajar SDIT Ihyaussunnah melalui
+        media sosial resmi kami.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =================================
+       MAIN
+  ================================= -->
+
+  <main>
+
+    <div class="container">
+
+
+      <div class="section-heading">
+
+        <span class="label">
+          AKUN RESMI
+        </span>
+
+        <h2>
+          Media Sosial Sekolah
+        </h2>
+
+        <p>
+          Klik tombol di bawah untuk membuka akun resmi
+          SDIT Ihyaussunnah. Ganti tautan dengan akun
+          sekolah Anda yang sebenarnya.
+        </p>
+
+      </div>
+
+
+      <div class="sm-grid">
+
+
+        <!-- INSTAGRAM -->
+
+        <article class="sm-card ig">
+
+          <div class="sm-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+
+          <h3>Instagram</h3>
+
+          <span class="sm-handle">@sditihyaussunnah</span>
+
+          <p>
+            Foto dan video kegiatan harian, momen belajar,
+            serta dokumentasi acara sekolah.
+          </p>
+
+          <a
+            href="https://instagram.com/sditihyaussunnah"
+            target="_blank"
+            rel="noopener"
+            class="sm-btn">
+            <i class="fab fa-instagram"></i>
+            Ikuti di Instagram
+          </a>
+
+        </article>
+
+
+        <!-- YOUTUBE -->
+
+        <article class="sm-card yt">
+
+          <div class="sm-icon">
+            <i class="fab fa-youtube"></i>
+          </div>
+
+          <h3>YouTube</h3>
+
+          <span class="sm-handle">SDIT Ihyaussunnah</span>
+
+          <p>
+            Video profil sekolah, kegiatan, dan kumpulan
+            pembelajaran untuk peserta didik maupun orang tua.
+          </p>
+
+          <a
+            href="https://youtube.com/@sditihyaussunnah"
+            target="_blank"
+            rel="noopener"
+            class="sm-btn">
+            <i class="fab fa-youtube"></i>
+            Tonton di YouTube
+          </a>
+
+        </article>
+
+
+        <!-- FACEBOOK -->
+
+        <article class="sm-card fb">
+
+          <div class="sm-icon">
+            <i class="fab fa-facebook"></i>
+          </div>
+
+          <h3>Facebook</h3>
+
+          <span class="sm-handle">SDIT Ihyaussunnah Bontang</span>
+
+          <p>
+            Pengumuman resmi, informasi kegiatan, dan
+            cerita dari lingkungan sekolah.
+          </p>
+
+          <a
+            href="https://facebook.com/sditihyaussunnah"
+            target="_blank"
+            rel="noopener"
+            class="sm-btn">
+            <i class="fab fa-facebook"></i>
+            Kunjungi Facebook
+          </a>
+
+        </article>
+
+
+        <!-- TIKTOK -->
+
+        <article class="sm-card tt">
+
+          <div class="sm-icon">
+            <i class="fab fa-tiktok"></i>
+          </div>
+
+          <h3>TikTok</h3>
+
+          <span class="sm-handle">@sditihyaussunnah</span>
+
+          <p>
+            Video pendek tentang kegiatan seru, lomba, dan
+            keseharian peserta didik di sekolah.
+          </p>
+
+          <a
+            href="https://tiktok.com/@sditihyaussunnah"
+            target="_blank"
+            rel="noopener"
+            class="sm-btn">
+            <i class="fab fa-tiktok"></i>
+            Lihat di TikTok
+          </a>
+
+        </article>
+
+
+        <!-- WHATSAPP CHANNEL -->
+
+        <article class="sm-card wa">
+
+          <div class="sm-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+
+          <h3>WhatsApp Channel</h3>
+
+          <span class="sm-handle">Info Sekolah</span>
+
+          <p>
+            Terima informasi penting dan pengumuman terbaru
+            langsung di WhatsApp Anda.
+          </p>
+
+          <a
+            href="https://wa.me/628xxxxxxxxxx"
+            target="_blank"
+            rel="noopener"
+            class="sm-btn">
+            <i class="fab fa-whatsapp"></i>
+            Gabung Channel
+          </a>
+
+        </article>
+
+
+        <!-- TELEGRAM -->
+
+        <article class="sm-card tg">
+
+          <div class="sm-icon">
+            <i class="fab fa-telegram"></i>
+          </div>
+
+          <h3>Telegram</h3>
+
+          <span class="sm-handle">@sditihyaussunnah</span>
+
+          <p>
+            Kanal informasi untuk berita dan pengumuman
+            sekolah yang bisa diakses kapan saja.
+          </p>
+
+          <a
+            href="https://t.me/sditihyaussunnah"
+            target="_blank"
+            rel="noopener"
+            class="sm-btn">
+            <i class="fab fa-telegram"></i>
+            Bergabung di Telegram
+          </a>
+
+        </article>
+
+      </div>
+
+
+      <!-- HASHTAG -->
+
+      <div class="hashtag-box">
+
+        <h3>
+          Ikut Bagikan Kegiatan Kami
+        </h3>
+
+        <p>
+          Gunakan tagar berikut saat membagikan momen
+          sekolah di media sosial.
+        </p>
+
+        <div class="hashtag-list">
+          <span>#SDITIhyaussunnah</span>
+          <span>#BerakidahCerdasBerakhlakMulia</span>
+          <span>#BontangBelajar</span>
+          <span>#GenerasiQurani</span>
+          <span>#SekolahIslamTerpadu</span>
+        </div>
+
+      </div>
+
+
+      <!-- CTA -->
+
+      <div class="cta-box">
+
+        <div>
+
+          <h3>
+            Jangan Ketinggalan Informasi
+          </h3>
+
+          <p>
+            Ikuti semua akun resmi kami dan jadilah bagian
+            dari perjalanan belajar anak-anak kita.
+          </p>
+
+        </div>
+
+        <a
+          href="https://wa.me/628xxxxxxxxxx"
+          target="_blank"
+          rel="noopener"
+          class="cta-btn">
+
+          <i class="fab fa-whatsapp"></i>
+          Hubungi Admin
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =================================
+       FOOTER
+  ================================= -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="footer-about">
+
+        <div class="footer-brand">
+
+          <img
+            src="./images/sdit.jpg"
+            alt="Logo SDIT Ihyaussunnah">
+
+          <h3>
+            SDIT Ihyaussunnah
+          </h3>
+
+        </div>
+
+        <p>
+          Berakidah, Cerdas Berakhlak Mulia.
+          Membangun generasi yang mencintai Al-Qur'an,
+          berilmu, berakhlak, dan bermanfaat bagi umat.
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Menu
+        </h4>
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Beranda
+            </a>
+          </li>
+
+          <li>
+            <a href="tentang.html">
+              Tentang Kami
+            </a>
+          </li>
+
+          <li>
+            <a href="kurikulum.html">
+              Kurikulum
+            </a>
+          </li>
+
+          <li>
+            <a href="fasilitas.html">
+              Fasilitas
+            </a>
+          </li>
+
+          <li>
+            <a href="berita.html">
+              Berita
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Hubungi Kami
+        </h4>
+
+        <ul>
+
+          <li>
+            <i class="fas fa-location-dot"></i>
+            Bontang, Kalimantan Timur
+          </li>
+
+          <li>
+            <i class="fas fa-phone"></i>
+            08xxxxxxxxxx
+          </li>
+
+          <li>
+            <i class="fas fa-envelope"></i>
+            info@sditihyaussunnah.sch.id
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="currentYear"></span>
+      SDIT Ihyaussunnah.
+      Semua Hak Dilindungi.
+    </div>
+
+  </footer>
+
+
+  <!-- =================================
+       JAVASCRIPT (ringan)
+  ================================= -->
+
+  <script>
+
+    /* MOBILE MENU */
+
+    const menuToggle =
+      document.getElementById('menuToggle');
+
+    const navMenu =
+      document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', function() {
+
+      navMenu.classList.toggle('active');
 
     });
 
-  });
+
+    /* MOBILE DROPDOWN */
+
+    const dropdowns =
+      document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(function(dropdown) {
+
+      const link =
+        dropdown.querySelector(':scope > a');
+
+      link.addEventListener('click', function(e) {
+
+        if (window.innerWidth <= 1000) {
+
+          e.preventDefault();
+
+          dropdown.classList.toggle('active');
+
+        }
+
+      });
+
+    });
 
 
-  // Tutup menu saat klik di luar
-  document.addEventListener("click", function(e) {
+    /* YEAR */
 
-    if (
-      !e.target.closest(".navbar") &&
-      navMenu.classList.contains("active")
-    ) {
+    document.getElementById('currentYear').textContent =
+      new Date().getFullYear();
 
-      navMenu.classList.remove("active");
-
-      const icon = mobileToggle.querySelector("i");
-
-      icon.classList.remove("fa-xmark");
-      icon.classList.add("fa-bars");
-
-    }
-
-  });
-
-
-  // Reset mobile menu ketika kembali desktop
-  window.addEventListener("resize", function() {
-
-    if (window.innerWidth > 800) {
-
-      navMenu.classList.remove("active");
-
-      mobileToggle
-        .querySelector("i")
-        .classList.remove("fa-xmark");
-
-      mobileToggle
-        .querySelector("i")
-        .classList.add("fa-bars");
-
-      document.querySelectorAll(".dropdown")
-        .forEach(function(dropdown) {
-          dropdown.classList.remove("active");
-        });
-
-    }
-
-  });
-
-
-  // Tahun otomatis
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-</script>
+  </script>
 
 </body>
 </html>
