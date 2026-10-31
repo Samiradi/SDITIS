@@ -189,17 +189,19 @@ Berakidah - Cerdas - Berakhlak Mulia
 
         content: `
             <p>
-                "Semarak Yaumut Tijarah: Melatih Jiwa Kewirausahaan dan Sinergi Sekolah-Orang Tua Sejak Dini"
+                "Semarak Yaumut Tijarah: Melatih Jiwa Kewirausahaan dan Sinergi Sekolah-Orang Tua Sejak Dini" 🛍️✨
             </p>
 
             <p>
-                BONTANG.Kemeriahan dan gelak tawa riang menyelimuti lingkungan sekolah selama tiga hari berturut-turut, mulai Kamis (13/10/2026) hingga Sabtu (15/10/2026). Seluruh siswa-siswi SD antusias mengikuti kegiatan Yaumut Tijarah (Hari Berdagang), sebuah agenda tahunan yang dirancang untuk melatih kemandirian, kejujuran, dan jiwa entrepreneurship para murid sejak usia dini.
+                BONTANG.Kemeriahan dan gelak tawa riang menyelimuti lingkungan sekolah SDIT Ihyaussunnah selama tiga hari berturut-turut, mulai Kamis (13/10/2026) hingga Sabtu (15/10/2026). Seluruh siswa-siswi SD antusias mengikuti kegiatan Yaumut Tijarah (Hari Berdagang), sebuah agenda tahunan yang dirancang untuk melatih kemandirian, kejujuran, dan jiwa entrepreneurship para murid sejak usia dini.
             </p>
 
             <h2>Pasar cilik yang penuh warna!</h2>
 
             <p>
-                Melalui kegiatan ini, anak-anak tidak hanya belajar hitung-menghitung uang, tetapi juga melatih rasa percaya diri, komunikasi, dan kejujuran dalam berdagang. Terima kasih kepada seluruh pihak yang telah mendukung suksesnya acara ini! 🌟
+                Selama tiga hari, Selasa-Kamis (13–15 Oktober 2026), halaman sekolah diwarnai keseruan Yaumut Tijarah. Para siswa SD belajar menjadi pengusaha cilik dengan menjajakan aneka makanan dan minuman home made lezat karya mereka sendiri kepada para guru dan teman-teman sekolah.
+
+Tak hanya murid dan guru, semangat kolaborasi juga terlihat dari dukungan penuh para orang tua/wali murid yang ikut berpartisipasi menyiapkan sajian terbaik serta mendampingi putra-putrinya.Melalui kegiatan ini, anak-anak tidak hanya belajar hitung-menghitung uang, tetapi juga melatih rasa percaya diri, komunikasi, dan kejujuran dalam berdagang. Terima kasih kepada seluruh pihak yang telah mendukung suksesnya acara ini! 🌟
             </p>
 
             <p>#YaumutTijarah #MarketDaySD #PendidikanKarakter #SekolahPenggerak #EntrepreneurMuda </p>
