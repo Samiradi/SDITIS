@@ -180,6 +180,45 @@ Berakidah - Cerdas - Berakhlak Mulia
     {
         id: 5,
         category: "Kegiatan",
+        date: "Selasa 13 Oktober 2026",
+        author: "Admin SDIT Ihyaussunnah",
+        title: "Kegiatan Yaumut Tijarah SDIT Ihyaussunnah",
+        summary:
+            "Semarak Yaumut Tijarah: Melatih Jiwa Kewirausahaan dan Sinergi Sekolah-Orang Tua Sejak Dini",
+        image: "./images/SDIT/berita-bazar.jpg",
+
+        content: `
+            <p>
+                "Semarak Yaumut Tijarah: Melatih Jiwa Kewirausahaan dan Sinergi Sekolah-Orang Tua Sejak Dini"
+            </p>
+
+            <p>
+                BONTANG.Kemeriahan dan gelak tawa riang menyelimuti lingkungan sekolah selama tiga hari berturut-turut, mulai Kamis (13/10/2026) hingga Sabtu (15/10/2026). Seluruh siswa-siswi SD antusias mengikuti kegiatan Yaumut Tijarah (Hari Berdagang), sebuah agenda tahunan yang dirancang untuk melatih kemandirian, kejujuran, dan jiwa entrepreneurship para murid sejak usia dini.
+            </p>
+
+            <h2>Pasar cilik yang penuh warna!</h2>
+
+            <p>
+                Melalui kegiatan ini, anak-anak tidak hanya belajar hitung-menghitung uang, tetapi juga melatih rasa percaya diri, komunikasi, dan kejujuran dalam berdagang. Terima kasih kepada seluruh pihak yang telah mendukung suksesnya acara ini! 🌟
+            </p>
+
+            <p>#YaumutTijarah #MarketDaySD #PendidikanKarakter #SekolahPenggerak #EntrepreneurMuda </p>
+        `,
+
+        gallery: [
+            "./images/SDIT/berita-bazar2.jpg",
+            "./images/SDIT/berita-bazar3.jpg",
+            "./images/SDIT/berita-bazar4.jpg",
+            "./images/SDIT/berita-bazar5.jpg",
+            "./images/SDIT/berita-bazar6.jpg",
+            "./images/SDIT/berita-bazar7.jpg",
+            "./images/SDIT/berita-bazar8.jpg"
+        ]
+    },
+
+    {
+        id: 6,
+        category: "Kegiatan",
         date: "Jum'at 9 Oktober 2026",
         author: "Admin SDIT Ihyaussunnah",
         title: "Kegiatan Jum'at Pramuka SDIT Ihyaussunnah",
@@ -212,7 +251,7 @@ Berakidah - Cerdas - Berakhlak Mulia
     },
 
     {
-        id: 6,
+        id: 7,
         category: "Pendidikan",
         date: "1 September 2026",
         author: "Admin SDIT Ihyaussunnah",

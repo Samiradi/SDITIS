@@ -12,7 +12,7 @@
 
     const items = (typeof newsData !== "undefined" ? newsData : [])
         .flatMap(news =>
-            (news.gallery || []).map(src => ({ src, title: news.title }))
+            (news.gallery || []).map(src => ({ src, title: news.title, id: news.id }))
         );
 
     if (items.length === 0) {
@@ -48,6 +48,24 @@
             padding: 12px 16px; font-size: 12px; font-weight: 600;
             color: var(--nav-text); opacity: .8;
             white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .bg-slide {
+            display: flex;
+            flex-direction: column;
+        }
+        .bg-link {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--green);
+            transition: color .3s;
+        }
+        .bg-link:hover {
+            color: var(--orange);
         }
         .bg-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
@@ -127,7 +145,15 @@
         const caption = document.createElement("figcaption");
         caption.textContent = item.title;
 
-        figure.append(img, caption);
+        const link = document.createElement("a");
+        link.className = "bg-link";
+        link.href = "detail-berita.html?id=" + item.id;
+        link.innerHTML = 'Lihat detail berita <i class="fa-solid fa-arrow-right"></i>';
+
+        // Klik tombol membuka halaman berita, bukan lightbox
+        link.addEventListener("click", event => event.stopPropagation());
+
+        figure.append(img, caption, link);
 
         figure.addEventListener("click", () => {
             window.openLightbox(srcList, i);
