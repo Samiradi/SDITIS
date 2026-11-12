@@ -164,7 +164,6 @@
         .galaxy {
             position: absolute;
             border-radius: 50%;
-            filter: blur(4px);
             opacity: .65;
             transition: opacity .8s ease;
         }
@@ -257,7 +256,6 @@
                     rgba(243,156,18,0) 72%
                 );
 
-            filter: blur(.5px);
             opacity: 1;
 
             animation: sunPulse 5s ease-in-out infinite;
@@ -552,6 +550,133 @@
                     translateX(280px)
                     rotate(90deg);
             }
+        }
+
+        /* =========================================================
+           KOMET (MALAM) - melintas setiap 20 detik, tampil 5 detik
+           Arah: dari kiri atas menukik ke kanan bawah (kepala di depan)
+        ========================================================= */
+
+        .comet {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 340px;
+            height: 16px;
+
+            transform-origin: 0 50%;
+
+            opacity: 0;
+            display: none;
+            pointer-events: none;
+
+            will-change: transform, opacity;
+
+            animation: cometFall 20s linear infinite;
+            animation-delay: 2s;
+        }
+
+        body.night .comet {
+            display: block;
+        }
+
+        /* Inti komet yang terang */
+        .comet-head {
+            position: absolute;
+            left: -7px;
+            top: 1px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #ffffff 0%,
+                    #d9ffe6 25%,
+                    #4ade80 55%,
+                    rgba(34, 197, 94, 0) 72%
+                );
+
+            box-shadow:
+                0 0 14px rgba(74, 222, 128, .9),
+                0 0 30px rgba(34, 197, 94, .55);
+        }
+
+        /* Ekor gas: terang di kepala, memudar dan menyempit ke ujung */
+        .comet-tail {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 320px;
+            height: 12px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(217, 255, 230, .95) 0%,
+                    rgba(74, 222, 128, .55) 20%,
+                    rgba(34, 197, 94, .18) 60%,
+                    rgba(34, 197, 94, 0) 100%
+                );
+
+            clip-path: polygon(0 30%, 100% 50%, 100% 50%, 0 70%);
+        }
+
+        /* Ekor debu: lebih lebar, redup, sedikit melengkung */
+        .comet-dust {
+            position: absolute;
+            left: 0;
+            top: -5px;
+            width: 260px;
+            height: 26px;
+
+            transform: rotate(-7deg);
+            transform-origin: 0 50%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(236, 253, 245, .35) 0%,
+                    rgba(236, 253, 245, .12) 45%,
+                    rgba(236, 253, 245, 0) 100%
+                );
+
+            clip-path: polygon(0 20%, 100% 50%, 100% 50%, 0 80%);
+        }
+
+        /* Lintasan: kepala komet di kanan bawah, ekor ke kiri atas
+           (seperti foto referensi). Melintas dalam 13 detik dari
+           kiri atas ke kanan bawah, gerakan pelan di awal lalu makin cepat. */
+        @keyframes cometFall {
+            0% {
+                opacity: 0;
+                transform: translate3d(-12vw, -12vh, 0) rotate(-136deg);
+            }
+            1% {
+                opacity: 1;
+                transform: translate3d(-12vw, -12vh, 0) rotate(-136deg);
+                animation-timing-function: cubic-bezier(.45, 0, .8, .6);
+            }
+            65% {
+                opacity: 1;
+                transform: translate3d(112vw, 108vh, 0) rotate(-136deg);
+            }
+            66% {
+                opacity: 0;
+                transform: translate3d(112vw, 108vh, 0) rotate(-136deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(112vw, 108vh, 0) rotate(-136deg);
+            }
+        }
+
+        /* Layar kecil: komet dibuat lebih pendek */
+        @media (max-width: 650px) {
+            .comet { width: 220px; }
+            .comet-tail { width: 200px; }
+            .comet-dust { width: 170px; }
         }
 
         /* =========================================================
@@ -1203,7 +1328,6 @@
                     transparent 65%
                 );
 
-            filter: blur(10px);
         }
 
         .quran-content {
@@ -1659,6 +1783,124 @@
             }
         }
 
+        /* Pengguna yang memilih "kurangi gerakan": komet dimatikan */
+        @media (prefers-reduced-motion: reduce) {
+            .comet { display: none !important; }
+        }
+
+
+        /* =========================================================
+           OPTIMASI SCROLL
+           Blur latar dihilangkan agar gulir tidak tersendat,
+           dan animasi latar dijeda sementara saat halaman digulir
+        ========================================================= */
+
+        .navbar,
+        .nav-menu,
+        .program-card,
+        .news-card,
+        .dropdown-menu {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, .95);
+        }
+
+        body.night .navbar {
+            background: rgba(7, 18, 45, .95);
+        }
+
+        .program-card,
+        .news-card {
+            background: rgba(255, 255, 255, .92);
+        }
+
+        body.night .program-card,
+        body.night .news-card {
+            background: rgba(7, 18, 45, .92);
+        }
+
+        body.scrolling .space-world *,
+        body.scrolling .space-world {
+            animation-play-state: paused !important;
+        }
+
+
+        /* =========================================================
+           TOMBOL SPMB (navbar & menu mobile)
+           Gradasi hijau-oranye, cahaya berkilau, dan denyut lembut
+        ========================================================= */
+
+        .nav-spmb {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 7px;
+            background: linear-gradient(135deg, #16a34a, #f97316) !important;
+            color: #ffffff !important;
+            border-radius: 25px;
+            padding: 9px 18px !important;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(249, 115, 22, .35);
+            animation: spmbPulse 2.6s ease-in-out infinite;
+        }
+
+        .nav-spmb:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(249, 115, 22, .45);
+        }
+
+        /* Kilau yang melintas di atas tombol */
+        .nav-spmb::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -80%;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, .55),
+                transparent
+            );
+            transform: skewX(-20deg);
+            animation: spmbShine 3.4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .nav-spmb i {
+            font-size: 13px;
+        }
+
+        @keyframes spmbPulse {
+            0%, 100% {
+                box-shadow: 0 8px 20px rgba(249, 115, 22, .35);
+            }
+            50% {
+                box-shadow: 0 8px 28px rgba(22, 163, 74, .5);
+            }
+        }
+
+        @keyframes spmbShine {
+            0%, 55% {
+                left: -80%;
+            }
+            100% {
+                left: 130%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .nav-spmb,
+            .nav-spmb::after {
+                animation: none;
+            }
+        }
+
     </style>
 </head>
 
@@ -1685,6 +1927,13 @@
 
     <div class="meteor meteor-one"></div>
     <div class="meteor meteor-two"></div>
+
+    <!-- KOMET (malam saja) -->
+    <div class="comet" aria-hidden="true">
+        <div class="comet-dust"></div>
+        <div class="comet-tail"></div>
+        <div class="comet-head"></div>
+    </div>
 
     <!-- PLANET + ORBIT -->
     <div class="planet-system" id="planetSystem">
@@ -1878,8 +2127,9 @@
             </li>
 
             <li>
-                <a href="#ppdb">
-                    PPDB 2026
+                <a href="spmb.html" class="nav-spmb">
+                    <i class="fas fa-graduation-cap"></i>
+                    SPMB 2026
                 </a>
             </li>
 
@@ -2311,7 +2561,7 @@
      CTA
 ========================================================= -->
 
-<section class="cta" id="ppdb">
+<section class="cta" id="spmb">
 
     <div class="cta-box reveal">
 
@@ -2789,6 +3039,21 @@
         }
     );
 
+</script>
+
+<script>
+    /* Jeda animasi latar selama gulir, lanjut lagi setelah berhenti */
+    (function () {
+        let timer = null;
+
+        window.addEventListener("scroll", function () {
+            document.body.classList.add("scrolling");
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                document.body.classList.remove("scrolling");
+            }, 180);
+        }, { passive: true });
+    })();
 </script>
 
 </body>
