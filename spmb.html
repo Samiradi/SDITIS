@@ -352,10 +352,17 @@
       background-size: cover;
       background-position: center;
       opacity: 0;
-      transition: opacity .6s ease;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .6s ease, visibility .6s ease;
     }
 
-    .promo-slide.active { opacity: 1; }
+    /* Slide yang tidak aktif tidak boleh menerima klik */
+    .promo-slide.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
 
     .promo-slide::before {
       content: "";
@@ -928,12 +935,12 @@
 
       <span class="status">
         <span class="dot"></span>
-        Pendaftaran Peserta Didik Baru 2026/2027 Dibuka
+        PENDAFTARAN PESERTA DIDIK BARU 2027/2028 TELAH DIBUKA
       </span>
 
       <h1>
         Mari Bergabung<br>
-        <span>Bersama Kami</span>
+        <span>Bersama Kami SDIT Ihyaussunnah Bontang</span>
       </h1>
 
       <p class="lead">
