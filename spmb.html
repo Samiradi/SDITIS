@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SPMB 2026 | SDIT Ihyaussunnah</title>
+  <title>SPMB 2027/2028 | SDIT Ihyaussunnah</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -873,6 +873,131 @@
       .wrap { max-width: 1100px; }
     }
 
+    /* ================= ALUR: ONLINE & OFFLINE ================= */
+
+    .track-grid {
+      display: grid;
+      gap: 22px;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .track-card {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px 26px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-md);
+    }
+
+    .track-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+    }
+
+    .track-card.online::before {
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+    }
+
+    .track-card.offline::before {
+      background: linear-gradient(90deg, #f97316, #fb923c);
+    }
+
+    .track-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .track-head i {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .online .track-head i {
+      background: var(--green-soft);
+      color: var(--green-primary);
+    }
+
+    .offline .track-head i {
+      background: var(--orange-soft);
+      color: var(--orange-dark);
+    }
+
+    .track-head h3 {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .track-steps {
+      list-style: none;
+      display: grid;
+      gap: 18px;
+    }
+
+    .track-steps li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .track-steps .n {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .online .n { background: var(--green-primary); }
+    .offline .n { background: var(--orange-dark); }
+
+    .track-steps strong {
+      display: block;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .track-steps p {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .track-steps b {
+      color: var(--green-primary);
+    }
+
+    .offline .track-steps b {
+      color: var(--orange-dark);
+    }
+
+    @media (min-width: 900px) {
+      .track-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 1040px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; }
     }
@@ -890,7 +1015,7 @@
       <a href="index.html" class="brand">
         <img src="./images/sdit.jpg" alt="Logo SDIT Ihyaussunnah">
         <div>
-          <strong>SPMB 2026</strong>
+          <strong>SPMB 2027/2028</strong>
           <small>SDIT IHYAUSSUNNAH BONTANG</small>
         </div>
       </a>
@@ -935,7 +1060,7 @@
 
       <span class="status">
         <span class="dot"></span>
-        Pendaftaran Peserta Didik Baru 2026/2027 Dibuka
+        Pendaftaran Peserta Didik Baru 2027/2028 Dibuka
       </span>
 
       <h1>
@@ -1014,38 +1139,75 @@
         <p>Ikuti 4 langkah mudah berikut untuk menyelesaikan proses pendaftaran putra-putri Anda.</p>
       </div>
 
-      <div class="steps">
+      <div class="track-grid">
 
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-card">
-            <h3>Isi Formulir Pendaftaran</h3>
-            <p>Klik tombol <strong>Daftar Sekarang</strong>, lalu isi formulir Google berisi data calon siswa dan data orang tua/wali dengan lengkap.</p>
+        <!-- PENDAFTARAN ONLINE -->
+        <div class="track-card online">
+          <div class="track-head">
+            <i class="fas fa-desktop"></i>
+            <h3>Pendaftaran Online</h3>
           </div>
+          <ol class="track-steps">
+            <li>
+              <span class="n">1</span>
+              <div>
+                <strong>Pembayaran biaya pendaftaran</strong>
+                <p>Pembayaran sebesar Rp ... dilakukan melalui transfer ke rekening <b>BSI 2002022888</b> atas nama SDIT Ihyaussunnah.</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">2</span>
+              <div>
+                <strong>Pengisian formulir dan unggah berkas</strong>
+                <p>Mengisi formulir pendaftaran online melalui Google Form dan mengunggah berkas persyaratan.</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">3</span>
+              <div>
+                <strong>Menunggu konfirmasi</strong>
+                <p>Panitia akan menginformasikan melalui chat bahwa berkas pendaftaran telah diterima.</p>
+              </div>
+            </li>
+          </ol>
         </div>
 
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-card">
-            <h3>Unggah Berkas Persyaratan</h3>
-            <p>Lampirkan dokumen pada kolom unggah di dalam formulir, seperti akta kelahiran, KK, KTP orang tua, pas foto anak, dan sertifikat prestasi jika mengikuti jalur prestasi.</p>
+        <!-- PENDAFTARAN OFFLINE -->
+        <div class="track-card offline">
+          <div class="track-head">
+            <i class="fas fa-file-signature"></i>
+            <h3>Pendaftaran Offline</h3>
           </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-card">
-            <h3>Bayar Biaya Formulir</h3>
-            <p>Setelah formulir terkirim, lakukan pembayaran biaya formulir sesuai instruksi yang kami sampaikan melalui WhatsApp admin.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-card">
-            <h3>Observasi & Pengumuman</h3>
-            <p>Ikuti jadwal observasi yang kami informasikan. Hasil penerimaan (Diterima / Ditolak / Cabut) akan diumumkan melalui WhatsApp.</p>
-          </div>
+          <ol class="track-steps">
+            <li>
+              <span class="n">1</span>
+              <div>
+                <strong>Pengambilan formulir</strong>
+                <p>Datang ke gedung belakang SDIT Ihyaussunnah untuk mengambil formulir pendaftaran.</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">2</span>
+              <div>
+                <strong>Pembayaran biaya pendaftaran</strong>
+                <p>Pembayaran sebesar Rp ....</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">3</span>
+              <div>
+                <strong>Pengisian formulir dan kelengkapan berkas</strong>
+                <p>Mengisi formulir dan melengkapi seluruh berkas persyaratan.</p>
+              </div>
+            </li>
+            <li>
+              <span class="n">4</span>
+              <div>
+                <strong>Penyerahan berkas ke sekolah</strong>
+                <p>Formulir dan berkas pendaftaran diserahkan ke sekolah paling lambat <b>14 Januari 2026</b>.</p>
+              </div>
+            </li>
+          </ol>
         </div>
 
       </div>
@@ -1063,17 +1225,27 @@
 
         <div class="doc-head">
           <i class="fas fa-folder-open"></i>
-          <h3>Persyaratan Dokumen</h3>
+          <h3>Syarat Pendaftaran</h3>
         </div>
 
         <!-- Sesuaikan daftar dokumen dengan kebijakan sekolah -->
         <ul class="doc-list">
           <li>
-            <i class="fas fa-circle-check"></i>
+            <i class="fas fa-cake-candles"></i>
             <div>
-              Fotokopi Akta Kelahiran
-              <small>Unggah dalam format JPEG atau PDF</small>
+              Berusia minimal 6 tahun pada bulan Juli 2027
+              <small>Apabila belum memenuhi usia tersebut, wajib melampirkan surat kesiapan masuk SD</small>
             </div>
+          </li>
+          <li>
+            <i class="fas fa-money-bill-wave"></i>
+            <div>
+              Pembayaran formulir sebesar Rp 250.000
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-circle-check"></i>
+            <div>Fotokopi Akta Kelahiran</div>
           </li>
           <li>
             <i class="fas fa-circle-check"></i>
@@ -1081,21 +1253,20 @@
           </li>
           <li>
             <i class="fas fa-circle-check"></i>
+            <div>Fotokopi KTP ayah dan ibu</div>
+          </li>
+          <li>
+            <i class="fas fa-circle-check"></i>
             <div>
-              Fotokopi KTP Orang Tua (Ayah & Ibu)
+              Pas foto berwarna ukuran 3x4
+              <small>Sebanyak 2 lembar</small>
             </div>
           </li>
           <li>
             <i class="fas fa-circle-check"></i>
             <div>
-              Pas foto anak berwarna terbaru
-            </div>
-          </li>
-          <li>
-            <i class="fas fa-circle-check"></i>
-            <div>
-              Sertifikat/Piagam Prestasi
-              <small>Khusus jalur prestasi</small>
+              Sertifikat atau piagam prestasi
+              <small>Khusus untuk jalur prestasi</small>
             </div>
           </li>
         </ul>
@@ -1186,8 +1357,7 @@
             <i class="fas fa-chevron-down"></i>
           </button>
           <div class="faq-a">
-            Isi jawaban di sini sesuai kebijakan sekolah, misalnya apakah
-            pendaftaran cukup dilakukan secara daring.
+            Tidak, pendaftaran dapat dilakukan secara online melalui formulir yang tersedia. Namun, bagi yang ingin mendaftar secara offline, dapat datang langsung ke sekolah.
           </div>
         </div>
 
@@ -1197,7 +1367,7 @@
             <i class="fas fa-chevron-down"></i>
           </button>
           <div class="faq-a">
-            Isi jawaban di sini sesuai ketentuan usia yang berlaku.
+            <!-- Isi jawaban di sini sesuai ketentuan usia yang berlaku. -->
           </div>
         </div>
 
@@ -1207,7 +1377,7 @@
             <i class="fas fa-chevron-down"></i>
           </button>
           <div class="faq-a">
-            Isi jawaban di sini tentang bentuk observasi atau seleksi yang dilakukan.
+            <!-- Isi jawaban di sini tentang bentuk observasi atau seleksi yang dilakukan. -->
           </div>
         </div>
 
@@ -1268,7 +1438,7 @@
           <h5>Hubungi Kami</h5>
           <ul>
             <li><i class="fas fa-location-dot"></i> Bontang, Kalimantan Timur</li>
-            <li><i class="fas fa-phone"></i> 08xxxxxxxxxx</li>
+            <li><i class="fas fa-phone"></i> 082152364625</li>
             <li><i class="fas fa-envelope"></i> info@sditihyaussunnah.sch.id</li>
           </ul>
         </div>
@@ -1284,7 +1454,7 @@
   </footer>
 
   <!-- Tombol WhatsApp melayang -->
-  <a href="https://wa.me/628xxxxxxxxxx" target="_blank" rel="noopener"
+  <a href="https://wa.me/6282152364625" target="_blank" rel="noopener"
      class="wa-float" aria-label="Chat WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
