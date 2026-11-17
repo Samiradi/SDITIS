@@ -53,49 +53,44 @@ const newsData = [
     {
         id: 2,
         category: "Prestasi",
-        date: "20 September 2026",
+        date: "17 November 2026",
         author: "Admin SDIT Ihyaussunnah",
         title: "Prestasi Peserta Didik SDIT Ihyaussunnah",
         summary:
             "Peserta didik SDIT Ihyaussunnah berhasil meraih prestasi dalam kegiatan perlombaan.",
-        image: "./images/berita-prestasi.jpg",
+        image: "./images/SDIT/berita-prestasi.jpeg",
 
         content: `
             <p>
                 🏆✨ Alhamdulillah, Prestasi Membanggakan!
 
-Selamat dan sukses kepada ananda Abdurrohman Baz Multazam (Kelas 1 Abdurrahman Bin Auf) atas raihan Juara Perak Sains Level 1 pada Jenius Science Olympiad (JSO) 2026 Tingkat Provinsi Kalimantan Timur 🌟
 
-Semoga pencapaian ini menjadi motivasi untuk terus belajar, semangat meraih ilmu, dan mengukir prestasi yang lebih gemilang di masa depan 📚✨
-
-Barakallahu fiikum 🌷
-__________
-SD IT IHYAUSSUNNAH BONTANG
-Berakidah - Cerdas - Berakhlak Mulia
             </p>
 
             <p>
-                Prestasi tersebut merupakan hasil dari kerja keras peserta didik,
-                dukungan orang tua, serta bimbingan para guru.
+                Selamat kepada Runako Ziyad Abdillah (Kelas 3 Abu Bakar Ash-Shiddiq) atas prestasi meraih Juara 2 Lomba Adzan dan Iqamah Tingkat Provinsi Kalimantan Timur 2026. 🌟
             </p>
 
             <h2>Apresiasi untuk Peserta Didik</h2>
 
             <p>
-                Sekolah memberikan apresiasi kepada seluruh peserta didik yang
-                telah berusaha memberikan kemampuan terbaiknya.
+                Semoga prestasi ini menjadi motivasi untuk terus belajar, mengembangkan potensi, dan meraih keberhasilan berikutnya  💚
             </p>
 
             <p>
-                Semoga prestasi yang diraih menjadi motivasi untuk terus belajar,
-                berkembang, dan memberikan manfaat bagi orang lain.
+                Barakallahu fiikum 🌷
+            </p>
+
+            <p>
+SD IT IHYAUSSUNNAH BONTANG
+Berakidah - Cerdas - Berakhlak Mulia
             </p>
         `,
 
         gallery: [
-            "./images/berita-2.jpg",
-            "./images/berita-2-1.jpg",
-            "./images/berita-2-2.jpg"
+            "./images/SDIT/berita-prestasi.jpeg",
+            // "./images/berita-2-1.jpg",
+            // "./images/berita-2-2.jpg"
         ]
     },
 
