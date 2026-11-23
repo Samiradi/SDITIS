@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SPMB 2026 | SDIT Ihyaussunnah</title>
+  <title>SPMB 2027/2028 | SDIT Ihyaussunnah</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -998,6 +998,62 @@
       }
     }
 
+    /* ================= BIAYA: DAFTAR ULANG & SPP ================= */
+
+    .fee-group {
+      margin-top: 22px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 18px;
+      padding: 20px 18px;
+    }
+
+    .fee-group h4 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .fee-group h4 i {
+      color: #fdba74;
+    }
+
+    .fee-group p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .8);
+      margin-bottom: 14px;
+    }
+
+    .opt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .opt {
+      background: #fff;
+      color: var(--green-primary);
+      font-weight: 700;
+      font-size: 14px;
+      text-align: center;
+      padding: 14px 10px;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+      transition: transform .25s;
+    }
+
+    .opt:hover {
+      transform: translateY(-3px);
+    }
+
+    @media (min-width: 900px) {
+      .opt-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; }
     }
@@ -1015,7 +1071,7 @@
       <a href="index.html" class="brand">
         <img src="./images/sdit.jpg" alt="Logo SDIT Ihyaussunnah">
         <div>
-          <strong>SPMB 2027</strong>
+          <strong>SPMB 2027/2028</strong>
           <small>SDIT IHYAUSSUNNAH BONTANG</small>
         </div>
       </a>
@@ -1060,7 +1116,7 @@
 
       <span class="status">
         <span class="dot"></span>
-        Pendaftaran Peserta Didik Baru 2027/2028 Dibuka
+        Pendaftaran Peserta Didik Baru 2026/2027 Dibuka
       </span>
 
       <h1>
@@ -1105,18 +1161,18 @@
         </div>
 
         <div class="promo-slide"
-             style="background-image:url('./images/berita-2.jpg')">
-          <span class="tag">KABAR BAIK</span>
+             style="background-image:url('./images/SDIT/belajar.jpg')">
+          <span class="tag">KEGIATAN</span>
           <h3>Kegiatan Sekolah Kami</h3>
-          <p>Isi keterangan informasi sekolah yang ingin ditonjolkan.</p>
+          <p>Ruang Kelas yang nyaman.</p>
           <a href="berita.html">Baca Berita</a>
         </div>
 
         <div class="promo-slide"
-             style="background-image:url('./images/berita-3.jpg')">
-          <span class="tag">PROGRAM</span>
+             style="background-image:url('./images/quran.jpg')">
+          <span class="tag">KEUNGGULAN</span>
           <h3>Belajar Al-Qur'an & Akademik</h3>
-          <p>Isi keterangan program unggulan sekolah di sini.</p>
+          <p>Pembelajaran Al-Qur'an yang Sistematis dan Terstruktur.</p>
           <a href="fasilitas.html">Lihat Fasilitas</a>
         </div>
 
@@ -1262,13 +1318,6 @@
               <small>Sebanyak 2 lembar</small>
             </div>
           </li>
-          <li>
-            <i class="fas fa-circle-check"></i>
-            <div>
-              Sertifikat atau piagam prestasi
-              <small>Hanya untuk jalur prestasi</small>
-            </div>
-          </li>
         </ul>
 
       </div>
@@ -1286,51 +1335,39 @@
 
         <div class="fee-title">
           <i class="fas fa-wallet"></i>
-          Rincian Biaya
-        </div>
-
-        <!-- Isi nominal biaya sesuai kebijakan sekolah -->
-        <div class="fee-total">
-          <span>Total Biaya Pendidikan Awal</span>
-          <strong>Rp xxx.xxx</strong>
-        </div>
-
-        <div class="fee-note">
-          Biaya pendidikan awal dibayarkan <strong>setelah</strong>
-          calon siswa dinyatakan diterima.
+          Rincian Biaya SPMB
         </div>
 
         <div class="fee-items">
-
           <div class="fee-item">
             <div class="left">
               <i class="fas fa-file-lines"></i>
               Formulir Pendaftaran
             </div>
-            <strong>Rp xxx.xxx</strong>
+            <strong>Rp 250.000</strong>
           </div>
-
-          <div class="fee-item">
-            <div class="left">
-              <i class="fas fa-book-open"></i>
-              Seragam & Atribut
-            </div>
-            <strong>Rp xxx.xxx</strong>
-          </div>
-
-          <div class="fee-item">
-            <div class="left">
-              <i class="fas fa-shirt"></i>
-              DPP / Pengembangan
-            </div>
-            <strong>Rp xxx.xxx</strong>
-          </div>
-
         </div>
 
-        <div class="fee-disc">
-          <i class="fas fa-circle-info"></i>
-          Tulis keterangan potongan atau diskon yang berlaku di sini.
+        <div class="fee-group">
+          <h4><i class="fas fa-hand-holding-dollar"></i> Biaya Daftar Ulang</h4>
+          <p>Pilih salah satu nominal yang sesuai.</p>
+          <div class="opt-grid">
+            <div class="opt">Rp 6.500.000</div>
+            <div class="opt">Rp 7.000.000</div>
+            <div class="opt">Rp 7.500.000</div>
+            <div class="opt">Rp 8.000.000</div>
+          </div>
+        </div>
+
+        <div class="fee-group">
+          <h4><i class="fas fa-calendar-days"></i> SPP Per Bulan</h4>
+          <p>Pilih salah satu nominal yang sesuai.</p>
+          <div class="opt-grid">
+            <div class="opt">Rp 375.000</div>
+            <div class="opt">Rp 400.000</div>
+            <div class="opt">Rp 450.000</div>
+            <div class="opt">Rp 500.000</div>
+          </div>
         </div>
 
       </div>
@@ -1441,12 +1478,12 @@
             <li><i class="fas fa-location-dot"></i> Bontang, Kalimantan Timur</li>
             <li>
               <a href="https://wa.me/6285346907960?text=Assalamu%27alaikum%2C%20saya%20ingin%20bertanya%20tentang%20SPMB" target="_blank" rel="noopener">
-                <i class="fab fa-whatsapp" style="color:#25d366"></i> CP 1 : Hikmah (0853-4690-7960)
+                <i class="fab fa-whatsapp" style="color:#25d366"></i> Hikmah (0853-4690-7960)
               </a>
             </li>
             <li>
               <a href="https://wa.me/6285151443112?text=Assalamu%27alaikum%2C%20saya%20ingin%20bertanya%20tentang%20SPMB" target="_blank" rel="noopener">
-                <i class="fab fa-whatsapp" style="color:#25d366"></i> CP 2 : Niffia (0851-5144-3112)
+                <i class="fab fa-whatsapp" style="color:#25d366"></i> Niffia (0851-5144-3112)
               </a>
             </li>
             <li><i class="fas fa-envelope"></i> info@sditihyaussunnah.sch.id</li>
@@ -1464,7 +1501,7 @@
   </footer>
 
   <!-- Tombol WhatsApp melayang -->
-  <a href="https://wa.me/6285346907960" target="_blank" rel="noopener"
+  <a href="https://wa.me/628xxxxxxxxxx" target="_blank" rel="noopener"
      class="wa-float" aria-label="Chat WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
@@ -1651,7 +1688,7 @@
       dotsBox.children[current].classList.add('active');
     }
 
-    setInterval(() => show((current + 1) % slides.length), 5000);
+    setInterval(() => show((current + 1) % slides.length), 10000);
 
 
     /* FAQ accordion */
